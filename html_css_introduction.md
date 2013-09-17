@@ -79,7 +79,7 @@ Valide:
 
 ```html
 <p>Lorem ipsum dolor sit amet. Praesent vel justo.</p>
-``
+```
 
 Les balises HTML ne possédant pas de balise de fin comme `<br>`, `<img>` ou `<hr>` doivent être fermées également. Selon la syntaxe XML, une balise de ce type se ferme en lui ajoutant une barre oblique (un slash) en fin de balise: `<br />` ou encore `<img />`.
 
@@ -247,10 +247,6 @@ Une étape supplémentaire est nécessaire pour Internet Explorer. Ce navigateur
 ```
 
 Il est important de noter que ces scripts créent de facto une dépendance à Javascript pour les utilisateurs de Internat Explorer < 9.
-
-Voici un petit kit de fichiers pour bien commencer en HTML5
-
-__html5_starterpack__
 
 ### HTML5: Une sémantique améliorée
 
@@ -1126,8 +1122,8 @@ CSS
 	clear:both;
 	background:red;
 }
-```Il est également possible de [réaliser des mises en pages 3 colonnes à laide de cette technique](http://www.alistapart.com/articles/negativemargins/).## Astuces CSS
-Nous avons déjà examiné quelques astuces et hacks CSS permettant de contourner les défauts de certains navigateurs. Nous allons maintenant passer en revue les plus utiles.#### Une taille de texte constante à l’aide de valeurs relativesLes guidelines d’accessibilité du W3C nous demandent d’utiliser en CSS des valeurs relatives afin de spécifier la taille des polices. Cela provient du fait qu’Internet Explorer ne permet pas à l’utilisateur de modifier la taille des polices si celle-ci est spécifiée à l’aide d’unités absolues (en pixels par exemple).Consultez [les pages dédiées à cette question sur css-dicsuss](http://css-discuss.incutio.com/?page=FontSize) si vous souhaitez en savoir plus. Personnellement, ma méthode de prédilection consiste à spécifier la taille des polices en pourcentages au niveau du `body` et puis de poursuivre en spécifiant les tailles pour les éléments enfant en `em`.```cssbody{	font :normal 75%/1.5 arial, sans-serif ; /*10px comme taille de base*/}
+```Il est également possible de [réaliser des mises en pages 3 colonnes à laide de cette technique](http://www.alistapart.com/articles/negativemargins/).## Quelques Techniques CSS bien utiles
+Nous avons déjà examiné quelques astuces et hacks CSS permettant de contourner les défauts de certains navigateurs. Nous allons maintenant passer en revue quelques autres techniques bien utiles.#### Une taille de texte constante à l’aide de valeurs relativesLes guidelines d’accessibilité du W3C nous demandent d’utiliser en CSS des valeurs relatives afin de spécifier la taille des polices. Cela provient du fait qu’Internet Explorer ne permet pas à l’utilisateur de modifier la taille des polices si celle-ci est spécifiée à l’aide d’unités absolues (en pixels par exemple).Consultez [les pages dédiées à cette question sur css-dicsuss](http://css-discuss.incutio.com/?page=FontSize) si vous souhaitez en savoir plus. Personnellement, ma méthode de prédilection consiste à spécifier la taille des polices en pourcentages au niveau du `body` et puis de poursuivre en spécifiant les tailles pour les éléments enfant en `em`.```cssbody{	font :normal 75%/1.5 arial, sans-serif ; /*10px comme taille de base*/}
 ```
 ou
 
