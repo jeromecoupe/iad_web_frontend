@@ -24,16 +24,18 @@ Deux sites de ressources pour vérifier la compatibilité de votre code CSS / HT
 
 ### Document minimal
 
-	<!DOCTYPE html>
-	<html lang=”en”>
-	  <head>
-	    <meta charset="utf-8" />
-	    <title>Example document</title>
-	  </head>
-	  <body>
-	    <p>Example paragraph</p>
-	  </body>
-	</html>
+```html
+<!DOCTYPE html>
+<html lang=”en”>
+	<head>
+		<meta charset="utf-8" />
+		<title>Example document</title>
+	</head>
+	<body>
+		<p>Example paragraph</p>
+	</body>
+</html>
+```
 
 ### Déclaration du type de document
 
