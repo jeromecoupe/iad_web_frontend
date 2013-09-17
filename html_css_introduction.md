@@ -233,17 +233,17 @@ article, aside, details, figcaption, figure, footer, header, main, nav, section,
 Une étape supplémentaire est nécessaire pour Internet Explorer. Ce navigateur gère les éléments inconnus du DOM différemment des autres, il lui faut un petit peu de Javascript pour qu'il se comporte comme les autres navigateurs. Ce JS ne fait que créer ces nouveaux éléments dans le DOM à l'intention de IE, il suffit donc de le servir via l'utilisation de conditional comments et le tour est joué (du moins pour les utilisateur de IE disposant du JavaScript activé). [Une version compacte de ce script de Remy Sharp est disponible en ligne](http://code.google.com/p/html5shiv/). La version 9 d’Internet explorer gère les éléments HTML5. Ce HTML5 shiv est également inclus dans [Modernizr](http://www.modernizr.com) bien que la version include dans Modernizr 3.6.2 ne créée pas l’élément main.
 
 ```html
-	<!DOCTYPE html>
-	<html lang="en">
-		<head>
-			<meta charset="utf-8" />
-			<title>HTML 5 template</title>
-			<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-		</head>
-		<body>
-			<p>Hello World</p>
-		</body>
-	</html>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>HTML 5 template</title>
+		<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	</head>
+	<body>
+		<p>Hello World</p>
+	</body>
+</html>
 ```
 
 Il est important de noter que ces scripts créent de facto une dépendance à Javascript pour les utilisateurs de Internat Explorer < 9.
@@ -287,40 +287,40 @@ Le contexte est ici très important. Vous pouvez utiliser `<aside>` pour marquer
 Notons ici que les éléments acticle, section, nav et aside sont des élements de sectioning, c’est à dire qu’ils créent une nouvelle section au sein du document et que la hiérarchie des titres recommence à zéro au sein de chacun des éléments de ce type. Voyons par exemple la structure de ce document à l’aide de l’outil HTML5 outliner pour y voir plus clair.
 
 ```html
-	<!DOCTYPE html>
-	<html lang="en">
-		<head>
-			<meta charset="utf-8" />
-			<title>Document outline and sectioning elements</title>
-			<!--[if lt IE 9]>
-				<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-			<![endif]-->
-		</head>
-		<body>
-			<h1>My great site</h1>
-			<nav>
-				<ul>
-					<li><a href="/">Nav item</a></li>
-				</ul>
-			</nav>
-			<article>
-				<h1>Article title</h1>
-				<p>Article content.</p>
-				<h2>Article sub-heading</h2>
-				<p>More content.</p>
-				<h3>Article sub-sub-heading</h3>
-				<p>More content.</p>
-			</article>
-			<aside>
-				<h1>Sidebar heading</h1>
-				<p>content</p>
-			</aside>
-			<footer>
-				<h1>Footer heading</h1>
-				<p>Footer content.</p>
-			</footer>
-		</body>
-	</html>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Document outline and sectioning elements</title>
+		<!--[if lt IE 9]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<h1>My great site</h1>
+		<nav>
+			<ul>
+				<li><a href="/">Nav item</a></li>
+			</ul>
+		</nav>
+		<article>
+			<h1>Article title</h1>
+			<p>Article content.</p>
+			<h2>Article sub-heading</h2>
+			<p>More content.</p>
+			<h3>Article sub-sub-heading</h3>
+			<p>More content.</p>
+		</article>
+		<aside>
+			<h1>Sidebar heading</h1>
+			<p>content</p>
+		</aside>
+		<footer>
+			<h1>Footer heading</h1>
+			<p>Footer content.</p>
+		</footer>
+	</body>
+</html>
 ```
 
 ##### `<main>`
@@ -841,10 +841,12 @@ p:first-line
 
 ##### génération de contenu via CSS
 
-	a:after
-	{
-		content:" ("attr(href)")";
-	}
+```css
+a:after
+{
+	content:" ("attr(href)")";
+}
+```
 
 Cette dernière astuce permet, dans une CSS destinée à l’impression, de rendre apparentes les URL présentes dans le document après chaque lien.
 
@@ -925,228 +927,265 @@ Les valeurs liées aux tableaux : `inline-table`,`table`,`table-caption`,`table
 #### FloatsUn élément est positionné en mode float lorsque sa propriété float est spécifiée à l’aide des valeurs left ou right.
 L’élément est alors positionné verticalement comme dans le flux normal du document : le côté supérieur de l’élément est aligné sur le dessus de la zone de contenu de son élément parent. Horizontalement par contre, l’élément est placé le plus à gauche ou le plus à droite possible par rapport à la zone de contenu de l’élément parent. Le contenu de l’élément parent contourne alors l’élément en mode float par le côté opposé.Quelques règles de base :
 1. Les éléments positionnés en mode float sont toujours gérés comme des éléments de type block.2. D’après les spécifications, un élément en mode float doit toujours avoir une dimension, implicite ou explicite (nous verrons plus loin que cela n’est pas toujours vrai dans la pratique, mais c’est un bon principe de base).3. Les marges verticales d’un élément en mode float ne sont pas fusionnées avec celles des éléments placés avant ou après dans le flux du document.4. Des éléments en mode float seront placés les uns à côté des autres si la place disponible est suffisante. Si tel n’est pas le cas, le dernier élément sera placé sous les autres.
-	Exercice
 En fonction de la quantité de contenu des divers éléments, un élément en mode float peut affecter les éléments situés après lui dans le flux du document.
+	Exercice
 ##### Contrôler le flux des floats: propriété `clear`et float containment
 La propriété CSS clear peut être utilisée pour contrôler la manière dont les éléments de type block interagissent avec les éléments en mode float. La propriété clear ne s’applique qu’aux éléments de type block. Cette propriété peut prendre les valeurs `left`, `right` et `both`.- `clear:left;`: l’élément visé ne peut se situer sur la gauche d’un élément en mode float.- `clear:right;`: l’élément visé ne peut se situer sur la droite d’un élément en mode float.- `clear:both;`: l’élément visé ne peut se situer ni sur la gauche ni sur la droite d’un élément en mode float.Par défaut, étant donné que les éléments en mode float sont hors du flux du document, leur éléments parent ne les contiennent pas. Il est possible de contraindre l’élément parent d’un élément en mode float à contenir l’ensemble de celui-ci, indépendamment du contenu de chacun d’entre eux. Eric Meyer a écrit [un article de référence décrivant précisément cet aspect des éléments en mode float](http://www.complexspiral.com/publications/containing-floats/).Cela peut être accompli à l’aide d’autres éléments situés à l’intérieur de l’élément parent de l’élément en mode float ou à l’aide de CSS lorsque le code HTML ne contient pas d’élément utilisable.###### Utilisation d’un élément du code et de la propriété `clear`Comme vu plus haut, en utilisant la propriété CSS `clear`, il est possible de forcer un élément à ne pas être côté à côte avec un élément en mode float. 
-Nous verrons par exemple qu’un pied de page peut s’avérer bien pratique pour forcer un conteneur à contenir deux colonnes en mode float (deux `<div>` par exemple).###### A l’aide des CSS uniquementIl est également possible d’utiliser uniquement les CSS afin de forcer son élément parent à contenir un élément en mode float. La solution la plus simple consiste à placer l’élément parent en mode float lui aussi, sans oublier de lui donner une dimension (width:100%; dans la plupart des cas). En effet, la spécification CSS précise qu’un élement en mode float contient toujours ses enfant floatés.**Overflow**[La propriété `overflow` peut également être utilisée pour obtenir cet effet](http://annevankesteren.nl/2005/03/clearing-floats) mais peut poser des problèmes dans certaines situations.	div	{		overflow:hidden;	}La génération de contenu à l’aide des CSS permet également de forcer un élément parent à contenir ses éléments enfants en mode float. Cette technique est expliquée en détail [par Big John et Holly Bergevin sur leur site "Position Is Everything"](http://www.positioniseverything.net/easyclearing.html) [Une variante plus moderne reposant sur les pseudo-éléments :before et :after a été développée par Nicolas Gallagher](http://nicolasgallagher.com/micro-clearfix-hack/). Ces solutions genèrent un élement à l'aide de CSS et lui applquent un `clear:both;`, émulant ainsi la solutin vue plus haut.Il suffit de créer une classe CSS spécifique et d’y copier le code renseigné par ces auteurs pour pouvoir utiliser cette possibilité aussi souvent que nécessaire. Le code spécifique à IE6 et IE7 peut être servi uniquement à ces navigateurs à l’aide de [conditional comments](http://www.quirksmode.org/css/condcom.html) ou d’une [approche mixte crée par Paul Irish](http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/). Ils sont nécessaire en raison de la problématique de "has layout" dans IE. [A lire sur ce sujet: l’excellent article d’Ingo Chao](http://www.satzansatz.de/cssd/onhavinglayout.html).**Easy Clearing**	HTML	<!--[if lt IE 7]> <html lang="fr" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->	<!--[if IE 7]> <html lang="fr" class="no-js lt-ie9 lt-ie8"> <![endif]-->	<!--[if IE 8]> <html lang="fr" class="no-js lt-ie9"> <![endif]-->	<!--[if gt IE 8]><!--> <html lang="fr" class="no-js"> <!--<![endif]-->	CSS	.group:before,	.group:after	{		content: "";		display: table;	}		.group:after
-	{		clear: both;	}		.lt-ie7 .group { height: 1%; } /*IE6*/	.lt-ie8 .group { min-height: 1px; } /*IE7*/
+Nous verrons par exemple qu’un pied de page peut s’avérer bien pratique pour forcer un conteneur à contenir deux colonnes en mode float (deux `<div>` par exemple).###### A l’aide des CSS uniquementIl est également possible d’utiliser uniquement les CSS afin de forcer son élément parent à contenir un élément en mode float. La solution la plus simple consiste à placer l’élément parent en mode float lui aussi, sans oublier de lui donner une dimension (width:100%; dans la plupart des cas). En effet, la spécification CSS précise qu’un élement en mode float contient toujours ses enfant floatés.**Overflow**[La propriété `overflow` peut également être utilisée pour obtenir cet effet](http://annevankesteren.nl/2005/03/clearing-floats) mais peut poser des problèmes dans certaines situations.```htmldiv{	overflow:hidden;}
+```La génération de contenu à l’aide des CSS permet également de forcer un élément parent à contenir ses éléments enfants en mode float. Cette technique est expliquée en détail [par Big John et Holly Bergevin sur leur site "Position Is Everything"](http://www.positioniseverything.net/easyclearing.html) [Une variante plus moderne reposant sur les pseudo-éléments :before et :after a été développée par Nicolas Gallagher](http://nicolasgallagher.com/micro-clearfix-hack/). Ces solutions genèrent un élement à l'aide de CSS et lui applquent un `clear:both;`, émulant ainsi la solutin vue plus haut.Il suffit de créer une classe CSS spécifique et d’y copier le code renseigné par ces auteurs pour pouvoir utiliser cette possibilité aussi souvent que nécessaire. Le code spécifique à IE6 et IE7 peut être servi uniquement à ces navigateurs à l’aide de [conditional comments](http://www.quirksmode.org/css/condcom.html) ou d’une [approche mixte crée par Paul Irish](http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/). Ils sont nécessaire en raison de la problématique de "has layout" dans IE. [A lire sur ce sujet: l’excellent article d’Ingo Chao](http://www.satzansatz.de/cssd/onhavinglayout.html).**Easy Clearing**HTML```html<!--[if lt IE 7]> <html lang="fr" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if IE 7]> <html lang="fr" class="no-js lt-ie9 lt-ie8"> <![endif]--><!--[if IE 8]> <html lang="fr" class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]><!--> <html lang="fr" class="no-js"> <!--<![endif]-->```
+CSS```css.group:before,	.group:after{	content: "";	display: table;}.group:after
+{	clear: both;}.lt-ie7 .group { height: 1%; } /*IE6*/.lt-ie8 .group { min-height: 1px; } /*IE7*/```
+
 ## Interfaces de navigation
 Avec l’émergence des standards du W3C et des sites construits à l’aide de HTML et CSS, la tendance est à utiliser un code sémantiquement correct. Le choix des éléments utilisés pour coder divers éléments obéit à une certaine logique : on utilise d’avantage les listes de définition, les titres et intertitres sont codés comme tels, … Logiquement parlant, la plupart des interfaces de navigation que nous rencontrons sont des listes de liens (imbriquées ou non), il est donc logique de les coder comme tels. 
-C’est devenu à ce point une habitude que certains en ont fait le sujet [d’articles](http://www.alistapart.com/articles/taminglists/) et de [tutoriaux](http://css.maxdesign.com.au/listutorial/index.htm) désormais célèbres.De simples listes non ordonnées ul peuvent facilement être mises en forme à l’aide d’un code CSS simple.### Listes verticalesQuelques règles CSS peuvent transformer une simple liste non ordonnée en barre de navigation verticale.Pour ce qui est des puces décoratives, il est préférable de ne pas utiliser les puces des listes mais d’utiliser plutôt des images de fond sur les balises de lien.	.nav-v	{
-		list-style:none;
-		margin:0;
-		padding:0;
-	}		.nav-v a
-	{
-		display:block;
-		padding:.5em 1em;
-		background:#ccc;
-		color:#000;
-	}
-	
-	.nav-v a:hover
-	{
-		background:#000;
-		color:#fff;
-	}### Listes horizontales (Floated left, Floated right)
-Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre de navigation horizontale, flottée à droite ou à gauche. [Une technique développée par Douglas Bowman et connue sous le nom de "sliding doors"](http://www.alistapart.com/articles/slidingdoors/) permet d’utiliser quelques images afin de créer des effets intéressants.	.nav-h	{
-		list-style:none;
-		margin:0;
-		padding:0;
-		background:#ccc;
-		overflow:hidden; /*float containment: clearfix can also be used*/
-	}		.nav-v a
-	{
-		float:left;
-		padding:.5em 1em;
-		background:#ccc;
-		color:#000;
-	}
-	
-	.nav-v a:hover
-	{
-		background:#000;
-		color:#fff;
-	}## CSS comme outil de mise en pageLes CSS peuvent être utilisées comme outils de mise en page, au travers des divers schémas de positionnement. [De nombreuses techniques existent et sont disponibles en ligne](http://css-discuss.incutio.com/?page=CssLayouts). Nous en détaillerons seulement quelques-unes unes dans la suite.### Mises en page fixesEtant donné la facilité de calcul des dimensions qu’elles offrent pour les divers éléments composant ces dernières, les mises en pages fixes sont très utilisées.Elles offrent en outre l’avantage de ne pas modifier les longueurs de lignes, ce qui permet un meilleur confort de lecture.Les modes de positionnement flottés et absolus sont tous deux utilisables. Les deux systèmes ont des avantages et des inconvénients qu’il convient de connaître avant de les utiliser.#### Positionnement absolu et marges.Ce type de mise en page offre une grande facilité d’exécution.
+C’est devenu à ce point une habitude que certains en ont fait le sujet [d’articles](http://www.alistapart.com/articles/taminglists/) et de [tutoriaux](http://css.maxdesign.com.au/listutorial/index.htm) désormais célèbres.De simples listes non ordonnées ul peuvent facilement être mises en forme à l’aide d’un code CSS simple.### Listes verticalesQuelques règles CSS peuvent transformer une simple liste non ordonnée en barre de navigation verticale.Pour ce qui est des puces décoratives, il est préférable de ne pas utiliser les puces des listes mais d’utiliser plutôt des images de fond sur les balises de lien.```css.nav-v{
+	list-style:none;
+	margin:0;
+	padding:0;
+}.nav-v a
+{
+	display:block;
+	padding:.5em 1em;
+	background:#ccc;
+	color:#000;
+}
+
+.nav-v a:hover
+{
+	background:#000;
+	color:#fff;
+}
+```### Listes horizontales (Floated left, Floated right)
+Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre de navigation horizontale, flottée à droite ou à gauche. [Une technique développée par Douglas Bowman et connue sous le nom de "sliding doors"](http://www.alistapart.com/articles/slidingdoors/) permet d’utiliser quelques images afin de créer des effets intéressants.```css.nav-h{
+	list-style:none;
+	margin:0;
+	padding:0;
+	background:#ccc;
+	overflow:hidden; /*float containment: clearfix can also be used*/
+}.nav-v a
+{
+	float:left;
+	padding:.5em 1em;
+	background:#ccc;
+	color:#000;
+}
+
+.nav-v a:hover
+{
+	background:#000;
+	color:#fff;
+}
+```## CSS comme outil de mise en pageLes CSS peuvent être utilisées comme outils de mise en page, au travers des divers schémas de positionnement. [De nombreuses techniques existent et sont disponibles en ligne](http://css-discuss.incutio.com/?page=CssLayouts). Nous en détaillerons seulement quelques-unes unes dans la suite.### Mises en page fixesEtant donné la facilité de calcul des dimensions qu’elles offrent pour les divers éléments composant ces dernières, les mises en pages fixes sont très utilisées.Elles offrent en outre l’avantage de ne pas modifier les longueurs de lignes, ce qui permet un meilleur confort de lecture.Les modes de positionnement flottés et absolus sont tous deux utilisables. Les deux systèmes ont des avantages et des inconvénients qu’il convient de connaître avant de les utiliser.#### Positionnement absolu et marges.Ce type de mise en page offre une grande facilité d’exécution.
 La principale limitation de ce type de mise en page est l’impossibilité pour les éléments en mode statique d’influer sur le comportement des éléments absolument positionnés. Il est par exemple impossible de placer un pied de page couvrant le même espace horizontal que la somme des diverses colonnes si les longueurs ces dernières ne sont pas connues.HTML
-	<div class="wrapper">
 
-		<main class="content-main" role="maincontent">
-			<p>content</p>
-		</main>
+```html<div class="wrapper">
 
-		<aside class="content-secondary">
-			<p>secondary</p>
-		</aside>
+	<main class="content-main" role="maincontent">
+		<p>content</p>
+	</main>
 
-	</div>
+	<aside class="content-secondary">
+		<p>secondary</p>
+	</aside>
 
-CSS
-
-	.wrapper
-	{
-		width:960px;
-		margin:0 auto;
-		position:relative; /*positioning context*/
-	}
-	
-	.content-main
-	{
-		margin-left:340px;
-		background:yellow;
-	}
-	
-	.content-secondary
-	{
-		position:absolute;
-		top:0;
-		left:0;
-		width:300px;
-		background:green;
-	}#### Positionnement en mode floatCe type de mise en page est très populaire, car il permet de réaliser facilement une mise en page très courante: deux ou trois colonnes entourées d’une bannière et d’un pied de page.HTML
-	<div class="wrapper">
-
-		<main class="content-main" role="maincontent">
-			<p>content</p>
-		</main>
-
-		<aside class="content-secondary">
-			<p>secondary</p>
-		</aside>
-
-		<footer class="sidefooter">
-			<p>footer</p>
-		</footer>
-
-	</div>
+</div>
+```
 
 CSS
 
-	.wrapper
-	{
-		width:960px;
-		margin:0 auto;
-		overflow:hidden; /*float containment*/
-	}
-	
-	.content-main
-	{
-		float:right;
-		width:620px;
-		background:yellow;
-	}
-	
-	.content-secondary
-	{
-		float:left;
-		width:300px;
-		background:green;
-	}
-	
-	.footer
-	{
-		clear:both;
-		background:red;
-	}### Mises en page fluidesLes mises en pages fluides sont moins communes mais offrent l’avantage de s’adapter à toutes les résolutions.Le support par les prochaines versions d’Internet Explorer des propriétés max-width, min-width et max-height min-height vont sans doute les rendre plus populaires, puisque ces 
+```css
+.wrapper
+{
+	width:960px;
+	margin:0 auto;
+	position:relative; /*positioning context*/
+}
+
+.content-main
+{
+	margin-left:340px;
+	background:yellow;
+}
+
+.content-secondary
+{
+	position:absolute;
+	top:0;
+	left:0;
+	width:300px;
+	background:green;
+}
+```#### Positionnement en mode floatCe type de mise en page est très populaire, car il permet de réaliser facilement une mise en page très courante: deux ou trois colonnes entourées d’une bannière et d’un pied de page.HTML
+
+```html<div class="wrapper">
+
+	<main class="content-main" role="maincontent">
+		<p>content</p>
+	</main>
+
+	<aside class="content-secondary">
+		<p>secondary</p>
+	</aside>
+
+	<footer class="sidefooter">
+		<p>footer</p>
+	</footer>
+
+</div>
+```
+
+CSS
+
+```css
+.wrapper
+{
+	width:960px;
+	margin:0 auto;
+	overflow:hidden; /*float containment*/
+}
+
+.content-main
+{
+	float:right;
+	width:620px;
+	background:yellow;
+}
+
+.content-secondary
+{
+	float:left;
+	width:300px;
+	background:green;
+}
+
+.footer
+{
+	clear:both;
+	background:red;
+}```
+### Mises en page fluidesLes mises en pages fluides sont moins communes mais offrent l’avantage de s’adapter à toutes les résolutions.Le support par les prochaines versions d’Internet Explorer des propriétés max-width, min-width et max-height min-height vont sans doute les rendre plus populaires, puisque ces 
 propriétés CSS permettent de contrôler efficacement les longueurs de lignes.Les modes de positionnement flottés et absolus sont tous deux utilisables. Les deux systèmes ont des avantages et des inconvénients qu’il convient de connaître avant de les utiliser.#### Positionnement absolu et marges.Cette mise en page n’est qu’une variation sur la mise en page deux colonnes que nous avons vue précédemment. Le seul changement consiste en une spécification des dimensions des éléments à l’aide d’une unité relative (ici en %). Certaines valeurs pour margin et padding sont également spécifiées en %.	Exercice#### Positionnement en mode floatCette mise en page n’est qu’une variation sur la mise en page deux colonnes que nous avons vue précédemment. Le seul changement consiste en une spécification des dimensions des éléments à l’aide d’une unité relative (ici en %).
 	Exercice### Mises en page mixtes: marges négatives et floatsLes mises en pages mixtes sont des mises en page dans lesquelles un élément est de taille fixe, tandis que certains autres sont de tailles variable.Une mise en page souvent utilisée est celle reposant sur la propriété float et sur des marges négatives. Elle permet de disposer d’une colonne de largeur variable, alors que les autres sont de tailles fixes.HTML
-	<div class="wrapper">
 
-		<main class="content-main" role="maincontent">
-			<div class="content-main-inner">
-				<p>content</p>
-			</div>
-		</main>
+```html<div class="wrapper">
 
-		<aside class="content-secondary">
-			<p>secondary</p>
-		</aside>
+	<main class="content-main" role="maincontent">
+		<div class="content-main-inner">
+			<p>content</p>
+		</div>
+	</main>
 
-		<footer class="sidefooter">
-			<p>footer</p>
-		</footer>
+	<aside class="content-secondary">
+		<p>secondary</p>
+	</aside>
 
-	</div>
+	<footer class="sidefooter">
+		<p>footer</p>
+	</footer>
+
+</div>
+```
 
 CSS
 
-	.wrapper
-	{
-		width:80%;
-		margin:0 auto;
-		overflow:hidden; /*float containment*/
-	}
+```css
+.wrapper
+{
+	width:80%;
+	margin:0 auto;
+	overflow:hidden; /*float containment*/
+}
+
+.content-main
+{
+	float:right;
+	width:65%;
+	margin-left:-300px;
+	background:yellow;
 	
-	.content-main
-	{
-		float:right;
-		width:65%;
-		margin-left:-300px;
-		background:yellow;
-		
-	}
-	
-	.content-main-inner
-	{
-		margin-left:340px;
-		background:teal;
-	}
-	
-	.content-secondary
-	{
-		float:left;
-		width:300px;
-		background:green;
-	}
-	
-	.footer
-	{
-		clear:both;
-		background:red;
-	}Il est également possible de [réaliser des mises en pages 3 colonnes à laide de cette technique](http://www.alistapart.com/articles/negativemargins/).## Astuces CSS
-Nous avons déjà examiné quelques astuces et hacks CSS permettant de contourner les défauts de certains navigateurs. Nous allons maintenant passer en revue les plus utiles.#### Une taille de texte constante à l’aide de valeurs relativesLes guidelines d’accessibilité du W3C nous demandent d’utiliser en CSS des valeurs relatives afin de spécifier la taille des polices. Cela provient du fait qu’Internet Explorer ne permet pas à l’utilisateur de modifier la taille des polices si celle-ci est spécifiée à l’aide d’unités absolues (en pixels par exemple).Consultez [les pages dédiées à cette question sur css-dicsuss](http://css-discuss.incutio.com/?page=FontSize) si vous souhaitez en savoir plus. Personnellement, ma méthode de prédilection consiste à spécifier la taille des polices en pourcentages au niveau du `body` et puis de poursuivre en spécifiant les tailles pour les éléments enfant en `em`.	body	{		font :normal 75%/1.5 arial, sans-serif ; /*10px comme taille de base*/	}
+}
+
+.content-main-inner
+{
+	margin-left:340px;
+	background:teal;
+}
+
+.content-secondary
+{
+	float:left;
+	width:300px;
+	background:green;
+}
+
+.footer
+{
+	clear:both;
+	background:red;
+}
+```Il est également possible de [réaliser des mises en pages 3 colonnes à laide de cette technique](http://www.alistapart.com/articles/negativemargins/).## Astuces CSS
+Nous avons déjà examiné quelques astuces et hacks CSS permettant de contourner les défauts de certains navigateurs. Nous allons maintenant passer en revue les plus utiles.#### Une taille de texte constante à l’aide de valeurs relativesLes guidelines d’accessibilité du W3C nous demandent d’utiliser en CSS des valeurs relatives afin de spécifier la taille des polices. Cela provient du fait qu’Internet Explorer ne permet pas à l’utilisateur de modifier la taille des polices si celle-ci est spécifiée à l’aide d’unités absolues (en pixels par exemple).Consultez [les pages dédiées à cette question sur css-dicsuss](http://css-discuss.incutio.com/?page=FontSize) si vous souhaitez en savoir plus. Personnellement, ma méthode de prédilection consiste à spécifier la taille des polices en pourcentages au niveau du `body` et puis de poursuivre en spécifiant les tailles pour les éléments enfant en `em`.```cssbody{	font :normal 75%/1.5 arial, sans-serif ; /*10px comme taille de base*/}
+```
 ou
-	body	{		font :normal 100%/1.5 arial, sans-serif ; /*16px comme taille de base*/	}
-	### Centrer un bloc horizontalementBien que d’autres techniques existent également, voici une technique éprouvée pour 
-centrer un élément de type block quel que soit le navigateur utilisé.	.centered-block	{		width:750px;		margin:0 auto;	}	Autre méthode		.centered-block	{		position:relative;		width:750px;		left:50%;		margin-left:-375px;	}
+
+```cssbody{	font :normal 100%/1.5 arial, sans-serif ; /*16px comme taille de base*/}
+```	### Centrer un bloc horizontalementBien que d’autres techniques existent également, voici une technique éprouvée pour 
+centrer un élément de type block quel que soit le navigateur utilisé.```css.centered-block{	width:750px;	margin:0 auto;}
+```	Autre méthode```css.centered-block{	position:relative;	width:750px;	left:50%;	margin-left:-375px;}```
 ### Faire disparaître des éléments visuellement sans les cacher aux navigateurs vocauxLa déclaration display:none; a été utilisée pour cacher des éléments en mode visuel (souvent dans le cadre de remplacement par images1). Le problème c’est qu’[elle rend les éléments auxquels elle est appliquée invisibles aux navigateurs vocaux également](http://css-discuss.incutio.com/?page=ScreenreaderVisibility).Elle peut souvent être avantageusement remplacée par la déclaration suivante :
-		.offleft	{		position:absolute;		top:0;		left:-2000px		width:100px;		overflow:hidden;	}
+
+```css.offleft{	position:absolute;	top:0;	left:-2000px	width:100px;	overflow:hidden;}```
 	Autre option
-		.visuallyhidden	{ 
-		position:absolute; 
-		overflow:hidden; 
-		clip:rect(0 0 0 0); 
-		height:1px; width: 1px; 
-		margin:-1px;
-		padding:0;
-		border:0; 
-	}### Faux columnsComme nous l’avons vu dans le cadre des exemples de mises en page, il existe une astuce efficace pour donner visuellement l’impression que le fond des diverses colonnes s’étend jusqu’en bas quelle que soit la longueur des diverses colonnes.Cette astuce développée par Dan Cederholm et baptisée « faux columns » est utilisable avec des [mises en page à largeur fixes](http://www.alistapart.com/articles/fauxcolumns/) ou [variables](http://www.communitymx.com/content/article.cfm?page=1&cid=AFC58) et consiste à utiliser intelligemment une image de fond sur l’élément parent des diverses colonnes.	.wrapper	{		background:url(images/bkg_faucolumns.gif) top left repeat-y;	}### Solutions de remplacement par images[De nombreuses solutions ont été développées pour remplacer du texte par des images](http://css-discuss.incutio.com/?page=ImageReplacement), en partie parce que les développeurs se sentent limités par le nombre restreint de polices disponibles.Généralement, utilisera des méthodes qui cachent le texte en le plaçant sous l’image de remplacement. Ces méthodes nécessitent l’ajout d’un élément non sémantique dans le code HTML (dans ce cas-ci un <span>). L’autre problème de ces méthodes est l’impossibilité d’utiliser des images transparentes. HTML	<h3 class="replace"><span></span>Revised Image Replacement</h3>CSS	.replace	{		width: 329px; /*largeur image*/		height: 25px; /*hauteur image*/		position: relative; /*établi un contexte de positionnement pour le <span>*/		overflow :hidden ; /*cache le texte si il déborde*/	}		.replace span	{		background: url(image_opaque.gif) no-repeat;		position: absolute;		width: 100%;		height: 100%;	}
+	
+```css.visuallyhidden{ 
+	position:absolute; 
+	overflow:hidden; 
+	clip:rect(0 0 0 0); 
+	height:1px; width: 1px; 
+	margin:-1px;
+	padding:0;
+	border:0; 
+}
+```### Faux columnsComme nous l’avons vu dans le cadre des exemples de mises en page, il existe une astuce efficace pour donner visuellement l’impression que le fond des diverses colonnes s’étend jusqu’en bas quelle que soit la longueur des diverses colonnes.Cette astuce développée par Dan Cederholm et baptisée « faux columns » est utilisable avec des [mises en page à largeur fixes](http://www.alistapart.com/articles/fauxcolumns/) ou [variables](http://www.communitymx.com/content/article.cfm?page=1&cid=AFC58) et consiste à utiliser intelligemment une image de fond sur l’élément parent des diverses colonnes.```css.wrapper{	background:url(images/bkg_faucolumns.gif) top left repeat-y;}
+```### Solutions de remplacement par images[De nombreuses solutions ont été développées pour remplacer du texte par des images](http://css-discuss.incutio.com/?page=ImageReplacement), en partie parce que les développeurs se sentent limités par le nombre restreint de polices disponibles.Généralement, utilisera des méthodes qui cachent le texte en le plaçant sous l’image de remplacement. Ces méthodes nécessitent l’ajout d’un élément non sémantique dans le code HTML (dans ce cas-ci un <span>). L’autre problème de ces méthodes est l’impossibilité d’utiliser des images transparentes. HTML```css<h3 class="replace"><span></span>Revised Image Replacement</h3>```CSS
+```css.replace{	width: 329px; /*largeur image*/	height: 25px; /*hauteur image*/	position: relative; /*établi un contexte de positionnement pour le <span>*/	overflow :hidden ; /*cache le texte si il déborde*/}	.replace span{	background: url(image_opaque.gif) no-repeat;	position: absolute;	width: 100%;	height: 100%;}
+```
 S’il faut utiliser des images transparentes, on utilisera alors une autre méthode qui cache le texte hors écran avant d’appliquer l’image.#### Phark Image Replacement
-Cette technique utilise simplement un text indent négatif pour cacher le texte de l'élément hors page.	.imgreplace	{		text-indent:-9999px;	}#### Scott Kellum Image Replacement
-La méthode créée par Phark oblige le navigateur à créer d'énormes "boites" pour les éléments cachés hors écran, cela pose certains problèmes de performance, entre autre sur iOS. Une autre solution a donc vu le jour.(X)HTML	<h3 class="imgreplace">Texte remplacé</h3>CSS	.imgreplace	{		/* ne fonctionne que si l’élément est de type block / inline-block */		text-indent: 100%;		white-space: nowrap;		overflow: hidden;	}Ces technique, utilisée pour des éléments importants des pages, peuvent poser des problèmes d’accessibilité dans le cas où l’utilisateur dispose du support CSS mais pas de celui des images (CSS ON / IMAGES OFF). Dans ce cas, l’utilisateur ne voit rien.Il est possible de développer des interfaces de navigation très graphiques en utilisant ces techniques. Nous pouvons par exemple reconstituer l’interface de navigation principal du site d’Apple.
-	Exercice### @font-face: Utilisation de polices non standardsAvec l’avènement de CSS3, il est désormais possible, sans faire appel à d’autre technologies, d’utiliser des polices spécifiques dans le cadre de projets Internet. [@font-face jouit d’un bon support dans la plupart des versions récentes des navigateurs](http://caniuse.com/fontface) et se dégrade élégamment dans les navigateurs plus anciens. Cette propriété permet de spécifier les polices à utiliser pour le rendu des textes et permet à l’utilisateur de les télécharger si il n’en dispose pas.CSS	@font-face	{		font-family: 'MyFontFamily';		src:url('myfont-webfont.eot?#iefix') format('embedded-opentype'), 			url('myfont-webfont.woff') format('woff'), 			url('myfont-webfont.ttf')  format('truetype'),			url('myfont-webfont.svg#svgFontName') format('svg');	}
-HTML	h1	{		font:normal 2em/1.1 MyFontFamily, Helvetica, Arcial, sans-serf;	}
+Cette technique utilise simplement un text indent négatif pour cacher le texte de l'élément hors page.```css.imgreplace{	text-indent:-9999px;}```
+#### Scott Kellum Image Replacement
+La méthode créée par Phark oblige le navigateur à créer d'énormes "boites" pour les éléments cachés hors écran, cela pose certains problèmes de performance, entre autre sur iOS. Une autre solution a donc vu le jour.HTML
+```html<h3 class="imgreplace">Texte remplacé</h3>```CSS```css.imgreplace{	/* ne fonctionne que si l’élément est de type block / inline-block */	text-indent: 100%;	white-space: nowrap;	overflow: hidden;}
+```
+Ces technique, utilisée pour des éléments importants des pages, peuvent poser des problèmes d’accessibilité dans le cas où l’utilisateur dispose du support CSS mais pas de celui des images (CSS ON / IMAGES OFF). Dans ce cas, l’utilisateur ne voit rien.Il est possible de développer des interfaces de navigation très graphiques en utilisant ces techniques. Nous pouvons par exemple reconstituer l’interface de navigation principal du site d’Apple.
+	Exercice### @font-face: Utilisation de polices non standardsAvec l’avènement de CSS3, il est désormais possible, sans faire appel à d’autre technologies, d’utiliser des polices spécifiques dans le cadre de projets Internet. [@font-face jouit d’un bon support dans la plupart des versions récentes des navigateurs](http://caniuse.com/fontface) et se dégrade élégamment dans les navigateurs plus anciens. Cette propriété permet de spécifier les polices à utiliser pour le rendu des textes et permet à l’utilisateur de les télécharger si il n’en dispose pas.CSS```css@font-face{	font-family: 'MyFontFamily';	src:url('myfont-webfont.eot?#iefix') format('embedded-opentype'), 		url('myfont-webfont.woff') format('woff'), 		url('myfont-webfont.ttf')  format('truetype'),		url('myfont-webfont.svg#svgFontName') format('svg');}
+```
+HTML```htmlh1{	font:normal 2em/1.1 MyFontFamily, Helvetica, Arcial, sans-serf;}```
 Les principaux problèmes liées à l’utilisation de @font-face sont de nature légale. La licence de certaines polices ne permet pas de les utiliser de cette façon car, étant disponibles sur le serveur, elles peuvent y être téléchargées par quelqu’un qui ne les a pas forcément achetées. De nombreuses polices offrent explicitement la possibilité d’une utilisation à l’aide de @font-face dans le cadre de leur licence.
 L’autre difficulté, de nature technique celle-là, est l’existence de [divers formats](http://snook.ca/archives/html_and_css/becoming-a-font-embedding-master) pour les fichiers de polices, supportés de façon diverses par les différents navigateurs. Il existe cependant des [outils de conversion](http://www.fontsquirrel.com/fontface/generator) et une [syntaxe éprouvée](http://paulirish.com/2009/bulletproof-font-face-implementation-syntax/) puis [améliorée](http://www.fontspring.com/blog/the-new-bulletproof-font-face-syntax) permettant de résoudre ces questions techniques. A signaler également, les [temps de chargement](http://www.stevesouders.com/blog/2009/10/13/font-face-and-performance/) qui, sur les sites très fréquentés, peuvent poser certains problèmes de performance.Cette technique est dores et déjà bien supportée par les divers navigateurs et constitue à ce jour notre meilleure option.Divers services tels que [Google Fonts](http://www.google.com/fonts), [Typekit](https://typekit.com/) et [Fontdeck](http://fontdeck.com/) se sont développés pour simplifier l’aspect technique et résoudre les questions légales tout en proposant un très large choix de polices. Certains de ces services sont payants, d'autres sont gratuits.### Boutons en CSS3 avec Inline-block, border radius, text-shadow & box-shadowGrâce à quelques propriétés CSS3, il est facile de créer des boutons à l’aide d’un simple 
-lien hypertexte.HTML	<p><a href=”fake.html” class=”btn”>Text of my button</a></p>CSS
-	.btn	{		display:inline-block;		background:#7AA020;		color:#fff;		border-radius:.2em;		padding:.75em 1em;		font:bold 1em/1 helvetica,arial,sans-serif;		text-decoration:none;		text-shadow:1px 1px 0 rgba(0,0,0,.5);		box-shadow:inset 0 -3px 0 rgba(0,0,0,.5);	}
-		.btn:hover	{		background:#5C7917;	}
+lien hypertexte.HTML```html<p><a href=”fake.html” class=”btn”>Text of my button</a></p>```
+CSS
+
+```css.btn{	display:inline-block;	background:#7AA020;	color:#fff;	border-radius:.2em;	padding:.75em 1em;	font:bold 1em/1 helvetica,arial,sans-serif;	text-decoration:none;	text-shadow:1px 1px 0 rgba(0,0,0,.5);	box-shadow:inset 0 -3px 0 rgba(0,0,0,.5);}
+.btn:hover{	background:#5C7917;}```
 ### Coins arrondis avec la propriété CSS3 border-radius
 Avant CSS3, créer des boites avec des coins arrondis impliquait d'utiliser des structures HTML complexes et des images. Aujourd'hui, la propriété border-radius permet de le faire en une seule ligne de code.
-	.box-rounded
-	{
-		background:red;
-		border-radius:.3em;
-	}
+
+```css.box-rounded
+{
+	background:red;
+	border-radius:.3em;
+}
+```
 
 Il est possible de spécifier des valeurs différentes pour chacun des coins
 
-	.box-rounded
-	{
-		background:red;
-		border-radius:.3em 2em 200px 5%;
-	}
+```css
+.box-rounded
+{
+	background:red;
+	border-radius:.3em 2em 200px 5%;
+}
+```
 
 [Comme le montre Lea Verou](http://lea.verou.me/humble-border-radius/), il ya beaucoup de choses à dire à propos de la propriété `border-radius`.
 
