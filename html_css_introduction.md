@@ -978,15 +978,18 @@ La génération de contenu à l’aide des CSS permet également de forcer un é
 La principale limitation de ce type de mise en page est l’impossibilité pour les éléments en mode statique d’influer sur le comportement des éléments absolument positionnés. Il est par exemple impossible de placer un pied de page couvrant le même espace horizontal que la somme des diverses colonnes si les longueurs ces dernières ne sont pas connues.HTML
 
 ```html<div class="wrapper">
-
-	<main class="content-main" role="maincontent">
-		<p>content</p>
-	</main>
-
-	<aside class="content-secondary">
-		<p>secondary</p>
-	</aside>
-
+	<div class="primary">
+		<h1>Demo</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, amet tenetur obcaecati similique ea quas quaerat modi nam quos nobis soluta odit nemo voluptate enim alias facere harum itaque! Ut!</p>
+		<p>Quasi itaque veritatis excepturi at adipisci libero nesciunt. Natus, voluptatibus, autem, id placeat facilis incidunt laudantium eos asperiores aperiam molestias quas architecto unde dolorem necessitatibus eius. Placeat facere quae voluptate.</p>
+		<p>Eligendi, commodi, similique nobis quae natus non repellendus tempora voluptate dignissimos eos eaque explicabo atque ipsam et rem fugit animi fugiat. Adipisci, nihil, ratione totam sed blanditiis cumque tempora odit!</p>
+		<div class="sitefooter">
+			<p>Footer</p>
+		</div>
+	</div>
+	<div class="secondary">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, aut, optio, nisi, tenetur possimus vero hic enim quibusdam in voluptas ab voluptatum sequi corrupti maxime dolorum perspiciatis nihil soluta odio.</p>
+	</div>
 </div>
 ```
 
@@ -995,41 +998,52 @@ CSS
 ```css
 .wrapper
 {
-	width:960px;
 	margin:0 auto;
+	width:960px;
 	position:relative; /*positioning context*/
+	background:green;
 }
 
-.content-main
+.primary
 {
 	margin-left:340px;
+	padding:20px;
 	background:yellow;
 }
 
-.content-secondary
+.secondary
 {
 	position:absolute;
 	top:0;
 	left:0;
-	width:300px;
-	background:green;
+	width:260px;
+	padding:20px;
+	background:red;
+}
+
+.sitefooter
+{
+	padding:20px;
+	background:#ccc;
 }
 ```#### Positionnement en mode floatCe type de mise en page est très populaire, car il permet de réaliser facilement une mise en page très courante: deux ou trois colonnes entourées d’une bannière et d’un pied de page.HTML
 
 ```html<div class="wrapper">
-
-	<main class="content-main" role="maincontent">
-		<p>content</p>
-	</main>
-
-	<aside class="content-secondary">
-		<p>secondary</p>
-	</aside>
-
-	<footer class="sidefooter">
-		<p>footer</p>
-	</footer>
-
+	<div class="siteheader">
+		<p>Header</p>
+	</div>
+	<div class="content-primary">
+		<h1>Demo</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, amet tenetur obcaecati similique ea quas quaerat modi nam quos nobis soluta odit nemo voluptate enim alias facere harum itaque! Ut!</p>
+		<p>Quasi itaque veritatis excepturi at adipisci libero nesciunt. Natus, voluptatibus, autem, id placeat facilis incidunt laudantium eos asperiores aperiam molestias quas architecto unde dolorem necessitatibus eius. Placeat facere quae voluptate.</p>
+		<p>Eligendi, commodi, similique nobis quae natus non repellendus tempora voluptate dignissimos eos eaque explicabo atque ipsam et rem fugit animi fugiat. Adipisci, nihil, ratione totam sed blanditiis cumque tempora odit!</p>
+	</div>
+	<div class="content-secondary">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, aut, optio, nisi, tenetur possimus vero hic enim quibusdam in voluptas ab voluptatum sequi corrupti maxime dolorum perspiciatis nihil soluta odio.</p>
+	</div>
+	<div class="sitefooter">
+		<p>Footer</p>
+	</div>
 </div>
 ```
 
@@ -1063,25 +1077,136 @@ CSS
 	background:red;
 }```
 ### Mises en page fluidesLes mises en pages fluides sont moins communes mais offrent l’avantage de s’adapter à toutes les résolutions.Le support par les prochaines versions d’Internet Explorer des propriétés max-width, min-width et max-height min-height vont sans doute les rendre plus populaires, puisque ces 
-propriétés CSS permettent de contrôler efficacement les longueurs de lignes.Les modes de positionnement flottés et absolus sont tous deux utilisables. Les deux systèmes ont des avantages et des inconvénients qu’il convient de connaître avant de les utiliser.#### Positionnement absolu et marges.Cette mise en page n’est qu’une variation sur la mise en page deux colonnes que nous avons vue précédemment. Le seul changement consiste en une spécification des dimensions des éléments à l’aide d’une unité relative (ici en %). Certaines valeurs pour margin et padding sont également spécifiées en %.	Exercice#### Positionnement en mode floatCette mise en page n’est qu’une variation sur la mise en page deux colonnes que nous avons vue précédemment. Le seul changement consiste en une spécification des dimensions des éléments à l’aide d’une unité relative (ici en %).
-	Exercice### Mises en page mixtes: marges négatives et floatsLes mises en pages mixtes sont des mises en page dans lesquelles un élément est de taille fixe, tandis que certains autres sont de tailles variable.Une mise en page souvent utilisée est celle reposant sur la propriété float et sur des marges négatives. Elle permet de disposer d’une colonne de largeur variable, alors que les autres sont de tailles fixes.HTML
+propriétés CSS permettent de contrôler efficacement les longueurs de lignes.Les modes de positionnement flottés et absolus sont tous deux utilisables. Les deux systèmes ont des avantages et des inconvénients qu’il convient de connaître avant de les utiliser.#### Positionnement absolu et marges.Cette mise en page n’est qu’une variation sur la mise en page deux colonnes que nous avons vue précédemment. Le seul changement consiste en une spécification des dimensions des éléments à l’aide d’une unité relative (ici en %). Certaines valeurs pour margin et padding sont également spécifiées en %.HTML```html
+<div class="wrapper">
+	<div class="primary">
+		<h1>Demo</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, amet tenetur obcaecati similique ea quas quaerat modi nam quos nobis soluta odit nemo voluptate enim alias facere harum itaque! Ut!</p>
+		<p>Quasi itaque veritatis excepturi at adipisci libero nesciunt. Natus, voluptatibus, autem, id placeat facilis incidunt laudantium eos asperiores aperiam molestias quas architecto unde dolorem necessitatibus eius. Placeat facere quae voluptate.</p>
+		<p>Eligendi, commodi, similique nobis quae natus non repellendus tempora voluptate dignissimos eos eaque explicabo atque ipsam et rem fugit animi fugiat. Adipisci, nihil, ratione totam sed blanditiis cumque tempora odit!</p>
+		<div class="sitefooter">
+			<p>Footer</p>
+		</div>
+	</div>
+	<div class="secondary">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, aut, optio, nisi, tenetur possimus vero hic enim quibusdam in voluptas ab voluptatum sequi corrupti maxime dolorum perspiciatis nihil soluta odio.</p>
+	</div>
+</div>```
+CSS
+```css
+.wrapper
+{
+	margin:0 auto;
+	width:80%;
+	min-width:600px;
+	max-width:1140px;
+	position:relative; /*positioning context*/
+	background:green;
+}
+
+.primary
+{
+	margin-left:35%;
+	padding:2%;
+	background:yellow;
+}
+
+.secondary
+{
+	position:absolute;
+	top:0;
+	left:0;
+	width:26%;
+	padding:2%;
+	background:red;
+}
+
+.sitefooter
+{
+	padding:2%;
+	background:#ccc;
+}```#### Positionnement en mode floatCette mise en page n’est qu’une variation sur la mise en page deux colonnes que nous avons vue précédemment. Le seul changement consiste en une spécification des dimensions des éléments à l’aide d’une unité relative (ici en %).
+
+HTML
+
+```html
+<div class="wrapper">
+	<div class="siteheader">
+		<p>Header</p>
+	</div>
+	<div class="content-primary">
+		<h1>Demo</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, amet tenetur obcaecati similique ea quas quaerat modi nam quos nobis soluta odit nemo voluptate enim alias facere harum itaque! Ut!</p>
+		<p>Quasi itaque veritatis excepturi at adipisci libero nesciunt. Natus, voluptatibus, autem, id placeat facilis incidunt laudantium eos asperiores aperiam molestias quas architecto unde dolorem necessitatibus eius. Placeat facere quae voluptate.</p>
+		<p>Eligendi, commodi, similique nobis quae natus non repellendus tempora voluptate dignissimos eos eaque explicabo atque ipsam et rem fugit animi fugiat. Adipisci, nihil, ratione totam sed blanditiis cumque tempora odit!</p>
+	</div>
+	<div class="content-secondary">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, aut, optio, nisi, tenetur possimus vero hic enim quibusdam in voluptas ab voluptatum sequi corrupti maxime dolorum perspiciatis nihil soluta odio.</p>
+	</div>
+	<div class="sitefooter">
+		<p>Footer</p>
+	</div>
+</div>
+``
+
+CSS
+```css
+.wrapper
+{
+	margin:0 auto;
+	width:80%;
+	min-width:600px;
+	max-width:1140px;
+	background:green;
+}
+
+.siteheader
+{
+	padding:2%;
+	background:#ccc;
+}
+
+.content-primary
+{
+	float:left;
+	padding:2%;
+	width:61%;
+	background:yellow;
+}
+
+.content-secondary
+{
+	float:right;
+	padding:2%;
+	width:26%;
+	background:red;
+}
+
+.sitefooter
+{
+	clear:both;
+	padding:2%;
+	background:#ccc;
+}```### Mises en page mixtes: marges négatives et floatsLes mises en pages mixtes sont des mises en page dans lesquelles un élément est de taille fixe, tandis que certains autres sont de tailles variable.Une mise en page souvent utilisée est celle reposant sur la propriété float et sur des marges négatives. Elle permet de disposer d’une colonne de largeur variable, alors que les autres sont de tailles fixes.HTML
 
 ```html<div class="wrapper">
-
-	<main class="content-main" role="maincontent">
-		<div class="content-main-inner">
-			<p>content</p>
+	<div class="siteheader">
+		<p>Header</p>
+	</div>
+	<div class="content-primary">
+		<div class="content-primary-inner">
+			<h1>Demo</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, amet tenetur obcaecati similique ea quas quaerat modi nam quos nobis soluta odit nemo voluptate enim alias facere harum itaque! Ut!</p>
+			<p>Quasi itaque veritatis excepturi at adipisci libero nesciunt. Natus, voluptatibus, autem, id placeat facilis incidunt laudantium eos asperiores aperiam molestias quas architecto unde dolorem necessitatibus eius. Placeat facere quae voluptate.</p>
+			<p>Eligendi, commodi, similique nobis quae natus non repellendus tempora voluptate dignissimos eos eaque explicabo atque ipsam et rem fugit animi fugiat. Adipisci, nihil, ratione totam sed blanditiis cumque tempora odit!</p>
 		</div>
-	</main>
-
-	<aside class="content-secondary">
-		<p>secondary</p>
-	</aside>
-
-	<footer class="sidefooter">
-		<p>footer</p>
-	</footer>
-
+	</div>
+	<div class="content-secondary">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, aut, optio, nisi, tenetur possimus vero hic enim quibusdam in voluptas ab voluptatum sequi corrupti maxime dolorum perspiciatis nihil soluta odio.</p>
+	</div>
+	<div class="sitefooter">
+		<p>Footer</p>
+	</div>
 </div>
 ```
 
@@ -1090,37 +1215,47 @@ CSS
 ```css
 .wrapper
 {
-	width:80%;
 	margin:0 auto;
-	overflow:hidden; /*float containment*/
+	width:80%;
+	min-width:600px;
+	max-width:1140px;
+	background:green;
 }
 
-.content-main
+.siteheader
 {
-	float:right;
-	width:65%;
-	margin-left:-300px;
+	padding:2%;
+	background:#ccc;
+}
+
+.content-primary
+{
+	float:left;
+	width:100%;
+	margin-right:-300px;
 	background:yellow;
-	
 }
 
-.content-main-inner
+.content-primary-inner
 {
-	margin-left:340px;
+	margin-right:340px;
+	padding:2%;
 	background:teal;
 }
 
 .content-secondary
 {
-	float:left;
-	width:300px;
-	background:green;
+	float:right;
+	width:260px;
+	padding:20px;
+	background:red;
 }
 
-.footer
+.sitefooter
 {
 	clear:both;
-	background:red;
+	padding:2%;
+	background:#ccc;
 }
 ```Il est également possible de [réaliser des mises en pages 3 colonnes à laide de cette technique](http://www.alistapart.com/articles/negativemargins/).## Quelques Techniques CSS bien utiles
 Nous avons déjà examiné quelques astuces et hacks CSS permettant de contourner les défauts de certains navigateurs. Nous allons maintenant passer en revue quelques autres techniques bien utiles.#### Une taille de texte constante à l’aide de valeurs relativesLes guidelines d’accessibilité du W3C nous demandent d’utiliser en CSS des valeurs relatives afin de spécifier la taille des polices. Cela provient du fait qu’Internet Explorer ne permet pas à l’utilisateur de modifier la taille des polices si celle-ci est spécifiée à l’aide d’unités absolues (en pixels par exemple).Consultez [les pages dédiées à cette question sur css-dicsuss](http://css-discuss.incutio.com/?page=FontSize) si vous souhaitez en savoir plus. Personnellement, ma méthode de prédilection consiste à spécifier la taille des polices en pourcentages au niveau du `body` et puis de poursuivre en spécifiant les tailles pour les éléments enfant en `em`.```cssbody{	font :normal 75%/1.5 arial, sans-serif ; /*10px comme taille de base*/}
