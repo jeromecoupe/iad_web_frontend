@@ -195,7 +195,7 @@ Les éléments composant un document HTML sont structurés de façon hiérarchis
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-		<meta charset=”utf-8" />
+		<meta charset="utf-8" />
 		<title>Titre du document</title>
 	</head>
 	<body>
