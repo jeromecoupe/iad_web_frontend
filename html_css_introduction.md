@@ -250,15 +250,15 @@ Il est important de noter que ces scripts créent de facto une dépendance à Ja
 
 ### HTML5: Une sémantique améliorée
 
-L’une des pricipale nouveauté de HTML5, c’est l’introduction de nouveaux éléments sémantiques permettant une qualification plus précise des divers éléments de votre document.
+L’une des pricipale nouveauté de HTML5, c’est l’introduction de nouveaux éléments sémantiques permettant une qualification plus précise des divers éléments de votre document. Certains comme Luke Stevens [arguent que l'utilisation de de ces éléments est problématique pour diverses raisons](http://www.truthabouthtml5.com/). A vous de voir.
 
-Nous ne les présenterons pas l’ensemble de ces nouveaux éléments dans le cadre de ce cours mais nous vous présenterons les principaux. L'ensemble de ces nouveaux éléments et des renseignements sur leurs usages sont disponibles sur le site du W3C ou dans le glossaire rédigé pour vous par l'équipe de HTML5 Doctor..
+Nous ne les présenterons pas l’ensemble de ces nouveaux éléments dans le cadre de ce cours mais nous vous présenterons les principaux. L'ensemble de ces nouveaux éléments et des renseignements sur leurs usages sont disponibles sur le site du W3C ou dans le glossaire rédigé pour vous par l'équipe de HTML5 Doctor.
 
 #### Nouveaux élements
 
 ##### `<nav>`
 
-Cet élément est utilisé pour marqué les interfaces de navigation du site ou de la page. Il s’agit d’une section de la page contenant les liens utilisé pour la navigation. Tous les groupes de liens ne sont pas forcément des interfaces de navigation, seuls ces derniers peuvent être marqués à l’aide de l’élément `<nav>`.
+Cet élément est utilisé pour marquer les interfaces de navigation du site ou de la page. Il s’agit d’une section de la page contenant les liens utilisé pour la navigation. Tous les groupes de liens ne sont pas forcément des interfaces de navigation, seuls ces derniers peuvent être marqués à l’aide de l’élément `<nav>`.
 
 ##### `<article>`
 
@@ -270,7 +270,7 @@ Une bonne question à se poser pour l’utilisation d’article est: pourriez vo
 
 Section générique d'un document ou d'une application. Section sert à marquer un groupement thématique de contenus, typiquement il comporte un `<header>` et parfois un `<footer>`. Exemples: les chapitres d'un livre, les sections d'une thèse, les différentes sections d'une page d'accueil: introduction, news, portfolio, information de contact, etc.
 
-Attention à ne pas utiliser section en lieu et place de `<div>` ou `<article>`, par exemple pour séparer le contenu principal d'une page de son contenu secondaire. A part de rares exceptions, n'utilisez pas `<section>` si cet élément ne possède pas naturellement un titre. Un article détaillé sur le sujet est disponible sur HTML5 Doctor.
+Attention à ne pas utiliser section en lieu et place de `<div>` ou `<article>`, par exemple pour séparer le contenu principal d'une page de son contenu secondaire. A part de rares exceptions, n'utilisez pas `<section>` si cet élément ne possède pas naturellement un titre. [Un article détaillé sur le sujet est disponible sur HTML5 Doctor](http://html5doctor.com/the-section-element/).
 
 ##### `<aside>`
 
@@ -280,7 +280,7 @@ Le contexte est ici très important. Vous pouvez utiliser `<aside>` pour marquer
 
 #### Document outline et sectioning elements
 
-Notons ici que les éléments acticle, section, nav et aside sont des élements de sectioning, c’est à dire qu’ils créent une nouvelle section au sein du document et que la hiérarchie des titres recommence à zéro au sein de chacun des éléments de ce type. Voyons par exemple la structure de ce document à l’aide de l’outil HTML5 outliner pour y voir plus clair.
+Notons ici que les éléments `acticle`, `section`, `nav` et `aside` sont des élements de sectioning, c’est à dire qu’ils créent une nouvelle section au sein du document et que la hiérarchie des titres recommence à zéro au sein de chacun des éléments de ce type. Voyons par exemple la structure de ce document à l’aide de l’outil HTML5 outliner pour y voir plus clair.
 
 ```html
 <!DOCTYPE html>
@@ -333,7 +333,7 @@ Typiquement utilisé pour contenir les métas informations (auteur, lien vers de
 
 ##### `<time>`
 
-Est utilisé pour marqué des données temporelles (dates, heures etc.) de façon à ce qu'elles soient lisibles et exploitables par des machines ou programmes. Un attribut pubdate peut y être ajouté afin de marquer une date de publication. Un attribut datetime peut également être ajouté afin de préciser les choses si le textes marqué n'est pas une date grégorienne valide.
+Est utilisé pour marquer des données temporelles (dates, heures etc.) de façon à ce qu'elles soient lisibles et exploitables par des machines ou programmes. Un attribut datetime peut également être ajouté afin de préciser les choses si le textes marqué n'est pas une date grégorienne valide.
 
 ```html
 <time datetime="2007-10-05">October 5</time>
@@ -390,7 +390,7 @@ encore expérimentales de Opéra.
 
 Certains navigateurs supportant l'élément `<video>` commencent automatiquement à télécharger les fichiers vidéos, ce qui donne lieu à un usage (important) de bande passante sans intervention utilisateur. L’attribut `preload` peut être utilisé pour empêcher le preload de la video par le navigateur preload=”none”`;
 
-Internet Explorer ne supportant pas les tags `<video>` ou `<audio>`, il faut prévoir des solutions de fallback qui sont parfois complexes (et recourent le plus souvent à Flash). Voir à ce sujet l’exemple “video for everybody”.
+Internet Explorer ne supportant pas les tags `<video>` ou `<audio>`, il faut prévoir des solutions de fallback qui sont parfois complexes (et recourent le plus souvent à Flash). [Voir à ce sujet l’exemple "video for everybody”](http://camendesign.com/code/video_for_everybody).
 
 Voici néanmoins à quoi cela ressemble aujourd'hui:
 
@@ -398,6 +398,7 @@ Voici néanmoins à quoi cela ressemble aujourd'hui:
 <video height="270" width="480" poster="waitimage.png" controls="controls">
 	<source src="samplevideo.mp4" type="video/mp4" />
 	<source src="samplevideo.ogv" type="video/ogg" />
+	<source src="samplevideo.webm" type="video/webm" />
 	<p><strong>Your browser does not support the HTML5 video tag but you can download the file either in <a href="samplevideo.mp4">MP4 format</a> or in <a href="samplevideo.ogv">OGV format</a></strong></p>
 </video>
 ```
@@ -411,6 +412,8 @@ L'attribut poster sert à donner une image d'attente dans les navigateurs suppor
 	<p><strong>Your browser does not support the HTML5 audio tag but you can download the file either in <a href="elvis.ogg">OGG format</a> or in <a href="elvis.mp3">MP3 format</a></strong></p>
 </audio>
 ```
+
+Les services video (Youtube Vimeo) sont à mon avis le moyen le plus efficace de servir des vidéos sur le web aujourd'hui.
 
 ##### Figure et figcaption
 
@@ -458,7 +461,7 @@ Intéressant également, l'attribut required permettant de spécifier un champ c
 <input type="text" name="name" id="name" required="required" />
 ```
 
-Pour ceux qui veulent en savoir plus, un excellent article introductif est disponible sur 24ways et une démonstration a été mise en ligne par Opéra. Les quelques pages de Mark Pilgrim sur le sujet  sont également intéressantes (document PDF en annexe puisque les pages ont été supprimées), même si la spécification HTML5 reste évidemment la source faisant autorité.
+Pour ceux qui veulent en savoir plus, [un excellent article introductif est disponible sur 24 Ways](http://24ways.org/2009/have-a-field-day-with-html5-forms/) et une [démonstration a été mise en ligne par Opéra](http://devfiles.myopera.com/articles/67/example.html). Les [quelques pages de Mark Pilgrim sur le sujet](http://diveintohtml5.info/) sont également intéressantes, même si [la spécification HTML5 reste évidemment la source faisant autorité](http://dev.w3.org/html5/markup/Overview.html).
 
 #### L'élément Canvas
 
@@ -486,6 +489,9 @@ Lors de ce cours, nous utiliserons principalement CSS 2.1 et quelques éléments
 Les déclarations CSS peuvent être liées de 4 façons à un document HTML afin d’en gérer l’affichage :
 
 #### CSS liées
+
+C'est la méthode la plus utilisée dans la mesure où elle permet de séparer vos styles (CSS) de votre structure et de votre contenu de document (HTML). C'est 
+égalmement la méthode la plus performante, [comme le précise Steve Souders](http://www.stevesouders.com/blog/2009/04/09/dont-use-import/).
 
 ```html
 <link rel="stylesheet" href="css/main.css" />
@@ -574,7 +580,7 @@ Certaines déclarations pouvant enter en conflit avec d’autres, il importe de 
 
 ### Spécificité
 
-Pour calculer la spécificité d’une déclaration CSS, c’est le sélecteur qui est pris en compte. La règle générale est que plus il est complexe, plus sa spécificité est haute. Voici la manière dont la spécificité des déclarations est calculée :
+Pour calculer la spécificité d’une déclaration CSS, c’est le sélecteur qui est pris en compte. La règle générale est que plus il est complexe, plus sa spécificité est haute. Voici la manière dont la spécificité des déclarations est calculée:
 
 #### Calcul de spécificité
 
@@ -1327,3 +1333,6 @@ Il est possible de spécifier des valeurs différentes pour chacun des coins
 
 - [A beginner's guide to HTML & CSS](http://learn.shayhowe.com/html-css/) by Shay Howe
 - [Highly Maintainable, Efficient, and Optimized CSS](http://zomigi.com/blog/maintainable-efficient-css/) by Zoe Mickley Gillenwater
+- [caniuse.com](http://caniuse.com): tables de support navigateurs pour HTML5 et CSS3
+- [html5please](http://html5please.com): conseils d’utilisation pour HTML5 et CSS3. Polyfill javascript renseignés.
+- 
