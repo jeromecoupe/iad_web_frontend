@@ -230,7 +230,9 @@ article, aside, details, figcaption, figure, footer, header, main, nav, section,
 }
 ```
 
-Une étape supplémentaire est nécessaire pour Internet Explorer. Ce navigateur gère les éléments inconnus du DOM différemment des autres, il lui faut un petit peu de Javascript pour qu'il se comporte comme les autres navigateurs. Ce JS ne fait que créer ces nouveaux éléments dans le DOM à l'intention de IE, il suffit donc de le servir via l'utilisation de conditional comments et le tour est joué (du moins pour les utilisateur de IE disposant du JavaScript activé). [Une version compacte de ce script de Remy Sharp est disponible en ligne](http://code.google.com/p/html5shiv/). La version 9 d’Internet explorer gère les éléments HTML5. Ce HTML5 shiv est également inclus dans [Modernizr](http://www.modernizr.com) bien que la version include dans Modernizr 3.6.2 ne créée pas l’élément main.
+La version 9 d’Internet explorer gère les éléments HTML5 mais une étape supplémentaire est nécessaire pour les versions plus anciennes d'Internet Explorer. Ce navigateur gère les éléments inconnus du DOM différemment des autres, il lui faut un petit peu de Javascript pour qu'il se comporte comme les autres navigateurs.
+
+Ce JS ne fait que créer ces nouveaux éléments dans le DOM à l'intention de IE, il suffit donc de le servir via l'utilisation de conditional comments et le tour est joué (du moins pour les utilisateur de IE disposant du JavaScript activé). [Une version compacte de ce script de Remy Sharp est disponible en ligne](http://code.google.com/p/html5shiv/). Ce HTML5 shiv est également inclus dans [Modernizr](http://www.modernizr.com) bien que la version include dans Modernizr 3.6.2 ne créée pas l’élément main.
 
 ```html
 <!DOCTYPE html>
@@ -247,6 +249,8 @@ Une étape supplémentaire est nécessaire pour Internet Explorer. Ce navigateur
 ```
 
 Il est important de noter que ces scripts créent de facto une dépendance à Javascript pour les utilisateurs de Internat Explorer < 9.
+
+*Exercice: créer un starter kit en HTML5*
 
 ### HTML5: Une sémantique améliorée
 
@@ -368,6 +372,8 @@ L’élément a à toujours été un élément inline en HTML. D’après les sp
 </a>
 ```
 
+*Exercice: examiner 2 sites et voir quels éléments utiliser*
+
 #### Video Audio et Figure avec HTML5
 
 Un autre aspect intéressant de HTML5 concerne la possibilité de gérer nativement les éléments audios et vidéos d'une page sans faire appel à des technologies extérieures telles que Flash.
@@ -382,12 +388,6 @@ Les navigateurs prenant en charge cet élément ne gèrent pas tous les mêmes f
 encore expérimentales de Opéra.
 - Le format .mp4 (Codec: H.264) est supporté par Safari 4 et Chrome 3
 
-##### Audio
-
-- Le format open source .ogg (Codec: Vorbis) est supporté par Firefox 3.5, Chrome 3
-- Le format .mp3 est supporté par Safari 4
-- Le format .wav est supporté par Firefox 3.5, Chrome 3, Opera 10 et Safari 4
-
 Certains navigateurs supportant l'élément `<video>` commencent automatiquement à télécharger les fichiers vidéos, ce qui donne lieu à un usage (important) de bande passante sans intervention utilisateur. L’attribut `preload` peut être utilisé pour empêcher le preload de la video par le navigateur preload=”none”`;
 
 Internet Explorer ne supportant pas les tags `<video>` ou `<audio>`, il faut prévoir des solutions de fallback qui sont parfois complexes (et recourent le plus souvent à Flash). [Voir à ce sujet l’exemple "video for everybody”](http://camendesign.com/code/video_for_everybody).
@@ -399,21 +399,24 @@ Voici néanmoins à quoi cela ressemble aujourd'hui:
 	<source src="samplevideo.mp4" type="video/mp4" />
 	<source src="samplevideo.ogv" type="video/ogg" />
 	<source src="samplevideo.webm" type="video/webm" />
-	<p><strong>Your browser does not support the HTML5 video tag but you can download the file either in <a href="samplevideo.mp4">MP4 format</a> or in <a href="samplevideo.ogv">OGV format</a></strong></p>
+	<p>Your browser does not support the HTML5 video tag but you can download the file either in <a href="samplevideo.mp4">MP4</a>, <a href="samplevideo.ogv">OGV</a>, <a href="samplevideo.webm">WEBM</a></p>
 </video>
 ```
 
 L'attribut poster sert à donner une image d'attente dans les navigateurs supportant l'élément vidéo, tandis que l'attribut controls sert à afficher les contrôles minimaux pour le type de média choisi.
 
-```html
-<audio controls="controls">
-	<source src="elvis.ogg" />
-	<source src="elvis.mp3" />
-	<p><strong>Your browser does not support the HTML5 audio tag but you can download the file either in <a href="elvis.ogg">OGG format</a> or in <a href="elvis.mp3">MP3 format</a></strong></p>
-</audio>
-```
+Si vos besoins en vidéo sont importants, des services tels que Youtube et Vimeo un moyen efficace de servir des vidéos sur le web. Ils réalisent automatiquement les divers encodages nécessaires, le type de plateforme utilisé par le visiteur, etc.
 
-Les services video (Youtube Vimeo) sont à mon avis le moyen le plus efficace de servir des vidéos sur le web aujourd'hui.
+Des librairies JavaScript comme mediaelement.js sont également une option intéressante.
+
+##### Audio
+
+- Le format open source .ogg (Codec: Vorbis) est supporté par Firefox 3.5, Chrome 3
+- Le format .mp3 est supporté par Safari 4
+- Le format .wav est supporté par Firefox 3.5, Chrome 3, Opera 10 et Safari 4
+
+```html
+<audio controls="controls">	<source src="elvis.ogg" />	<source src="elvis.mp3" />	<p><strong>Your browser does not support the HTML5 audio tag but you can download the file either in <a href="elvis.ogg">OGG format</a> or in <a href="elvis.mp3">MP3 format</a></strong></p></audio>```
 
 ##### Figure et figcaption
 
@@ -425,6 +428,7 @@ Les élément figure et figcaption servent à grouper images et légendes dans v
 	<figcaption>La grand-place et les terrasses par une journée ensoleillée à Louvain-la-Neuve.</figcaption>
 </figure>
 ```
+*Exercice: intégration d'une video dans un document HTML5*
 
 #### Formulaires et HTML5
 
@@ -462,6 +466,8 @@ Intéressant également, l'attribut required permettant de spécifier un champ c
 ```
 
 Pour ceux qui veulent en savoir plus, [un excellent article introductif est disponible sur 24 Ways](http://24ways.org/2009/have-a-field-day-with-html5-forms/) et une [démonstration a été mise en ligne par Opéra](http://devfiles.myopera.com/articles/67/example.html). Les [quelques pages de Mark Pilgrim sur le sujet](http://diveintohtml5.info/) sont également intéressantes, même si [la spécification HTML5 reste évidemment la source faisant autorité](http://dev.w3.org/html5/markup/Overview.html).
+
+*Exercice: créer un formulaire en HTML5*
 
 #### L'élément Canvas
 
@@ -557,6 +563,8 @@ CSS en ligne
 </style>
 ```
 
+*Exercice: lier une feuille de style à un document HTML5 et tester l'attribut media*
+
 ### Anatomie d’une déclaration CSS
 
 ```html
@@ -591,7 +599,7 @@ Pour calculer la spécificité d’une déclaration CSS, c’est le sélecteur q
 
 Spécificité = a,b,c
 
-Ressources: Un [article de Molly E. Holzschlag sur le sujet](http://www.molly.com/2005/10/06/css2-and-css21-specificity-clarified/) et [une explication plus ludique est proposée par Andy Clarke](http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html).
+Ressources: [une explication ludique basée sur Star Wars et proposée par Andy Clarke](http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html).
 
 #### Exemples
 
@@ -624,7 +632,7 @@ Certains de ces sélecteurs CSS utilisent les relations entre les éléments au 
 				<li class="mainnav-item"><a href="contact.html">Contact</a></li>
 			</ul>
 		</nav>
-		<main role="maincontent" id="#content">
+		<main role="maincontent" id="content">
 			<h1>Title of my page</h1>
 			<div class="intro">
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, facilis, minus, nostrum a autem labore ut doloribus perferendis ullam voluptatem quis ducimus vero odit aspernatur in dolorem fuga consequuntur.</p>
@@ -711,6 +719,13 @@ Une ID ne peut être utilisée qu’une seule fois dans le cadre d’un même do
 
 Le sélecteur descendant permet de cibler les éléments qui sont les descendants d’un autre élément présent dans le document.
 
+```css
+p em
+{
+	background:red;
+}
+```
+
 #### Sélecteur d’enfant
 
 Le sélecteur d’enfant permet de cibler les éléments qui sont les enfants d’un autre élément présent dans le document.
@@ -722,9 +737,9 @@ ul > li
 }
 ```
 
-Le sélecteur d’enfant n’est pas supporté par IE 5,5.5 et 6. Il peut être utilisé à dessein pour masquer certaines informations à ces navigateurs. Il est supporté par IE7 et IE8.
+Ce sélecteur est supporté par IE7 et IE8.
 
-Sélecteur d’enfant adjacent
+#### Sélecteur d’enfant adjacent
 
 Le sélecteur d’enfant adjacent permet de cibler l’élément suivant directement un élément présent dans le document.
 
@@ -737,7 +752,7 @@ h1 + p
 
 Cette règle ciblera uniquement le paragraphe placé immédiatement après le h1 dans le document.
 
-Le sélecteur d’enfant adjacent n’est pas supporté par IE 5,5.5 et 6. Il peut être utilisé à dessein pour masquer certaines informations à ces navigateurs. Il est supporté par IE7 et IE8.
+Le sélecteur d’enfant adjacent est supporté par IE7 et IE8.
 
 #### Sélecteur d’attribut
 
@@ -794,7 +809,7 @@ Ce sélecteur est utilisé pour cibler l’ensemble des éléments composant le 
 
 Les sélecteurs de pseudo-classes permettent de cibler des éléments qui ne sont pas dans l’arborescence du document. 
 
-Pseudo-classes liées aux liens.
+##### Pseudo-classes liées aux liens.
 
 ```css
 a:link {text-decoration:underline;}
@@ -806,7 +821,14 @@ a:active {color:red;}
 
 Les déclarations doivent obligatoirement être faites dans cet ordre afin d’obtenir le résultat escompté.
 
-##### First-child
+##### First-child & last-child
+
+```css
+p em:first-child 
+{
+	font-weight:bold;
+}
+```
 
 ```css
 p em:first-child 
@@ -846,13 +868,13 @@ p:first-line
 ```css
 a:after
 {
-	content:" ("attr(href)")";
+	content:" hello world!";
 }
 ```
 
-Cette dernière astuce permet, dans une CSS destinée à l’impression, de rendre apparentes les URL présentes dans le document après chaque lien.
+Les pseudo-éléments `:before` et `:after` ne sont pas supportés par IE 7 et inférieurs, ni par des versions anciennes d’Opera.
 
-Les pseudo-éléments :before et :after ne sont pas supportés par IE 7 et inféreieurs, ni par des versions anciennes d’Opera.
+Les pseudo-elements `:before` et `:after` sont souvent utilisés dans les sites web modernes, pour ajouter des éléments de décoration (icones, spriting). Ils sont également utilisés dans la solution de clearing des floats via CSS que nous verrons un peu plus loin.
 
 ### Propriétés et valeurs
 
@@ -873,10 +895,12 @@ Les diverses dimensions de ces boîtes sont gérées par les propriétés CSS su
 - La largeur totale d’une boîte se calcule de la façon suivante : largeur du contenu (width) + padding + borders + margin.
 - La hauteur totale d’une boîte se calcule de la façon suivante : hauteur du contenu (height) + padding + borders + margin.
 
-La propriété **CSS3** `box-sizing` permet de changer ce comportement de base et est supportée dans tous les navigateurs modernes et dans IE8 +.
+La propriété **CSS3** `box-sizing` permet de changer ce comportement de base et est supportée dans tous les navigateurs modernes et dans IE8+.
 
 - `box-sizing: border-box;` modifie le modèle par défaut. La hauteur et la largeur de l’élément sont toujours égales aux valeurs de width / height, les valeurs de padding et de border en sont soustraites.
 - `box-sizing: content-box;` correspond au modèle par défaut. La hauteur et la largeur de l’élement se calcule en additionnant width / height et padding, margin et border.
+
+Voir à ce sujet [l'article de Paul Irish](http://www.paulirish.com/2012/box-sizing-border-box-ftw/).
 
 ### éléments en blocs et en lignes
 
@@ -886,7 +910,7 @@ Deux types de boîtes principales sont liées par défaut aux divers éléments 
 - Un élément inline génère une boîte en ligne. Ces éléments inline se placent toujours, dans le flux du document, les uns à côté des autres (par exemple : plusieurs `<span>` ou une partie de texte mise en gras à l’aide de la balise `<strong>`)
 
 ### Autres valeurs possibles
-Toutes sortes de boites peuvent être générées à l’aide de la propriété CSS display : `none`,`inline`,`block`,`list-item`,`inline-block`,`inline-table`,`table`,`table-caption`,`table-cell`,`table-column.`,`table-column-group`,`table-footer-group`,`table-header-group`,`table-row`,`table-row-group`.
+Toutes sortes de boites peuvent être générées à l’aide de la propriété CSS display : `none`, `inline`, `block`, `list-item`, `inline-block`, `inline-table`,`table`, `table-caption`, `table-cell`,`table-column.`,`table-column-group`, `table-footer-group`, `table-header-group`, `table-row`, `table-row-group`.
 
 Nous nous contenterons ici d’en détailler quelques unes parmi les plus courantes. Pour une explication plus détaillée, vous pouvez vous référer au document du W3C sur le sujet: Recommendation CSS 2.1.
 
@@ -911,76 +935,46 @@ Une valeur `none` ne crée pas de boîte invisible, elle ne crée pas de boîte 
 Les valeurs liées aux tableaux : `inline-table`,`table`,`table-caption`,`table-cell`,`table-column.`,`table-column-group`,`table-footer-group`,`table-header-group`,`table-row`,`table-row-group` donnent à un élément le comportement de celui d'une table ou d’un de ses composants.
 
 ### La fusion des marges
-Cette expression "Collapsing Margins" signifie que les marges adjacentes de plusieurs boîtes peuvent se combiner afin de ne plus en former qu’une seule.Par exemples, deux paragraphes se suivant et ayant respectivement une marge inférieure de 10px et une marge supérieure de 15px ne seront pas séparés par 25px mais par 15px.
-En CSS2.1, les marges horizontales ne fusionnent pas et les marges verticales fusionnent selon les règles suivantes :1. Les marges verticales de deux boîtes (ou plus) d'éléments de type bloc, placés dans un flux normal fusionnent. La largeur de la marge finale devient la valeur la plus grande parmi celles des marges adjacentes.2. Dans le cas de marges négatives, on soustrait la plus grande des valeurs des marges négatives adjacentes (en valeur absolue) de la plus grande des marges positives adjacentes. Et s'il n'y pas de marges positives, on déduit de zéro la plus grande (en valeur absolue) des marges négatives.3. Les marges verticales entre une boîte qui flotte et toute autre boîte ne fusionnent pas;4. Les marges entre des boîtes absolument et relativement positionnées ne fusionnent pas.Pour en savoir plus concernant la fusion des marges, lire les excellents articles de [Andy Budd](http://www.andybudd.com/archives/2003/11/no_margin_for_error/) et [Eric Meyer](http://www.complexspiral.com/publications/uncollapsing-margins/).
+Cette expression "Collapsing Margins" signifie que les marges adjacentes de plusieurs boîtes peuvent se combiner afin de ne plus en former qu’une seule.Les marges verticales de deux boîtes (ou plus) d'éléments de type bloc, placés dans un flux normal fusionnent. La largeur de la marge finale devient la valeur la plus grande parmi celles des marges adjacentes.
+Dans le cas de marges négatives, on soustrait la plus grande des valeurs des marges négatives adjacentes (en valeur absolue) de la plus grande des marges positives adjacentes. S'il n'y pas de marges positives, on déduit de zéro la plus grande (en valeur absolue) des marges négatives.
 
-	Exercice
+- Deux paragraphes se suivant et ayant respectivement une marge inférieure de 10px et une marge supérieure de 15px seront séparés par 15px.
+- Deux paragraphes se suivant et ayant respectivement une marge inférieure de -10px et une marge supérieure de 30px seront séparés par 20px.
+ -Deux paragraphes se suivant et ayant respectivement une marge inférieure de -10px et une marge supérieure de -15px seront séparés par -15px.#### Elements adjascentsLes marges des blocs flottants et de tout autre bloc ne fusionnent jamais, comme les marges entre des blocs absolument et relativement positionnés;Les marges entre des boîtes ne fusionnent pas si l'une des boite est en display:inline-block;La marge supérieure d'un élément auquel la propriété `clear` est appliquée et placé après un ou plusieurs élément floatés ne sera pas visible sauf si elle excède la hauteur du/des blocs floatés.
+
+#### Parent et premier/dernier enfant
+
+Les marges entre un parent et son premier/dernier enfant ne fusionnent pas si le parrent possède une `border`, un `padding`, une `height` ou une `min-height`. spécifiée.
+
+Les marges entre un parent et ses enfants ne fusionnent pas si le parent possède une propriété overflow avec une valeur autre que visible. Pour en savoir plus concernant la fusion des marges, lire les excellents articles de [Andy Budd](http://www.andybudd.com/archives/2003/11/no_margin_for_error/) et [Eric Meyer](http://www.complexspiral.com/publications/uncollapsing-margins/).
+
+*Exercice sur la fusion des marges*
 
 ## Mises en page CSSCes diverses boîtes dont nous avons parlées sont utilisées dans le cadre de différents schémas de positionnement qui sont autant d’outils permettant de créer une mise en page à l’aide de CSS.
 ### Schémas de positionnement CSSIl existe trois modes ou schémas de positionnement en CSS 2 .1: static (relative), absolute (fixed ) et float. Les modes de positionnement relatif et fixe sont des cas particuliers des modes statique et absolu. Chacun de ces modes obéit à ses règles propres.
-Les modes de positionnement sont gérés en CS 2.1 via les propriétés position et float.#### Flux normal: positionnement statique et positionnement relatif##### Flux du document et positionnement statiqueLe flux normal du document est le mode par défaut utilisé pour le positionnement. C’est celui qui s’applique à tous les éléments lorsque ceux-ci ne sont pas ni en mode float ni positionnés de façon absolue. Il s’agit alors d’un positionnement en mode statique.Dans le flux normal du document, les éléments de type block sont positionnés les uns sous les autres et leurs marges verticales fusionnent, tandis que les éléments de type inline se suivent sur la même ligne et passent à une nouvelle ligne lorsque la place manque.##### Positionnement relatifLorsqu’un élément est positionné relativement, il est initialement positionné d’après le flux du document. Les boîtes des autres éléments sont positionnées et ENSUITE, l’élément positionné relativement est déplacé selon les valeurs spécifiées par les propriétés top bottom left et right.La place originale de l’élément est préservée dans le flux du document et il existe de grandes chances que cet élément en recouvre d’autres. La propriété z-index peut être utilisée pour déterminer quel élément sera placé devant l’autre sur l’axe de profondeur. Le bloc ayant la propriété z-index la plus élevée sera affiché devant l’autre.Si l’élément positionné est un élément de type block, il crée un nouveau bloc conteneur pour les éléments qui en dépendent dans l’arbre du document. Ces éléments utiliseront maintenant le positionnement modifié de l’élément comme bloc conteneur.Si les propriétés top ou bottom sont contradictoires, la propriété top l’emporte. Si les propriétés left ou right sont contradictoires, la propriété left l’emporte dans les langages se lisant de gauche à droite et right l’emporte dans les langages se lisant de droite à gauche.	Exercice#### Positionnement absolu et fixe##### Positionnement absolu
-Ce mode de positionnement est appliqué à tous les éléments dont la propriété position est définie comme absolute ou fixed. Si un tel élément n’existe pas, c’est l’élément racine (html) du document qui fait office de bloc conteneur.Les boîtes utilisant ce mode de positionnement sont extraites du flux du document et n’influencent plus les autres boîtes qui agissent comme si les boîtes positionnées absolument ou de manière fixe n’existaient pas. De plus, les éléments positionnés absolument se comportent toujours comme des éléments de type block.	Exercice
+Les modes de positionnement sont gérés en CS 2.1 via les propriétés position et float.#### Flux normal: positionnement statique et positionnement relatif##### Flux du document et positionnement statiqueLe flux normal du document est le mode par défaut utilisé pour le positionnement. C’est celui qui s’applique à tous les éléments lorsque ceux-ci ne sont pas ni en mode float ni positionnés de façon absolue. Il s’agit alors d’un positionnement en mode statique.Dans le flux normal du document, les éléments de type block sont positionnés les uns sous les autres et leurs marges verticales fusionnent, tandis que les éléments de type inline se suivent sur la même ligne et passent à une nouvelle ligne lorsque la place manque.##### Positionnement relatifLorsqu’un élément est positionné relativement, il est initialement positionné d’après le flux du document. Les boîtes des autres éléments sont positionnées et ENSUITE, l’élément positionné relativement est déplacé selon les valeurs spécifiées par les propriétés top bottom left et right.La place originale de l’élément est préservée dans le flux du document et il existe de grandes chances que cet élément en recouvre d’autres. La propriété z-index peut être utilisée pour déterminer quel élément sera placé devant l’autre sur l’axe de profondeur. Le bloc ayant la propriété z-index la plus élevée sera affiché devant l’autre.Si l’élément positionné est un élément de type block, il crée un nouveau bloc conteneur pour les éléments qui en dépendent dans l’arbre du document. Ces éléments utiliseront maintenant le positionnement modifié de l’élément comme bloc conteneur.Si les propriétés top ou bottom sont contradictoires, la propriété top l’emporte. Si les propriétés left ou right sont contradictoires, la propriété left l’emporte dans les langages se lisant de gauche à droite et right l’emporte dans les langages se lisant de droite à gauche.*Exercice: positionnement relatif*#### Positionnement absolu et fixe##### Positionnement absolu
+Ce mode de positionnement est appliqué à tous les éléments dont la propriété position est définie comme absolute ou fixed. Si un tel élément n’existe pas, c’est l’élément racine (html) du document qui fait office de bloc conteneur.Les boîtes utilisant ce mode de positionnement sont extraites du flux du document et n’influencent plus les autres boîtes qui agissent comme si les boîtes positionnées absolument ou de manière fixe n’existaient pas. De plus, les éléments positionnés absolument se comportent toujours comme des éléments de type block.*Exercice: positionnement absolu et fixe*
 Exemple de layout: [Lost World Fair](http://lostworldsfairs.com/moon/)Ces éléments utilisent comme contexte de positionnement l’élément parent (de type block ou inline) le plus proche ayant lui-même un positionnement spécifié comme absolu, relatif ou fixe.1. Un élément positionné absolument l’est par rapport aux bordures de son bloc conteneur (le padding n’est pas pris en compte et l’élément est positionné par rapport au bord intérieur de la bordure éventuelle du bloc conteneur).2. Un élément absolument positionné devient un bloc conteneur pour les éléments qu’il contient et ceux-ci suivent les règles de positionnement normal à l’intérieur de l’élément positionné absolument.3. Les éléments absolument positionnés peuvent contenir d’autres éléments positionnés absolument, qui sont à leur tour hors du flux normal du document, ce qui a pour conséquence qu’ils peuvent apparaître hors des limites de leur parent.
-##### Le positionnement en couchesLes éléments positionnés absolument, comme ils sont hors du flux normal du document, peuvent recouvrir d’autres éléments (absolument positionnés ou non).
-Chaque élément positionné génère une couche et, au sein d’une même couche, la profondeur de chaque élément est gérée par la propriété CSS z-index. Au sein d’une même couche, les éléments ayant une valeur `z-index` élevée sont placés devant ceux ayant une valeur z-index moindre.	Exercice##### Positionnement fixePour ce cas particulier du positionnement absolu, le bloc conteneur est toujours la fenêtre du navigateur.
-Les éléments positionnés de façon fixe ne bougent pas lorsque l’utilisateur descend dans la page. A l’impression, un élément positionné de manière fixe doit s’imprimer sur chaque page.Internet Explorer ne supporte le positionnement fixe qu’à partir de la version 7.
-	Exercice
-Exemple de layout: [Web Designer Wall](http://webdesignerwall.com/)
+###### z-index et positionnement en couchesLes éléments positionnés absolument, comme ils sont hors du flux normal du document, peuvent recouvrir d’autres éléments (absolument positionnés ou non).
+Chaque élément positionné génère une couche et, au sein d’une même couche, la profondeur de chaque élément est gérée par la propriété CSS `z-index`. Au sein d’une même couche, les éléments ayant une valeur `z-index` élevée sont placés devant ceux ayant une valeur `z-index` moindre.*Exercice: propriété z-index*##### Positionnement fixePour ce cas particulier du positionnement absolu, le bloc conteneur est toujours la fenêtre du navigateur.Les éléments positionnés de façon fixe ne bougent pas lorsque l’utilisateur descend dans la page. A l’impression, un élément positionné de manière fixe doit s’imprimer sur chaque page.Internet Explorer ne supporte le positionnement fixe qu’à partir de la version 7.
+*Exercice: positionnement fixe*
+Exemples de layouts: [Web Designer Wall](http://webdesignerwall.com/), [Lost World's Fair: Atlantis](http://lostworldsfairs.com/atlantis/),[Bonzai Sky CSS Zen Garden Design by Mike Davidson](http://www.csszengarden.com/?cssfile=069/069.css)
 #### FloatsUn élément est positionné en mode float lorsque sa propriété float est spécifiée à l’aide des valeurs left ou right.
 L’élément est alors positionné verticalement comme dans le flux normal du document : le côté supérieur de l’élément est aligné sur le dessus de la zone de contenu de son élément parent. Horizontalement par contre, l’élément est placé le plus à gauche ou le plus à droite possible par rapport à la zone de contenu de l’élément parent. Le contenu de l’élément parent contourne alors l’élément en mode float par le côté opposé.Quelques règles de base :
 1. Les éléments positionnés en mode float sont toujours gérés comme des éléments de type block.2. D’après les spécifications, un élément en mode float doit toujours avoir une dimension, implicite ou explicite (nous verrons plus loin que cela n’est pas toujours vrai dans la pratique, mais c’est un bon principe de base).3. Les marges verticales d’un élément en mode float ne sont pas fusionnées avec celles des éléments placés avant ou après dans le flux du document.4. Des éléments en mode float seront placés les uns à côté des autres si la place disponible est suffisante. Si tel n’est pas le cas, le dernier élément sera placé sous les autres.
 En fonction de la quantité de contenu des divers éléments, un élément en mode float peut affecter les éléments situés après lui dans le flux du document.
-	Exercice
+*Exercice: expériementer avec float*
 ##### Contrôler le flux des floats: propriété `clear`et float containment
 La propriété CSS clear peut être utilisée pour contrôler la manière dont les éléments de type block interagissent avec les éléments en mode float. La propriété clear ne s’applique qu’aux éléments de type block. Cette propriété peut prendre les valeurs `left`, `right` et `both`.- `clear:left;`: l’élément visé ne peut se situer sur la gauche d’un élément en mode float.- `clear:right;`: l’élément visé ne peut se situer sur la droite d’un élément en mode float.- `clear:both;`: l’élément visé ne peut se situer ni sur la gauche ni sur la droite d’un élément en mode float.Par défaut, étant donné que les éléments en mode float sont hors du flux du document, leur éléments parent ne les contiennent pas. Il est possible de contraindre l’élément parent d’un élément en mode float à contenir l’ensemble de celui-ci, indépendamment du contenu de chacun d’entre eux. Eric Meyer a écrit [un article de référence décrivant précisément cet aspect des éléments en mode float](http://www.complexspiral.com/publications/containing-floats/).Cela peut être accompli à l’aide d’autres éléments situés à l’intérieur de l’élément parent de l’élément en mode float ou à l’aide de CSS lorsque le code HTML ne contient pas d’élément utilisable.###### Utilisation d’un élément du code et de la propriété `clear`Comme vu plus haut, en utilisant la propriété CSS `clear`, il est possible de forcer un élément à ne pas être côté à côte avec un élément en mode float. 
 Nous verrons par exemple qu’un pied de page peut s’avérer bien pratique pour forcer un conteneur à contenir deux colonnes en mode float (deux `<div>` par exemple).###### A l’aide des CSS uniquementIl est également possible d’utiliser uniquement les CSS afin de forcer son élément parent à contenir un élément en mode float. La solution la plus simple consiste à placer l’élément parent en mode float lui aussi, sans oublier de lui donner une dimension (width:100%; dans la plupart des cas). En effet, la spécification CSS précise qu’un élement en mode float contient toujours ses enfant floatés.**Overflow**[La propriété `overflow` peut également être utilisée pour obtenir cet effet](http://annevankesteren.nl/2005/03/clearing-floats) mais peut poser des problèmes dans certaines situations.
 ```htmldiv{	overflow:hidden;}
 ```
 
-La génération de contenu à l’aide des CSS permet également de forcer un élément parent à contenir ses éléments enfants en mode float. Cette technique est expliquée en détail [par Big John et Holly Bergevin sur leur site "Position Is Everything"](http://www.positioniseverything.net/easyclearing.html) [Une variante plus moderne reposant sur les pseudo-éléments :before et :after a été développée par Nicolas Gallagher](http://nicolasgallagher.com/micro-clearfix-hack/). Ces solutions genèrent un élement à l'aide de CSS et lui applquent un `clear:both;`, émulant ainsi la solutin vue plus haut.Il suffit de créer une classe CSS spécifique et d’y copier le code renseigné par ces auteurs pour pouvoir utiliser cette possibilité aussi souvent que nécessaire. Le code spécifique à IE6 et IE7 peut être servi uniquement à ces navigateurs à l’aide de [conditional comments](http://www.quirksmode.org/css/condcom.html) ou d’une [approche mixte crée par Paul Irish](http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/). Ils sont nécessaire en raison de la problématique de "has layout" dans IE. [A lire sur ce sujet: l’excellent article d’Ingo Chao](http://www.satzansatz.de/cssd/onhavinglayout.html).**Easy Clearing**HTML```html<!--[if lt IE 7]> <html lang="fr" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if IE 7]> <html lang="fr" class="no-js lt-ie9 lt-ie8"> <![endif]--><!--[if IE 8]> <html lang="fr" class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]><!--> <html lang="fr" class="no-js"> <!--<![endif]-->```
+La génération de contenu à l’aide des CSS permet également de forcer un élément parent à contenir ses éléments enfants en mode float. Cette technique est expliquée en détail [par Big John et Holly Bergevin sur leur site "Position Is Everything"](http://www.positioniseverything.net/easyclearing.html) [Une variante plus moderne reposant sur les pseudo-éléments :before et :after a été développée par Nicolas Gallagher](http://nicolasgallagher.com/micro-clearfix-hack/). Ces solutions genèrent un élement à l'aide de CSS et lui applquent un `clear:both;`, émulant ainsi la solutin vue plus haut.Il suffit de créer une classe CSS spécifique et d’y copier le code renseigné par ces auteurs pour pouvoir utiliser cette possibilité aussi souvent que nécessaire. Le code spécifique à IE6 et IE7 peut être servi uniquement à ces navigateurs à l’aide de [conditional comments](http://www.quirksmode.org/css/condcom.html) ou d’une [approche mixte crée par Paul Irish](http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/). Ils sont nécessaire en raison de la problématique de "has layout" dans IE. [A lire sur ce sujet: l’excellent article d’Ingo Chao](http://www.satzansatz.de/cssd/onhavinglayout.html).**Clearfix**HTML```html<!--[if lt IE 7]> <html lang="fr" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if IE 7]> <html lang="fr" class="no-js lt-ie9 lt-ie8"> <![endif]--><!--[if IE 8]> <html lang="fr" class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]><!--> <html lang="fr" class="no-js"> <!--<![endif]-->```
 CSS```css.group:before, .group:after{	content: "";	display: table;}.group:after
 {	clear: both;}.lt-ie7 .group { height: 1%; } /*IE6*/.lt-ie8 .group { min-height: 1px; } /*IE7*/```
-
-## Interfaces de navigation
-Avec l’émergence des standards du W3C et des sites construits à l’aide de HTML et CSS, la tendance est à utiliser un code sémantiquement correct. Le choix des éléments utilisés pour coder divers éléments obéit à une certaine logique : on utilise d’avantage les listes de définition, les titres et intertitres sont codés comme tels, … Logiquement parlant, la plupart des interfaces de navigation que nous rencontrons sont des listes de liens (imbriquées ou non), il est donc logique de les coder comme tels. 
-C’est devenu à ce point une habitude que certains en ont fait le sujet [d’articles](http://www.alistapart.com/articles/taminglists/) et de [tutoriaux](http://css.maxdesign.com.au/listutorial/index.htm) désormais célèbres.De simples listes non ordonnées ul peuvent facilement être mises en forme à l’aide d’un code CSS simple.### Listes verticalesQuelques règles CSS peuvent transformer une simple liste non ordonnée en barre de navigation verticale.Pour ce qui est des puces décoratives, il est préférable de ne pas utiliser les puces des listes mais d’utiliser plutôt des images de fond sur les balises de lien.```css.nav-v{
-	list-style:none;
-	margin:0;
-	padding:0;
-}.nav-v a
-{
-	display:block;
-	padding:.5em 1em;
-	background:#ccc;
-	color:#000;
-}
-
-.nav-v a:hover
-{
-	background:#000;
-	color:#fff;
-}
-```### Listes horizontales (Floated left, Floated right)
-Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre de navigation horizontale, flottée à droite ou à gauche. [Une technique développée par Douglas Bowman et connue sous le nom de "sliding doors"](http://www.alistapart.com/articles/slidingdoors/) permet d’utiliser quelques images afin de créer des effets intéressants.```css.nav-h{
-	list-style:none;
-	margin:0;
-	padding:0;
-	background:#ccc;
-	overflow:hidden; /*float containment: clearfix can also be used*/
-}.nav-v a
-{
-	float:left;
-	padding:.5em 1em;
-	background:#ccc;
-	color:#000;
-}
-
-.nav-v a:hover
-{
-	background:#000;
-	color:#fff;
-}
-```## CSS comme outil de mise en pageLes CSS peuvent être utilisées comme outils de mise en page, au travers des divers schémas de positionnement. [De nombreuses techniques existent et sont disponibles en ligne](http://css-discuss.incutio.com/?page=CssLayouts). Nous en détaillerons seulement quelques-unes unes dans la suite.### Mises en page fixesEtant donné la facilité de calcul des dimensions qu’elles offrent pour les divers éléments composant ces dernières, les mises en pages fixes sont très utilisées.Elles offrent en outre l’avantage de ne pas modifier les longueurs de lignes, ce qui permet un meilleur confort de lecture.Les modes de positionnement flottés et absolus sont tous deux utilisables. Les deux systèmes ont des avantages et des inconvénients qu’il convient de connaître avant de les utiliser.#### Positionnement absolu et marges.Ce type de mise en page offre une grande facilité d’exécution.
+*Exercice: expériementer avec float et clearing*
+## CSS comme outil de mise en pageLes CSS peuvent être utilisées comme outils de mise en page, au travers des divers schémas de positionnement. [De nombreuses techniques existent et sont disponibles en ligne](http://css-discuss.incutio.com/?page=CssLayouts). Nous en détaillerons seulement quelques-unes unes dans la suite.### Mises en page fixesEtant donné la facilité de calcul des dimensions qu’elles offrent pour les divers éléments composant ces dernières, les mises en pages fixes sont (encore) très utilisées.Elles offrent l’avantage de ne pas modifier les longueurs de lignes, ce qui permet un meilleur confort de lecture.Les modes de positionnement flottés et absolus sont tous deux utilisables. Les deux systèmes ont des avantages et des inconvénients qu’il convient de connaître avant de les utiliser.#### Positionnement absolu et marges.Ce type de mise en page offre une grande facilité d’exécution.
 La principale limitation de ce type de mise en page est l’impossibilité pour les éléments en mode statique d’influer sur le comportement des éléments absolument positionnés. Il est par exemple impossible de placer un pied de page couvrant le même espace horizontal que la somme des diverses colonnes si les longueurs ces dernières ne sont pas connues.HTML
 
 ```html<div class="wrapper">
@@ -1032,7 +1026,9 @@ CSS
 	padding:20px;
 	background:#ccc;
 }
-```#### Positionnement en mode floatCe type de mise en page est très populaire, car il permet de réaliser facilement une mise en page très courante: deux ou trois colonnes entourées d’une bannière et d’un pied de page.HTML
+```
+
+*Exercice: réaliser une mise en page fixe avec positionnement absolu / fixe et marges (2 et 3 colonnes)*#### Positionnement en mode floatCe type de mise en page est très populaire, car il permet de réaliser facilement une mise en page très courante: deux ou trois colonnes entourées d’une bannière et d’un pied de page.HTML
 
 ```html<div class="wrapper">
 	<div class="siteheader">
@@ -1082,6 +1078,7 @@ CSS
 	clear:both;
 	background:red;
 }```
+*Exercice: réaliser une mise en page fixe avec floats (2 et 3 colonnes)*
 ### Mises en page fluidesLes mises en pages fluides sont moins communes mais offrent l’avantage de s’adapter à toutes les résolutions.Le support par les prochaines versions d’Internet Explorer des propriétés max-width, min-width et max-height min-height vont sans doute les rendre plus populaires, puisque ces 
 propriétés CSS permettent de contrôler efficacement les longueurs de lignes.Les modes de positionnement flottés et absolus sont tous deux utilisables. Les deux systèmes ont des avantages et des inconvénients qu’il convient de connaître avant de les utiliser.#### Positionnement absolu et marges.Cette mise en page n’est qu’une variation sur la mise en page deux colonnes que nous avons vue précédemment. Le seul changement consiste en une spécification des dimensions des éléments à l’aide d’une unité relative (ici en %). Certaines valeurs pour margin et padding sont également spécifiées en %.HTML```html
 <div class="wrapper">
@@ -1131,7 +1128,8 @@ propriétés CSS permettent de contrôler efficacement les longueurs de lignes.
 {
 	padding:2%;
 	background:#ccc;
-}```#### Positionnement en mode floatCette mise en page n’est qu’une variation sur la mise en page deux colonnes que nous avons vue précédemment. Le seul changement consiste en une spécification des dimensions des éléments à l’aide d’une unité relative (ici en %).
+}```
+*Exercice: réaliser une mise en page fluide avec positionnement absolu et marges (2 et 3 colonnes)*#### Positionnement en mode floatCette mise en page n’est qu’une variation sur la mise en page deux colonnes que nous avons vue précédemment. Le seul changement consiste en une spécification des dimensions des éléments à l’aide d’une unité relative (ici en %).
 
 HTML
 
@@ -1193,7 +1191,8 @@ CSS
 	clear:both;
 	padding:2%;
 	background:#ccc;
-}```### Mises en page mixtes: marges négatives et floatsLes mises en pages mixtes sont des mises en page dans lesquelles un élément est de taille fixe, tandis que certains autres sont de tailles variable.Une mise en page souvent utilisée est celle reposant sur la propriété float et sur des marges négatives. Elle permet de disposer d’une colonne de largeur variable, alors que les autres sont de tailles fixes.HTML
+}```
+*Exercice: réaliser une mise en page fluide avec floats (2 et 3 colonnes)*### Mises en page mixtes: marges négatives et floatsLes mises en pages mixtes sont des mises en page dans lesquelles un élément est de taille fixe, tandis que certains autres sont de tailles variable.Une mise en page souvent utilisée est celle reposant sur la propriété float et sur des marges négatives. Elle permet de disposer d’une colonne de largeur variable, alors que les autres sont de tailles fixes.HTML
 
 ```html<div class="wrapper">
 	<div class="siteheader">
@@ -1263,8 +1262,54 @@ CSS
 	padding:2%;
 	background:#ccc;
 }
-```Il est également possible de [réaliser des mises en pages 3 colonnes à laide de cette technique](http://www.alistapart.com/articles/negativemargins/).## Quelques Techniques CSS bien utiles
-Nous avons déjà examiné quelques astuces et hacks CSS permettant de contourner les défauts de certains navigateurs. Nous allons maintenant passer en revue quelques autres techniques bien utiles.#### Une taille de texte constante à l’aide de valeurs relativesLes guidelines d’accessibilité du W3C nous demandent d’utiliser en CSS des valeurs relatives afin de spécifier la taille des polices. Cela provient du fait qu’Internet Explorer ne permet pas à l’utilisateur de modifier la taille des polices si celle-ci est spécifiée à l’aide d’unités absolues (en pixels par exemple).Consultez [les pages dédiées à cette question sur css-dicsuss](http://css-discuss.incutio.com/?page=FontSize) si vous souhaitez en savoir plus. Personnellement, ma méthode de prédilection consiste à spécifier la taille des polices en pourcentages au niveau du `body` et puis de poursuivre en spécifiant les tailles pour les éléments enfant en `em`.```cssbody{	font :normal 75%/1.5 arial, sans-serif ; /*10px comme taille de base*/}
+```Il est également possible de [réaliser des mises en pages 3 colonnes à laide de cette technique](http://www.alistapart.com/articles/negativemargins/).
+*Exercice: réaliser une mise en page mixte avec floats (2 et 3 colonnes)*
+### Nouveaux outils de layout en CSS
+Les propriétés `float` et 'clear' (ou de `inline-block`) ne sont pas des outils prévus pour réaliser des mises en page complexes. Ces solutions ont été utilisées parce que c'est tout ce que nous avions sous la main.
+Récemment, de nouveaux outils de layouts sont créés en CSS: flexbox, grid, css regions, etc. Les changements dans les spécification et le manque de support dans les navigateurs n'en font pas encore des solutions utilisables en production pour le moment.
+Nous aborderons ces outils l'année prochaine avec plus de détail. Si vous voulez un avant goût, jetez un oeil à [cette vidéo de Eric Meyer: "The Era of Intentional CSS Layout"](http://www.youtube.com/watch?v=XKpiP60HXwM) à lire également, [le compte rendu de Chris Coyier](http://css-tricks.com/w3conf-eric-meyer-the-era-of-intentional-layout/).## Quelques Techniques CSS utiles
+Nous avons déjà examiné quelques astuces et hacks CSS permettant de contourner les défauts de certains navigateurs. Nous allons maintenant passer en revue quelques autres techniques bien utiles.### Listes et interfaces de navigation
+Avec l’émergence des standards du W3C et des sites construits à l’aide de HTML et CSS, la tendance est à utiliser un code sémantiquement correct. Le choix des éléments utilisés pour coder divers éléments obéit à une certaine logique : on utilise d’avantage les listes de définition, les titres et intertitres sont codés comme tels, … Logiquement parlant, la plupart des interfaces de navigation que nous rencontrons sont des listes de liens (imbriquées ou non), il est donc logique de les coder comme tels. 
+C’est devenu à ce point une habitude que certains en ont fait le sujet [d’articles](http://www.alistapart.com/articles/taminglists/) et de [tutoriaux](http://css.maxdesign.com.au/listutorial/index.htm) désormais célèbres.De simples listes non ordonnées ul peuvent facilement être mises en forme à l’aide d’un code CSS simple.#### Listes verticalesQuelques règles CSS peuvent transformer une simple liste non ordonnée en barre de navigation verticale.Pour ce qui est des puces décoratives, il est préférable de ne pas utiliser les puces des listes mais d’utiliser plutôt des images de fond sur les balises de lien.```css.nav-v{
+	list-style:none;
+	margin:0;
+	padding:0;
+}.nav-v a
+{
+	display:block;
+	padding:.5em 1em;
+	background:#ccc;
+	color:#000;
+}
+
+.nav-v a:hover
+{
+	background:#000;
+	color:#fff;
+}
+```#### Listes horizontales (Floated left, Floated right)
+Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre de navigation horizontale, flottée à droite ou à gauche. [Une technique développée par Douglas Bowman et connue sous le nom de "sliding doors"](http://www.alistapart.com/articles/slidingdoors/) permet d’utiliser quelques images afin de créer des effets intéressants.```css.nav-h{
+	list-style:none;
+	margin:0;
+	padding:0;
+	background:#ccc;
+	overflow:hidden; /*float containment: clearfix can also be used*/
+}.nav-v a
+{
+	float:left;
+	padding:.5em 1em;
+	background:#ccc;
+	color:#000;
+}
+
+.nav-v a:hover
+{
+	background:#000;
+	color:#fff;
+}
+```
+
+*Exercice: réaliser des interfaces de navigation à partir de listes*### Une taille de texte constante à l’aide de valeurs relativesLes guidelines d’accessibilité du W3C nous demandent d’utiliser en CSS des valeurs relatives afin de spécifier la taille des polices. Cela provient du fait qu’Internet Explorer ne permet pas à l’utilisateur de modifier la taille des polices si celle-ci est spécifiée à l’aide d’unités absolues (en pixels par exemple).Consultez [les pages dédiées à cette question sur css-dicsuss](http://css-discuss.incutio.com/?page=FontSize) si vous souhaitez en savoir plus. Personnellement, ma méthode de prédilection consiste à spécifier la taille des polices en pourcentages au niveau du `body` et puis de poursuivre en spécifiant les tailles pour les éléments enfant en `em`.```cssbody{	font :normal 75%/1.5 arial, sans-serif ; /*10px comme taille de base*/}
 ```
 ou
 
@@ -1287,7 +1332,9 @@ centrer un élément de type block quel que soit le navigateur utilisé.```css
 	border:0; 
 }
 ```### Faux columnsComme nous l’avons vu dans le cadre des exemples de mises en page, il existe une astuce efficace pour donner visuellement l’impression que le fond des diverses colonnes s’étend jusqu’en bas quelle que soit la longueur des diverses colonnes.Cette astuce développée par Dan Cederholm et baptisée « faux columns » est utilisable avec des [mises en page à largeur fixes](http://www.alistapart.com/articles/fauxcolumns/) ou [variables](http://www.communitymx.com/content/article.cfm?page=1&cid=AFC58) et consiste à utiliser intelligemment une image de fond sur l’élément parent des diverses colonnes.```css.wrapper{	background:url(images/bkg_faucolumns.gif) top left repeat-y;}
-```### Solutions de remplacement par images[De nombreuses solutions ont été développées pour remplacer du texte par des images](http://css-discuss.incutio.com/?page=ImageReplacement), en partie parce que les développeurs se sentent limités par le nombre restreint de polices disponibles.Généralement, utilisera des méthodes qui cachent le texte en le plaçant sous l’image de remplacement. Ces méthodes nécessitent l’ajout d’un élément non sémantique dans le code HTML (dans ce cas-ci un <span>). L’autre problème de ces méthodes est l’impossibilité d’utiliser des images transparentes. HTML```css<h3 class="replace"><span></span>Revised Image Replacement</h3>```CSS
+```
+
+*Exercice: expérimenter avec faux columns*### Solutions de remplacement par images[De nombreuses solutions ont été développées pour remplacer du texte par des images](http://css-discuss.incutio.com/?page=ImageReplacement), en partie parce que les développeurs se sentent limités par le nombre restreint de polices disponibles.Généralement, utilisera des méthodes qui cachent le texte en le plaçant sous l’image de remplacement. Ces méthodes nécessitent l’ajout d’un élément non sémantique dans le code HTML (dans ce cas-ci un <span>). L’autre problème de ces méthodes est l’impossibilité d’utiliser des images transparentes. HTML```css<h3 class="replace"><span></span>Revised Image Replacement</h3>```CSS
 ```css.replace{	width: 329px; /*largeur image*/	height: 25px; /*hauteur image*/	position: relative; /*établi un contexte de positionnement pour le <span>*/	overflow :hidden ; /*cache le texte si il déborde*/}	.replace span{	background: url(image_opaque.gif) no-repeat;	position: absolute;	width: 100%;	height: 100%;}
 ```
 S’il faut utiliser des images transparentes, on utilisera alors une autre méthode qui cache le texte hors écran avant d’appliquer l’image.#### Phark Image Replacement
@@ -1297,11 +1344,12 @@ centrer un élément de type block quel que soit le navigateur utilisé.```css
 ```html<h3 class="imgreplace">Texte remplacé</h3>```CSS```css.imgreplace{	/* ne fonctionne que si l’élément est de type block / inline-block */	text-indent: 100%;	white-space: nowrap;	overflow: hidden;}
 ```
 Ces technique, utilisée pour des éléments importants des pages, peuvent poser des problèmes d’accessibilité dans le cas où l’utilisateur dispose du support CSS mais pas de celui des images (CSS ON / IMAGES OFF). Dans ce cas, l’utilisateur ne voit rien.Il est possible de développer des interfaces de navigation très graphiques en utilisant ces techniques. Nous pouvons par exemple reconstituer l’interface de navigation principal du site d’Apple.
-	Exercice### @font-face: Utilisation de polices non standardsAvec l’avènement de CSS3, il est désormais possible, sans faire appel à d’autre technologies, d’utiliser des polices spécifiques dans le cadre de projets Internet. [@font-face jouit d’un bon support dans la plupart des versions récentes des navigateurs](http://caniuse.com/fontface) et se dégrade élégamment dans les navigateurs plus anciens. Cette propriété permet de spécifier les polices à utiliser pour le rendu des textes et permet à l’utilisateur de les télécharger si il n’en dispose pas.CSS```css@font-face{	font-family: 'MyFontFamily';	src:url('myfont-webfont.eot?#iefix') format('embedded-opentype'), 		url('myfont-webfont.woff') format('woff'), 		url('myfont-webfont.ttf')  format('truetype'),		url('myfont-webfont.svg#svgFontName') format('svg');}
+*Exercice: réaliser une barre de navigation graphique inspirée de celle de Appleen utilisant le spriting*### @font-face: Utilisation de polices non standardsAvec l’avènement de CSS3, il est désormais possible, sans faire appel à d’autre technologies, d’utiliser des polices spécifiques dans le cadre de projets Internet. [@font-face jouit d’un bon support dans la plupart des versions récentes des navigateurs](http://caniuse.com/fontface) et se dégrade élégamment dans les navigateurs plus anciens. Cette propriété permet de spécifier les polices à utiliser pour le rendu des textes et permet à l’utilisateur de les télécharger si il n’en dispose pas.CSS```css@font-face{	font-family: 'MyFontFamily';	src:url('myfont-webfont.eot?#iefix') format('embedded-opentype'), 		url('myfont-webfont.woff') format('woff'), 		url('myfont-webfont.ttf')  format('truetype'),		url('myfont-webfont.svg#svgFontName') format('svg');}
 ```
 HTML```htmlh1{	font:normal 2em/1.1 MyFontFamily, Helvetica, Arcial, sans-serf;}```
 Les principaux problèmes liées à l’utilisation de @font-face sont de nature légale. La licence de certaines polices ne permet pas de les utiliser de cette façon car, étant disponibles sur le serveur, elles peuvent y être téléchargées par quelqu’un qui ne les a pas forcément achetées. De nombreuses polices offrent explicitement la possibilité d’une utilisation à l’aide de @font-face dans le cadre de leur licence.
-L’autre difficulté, de nature technique celle-là, est l’existence de [divers formats](http://snook.ca/archives/html_and_css/becoming-a-font-embedding-master) pour les fichiers de polices, supportés de façon diverses par les différents navigateurs. Il existe cependant des [outils de conversion](http://www.fontsquirrel.com/fontface/generator) et une [syntaxe éprouvée](http://paulirish.com/2009/bulletproof-font-face-implementation-syntax/) puis [améliorée](http://www.fontspring.com/blog/the-new-bulletproof-font-face-syntax) permettant de résoudre ces questions techniques. A signaler également, les [temps de chargement](http://www.stevesouders.com/blog/2009/10/13/font-face-and-performance/) qui, sur les sites très fréquentés, peuvent poser certains problèmes de performance.Cette technique est dores et déjà bien supportée par les divers navigateurs et constitue à ce jour notre meilleure option.Divers services tels que [Google Fonts](http://www.google.com/fonts), [Typekit](https://typekit.com/) et [Fontdeck](http://fontdeck.com/) se sont développés pour simplifier l’aspect technique et résoudre les questions légales tout en proposant un très large choix de polices. Certains de ces services sont payants, d'autres sont gratuits.### Boutons en CSS3 avec Inline-block, border radius, text-shadow & box-shadowGrâce à quelques propriétés CSS3, il est facile de créer des boutons à l’aide d’un simple 
+L’autre difficulté, de nature technique celle-là, est l’existence de [divers formats](http://snook.ca/archives/html_and_css/becoming-a-font-embedding-master) pour les fichiers de polices, supportés de façon diverses par les différents navigateurs. Il existe cependant des [outils de conversion](http://www.fontsquirrel.com/fontface/generator) et une [syntaxe éprouvée](http://paulirish.com/2009/bulletproof-font-face-implementation-syntax/) puis [améliorée](http://www.fontspring.com/blog/the-new-bulletproof-font-face-syntax) permettant de résoudre ces questions techniques. A signaler également, les [temps de chargement](http://www.stevesouders.com/blog/2009/10/13/font-face-and-performance/) qui, sur les sites très fréquentés, peuvent poser certains problèmes de performance.Cette technique est dores et déjà bien supportée par les divers navigateurs et constitue à ce jour notre meilleure option.Divers services tels que [Google Fonts](http://www.google.com/fonts), [Typekit](https://typekit.com/) et [Fontdeck](http://fontdeck.com/) se sont développés pour simplifier l’aspect technique et résoudre les questions légales tout en proposant un très large choix de polices. Certains de ces services sont payants, d'autres sont gratuits.
+*Exercice: expérimenter avec des fontes*### Boutons en CSS3 avec Inline-block, border radius, text-shadow & box-shadowGrâce à quelques propriétés CSS3, il est facile de créer des boutons à l’aide d’un simple 
 lien hypertexte.HTML```html<p><a href=”fake.html” class=”btn”>Text of my button</a></p>```
 CSS
 
