@@ -262,7 +262,7 @@ Nous ne les présenterons pas l’ensemble de ces nouveaux éléments dans le ca
 
 ##### `<nav>`
 
-Cet élément est utilisé pour marquer les interfaces de navigation du site ou de la page. Il s’agit d’une section de la page contenant les liens utilisé pour la navigation. Tous les groupes de liens ne sont pas forcément des interfaces de navigation, seuls ces derniers peuvent être marqués à l’aide de l’élément `<nav>`.
+Cet élément est utilisé pour marquer les interfaces de navigation du site ou de la page. Il s’agit d’une section de la page contenant les liens utilisés pour la navigation. Tous les groupes de liens ne sont pas forcément des interfaces de navigation, seuls ces derniers peuvent être marqués à l’aide de l’élément `<nav>`.
 
 ##### `<article>`
 
@@ -342,10 +342,11 @@ Est utilisé pour marquer des données temporelles (dates, heures etc.) de faço
 ```html
 <time datetime="2007-10-05">October 5</time>
 <p>I usually have a snack at <time>16:00</time>.</p>
-<p>posted on <time datetime="2009-04-12" pubdate="pubdate">12 April 2009</time> by Jérôme Coupé</p>
+<p>posted on <time datetime="2009-04-12">12 April 2009</time> by Jérôme Coupé</p>
 ```
 
-`<figure>` et `<figcaption>`
+##### `<figure>` et `<figcaption>`
+
 Est utilisé pour marquer du contenu qui pourrait être retiré du document sans que cela n'affecte le sens de ce dernier. Cet élément peut être utilisé pour marquer des images, des graphiques, des éléments de code qui sont mentionnés dans le document mais qui pourrait en être extraits (pour figurer dans une annexe ou en marge) sans nuire au sens de ce dernier.
 
 ```html
@@ -878,7 +879,9 @@ Les pseudo-elements `:before` et `:after` sont souvent utilisés dans les sites 
 
 ### Propriétés et valeurs
 
-Nous ne développerons pas ici toutes les propriétés CSS existantes et nous contenterons de les voir aux travers des exercices et exemples. Pour une documentation complète, se reporter au document du W3C sur le sujet: Recommandation CSS 2.1.
+Nous ne développerons pas ici toutes les propriétés CSS existantes et nous contenterons de les voir aux travers des exercices et exemples.
+
+Pour une documentation complète, voir le [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) ou [Webplateform.org](http://docs.webplatform.org/wiki/css/properties). [Le site du W3C](http://www.w3.org/Style/CSS/) fait évidemment toujours autorité.
 
 ## Le modèle de mise en forme CSS
 
