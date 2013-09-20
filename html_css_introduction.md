@@ -12,7 +12,7 @@ HTML5 est à la fois un enrichissement du "vocabulaire" du HTML, mais aussi une 
 
 Ce cours est une introduction, nous ne verrons ici que les nouveaux éléments sémantiques introduits par HTML5. Les tags `video` et `audio`, ainsi que les nouveaux champs de formulaires seront également évoqués. L'élément `canvas` et les API de drag and drop, de géolocalisation et de stockage offline ne seront pas traitées dans le cadre de ce cours. 
 
-Outre la [spécification HTML5](http://www.w3.org/TR/html5/), de nombreuses ressources telles que [webplateform.org](http://www.webplatform.org/), [HTML5 Rocks](http://www.html5rocks.com) et [Mozilla Developper Network (MDN)](https://developer.mozilla.org/) sont disponibles si ces sujets vous intéressent. Nous nous pencherons sur certains de ces sujet lors du cours de l'année prochaine.
+Outre la [spécification HTML5](http://www.w3.org/TR/html5/), de nombreuses ressources telles que [webplateform.org](http://www.webplatform.org/), [HTML5 Rocks](http://www.html5rocks.com) et [Mozilla Developer Network (MDN)](https://developer.mozilla.org/) sont disponibles si ces sujets vous intéressent. Nous nous pencherons sur certains de ces sujet lors du cours de l'année prochaine.
 
 Le livre "[HTML5 for Web Designer](http://books.alistapart.com/products/html5-for-web-designers)" par Jeremy Keith est une petite merveille de concision et est disponible en version Française. A conseiller également: "[Hardboiled Webdesign](http://hardboiledwebdesign.com/)" de Andy Clarke dont un chapitre est consacré à HTML5. La bible sur le sujet étant "[Introducing HTML5](http://introducinghtml5.com/)" par Bruce Lawson et Remy Sharp. Le WHATWG a également publié une [version de la spécification dédiée aux développeurs](http://developers.whatwg.org/).
 
@@ -149,9 +149,11 @@ Valide:
 <option value="page.html" selected="selected"></option>
 ```
 
-#### L'attribut `name` est remplacé par l'attribut `id`
+#### L'attribut `name` est remplacé par l'attribut `id` pour créer des ancres
 
-L'attribut name, utilisé en HTML pour nommer les ancres, les images ou tout autre objet dans un document Web est remplacé dans ce rôle par l'attribut id en XHTML. Le principe de nommer un objet revenant à l'identifier de manière unique, le recours à l'attribut id permet de s'assurer que la communication par le DOM avec un objet identifié ne visera qu'un seul objet.
+L'attribut `name`, utilisé en HTML pour nommer les ancres est remplacé dans ce rôle par l'attribut `id` en XHTML. Le principe de nommer un objet revenant à l'identifier de manière unique, le recours à l'attribut `id` permet de s'assurer que la communication par le DOM avec un objet identifié ne visera qu'un seul objet.
+
+L'attribut `name` reste utilisé dans d'autres contextes que les ancres, comme par exemple pour nommer les champs de formulaires.
 
 Invalide:
 
@@ -215,7 +217,7 @@ Les éléments composant un document HTML sont structurés de façon hiérarchis
 </html>
 ```
 
-Cette forme d’arbre et d’emboîtement hiérarchisé est parfaitement visible dans des outils tels que [Firebug](https://addons.mozilla.org/en-US/firefox/addon/firebug/) ou [la barre d’outils développeurs de firefox](https://addons.mozilla.org/en-US/firefox/addon/web-developer/) ou encore dans les developper tools disponibles dans tous les navigateurs modernes (Chrome, Safari, Firefox, Opera)
+Cette forme d’arbre et d’emboîtement hiérarchisé est parfaitement visible dans des outils tels que [Firebug](https://addons.mozilla.org/en-US/firefox/addon/firebug/) ou [la barre d’outils développeurs de firefox](https://addons.mozilla.org/en-US/firefox/addon/web-developer/) ou encore dans les developer tools disponibles dans tous les navigateurs modernes (Chrome, Safari, Firefox, Opera)
 
 Familiarisez-vous avec ces outils, vous en aurez besoin lors de ce cours et durant toute votre carrière de développeur front-end.
 
@@ -232,7 +234,7 @@ article, aside, details, figcaption, figure, footer, header, main, nav, section,
 
 La version 9 d’Internet explorer gère les éléments HTML5 mais une étape supplémentaire est nécessaire pour les versions plus anciennes d'Internet Explorer. Ce navigateur gère les éléments inconnus du DOM différemment des autres, il lui faut un petit peu de Javascript pour qu'il se comporte comme les autres navigateurs.
 
-Ce JS ne fait que créer ces nouveaux éléments dans le DOM à l'intention de IE, il suffit donc de le servir via l'utilisation de conditional comments et le tour est joué (du moins pour les utilisateur de IE disposant du JavaScript activé). [Une version compacte de ce script de Remy Sharp est disponible en ligne](http://code.google.com/p/html5shiv/). Ce HTML5 shiv est également inclus dans [Modernizr](http://www.modernizr.com) bien que la version include dans Modernizr 3.6.2 ne créée pas l’élément main.
+Ce JS ne fait que créer ces nouveaux éléments dans le DOM à l'intention de IE, il suffit donc de le servir via l'utilisation de conditional comments et le tour est joué (du moins pour les utilisateur de IE disposant du JavaScript activé). [Une version compacte de ce script de Remy Sharp est disponible en ligne](http://code.google.com/p/html5shiv/). Vous pouvez le télécharger ou lier vers une version hébergée sur google code.
 
 ```html
 <!DOCTYPE html>
@@ -248,6 +250,8 @@ Ce JS ne fait que créer ces nouveaux éléments dans le DOM à l'intention de I
 </html>
 ```
 
+Ce HTML5 shiv est également inclus dans [Modernizr](http://www.modernizr.com). Attention cependant, [la version du shiv incluse dans Modernizr 3.6.2 ne générère pas l’élément `<main>`](http://drublic.de/blog/add-main-element-modernizr/). [La version 3 de Modernizr incluera la dernière version du shiv](https://github.com/Modernizr/Modernizr/pull/837) et permettra également de gérer `<main>` dans les versions de IE < 9. 
+
 Il est important de noter que ces scripts créent de facto une dépendance à Javascript pour les utilisateurs de Internat Explorer < 9.
 
 *Exercice: créer un starter kit en HTML5*
@@ -256,7 +260,7 @@ Il est important de noter que ces scripts créent de facto une dépendance à Ja
 
 L’une des pricipale nouveauté de HTML5, c’est l’introduction de nouveaux éléments sémantiques permettant une qualification plus précise des divers éléments de votre document. Certains comme Luke Stevens [arguent que l'utilisation de de ces éléments est problématique pour diverses raisons](http://www.truthabouthtml5.com/). A vous de voir.
 
-Nous ne les présenterons pas l’ensemble de ces nouveaux éléments dans le cadre de ce cours mais nous vous présenterons les principaux. L'ensemble de ces nouveaux éléments et des renseignements sur leurs usages sont disponibles sur le site du W3C ou dans le glossaire rédigé pour vous par l'équipe de HTML5 Doctor.
+Nous ne présenterons pas l’ensemble de ces nouveaux éléments dans le cadre de ce cours mais nous vous présenterons les principaux. L'ensemble de ces nouveaux éléments et des renseignements sur leurs usages sont disponibles sur le site du W3C ou dans [le glossaire rédigé pour vous par l'équipe de HTML5 Doctor](http://html5doctor.com/element-index/).
 
 #### Nouveaux élements
 
@@ -421,7 +425,7 @@ Des librairies JavaScript comme mediaelement.js sont également une option inté
 
 ##### Figure et figcaption
 
-Les élément figure et figcaption servent à grouper images et légendes dans vos docuents HTML5.
+Les élément figure et figcaption servent à grouper images et légendes dans vos documents HTML5.
 
 ```html
 <figure>
