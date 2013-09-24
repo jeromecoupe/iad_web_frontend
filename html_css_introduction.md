@@ -836,7 +836,7 @@ p em:first-child
 ```
 
 ```css
-p em:first-child 
+p em:last-child 
 {
 	font-weight:bold;
 }
