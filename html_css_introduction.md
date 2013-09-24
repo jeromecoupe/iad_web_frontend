@@ -848,7 +848,7 @@ p em:last-child
 li:lang(fr) {color:red ;}
 ```
 
-Les pseudo-classes appliquées aux liens fonctionnent bien dans l’ensemble des navigateurs modernes. IE 5, 5.5 et 6 ne supportent pas les pseudo-classes appliquées à autre chose que les liens et ne supportent pas les pseudo-classes lang et `:first-child`. IE7 supporte les pseudo-classes appliquées a d’autres éléments que les liens et supporte également :fist-child. :lang n’est pas supporté. IE8 supporte l’ensemble des pseudo-classes de CSS 2.1
+Les pseudo-classes appliquées aux liens fonctionnent bien dans l’ensemble des navigateurs modernes. IE7 ne supporte pas la pseudo classe :lang. IE8+ supporte l’ensemble des pseudo-classes de CSS 2.1
 
 #### Pseudo-éléments
 
