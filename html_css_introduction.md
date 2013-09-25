@@ -252,7 +252,7 @@ Ce JS ne fait que créer ces nouveaux éléments dans le DOM à l'intention de I
 
 Ce HTML5 shiv est également inclus dans [Modernizr](http://www.modernizr.com). Attention cependant, [la version du shiv incluse dans Modernizr 3.6.2 ne générère pas l’élément `<main>`](http://drublic.de/blog/add-main-element-modernizr/). [La version 3 de Modernizr incluera la dernière version du shiv](https://github.com/Modernizr/Modernizr/pull/837) et permettra également de gérer `<main>` dans les versions de IE < 9. 
 
-Il est important de noter que ces scripts créent de facto une dépendance à Javascript pour les utilisateurs de Internat Explorer < 9.
+Il est important de noter que ces scripts créent de facto une dépendance à Javascript pour les utilisateurs de Internet Explorer < 9.
 
 *Exercice: créer un starter kit en HTML5*
 
@@ -947,13 +947,14 @@ Les valeurs liées aux tableaux : `inline-table`,`table`,`table-caption`,`table
 
 - Deux paragraphes se suivant et ayant respectivement une marge inférieure de 10px et une marge supérieure de 15px seront séparés par 15px.
 - Deux paragraphes se suivant et ayant respectivement une marge inférieure de -10px et une marge supérieure de 30px seront séparés par 20px.
- -Deux paragraphes se suivant et ayant respectivement une marge inférieure de -10px et une marge supérieure de -15px seront séparés par -15px.#### Elements adjascentsLes marges des blocs flottants et de tout autre bloc ne fusionnent jamais, comme les marges entre des blocs absolument et relativement positionnés;Les marges entre des boîtes ne fusionnent pas si l'une des boite est en display:inline-block;La marge supérieure d'un élément auquel la propriété `clear` est appliquée et placé après un ou plusieurs élément floatés ne sera pas visible sauf si elle excède la hauteur du/des blocs floatés.
+ -Deux paragraphes se suivant et ayant respectivement une marge inférieure de -10px et une marge supérieure de -15px seront séparés par -15px.#### Elements adjascents- Les marges des blocs flottants et de tout autre bloc ne fusionnent jamais, comme les marges entre des blocs absolument et relativement positionnés;- Les marges entre des boîtes ne fusionnent pas si l'une des boite est en display:inline-block;- La marge supérieure d'un élément auquel la propriété `clear` est appliquée et placé après un ou plusieurs élément floatés ne sera pas visible sauf si elle excède la hauteur du/des blocs floatés.
 
 #### Parent et premier/dernier enfant
 
-Les marges entre un parent et son premier/dernier enfant ne fusionnent pas si le parrent possède une `border`, un `padding`, une `height` ou une `min-height`. spécifiée.
+- Les marges entre un parent et son premier/dernier enfant ne fusionnent pas si le parrent possède une `border`, un `padding`, une `height` ou une `min-height`. spécifiée.
+- Les marges entre un parent et ses enfants ne fusionnent pas si le parent possède une propriété overflow avec une valeur autre que visible.
 
-Les marges entre un parent et ses enfants ne fusionnent pas si le parent possède une propriété overflow avec une valeur autre que visible. Pour en savoir plus concernant la fusion des marges, lire les excellents articles de [Andy Budd](http://www.andybudd.com/archives/2003/11/no_margin_for_error/) et [Eric Meyer](http://www.complexspiral.com/publications/uncollapsing-margins/).
+Pour en savoir plus concernant la fusion des marges, lire les excellents articles de [Andy Budd](http://www.andybudd.com/archives/2003/11/no_margin_for_error/) et [Eric Meyer](http://www.complexspiral.com/publications/uncollapsing-margins/).
 
 *Exercice sur la fusion des marges*
 
