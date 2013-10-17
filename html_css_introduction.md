@@ -1386,6 +1386,36 @@ Il est possible de spécifier des valeurs différentes pour chacun des coins
 
 [Comme le montre Lea Verou](http://lea.verou.me/humble-border-radius/), il ya beaucoup de choses à dire à propos de la propriété `border-radius`.
 
+### Images fluides avec Max-width:100%
+
+Lorsqu'on réalise des layout fluides, il est important que les image set autres medias le soient eux aussi. En d'autres mot il faut que les média fassent au maximum 100% de la largeur de leurs parents (dont la largeur est spécifée en pourcentages).
+
+Il suffit donc dans voytre HTML de ne pas spécifier les dimensions de vos media et d'utiliser la règle CSS suivante:
+
+```css
+img, video
+{
+	max-width:100%;
+}
+```
+
+Comme vous aurez sans doute besoin de media fluides et de media fixes, il est avantageux d'utiliser une classe pour vos media fluides.
+
+HTML
+
+```html
+<img src="myimage.jpg" class="fluidmedia" alt="my fluid image" />
+```
+
+CSS
+
+```css
+.fluidmedia
+{
+	max-width:100%;
+}
+```
+
 ## Debugging
 
 ### Dans le doute … validezLorsque vous “débuguez”, vous pouvez éviter bien des problèmes en validant tout d’abord votre code. Du code HTML ou CSS incorrect peut créer des problèmes de mise en page.Élaborez et testez vos CSS dans les navigateurs les plus avancés avant des les tester dans d’autres, mais pas après.Si vous développez un site dans un navigateur approximatif, votre code repose sur l’approximation de ce navigateur. Vous seriez alors frustré en le testant dans un navigateur plus proche des standards, le rendu affiché apparaissant « incorrect ».Commencez plutôt par produire un code répondant à vos attentes avec un navigateur dont le rendu est conforme aux standards et ajustez pour les navigateurs moins capables. Le travail d’ajustement sera moindre, plus logique et vous serez certain que votre site se comportera bien dans les futurs navigateurs. Aujourd’hui cela signifie, développer pour Mozilla, Safari ou Opera et corriger pour Internet Explorer.### Votre mise en page repose sur des “floats” ? Assurez vous que leur flux soit contrôlé efficacement par la propriété clear.
