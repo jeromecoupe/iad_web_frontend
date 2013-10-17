@@ -1388,9 +1388,9 @@ Il est possible de spécifier des valeurs différentes pour chacun des coins
 
 ### Images fluides avec Max-width:100%
 
-Lorsqu'on réalise des layout fluides, il est important que les image set autres medias le soient eux aussi. En d'autres mot il faut que les média fassent au maximum 100% de la largeur de leurs parents (dont la largeur est spécifée en pourcentages).
+Lorsqu'on réalise des layout fluides, il est important que les images et autres medias le soient eux aussi. En d'autres mots il faut que les média fassent au maximum 100% de la largeur de leurs parents (dont la largeur est spécifée en pourcentages).
 
-Il suffit donc dans voytre HTML de ne pas spécifier les dimensions de vos media et d'utiliser la règle CSS suivante:
+Il suffit donc dans votre HTML de ne pas spécifier les dimensions de vos media et d'utiliser la règle CSS suivante:
 
 ```css
 img, video
