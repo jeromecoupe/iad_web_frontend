@@ -976,7 +976,7 @@ Pour en savoir plus concernant la fusion des marges, lire les excellents article
 La propriété CSS clear peut être utilisée pour contrôler la manière dont les éléments de type block interagissent avec les éléments en mode float. La propriété clear ne s’applique qu’aux éléments de type block. Cette propriété peut prendre les valeurs `left`, `right` et `both`.- `clear:left;`: l’élément visé ne peut se situer sur la gauche d’un élément en mode float.- `clear:right;`: l’élément visé ne peut se situer sur la droite d’un élément en mode float.- `clear:both;`: l’élément visé ne peut se situer ni sur la gauche ni sur la droite d’un élément en mode float.Par défaut, étant donné que les éléments en mode float sont hors du flux du document, leur éléments parent ne les contiennent pas. Il est possible de contraindre l’élément parent d’un élément en mode float à contenir l’ensemble de celui-ci, indépendamment du contenu de chacun d’entre eux. Eric Meyer a écrit [un article de référence décrivant précisément cet aspect des éléments en mode float](http://www.complexspiral.com/publications/containing-floats/).Cela peut être accompli à l’aide d’autres éléments situés à l’intérieur de l’élément parent de l’élément en mode float ou à l’aide de CSS lorsque le code HTML ne contient pas d’élément utilisable.###### Utilisation d’un élément du code et de la propriété `clear`Comme vu plus haut, en utilisant la propriété CSS `clear`, il est possible de forcer un élément à ne pas être côté à côte avec un élément en mode float. 
 Nous verrons par exemple qu’un pied de page peut s’avérer bien pratique pour forcer un conteneur à contenir deux colonnes en mode float (deux `<div>` par exemple).###### A l’aide des CSS uniquementIl est également possible d’utiliser uniquement les CSS afin de forcer son élément parent à contenir un élément en mode float.
 
-***Float parent***La solution la plus simple consiste à placer l’élément parent en mode float lui aussi, sans oublier de lui donner une dimension (width:100%; dans la plupart des cas). En effet, la spécification CSS précise qu’un élement en mode float contient toujours ses enfant floatés.**Overflow**[La propriété `overflow` peut également être utilisée pour obtenir cet effet](http://annevankesteren.nl/2005/03/clearing-floats) mais peut poser des problèmes dans certaines situations.
+**Float parent**La solution la plus simple consiste à placer l’élément parent en mode float lui aussi, sans oublier de lui donner une dimension (width:100%; dans la plupart des cas). En effet, la spécification CSS précise qu’un élement en mode float contient toujours ses enfant floatés.**Overflow**[La propriété `overflow` peut également être utilisée pour obtenir cet effet](http://annevankesteren.nl/2005/03/clearing-floats) mais peut poser des problèmes dans certaines situations.
 ```htmldiv{	overflow:hidden;}
 ```
 
@@ -1275,7 +1275,7 @@ CSS
 ```Il est également possible de [réaliser des mises en pages 3 colonnes à laide de cette technique](http://www.alistapart.com/articles/negativemargins/).
 *Exercice: réaliser une mise en page mixte avec floats (2 et 3 colonnes)*
 ### Nouveaux outils de layout en CSS
-Les propriétés `float` et 'clear' (ou de `inline-block`) ne sont pas des outils prévus pour réaliser des mises en page complexes. Ces solutions ont été utilisées parce que c'est tout ce que nous avions sous la main.
+Les propriétés `float` et 'clear' (ou `inline-block`) ne sont pas des outils prévus pour réaliser des mises en page complexes. Ces solutions ont été utilisées parce que c'est tout ce que nous avions sous la main.
 Récemment, de nouveaux outils de layouts sont créés en CSS: flexbox, grid, css regions, etc. Les changements dans les spécification et le manque de support dans les navigateurs n'en font pas encore des solutions utilisables en production pour le moment.
 Nous aborderons ces outils l'année prochaine avec plus de détail. Si vous voulez un avant goût, jetez un oeil à [cette vidéo de Eric Meyer: "The Era of Intentional CSS Layout"](http://www.youtube.com/watch?v=XKpiP60HXwM) à lire également, [le compte rendu de Chris Coyier](http://css-tricks.com/w3conf-eric-meyer-the-era-of-intentional-layout/).## Quelques Techniques CSS utiles
 Nous avons déjà examiné quelques astuces et hacks CSS permettant de contourner les défauts de certains navigateurs. Nous allons maintenant passer en revue quelques autres techniques bien utiles.### Listes et interfaces de navigation
@@ -1388,7 +1388,7 @@ Il est possible de spécifier des valeurs différentes pour chacun des coins
 
 [Comme le montre Lea Verou](http://lea.verou.me/humble-border-radius/), il ya beaucoup de choses à dire à propos de la propriété `border-radius`.
 
-### Images fluides avec Max-width:100%
+### Images fluides avec max-width:100%;
 
 Lorsqu'on réalise des layout fluides, il est important que les images et autres medias le soient eux aussi. En d'autres mots il faut que les média fassent au maximum 100% de la largeur de leurs parents (dont la largeur est spécifée en pourcentages).
 
