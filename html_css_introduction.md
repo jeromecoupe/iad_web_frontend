@@ -1304,7 +1304,7 @@ CSS
 	padding:0;
 	background:#ccc;
 	overflow:hidden; /*float containment: clearfix can also be used*/
-}.nav-v a
+}.nav-h a
 {
 	float:left;
 	padding:.5em 1em;
@@ -1312,7 +1312,7 @@ CSS
 	color:#000;
 }
 
-.nav-v a:hover
+.nav-h a:hover
 {
 	background:#000;
 	color:#fff;
@@ -1341,7 +1341,7 @@ centrer un élément de type block quel que soit le navigateur utilisé.```css
 	padding:0;
 	border:0; 
 }
-```### Faux columnsComme nous l’avons vu dans le cadre des exemples de mises en page, il existe une astuce efficace pour donner visuellement l’impression que le fond des diverses colonnes s’étend jusqu’en bas quelle que soit la longueur des diverses colonnes.Cette astuce développée par Dan Cederholm et baptisée « faux columns » est utilisable avec des [mises en page à largeur fixes](http://www.alistapart.com/articles/fauxcolumns/) ou [variables](http://www.communitymx.com/content/article.cfm?page=1&cid=AFC58) et consiste à utiliser intelligemment une image de fond sur l’élément parent des diverses colonnes.```css.wrapper{	background:url(images/bkg_faucolumns.gif) top left repeat-y;}
+```### Faux columnsComme nous l’avons vu dans le cadre des exemples de mises en page, il existe une astuce efficace pour donner visuellement l’impression que le fond des diverses colonnes s’étend jusqu’en bas quelle que soit la longueur des diverses colonnes.Cette astuce développée par Dan Cederholm et baptisée "faux columns" est utilisable avec des [mises en page à largeur fixes](http://www.alistapart.com/articles/fauxcolumns/) ou [variables](http://www.communitymx.com/content/article.cfm?page=1&cid=AFC58) et consiste à utiliser intelligemment une image de fond sur l’élément parent des diverses colonnes.```css.wrapper{	background:url(images/bkg_faucolumns.gif) top left repeat-y;}
 ```
 
 *Exercice: expérimenter avec faux columns*### Solutions de remplacement par images[De nombreuses solutions ont été développées pour remplacer du texte par des images](http://css-discuss.incutio.com/?page=ImageReplacement), en partie parce que les développeurs se sentent limités par le nombre restreint de polices disponibles.Généralement, utilisera des méthodes qui cachent le texte en le plaçant sous l’image de remplacement. Ces méthodes nécessitent l’ajout d’un élément non sémantique dans le code HTML (dans ce cas-ci un <span>). L’autre problème de ces méthodes est l’impossibilité d’utiliser des images transparentes. 
@@ -1422,7 +1422,7 @@ CSS
 
 ### Dans le doute … validezLorsque vous “débuguez”, vous pouvez éviter bien des problèmes en validant tout d’abord votre code. Du code HTML ou CSS incorrect peut créer des problèmes de mise en page.Élaborez et testez vos CSS dans les navigateurs les plus avancés avant des les tester dans d’autres, mais pas après.Si vous développez un site dans un navigateur approximatif, votre code repose sur l’approximation de ce navigateur. Vous seriez alors frustré en le testant dans un navigateur plus proche des standards, le rendu affiché apparaissant « incorrect ».Commencez plutôt par produire un code répondant à vos attentes avec un navigateur dont le rendu est conforme aux standards et ajustez pour les navigateurs moins capables. Le travail d’ajustement sera moindre, plus logique et vous serez certain que votre site se comportera bien dans les futurs navigateurs. Aujourd’hui cela signifie, développer pour Mozilla, Safari ou Opera et corriger pour Internet Explorer.### Votre mise en page repose sur des “floats” ? Assurez vous que leur flux soit contrôlé efficacement par la propriété clear.
 Les floats sont facétieux, et ne font pas toujours ce que vous en attendez. Si vous êtes dans une situation ou un float sort de son contenant ou ne semble pas se comporter comme bon vous semble, assurez-vous que ce que vous souhaitez est correct.
-Passez voir [l’article d’Eric Meyer](http://www.complexspiral.com/publications/containing-floats/) à ce sujet. Si des comportements étranges persistent, poursuivez votre recherche avec [les ressources mises à votre disposition par John Gallant et Holly Bergevin](http://www.positioniseverything.net/).
+Allez voir [l’article d’Eric Meyer](http://www.complexspiral.com/publications/containing-floats/) à ce sujet. Si des comportements étranges persistent, poursuivez votre recherche avec [les ressources mises à votre disposition par John Gallant et Holly Bergevin](http://www.positioniseverything.net/).
 ### Vos marges fusionnent ?(“Margins collapse”); utilisez les propriétés padding ou border pour éviter cela.Vous pouvez vous retrouver avec des espaces là où vous n'en vouliez aucun ou aucun espace là où vous en souhaitiez. Si vous utilisez la propriété margin pour espacer vos éléments, le phénomène de fusion des marges (“margin collapsing”) est probablement le coupable. [Andy Budd vous explique tout ce qu’il faut savoir au sujet de la fusion des marges dans son article "no margin for error"](http://andybudd.com/archives/2003/11/no_margin_for_error/).
 ### En cas de doute, diminuez vos dimensions.Parfois, des erreurs d’arrondis dans certains navigateurs font que 50% + 50% donne plus que 100%, ce qui peut mener à des erreurs de rendu. Essayez de transformer 50% en 49% ou même 49.9%.
 Assurez-vous que les navigateurs ciblés supportent les propriétés utiliséesLorsque vous rencontrez des problèmes dans l’un ou l’autre navigateurs, assurez-vous que ce dernier supporte les propriétés utilisées. Il existe de nombreuses ressources en ligne, comme [les tables de Peter Paul Kosh sur quirksmode.org](http://www.quirksmode.org/compatibility.html) ou encore le site [caniuse.com](http://caniuse.com/).### Utilisez les commentaires pour activer ou désactiver de larges parties de vos codes CSS ou HTML afin d’isoler un problème.Ce conseil est particulièrement utile lorsque vous travaillez sur des fichiers CSS et HTML de taille importante et avec lesquels vous n’êtes pas familier. Plus un problème est bien circonscrit, plus il devient facile à décrire et à résoudre.```css/* Ceci est un commentaire CSS */``````html<!-- Ceci est un commentaires HTML -->
@@ -1441,6 +1441,7 @@ CSS
 
 - [A beginner's guide to HTML & CSS](http://learn.shayhowe.com/html-css/) par Shay Howe: un bon résumé des bases en HTML et CSS
 - [Highly Maintainable, Efficient, and Optimized CSS](http://zomigi.com/blog/maintainable-efficient-css/) par Zoe Mickley Gillenwater: quelques bonnes informations sur les "best practises" en matière de CSS.
+- [CSS Guidelines](https://github.com/csswizardry/CSS-Guidelines) par Harry Roberts: principes d'organisation et techniques pour écrire et maintenir des CSS maintenables, lisibles pour des projets de toutes tailles.
 - [caniuse.com](http://caniuse.com): tables de support navigateurs pour HTML5 et CSS3
 - [html5please](http://html5please.com): conseils d’utilisation pour HTML5 et CSS3. Polyfill javascript renseignés.
 - [Mozilla Developer Network](https://developer.mozilla.org/): une bonne référence exhausitive sur les technologies du web (HTML/CSS/JS) [disponible en Français également](https://developer.mozilla.org/fr/).
