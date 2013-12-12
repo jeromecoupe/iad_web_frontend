@@ -1,5 +1,7 @@
 # Cours IAD: Introduction à HTML / CSS
 
-Les syllabi des cours donnés par Jérôme Coupé à l'IAD. Ils sont mis à jour en continu.
+Introduction à HTML/CSS. Création et mise en page de sites simples.
 
-Les cours encore au format .pdf seront mis en ligne petit à petit sur Github
+Syllabus du cours donné à l'Institut des Arts de Diffusion par Jérôme Coupé.
+
+Licence: [Creative Commons Attribution 4.0 International license](http://creativecommons.org/licenses/by/4.0/)
