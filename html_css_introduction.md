@@ -250,7 +250,7 @@ Ce JS ne fait que créer ces nouveaux éléments dans le DOM à l'intention de I
 </html>
 ```
 
-Ce HTML5 shiv est également inclus dans [Modernizr](http://www.modernizr.com). Attention cependant, [la version du shiv incluse dans Modernizr 3.6.2 ne générère pas l’élément `<main>`](http://drublic.de/blog/add-main-element-modernizr/). [La version 3 de Modernizr incluera la dernière version du shiv](https://github.com/Modernizr/Modernizr/pull/837) et permettra également de gérer `<main>` dans les versions de IE < 9. 
+Ce HTML5 shiv peut également être inclus dans la lirairie de feature detection [Modernizr](http://www.modernizr.com). 
 
 Il est important de noter que ces scripts créent de facto une dépendance à Javascript pour les utilisateurs de Internet Explorer < 9.
 
@@ -416,13 +416,14 @@ Des librairies JavaScript comme mediaelement.js sont également une option inté
 
 ##### Audio
 
-- Le format open source .ogg (Codec: Vorbis) est supporté par Firefox 3.5, Chrome 3
-- Le format .mp3 est supporté par Safari 4
-- Le format .wav est supporté par Firefox 3.5, Chrome 3, Opera 10 et Safari 4
+- Le format open source .ogg (Codec: Vorbis) est supporté par Firefox 3.6+, Chrome 6 et Opera 10.5+
+- Le format .mp3 est supporté par Safari 5+, chrome 6 et Internet Explorer 9
+- Le format .wav est supporté par Firefox 3.6+, Safari 5+, Opera 10.5+ et Internet Explorer 9
 
 ```html
 <audio controls="controls">	<source src="elvis.ogg" />	<source src="elvis.mp3" />	<p><strong>Your browser does not support the HTML5 audio tag but you can download the file either in <a href="elvis.ogg">OGG format</a> or in <a href="elvis.mp3">MP3 format</a></strong></p></audio>```
 
+Voir à ce sujet [l'article très complet sur HTML5 Doctor](http://html5doctor.com/native-audio-in-the-browser/).
 ##### Figure et figcaption
 
 Les élément figure et figcaption servent à grouper images et légendes dans vos documents HTML5.
