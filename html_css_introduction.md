@@ -1421,24 +1421,70 @@ CSS
 }
 ```
 
-## Debugging
+### Grilles et inline-block
 
-### Dans le doute … validezLorsque vous “débuguez”, vous pouvez éviter bien des problèmes en validant tout d’abord votre code. Du code HTML ou CSS incorrect peut créer des problèmes de mise en page.Élaborez et testez vos CSS dans les navigateurs les plus avancés avant des les tester dans d’autres, mais pas après.Si vous développez un site dans un navigateur approximatif, votre code repose sur l’approximation de ce navigateur. Vous seriez alors frustré en le testant dans un navigateur plus proche des standards, le rendu affiché apparaissant « incorrect ».Commencez plutôt par produire un code répondant à vos attentes avec un navigateur dont le rendu est conforme aux standards et ajustez pour les navigateurs moins capables. Le travail d’ajustement sera moindre, plus logique et vous serez certain que votre site se comportera bien dans les futurs navigateurs. Aujourd’hui cela signifie, développer pour Mozilla, Safari ou Opera et corriger pour Internet Explorer.### Votre mise en page repose sur des “floats” ? Assurez vous que leur flux soit contrôlé efficacement par la propriété clear.
-Les floats sont facétieux, et ne font pas toujours ce que vous en attendez. Si vous êtes dans une situation ou un float sort de son contenant ou ne semble pas se comporter comme bon vous semble, assurez-vous que ce que vous souhaitez est correct.
-Allez voir [l’article d’Eric Meyer](http://www.complexspiral.com/publications/containing-floats/) à ce sujet. Si des comportements étranges persistent, poursuivez votre recherche avec [les ressources mises à votre disposition par John Gallant et Holly Bergevin](http://www.positioniseverything.net/).
-### Vos marges fusionnent ?(“Margins collapse”); utilisez les propriétés padding ou border pour éviter cela.Vous pouvez vous retrouver avec des espaces là où vous n'en vouliez aucun ou aucun espace là où vous en souhaitiez. Si vous utilisez la propriété margin pour espacer vos éléments, le phénomène de fusion des marges (“margin collapsing”) est probablement le coupable. [Andy Budd vous explique tout ce qu’il faut savoir au sujet de la fusion des marges dans son article "no margin for error"](http://andybudd.com/archives/2003/11/no_margin_for_error/).
-### En cas de doute, diminuez vos dimensions.Parfois, des erreurs d’arrondis dans certains navigateurs font que 50% + 50% donne plus que 100%, ce qui peut mener à des erreurs de rendu. Essayez de transformer 50% en 49% ou même 49.9%.
-Assurez-vous que les navigateurs ciblés supportent les propriétés utiliséesLorsque vous rencontrez des problèmes dans l’un ou l’autre navigateurs, assurez-vous que ce dernier supporte les propriétés utilisées. Il existe de nombreuses ressources en ligne, comme [les tables de Peter Paul Kosh sur quirksmode.org](http://www.quirksmode.org/compatibility.html) ou encore le site [caniuse.com](http://caniuse.com/).### Utilisez les commentaires pour activer ou désactiver de larges parties de vos codes CSS ou HTML afin d’isoler un problème.Ce conseil est particulièrement utile lorsque vous travaillez sur des fichiers CSS et HTML de taille importante et avec lesquels vous n’êtes pas familier. Plus un problème est bien circonscrit, plus il devient facile à décrire et à résoudre.```css/* Ceci est un commentaire CSS */``````html<!-- Ceci est un commentaires HTML -->
+Lorsque vous souhaitez créer une grille d'éléments dont certains peuvent avoir des longueurs et hauteurs variables, vous aurez des problèmes causés par le comportement naturel des floats.
+
+Exemple: une liste de produits et de descriptions de produits dans un site de e-commerce, une série de travaux dans un portfolio.
+
+Dans ce cas, on peut utiliser une méthode en inline-block:
+
+```html
+<ul class="gridlist">
+	<li>
+		<h2>This is a title and it can be long</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, quis, ullam repellendus ea repudiandae rerum eligendi aspernatur laudantium delectus possimus reiciendis sapiente nulla autem beatae ipsam ut eius modi ea repudiandae rerum eligendi aspernatur laudantium delectus possimus reiciendis sapiente nulla autem beatae ipsam ut eius modi ea repudiandae rerum eligendi aspernatur laudantium delectus possimus reiciendis sapiente nulla autem beatae ipsam ut eius modi ea repudiandae rerum eligendi aspernatur laudantium delectus possimus reiciendis sapiente nulla autem beatae ipsam ut eius modi neque.</p>
+	</li><!--
+ --><li>
+		<h2>This is a title and it can be long</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, quis, ullam repellendus ea repudiandae rerum eligendi aspernatur laudantium delectus possimus reiciendis sapiente nulla autem beatae ipsam ut eius modi neque.</p>
+	</li><!--
+ --><li>
+		<h2>This is a title and it can be long</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, quis, ullam repellendus ea repudiandae rerum eligendi aspernatur laudantium delectus possimus reiciendis sapiente nulla autem beatae ipsam ut eius modi neque.</p>
+	</li><!--
+ --><li>
+		<h2>This is a title and it can be long</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, quis, ullam repellendus ea repudiandae rerum eligendi aspernatur laudantium delectus possimus reiciendis sapiente nulla autem beatae ipsam ut eius modi neque.</p>
+	</li><!--
+ --><li>
+		<h2>This is a title and it can be long</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, quis, ullam repellendus ea repudiandae rerum eligendi aspernatur laudantium delectus possimus reiciendis sapiente nulla autem beatae ipsam ut eius modi neque.</p>
+	</li><!--
+ --><li>
+		<h2>This is a title and it can be long</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, quis, ullam repellendus ea repudiandae rerum eligendi aspernatur laudantium delectus possimus reiciendis sapiente nulla autem beatae ipsam ut eius modi neque.</p>
+	</li>
+</ul>
 ```
-### Attention à l’ordre des pseudo-classes appliquées aux liens.
-Pour spécifier vos pseudo-classes de liens (:hover, etc.), utilisez l’ordre suivant: link, visited, hover, active (L’expression mnémotechnique «LoVe Hate» vous permettra de vous souvenir de cet ordre). Aucun autre ordre ne fonctionnera correctement. Si vous souhaitez aussi utiliser :focus, il vous faut modifier l’ordre ainsi: LVHFA.
-### Spécifiez vos valeurs dans l’ordre top right bottom left lorsque vous utilisez des propriétés raccourcies vous évitera bien des TRouBLes
-Les valeurs des propriétés raccourcies border, `margin` et `padding` internes doivent être spécifiées dans l’ordre des aiguilles d’une montre : top, right, bottom, left. Ainsi margin: 0 1px 3px 5px; donne pour résultat, pas de marge en haut, 1 pixel pour la marge droite, 3 pixels pour la marge du bas et 5 pixels pour la marge de gauche.
-### Spécifiez une unité pour toutes les valeurs différentes de ZEROLes CSS requièrent que des unités de mesure (px, em, %, …) soient spécifiées pour toutes les valeurs différentes de zéro des propriétés CSS. La seule exception est `line-height` qui ne demande pas qu’une unité de mesure soit spécifiée. Cette propriété est toujours relative à l’unité utilisée pour spécifier vos tailles de polices.N’oubliez pas de spécifier une unité pour les valeurs différentes de 0. Les CSS requièrent que soit spécifiée une unité pour chaque mesure, comme les polices, les marges, et les dimensions. Pour le reste, 0=0 qu’il soit question de px, de em ou de n’importe quoi d’autre.Dans le cadre de ces propriétés raccourcies, si une ou plusieurs valeurs sont omises, elles sont déduites des valeurs fournies. Les valeurs gauche et droite fonctionnent ensemble, ainsi que les valeur dessus et dessous.```cssmargin:10px; est équivalent à margin :10px 10px 10px 10px;margin:10px 15px; est équivalent à margin :10px 15px 10px 15px;margin:10px 15px 8px; est équivalent à margin :10px 15px 8px 15px;```
-### Testez différentes tailles de policesLes navigateurs évolués comme Mozilla et Opera permettent de redimensionner le texte quelle que soit l’unité utilisée. Certains utilisateurs peuvent faire usage d’une police par défaut plus grande que la vôtre; essayez de correspondre à la gamme la plus large possible.Idéalement, votre contenu et votre navigation devraient rester utilisables quelle que soit la taille des polices affichées par votre navigateur.
-### Vérifiez que vos fichiers CSS et HTML correspondent au niveau des noms de classes et d’id.Une faute de frappe est vite commise et les navigateurs les plus stricts sont aussi sensibles aux fautes de frappes (underscores et tirets, majuscules et minuscules, etc.).### Utilisez les outils de debugging mis à disposition par votre navigateur afin de détecter les problèmes éventuels de vos mises en pages CSSUtilisez Firebug, les outils de développement de chrome ou de Firefox, combinés avec l’extension développeur de Firefox afin de visualiser les choses plus aisément et de détecter certains problèmes dans vos mises en page.### N’oubliez pas de créer une CSS print.Les pages web sont parfois imprimées, assurez vous que le contenu de votre site est formaté pour cela.### Organisez et commentez vos fichiers CSSCommentez vos fichiers CSS afin que d’autres et vous-même puissent s’y retrouver facilement. Regroupez les éléments semblables et adoptez des conventions pour vos commentaires et les noms de classes ou d’id utilisés.Jonathan Snook a écrit un bon ouvrage à ce sujet: [SMACSS](http://smacss.com/). Ce petit livre est disponible en ligne gratuitement. et détaille une bonne méthodologie d'organisation pour les fichiers CSS. Voir aussi les excellents articles de [Harry Robert](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/) et de [Nicolas Gallager](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/).Nommez vos classes et ID d’après leurs fonctions plutôt que d’après leurs formesSi vous créez une classe nommée .textbleusmall et que, en cours de développement, le texte auquel est appliqué cette classe devient rouge, il sera plus difficile de s’y retrouver. Utilisez plutôt des classes et ID descriptives telles que `.footer` et `.list--compact`.
-### N’utilisez filtres et hacks qu’en dernier recours.[Modernizr](http://modernizr.com/) et [la solution de conditionnal comments de Paul Irish](http://www.paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/) vous permettent d’éviter de recourir à des hacks CSS.
-### Optimisez vos CSSPour en savoir plus sur le sujet, consultez [la page de ressources mise à votre disposition par Zoe Gillenwater](http://zomigi.com/blog/maintainable-efficient-css/).### Attention à l’accessibilité lorsque vous utilisez des techniques de remplacement d’images via CSS.Beaucoup de ces techniques peuvent poser des problèmes aux utilisateurs de navigateurs vocaux ou aux navigateurs dans lesquels le support des images est désactivé. Pour un test d’accessibilité en 10 secondes : visualisez vos pages avec un support CSS, un support images et un support Javascript désactivé. Testez différentes combinaisons.
+
+```css
+.gridlist
+{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+
+	.gridlist > li
+	{
+		display:inline-block;
+		vertical-align:top;
+		width:31.33%;
+		margin-right:3%;
+		background:red;
+	}
+
+	.gridlist > li:nth-child(3n)
+	{
+		background:maroon;
+		margin-right:0;
+	}
+```
+
+Les commentaires dans le HTML sont là pour éviter que les navigateurs [n'interprètent le whitespace dans votre code CSS](http://css-tricks.com/fighting-the-space-between-inline-block-elements/), créant ainsi des espaces indésirables.
+
+Le sélecteur nth-child est un sélecteur CSS3. `.gridlist > li:nth-child(3n)` cible tous les 3n éléments dans la liste: le 3ème, le 6ème, le 9ème et ainsi de suite.
 
 ## Ressources Complémentaires
 
