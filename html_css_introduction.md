@@ -333,19 +333,25 @@ Un autre aspect intéressant de HTML5 concerne la possibilité de gérer nativem
 
 En théorie, c'est aussi facile d'intégrer une vidéo ou un fichier audio que d'intégrer une image. En pratique, c'est un peu plus compliqué.
 
-Les navigateurs prenant en charge cet élément ne gèrent pas tous les mêmes formats et codecs, ce qui oblige à prévoir différents encodages du même fichier audio ou vidéo;
+Les navigateurs prenant en charge cet élément ne gèrent pas tous les mêmes formats et codecs, ce qui oblige à prévoir différents encodages du même fichier audio ou vidéo.
 
 ##### Vidéo
+
+
 
 - Le format open source .ogv (Codec: Theora) est supporté par Firefox 3.5, Chrome 3 et certaines versions
 encore expérimentales de Opéra.
 - Le format .mp4 (Codec: H.264) est supporté par Safari 4 et Chrome 3
 
-Certains navigateurs supportant l'élément `<video>` commencent automatiquement à télécharger les fichiers vidéos, ce qui donne lieu à un usage (important) de bande passante sans intervention utilisateur. L’attribut `preload` peut être utilisé pour empêcher le preload de la video par le navigateur preload=”none”`;
+Internet Explorer 8 ne supportant pas les tags `<video>` ou `<audio>`, il faut prévoir des solutions de fallback qui sont parfois complexes (et recourent le plus souvent à Flash). [Voir à ce sujet l’exemple "video for everybody”](http://camendesign.com/code/video_for_everybody).
 
-Internet Explorer ne supportant pas les tags `<video>` ou `<audio>`, il faut prévoir des solutions de fallback qui sont parfois complexes (et recourent le plus souvent à Flash). [Voir à ce sujet l’exemple "video for everybody”](http://camendesign.com/code/video_for_everybody).
+**Video simple**
 
-Voici néanmoins à quoi cela ressemble aujourd'hui:
+```
+<video width="640" height="360" src="http://www.youtube.com/demo/google_main.mp4"  controls>
+```
+
+**Video avec plusieurs sources**
 
 ```html
 <video height="270" width="480" poster="waitimage.png" controls>
@@ -357,6 +363,8 @@ Voici néanmoins à quoi cela ressemble aujourd'hui:
 ```
 
 L'attribut poster sert à donner une image d'attente dans les navigateurs supportant l'élément vidéo, tandis que l'attribut controls sert à afficher les contrôles minimaux pour le type de média choisi.
+
+Certains navigateurs supportant l'élément `<video>` commencent automatiquement à télécharger les fichiers vidéos, ce qui donne lieu à un usage (important) de bande passante sans intervention utilisateur. L’attribut `preload` peut être utilisé pour empêcher le preload de la video par le navigateur preload=”none”`;
 
 Si vos besoins en vidéo sont importants, des services tels que Youtube et Vimeo un moyen efficace de servir des vidéos sur le web. Ils réalisent automatiquement les divers encodages nécessaires, le type de plateforme utilisé par le visiteur, etc.
 
