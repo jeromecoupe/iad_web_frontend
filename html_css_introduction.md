@@ -26,7 +26,7 @@ Deux sites de ressources pour vérifier la compatibilité de votre code CSS / HT
 
 ```html
 <!DOCTYPE html>
-<html lang=”en”>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<title>Example document</title>
