@@ -408,7 +408,7 @@ que quelques uns.
 ```html
 <input type="email" name="useremail" id="useremail" required>
 <input type="url" name="userurl" id="userurl">
-<input type="range" min="2000" max="2050" value="2022">
+<input type="date">
 ```
 
 Ces nouveaux champs permettent entre autre une validation automatique du format des données entrées par les utilisateurs. La plupart de ces nouveaux éléments ne fonctionnent aujourd'hui qu'avec Opéra. Ceci étant dit, la plupart se dégradent élégamment dans les autres navigateurs (sous la forme de champs de type texte pour la plupart).
@@ -433,13 +433,13 @@ Intéressant également, l'attribut required permettant de spécifier un champ c
 <input type="text" name="name" id="name" required>
 ```
 
-Pour ceux qui veulent en savoir plus, [un excellent article introductif est disponible sur 24 Ways](http://24ways.org/2009/have-a-field-day-with-html5-forms/) et une [démonstration a été mise en ligne par Opéra](http://devfiles.myopera.com/articles/67/example.html). Les [quelques pages de Mark Pilgrim sur le sujet](http://diveintohtml5.info/) sont également intéressantes, même si [la spécification HTML5 reste évidemment la source faisant autorité](http://dev.w3.org/html5/markup/Overview.html).
+Pour ceux qui veulent en savoir plus, [un excellent article introductif est disponible sur 24 Ways](http://24ways.org/2009/have-a-field-day-with-html5-forms/) et une [démonstration a été mise en ligne par HTML5 Doctor](http://html5doctor.com/demos/forms/forms-example.html). Les [quelques pages de Mark Pilgrim sur le sujet](http://diveintohtml5.info/) sont également intéressantes, même si [la spécification HTML5 reste évidemment la source faisant autorité](http://dev.w3.org/html5/markup/Overview.html).
 
 *Exercice: créer un formulaire en HTML5*
 
 #### L'élément Canvas
 
-HTML5 permet également d'utiliser l'élément `<canvas>` pour réaliser des dessins en 2D à l'aide de javascript. Il est possible de réaliser des graphiques en temps réel, des compositions à base d'images et de sons, des transformations, des animations, etc. Une petite introduction par les gens d'Opera Software peut être ?
+HTML5 permet également d'utiliser l'élément `<canvas>` pour réaliser des dessins en 2D à l'aide de javascript. Il est possible de réaliser des graphiques en temps réel, des compositions à base d'images et de sons, des transformations, des animations, etc. [Une petite introduction par les gens d'Opera Software](https://dev.opera.com/articles/html5-canvas-basics/) peut être ?
 
 Il est même possible de réaliser de véritables petits jeux en utilisant l'élément `<canvas>` et Javascript.
 
@@ -507,23 +507,23 @@ Les divers types de media disponibles sont les suivants :
 
 Le support de ces divers types de media est encore partiel et présente de nombreux problèmes. Les types de media screen et print sont les plus largement et les mieux supportés.
 
-Certaines propriétés CSS sont destinées à un seul type de media (voice-family par exemple), alors que d’autres peuvent être utilisées avec plusieurs types de media (font).
+Certaines propriétés CSS sont destinées à un seul type de media (`voice-family` par exemple), alors que d’autres peuvent être utilisées avec plusieurs types de media (`font`).
 
 Il est possible d’utiliser les types de media avec plusieurs des façons de lier une CSS à un document (X)HTML
 
-CSS liées
+**CSS liées**
 
 ```html
 <link rel="stylesheet" href="css/main.css" media="screen">
 ```
 
-CSS importées
+**CSS importées**
 
 ```html
 <style media="print">@import url(css/print.css)</style>
 ```
 
-CSS en ligne
+**CSS en ligne**
 
 ```html
 <style media="screen">
@@ -567,7 +567,7 @@ Pour calculer la spécificité d’une déclaration CSS, c’est le sélecteur q
 
 Spécificité = a,b,c
 
-Ressources: [une explication ludique basée sur Star Wars et proposée par Andy Clarke](http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html).
+*Ressources: [une explication ludique basée sur Star Wars et proposée par Andy Clarke](http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html).*
 
 #### Exemples
 
