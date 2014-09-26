@@ -425,7 +425,7 @@ que quelques uns.
 <input type="date">
 ```
 
-Ces nouveaux champs permettent entre autre une validation automatique du format des données entrées par les utilisateurs. La plupart de ces nouveaux éléments ne fonctionnent aujourd'hui qu'avec Opéra. Ceci étant dit, la plupart se dégradent élégamment dans les autres navigateurs (sous la forme de champs de type texte pour la plupart).
+Ces nouveaux champs permettent entre autre une validation automatique du format des données entrées par les utilisateurs. La plupart de ces nouveaux éléments ne fonctionnent aujourd'hui qu'avec les navigateurs récents. Ceci étant dit, la plupart se dégradent élégamment dans les autres navigateurs (sous la forme de champs de type texte pour la plupart).
 
 HTML5 permet également l'utilisation de nouveaux attributs pour les champs de formulaires. En voici quelques uns parmi les plus utiles (du moins à mon avis).
 
