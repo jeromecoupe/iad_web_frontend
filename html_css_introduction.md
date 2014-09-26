@@ -402,6 +402,20 @@ Les élément figure et figcaption servent à grouper images et légendes dans v
 
 La spécification HTML5 permet également l'utilisation de contrôles de formulaires plus avancés que ceux dont disposait jusqu'ici la spécification HTML.
 
+```
+<form action="sendform.php">
+  <p>
+    <label for="bday">Your Birthday:</label>
+    <input type="date" placeholder="dd/mm/yyyy" name="birthday" id="bday">
+  </p>
+  <p>
+    <input type="submit" value="send this !">
+  </p>
+</form>
+```
+
+*Note: dans l'exemple ci-dessus, l'élement label est explicitement lié au champs de formulaire via les attributs `for` de `<label>` et l'attribut `id` de l'élément `<input>`.*
+
 De nouveaux types de champs sont mis à la disposition des développeurs: email, url, date et range n'en sont
 que quelques uns.
 
