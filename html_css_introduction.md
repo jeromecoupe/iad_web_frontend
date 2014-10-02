@@ -894,6 +894,7 @@ Deux types de boîtes principales sont liées par défaut aux divers éléments 
 - Un élément inline génère une boîte en ligne. Ces éléments inline se placent toujours, dans le flux du document, les uns à côté des autres (par exemple : plusieurs `<span>` ou une partie de texte mise en gras à l’aide de la balise `<strong>`)
 
 ### Autres valeurs possibles
+
 Toutes sortes de boites peuvent être générées à l’aide de la propriété CSS display : `none`, `inline`, `block`, `list-item`, `inline-block`, `inline-table`,`table`, `table-caption`, `table-cell`,`table-column.`,`table-column-group`, `table-footer-group`, `table-header-group`, `table-row`, `table-row-group`.
 
 Nous nous contenterons ici d’en détailler quelques unes parmi les plus courantes. Pour une explication plus détaillée, vous pouvez vous référer au document du W3C sur le sujet: Recommendation CSS 2.1.
@@ -919,6 +920,7 @@ Une valeur `none` ne crée pas de boîte invisible, elle ne crée pas de boîte 
 Les valeurs liées aux tableaux : `inline-table`,`table`,`table-caption`,`table-cell`,`table-column.`,`table-column-group`,`table-footer-group`,`table-header-group`,`table-row`,`table-row-group` donnent à un élément le comportement de celui d'une table ou d’un de ses composants.
 
 ### La fusion des marges
+
 Cette expression "Collapsing Margins" signifie que les marges adjacentes de plusieurs boîtes peuvent se combiner afin de ne plus en former qu’une seule.
 
 Les marges verticales de deux boîtes (ou plus) d'éléments de type bloc, placés dans un flux normal fusionnent. La largeur de la marge finale devient la valeur la plus grande parmi celles des marges adjacentes.
@@ -976,6 +978,7 @@ Si les propriétés top ou bottom sont contradictoires, la propriété top l’e
 #### Positionnement absolu et fixe
 
 ##### Positionnement absolu
+
 Ce mode de positionnement est appliqué à tous les éléments dont la propriété position est définie comme absolute ou fixed. Si un tel élément n’existe pas, c’est l’élément racine (html) du document qui fait office de bloc conteneur.
 
 Les boîtes utilisant ce mode de positionnement sont extraites du flux du document et n’influencent plus les autres boîtes qui agissent comme si les boîtes positionnées absolument ou de manière fixe n’existaient pas. De plus, les éléments positionnés absolument se comportent toujours comme des éléments de type block.
@@ -989,6 +992,7 @@ Ces éléments utilisent comme contexte de positionnement l’élément parent (
 1. Un élément positionné absolument l’est par rapport aux bordures de son bloc conteneur (le padding n’est pas pris en compte et l’élément est positionné par rapport au bord intérieur de la bordure éventuelle du bloc conteneur).
 2. Un élément absolument positionné devient un bloc conteneur pour les éléments qu’il contient et ceux-ci suivent les règles de positionnement normal à l’intérieur de l’élément positionné absolument.
 3. Les éléments absolument positionnés peuvent contenir d’autres éléments positionnés absolument, qui sont à leur tour hors du flux normal du document, ce qui a pour conséquence qu’ils peuvent apparaître hors des limites de leur parent.
+
 ###### z-index et positionnement en couches
 Les éléments positionnés absolument, comme ils sont hors du flux normal du document, peuvent recouvrir d’autres éléments (absolument positionnés ou non).
 Chaque élément positionné génère une couche et, au sein d’une même couche, la profondeur de chaque élément est gérée par la propriété CSS `z-index`. Au sein d’une même couche, les éléments ayant une valeur `z-index` élevée sont placés devant ceux ayant une valeur `z-index` moindre.
@@ -1001,17 +1005,18 @@ Pour ce cas particulier du positionnement absolu, le bloc conteneur est toujours
 
 Les éléments positionnés de façon fixe ne bougent pas lorsque l’utilisateur descend dans la page. A l’impression, un élément positionné de manière fixe doit s’imprimer sur chaque page.
 
-Internet Explorer ne supporte le positionnement fixe qu’à partir de la version 7.
 *Exercice: positionnement fixe*
 
-Exemples de layouts: [Web Designer Wall](http://webdesignerwall.com/), [Lost World's Fair: Atlantis](http://lostworldsfairs.com/atlantis/),[Bonzai Sky CSS Zen Garden Design by Mike Davidson](http://www.csszengarden.com/?cssfile=069/069.css)
+Exemples de layouts: [Web Designer Wall](http://webdesignerwall.com/), [Lost World's Fair: Atlantis](http://lostworldsfairs.com/atlantis/),[Bonzai Sky CSS Zen Garden Design by Mike Davidson](http://www.csszengarden.com/069/)
 
 #### Floats
 
 Un élément est positionné en mode float lorsque sa propriété float est spécifiée à l’aide des valeurs left ou right.
+
 L’élément est alors positionné verticalement comme dans le flux normal du document : le côté supérieur de l’élément est aligné sur le dessus de la zone de contenu de son élément parent. Horizontalement par contre, l’élément est placé le plus à gauche ou le plus à droite possible par rapport à la zone de contenu de l’élément parent. Le contenu de l’élément parent contourne alors l’élément en mode float par le côté opposé.
 
 Quelques règles de base :
+
 1. Les éléments positionnés en mode float sont toujours gérés comme des éléments de type block.
 2. D’après les spécifications, un élément en mode float doit toujours avoir une dimension, implicite ou explicite (nous verrons plus loin que cela n’est pas toujours vrai dans la pratique, mais c’est un bon principe de base).
 3. Les marges verticales d’un élément en mode float ne sont pas fusionnées avec celles des éléments placés avant ou après dans le flux du document.
@@ -1056,9 +1061,9 @@ div
 }
 ```
 
-La génération de contenu à l’aide des CSS permet également de forcer un élément parent à contenir ses éléments enfants en mode float. Cette technique est expliquée en détail [par Big John et Holly Bergevin sur leur site "Position Is Everything"](http://www.positioniseverything.net/easyclearing.html) [Une variante plus moderne reposant sur les pseudo-éléments :before et :after a été développée par Nicolas Gallagher](http://nicolasgallagher.com/micro-clearfix-hack/). Ces solutions genèrent un élement à l'aide de CSS et lui applquent un `clear:both;`, émulant ainsi la solutin vue plus haut.
+La génération de contenu à l’aide des CSS permet également de forcer un élément parent à contenir ses éléments enfants en mode float. Cette technique est expliquée en détail [par Big John et Holly Bergevin sur leur site "Position Is Everything"](http://www.positioniseverything.net/easyclearing.html) [Une variante plus moderne reposant sur les pseudo-éléments :before et :after a été développée par Nicolas Gallagher](http://nicolasgallagher.com/micro-clearfix-hack/). Ces solutions genèrent un élement à l'aide de CSS et lui appliquent un `clear:both;`, émulant ainsi la solutin vue plus haut.
 
-Il suffit de créer une classe CSS spécifique et d’y copier le code renseigné par ces auteurs pour pouvoir utiliser cette possibilité aussi souvent que nécessaire.
+Il suffit de créer une classe CSS spécifique et d’y copier le code suivant pour pouvoir utiliser cette possibilité aussi souvent que nécessaire.
 
 **Clearfix**
 
@@ -1072,6 +1077,7 @@ CSS
 	clear: both;
 }
 ```
+
 *Exercice: expériementer avec float et clearing*
 
 ## CSS comme outil de mise en page
@@ -1426,7 +1432,7 @@ CSS
 }
 ```
 
-Il est également possible de [réaliser des mises en pages 3 colonnes à laide de cette technique](http://www.alistapart.com/articles/negativemargins/).
+Il est également possible de [réaliser des mises en pages 3 colonnes à l'aide de cette technique](http://www.alistapart.com/articles/negativemargins/).
 
 *Exercice: réaliser une mise en page mixte avec floats (2 et 3 colonnes)*
 
@@ -1491,13 +1497,49 @@ Pour ce qui est des puces décoratives, il est préférable de ne pas utiliser l
 Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre de navigation horizontale, flottée à droite ou à gauche. [Une technique développée par Douglas Bowman et connue sous le nom de "sliding doors"](http://www.alistapart.com/articles/slidingdoors/) permet d’utiliser quelques images afin de créer des effets intéressants.
 
 ```css
-.nav-h
+.nav-left
 {
 	list-style:none;
 	margin:0;
 	padding:0;
 	background:#ccc;
 	overflow:hidden; /*float containment: clearfix can also be used*/
+}
+
+.nav-left > li
+{
+	float:left;
+}
+
+.nav-left a
+{
+	float:left;
+	padding:.5em 1em;
+	background:#ccc;
+	color:#000;
+}
+
+.nav-left a:hover
+{
+	background:#000;
+	color:#fff;
+}
+```
+
+```css
+.mainnav
+{
+	/*élément nav around the navigation interface*/
+	overflow:hidden; /*float containment: clearfix can also be used*/
+}
+
+.nav-right
+{
+	float:right; /*list shrinkwraps to the right*/
+	list-style:none;
+	margin:0;
+	padding:0;
+	background:#ccc;
 }
 
 .nav-h > li
@@ -1525,7 +1567,7 @@ Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre
 Il est également possible d'utiliser la propriété `inline-block` pour générer des listes horizontales. L'avantage est que vous ne devez plus vous occuper de float clearing. Par contre, la gestion du white-space peut devenir un problème (voir plus loin).
 
 ```css
-.nav-h
+.mainnav
 {
 	list-style:none;
 	margin:0;
@@ -1536,12 +1578,12 @@ Il est également possible d'utiliser la propriété `inline-block` pour génér
 	/*text align:center;*/
 }
 
-.nav-h > li
+.mainnav > li
 {
 	display:inline-block;
 }
 
-.nav-h a
+.mainnav a
 {
 	display:block;
 	padding:.5em 1em;
@@ -1549,7 +1591,7 @@ Il est également possible d'utiliser la propriété `inline-block` pour génér
 	color:#000;
 }
 
-.nav-h a:hover
+.mainnav a:hover
 {
 	background:#000;
 	color:#fff;
