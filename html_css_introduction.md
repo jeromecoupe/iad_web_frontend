@@ -1715,12 +1715,12 @@ CSS
 	position: relative; /*établi un contexte de positionnement pour le <span>*/
 	overflow :hidden ; /*cache le texte si il déborde*/
 }
-	.replace span
+.replace span
 {
-	background: url(image_opaque.gif) no-repeat;
-	position: absolute;
-	width: 100%;
-	height: 100%;
+  background: url(image_opaque.jpg) no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 ```
 S’il faut utiliser des images transparentes, on utilisera alors une autre méthode qui cache le texte hors écran avant d’appliquer l’image.
@@ -1732,6 +1732,7 @@ Cette technique utilise simplement un text indent négatif pour cacher le texte 
 ```css
 .imgreplace
 {
+	background: url(image_transparent.png) no-repeat;
 	text-indent:-9999px;
 	overflow:hidden;
 }
@@ -1739,7 +1740,7 @@ Cette technique utilise simplement un text indent négatif pour cacher le texte 
 
 #### Scott Kellum Image Replacement
 
-La méthode créée par Phark oblige le navigateur à créer d'énormes "boites" pour les éléments cachés hors écran, cela pose certains problèmes de performance, entre autre sur iOS. Une autre solution a donc vu le jour.
+La méthode créée par Phark oblige le navigateur à créer d'énormes "boites" pour les éléments cachés hors écran, cela peut poser certains problèmes de performance, entre autre sur iOS. Une autre solution a donc vu le jour.
 
 HTML
 ```html
@@ -1804,13 +1805,14 @@ Si le sujet de la typographie sur internet vous intéresse, je ne peux que vous 
 
 ### Boutons en CSS3 avec Inline-block, border radius, text-shadow & box-shadow
 
-Grâce à quelques propriétés CSS3, il est facile de créer des boutons à l’aide d’un simple  lien hypertexte.
+Grâce à quelques propriétés CSS3, il est facile de créer des boutons à l’aide d’un simple lien hypertexte.
 
 HTML
 
 ```html
 <p><a href=”fake.html” class=”btn”>Text of my button</a></p>
 ```
+
 CSS
 
 ```css
@@ -1831,6 +1833,7 @@ CSS
 	background:#5C7917;
 }
 ```
+
 ### Coins arrondis avec la propriété CSS3 border-radius
 
 Avant CSS3, créer des boites avec des coins arrondis impliquait d'utiliser des structures HTML complexes et des images. Aujourd'hui, la propriété border-radius permet de le faire en une seule ligne de code.
