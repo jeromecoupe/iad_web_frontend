@@ -1607,17 +1607,17 @@ Les guidelines d’accessibilité du W3C nous demandent d’utiliser en CSS des 
 Consultez [les pages dédiées à cette question sur css-dicsuss](http://css-discuss.incutio.com/?page=FontSize) si vous souhaitez en savoir plus. Personnellement, ma méthode de prédilection consiste à spécifier la taille des polices en pourcentages au niveau du `body` et puis de poursuivre en spécifiant les tailles pour les éléments enfant en `em`.
 
 ```css
-body
+html
 {
-	font :normal 75%/1.5 arial, sans-serif ; /*12px comme taille de base*/
+	font: normal 75%/1.5 arial, sans-serif; /*12px comme taille de base*/
 }
 ```
 ou
 
 ```css
-body
+html
 {
-	font :normal 100%/1.5 arial, sans-serif ; /*16px comme taille de base*/
+	font: normal 100%/1.5 arial, sans-serif; /*16px comme taille de base*/
 }
 ```
 	
