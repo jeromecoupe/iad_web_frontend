@@ -1657,7 +1657,7 @@ Elle peut souvent être avantageusement remplacée par la déclaration suivante�
 {
 	position:absolute;
 	top:0;
-	left:-2000px
+	left:-2000px;
 	width:100px;
 	overflow:hidden;
 }
