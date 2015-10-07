@@ -1,6 +1,6 @@
 # HTML & CSS: Introduction
 
-IAD 2013-2014 - Jérôme Coupé
+IAD 2015-2016 - Jérôme Coupé
 
 ## Introduction
 
@@ -10,7 +10,7 @@ Depuis [l'annonce par le W3C de la fin des travaux sur XHTML2 en 2009](http://ww
 
 HTML5 est à la fois un enrichissement du "vocabulaire" du HTML, mais aussi une tentative de faire du HTML un langage du web d'aujourd'hui: sémantique, applicatif (à travers les divers API) et réellement intégrateur de divers médias (sons, vidéos, élément CANVAS, etc.).
 
-Ce cours est une introduction, nous ne verrons ici que les nouveaux éléments sémantiques introduits par HTML5. Les tags `video` et `audio`, ainsi que les nouveaux champs de formulaires seront également évoqués. L'élément `canvas` et les API de drag and drop, de géolocalisation et de stockage offline ne seront pas traitées dans le cadre de ce cours. 
+Ce cours est une introduction, nous ne verrons ici que les nouveaux éléments sémantiques introduits par HTML5. Les tags `video` et `audio`, ainsi que les nouveaux champs de formulaires seront également évoqués. L'élément `canvas` et les API de drag and drop, de géolocalisation et de stockage offline ne seront pas traitées dans le cadre de ce cours.
 
 Outre la [spécification HTML5](http://www.w3.org/TR/html5/), de nombreuses ressources telles que [webplateform.org](http://www.webplatform.org/), [HTML5 Rocks](http://www.html5rocks.com) et [Mozilla Developer Network (MDN)](https://developer.mozilla.org/) sont disponibles si ces sujets vous intéressent. Nous nous pencherons sur certains de ces sujet lors du cours de l'année prochaine.
 
@@ -198,7 +198,7 @@ Ce JS ne fait que créer ces nouveaux éléments dans le DOM à l'intention de I
 </html>
 ```
 
-Ce HTML5 shiv peut également être inclus dans la lirairie de feature detection [Modernizr](http://www.modernizr.com). 
+Ce HTML5 shiv peut également être inclus dans la lirairie de feature detection [Modernizr](http://www.modernizr.com).
 
 Il est important de noter que ces scripts créent de facto une dépendance à Javascript pour les utilisateurs de Internet Explorer < 9.
 
@@ -478,7 +478,7 @@ Les déclarations CSS peuvent être liées de 4 façons à un document HTML afin
 
 #### CSS liées
 
-C'est la méthode la plus utilisée dans la mesure où elle permet de séparer vos styles (CSS) de votre structure et de votre contenu de document (HTML). C'est 
+C'est la méthode la plus utilisée dans la mesure où elle permet de séparer vos styles (CSS) de votre structure et de votre contenu de document (HTML). C'est
 égalmement la méthode la plus performante, [comme le précise Steve Souders](http://www.stevesouders.com/blog/2009/04/09/dont-use-import/).
 
 ```html
@@ -789,7 +789,7 @@ Ce sélecteur est utilisé pour cibler l’ensemble des éléments composant le 
 
 #### Pseudo-classes
 
-Les sélecteurs de pseudo-classes permettent de cibler des éléments qui ne sont pas dans l’arborescence du document. 
+Les sélecteurs de pseudo-classes permettent de cibler des éléments qui ne sont pas dans l’arborescence du document.
 
 ##### Pseudo-classes liées aux liens.
 
@@ -806,14 +806,14 @@ Les déclarations doivent obligatoirement être faites dans cet ordre afin d’o
 ##### First-child & last-child
 
 ```css
-p em:first-child 
+p em:first-child
 {
 	font-weight:bold;
 }
 ```
 
 ```css
-p em:last-child 
+p em:last-child
 {
 	font-weight:bold;
 }
@@ -867,7 +867,7 @@ Pour une documentation complète, voir le [Mozilla Developer Network](https://de
 ## Le modèle de mise en forme CSS
 
 CSS utilise un modèle de mise en forme basé sur les boîtes (“box model” en anglais). Chaque élément d’un document existe dans le cadre d’une de ces boîtes.
-	
+
 La plupart de ces boîtes se comportent comme des blocs conteneurs pour les boîtes qui en sont les descendantes : on dit que la boîte "établit" le bloc conteneur de ses descendants. L'expression "le bloc conteneur d'une boîte" ("containing block" en anglais) signifie "le bloc conteneur dans lequel se trouve la boîte", et non la propre boîte que celle-ci génère.
 
 Le bloc conteneur est utilisé afin de déterminer la position des boîtes qu’il renferme et, dans certains cas, les dimensions de ces boîtes. Par exemple, si un élément possède une largeur de 50%, celle-ci sera calculée par rapport à la largeur de son bloc conteneur.
@@ -901,7 +901,7 @@ Nous nous contenterons ici d’en détailler quelques unes parmi les plus couran
 
 #### Inline-Block
 
-Nous verons plus loin que cette valeur peut être très utile pour contrôler les padding et les margin sur des éléments inline. Malheureusement, IE7 ne la supporte que si elle est appliquée à des éléments ayant un display par défaut de inline (`<a>`, `<em>`, `<strong>`, etc.). Cette valeur est également utilisée pour générer des grilles en CSS. 
+Nous verons plus loin que cette valeur peut être très utile pour contrôler les padding et les margin sur des éléments inline. Malheureusement, IE7 ne la supporte que si elle est appliquée à des éléments ayant un display par défaut de inline (`<a>`, `<em>`, `<strong>`, etc.). Cette valeur est également utilisée pour générer des grilles en CSS.
 
 Nous verons l'année prochaine qu'lle peut s'avérer très utile pour le responsive web design. Attention également à bien contrôler le white-space lorsque vous utilisez cette propriété. [Chris Coyier vous détaille les techniques utilisables](http://css-tricks.com/fighting-the-space-between-inline-block-elements/).
 
@@ -1039,7 +1039,7 @@ Cela peut être accompli à l’aide d’autres éléments situés à l’intér
 
 ###### Utilisation d’un élément du code et de la propriété `clear`
 
-Comme vu plus haut, en utilisant la propriété CSS `clear`, il est possible de forcer un élément à ne pas être côté à côte avec un élément en mode float. 
+Comme vu plus haut, en utilisant la propriété CSS `clear`, il est possible de forcer un élément à ne pas être côté à côte avec un élément en mode float.
 Nous verrons par exemple qu’un pied de page peut s’avérer bien pratique pour forcer un conteneur à contenir deux colonnes en mode float (deux `<div>` par exemple).
 
 ###### A l’aide des CSS uniquement
@@ -1216,7 +1216,7 @@ CSS
 
 Les mises en pages fluides sont moins communes mais offrent l’avantage de s’adapter à toutes les résolutions.
 
-Le support par les prochaines versions d’Internet Explorer des propriétés max-width, min-width et max-height min-height vont sans doute les rendre plus populaires, puisque ces 
+Le support par les prochaines versions d’Internet Explorer des propriétés max-width, min-width et max-height min-height vont sans doute les rendre plus populaires, puisque ces
 propriétés CSS permettent de contrôler efficacement les longueurs de lignes.
 
 Les modes de positionnement flottés et absolus sont tous deux utilisables. Les deux systèmes ont des avantages et des inconvénients qu’il convient de connaître avant de les utiliser.
@@ -1455,9 +1455,9 @@ Nous avons déjà examiné quelques astuces et hacks CSS permettant de contourne
 
 ### Listes et interfaces de navigation
 
-Avec l’émergence des standards du W3C et des sites construits à l’aide de HTML et CSS, la tendance est à utiliser un code sémantiquement correct. Le choix des éléments utilisés pour coder divers éléments obéit à une certaine logique : on utilise d’avantage les listes de définition, les titres et intertitres sont codés comme tels, … 
+Avec l’émergence des standards du W3C et des sites construits à l’aide de HTML et CSS, la tendance est à utiliser un code sémantiquement correct. Le choix des éléments utilisés pour coder divers éléments obéit à une certaine logique : on utilise d’avantage les listes de définition, les titres et intertitres sont codés comme tels, …
 
-Logiquement parlant, la plupart des interfaces de navigation que nous rencontrons sont des listes de liens (imbriquées ou non), il est donc logique de les coder comme tels. 
+Logiquement parlant, la plupart des interfaces de navigation que nous rencontrons sont des listes de liens (imbriquées ou non), il est donc logique de les coder comme tels.
 
 C’est devenu à ce point une habitude que certains en ont fait le sujet [d’articles](http://www.alistapart.com/articles/taminglists/) et de [tutoriaux](http://css.maxdesign.com.au/listutorial/index.htm) désormais célèbres.
 
@@ -1620,10 +1620,10 @@ html
 	font: normal 100%/1.5 arial, sans-serif; /*16px comme taille de base*/
 }
 ```
-	
+
 ### Centrer un bloc horizontalement
 
-Bien que d’autres techniques existent également, voici une technique éprouvée pour 
+Bien que d’autres techniques existent également, voici une technique éprouvée pour
 centrer un élément de type block quel que soit le navigateur utilisé.
 
 ```css
@@ -1633,7 +1633,7 @@ centrer un élément de type block quel que soit le navigateur utilisé.
 	margin:0 auto;
 }
 ```
-	
+
 Autre méthode
 
 ```css
@@ -1662,19 +1662,19 @@ Elle peut souvent être avantageusement remplacée par la déclaration suivante�
 	overflow:hidden;
 }
 ```
-	
+
 Autre option
-	
+
 ```css
 .visuallyhidden
-{ 
-	position:absolute; 
-	overflow:hidden; 
-	clip:rect(0 0 0 0); 
-	height:1px; width: 1px; 
+{
+	position:absolute;
+	overflow:hidden;
+	clip:rect(0 0 0 0);
+	height:1px; width: 1px;
 	margin:-1px;
 	padding:0;
-	border:0; 
+	border:0;
 }
 ```
 
@@ -1775,8 +1775,8 @@ CSS
 @font-face
 {
 	font-family: 'MyFontFamily';
-	src:url('myfont-webfont.eot?#iefix') format('embedded-opentype'), 
-		url('myfont-webfont.woff') format('woff'), 
+	src:url('myfont-webfont.eot?#iefix') format('embedded-opentype'),
+		url('myfont-webfont.woff') format('woff'),
 		url('myfont-webfont.ttf')  format('truetype'),
 		url('myfont-webfont.svg#svgFontName') format('svg');
 }
@@ -1954,6 +1954,37 @@ Les commentaires dans le HTML sont là pour éviter que les navigateurs [n'inter
 
 Le sélecteur nth-child est un sélecteur CSS3. `.gridlist > li:nth-child(3n)` cible tous les 3n éléments dans la liste: le 3ème, le 6ème, le 9ème et ainsi de suite.
 
+### Media queries: l'un des trois piliers du responsive web design
+
+Si vous vous souvenez de l'attribut `media` utilisé lorsque vous liez une feuille de style à un document HTML, vous comprendrez aisément ce que sont les media queries.
+
+Les [Média Queries](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries) étendent les fonctionnalités des types de média. Elles permettent de servir des feuilles de styles ou certaines déclarations au sein de feuilles de style en fonction de caractéristiques de la plateforme à l’aide de laquelle sont affichées les pages.
+
+Ces Media Queries permettent de tester les caractéristiques suivantes: `width`, `max-width`, `min-width`, `height`, `max-height`, `min-height`, `aspect-ratio`, `device-aspect-ratio`, `device-height`, `monochrome`, `color`, `device-width`, `orientation`, `resolution`, etc.
+
+Elles sont utilisables avec des feuilles de styles liées
+
+```html
+<link rel="stylesheet" media="screen and (min-width:970px)" href="css/medium.css" />
+```
+
+ou au sein de feuilles de styles existantes, ce qui est à mon sens leur utilisation la plus fréquente.
+
+```css
+@media all and (min-width:970px)
+{
+	/*styles*/
+}
+```
+
+Comme le mentionne Stéphanie Rieger sur Cloud Four [il est avantageux de spécifier vos media-queries en em](http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw/), pour donner plus de flexibilité à vos layouts, ceux-ci vont en effet changer lorsque l'utilisateur change la taille de texte.
+
+L’idée est d’utiliser les media queries pour créer permettre à l’expérience utilisateur d’être la meilleure possible quelle que soit la plateforme utilisée.
+
+Pour ce qui est du choix des valeurs de breakpoints, je vous invite à [suivre le conseil de Stephen Hay](https://twitter.com/brad_frost/status/191977076000161793).
+
+*Exercice: test des media queries sur l'élément `<body>`*
+
 ## Ressources Complémentaires
 
 - [A beginner's guide to HTML & CSS](http://learn.shayhowe.com/html-css/) par Shay Howe: un bon résumé des bases en HTML et CSS
@@ -1962,4 +1993,4 @@ Le sélecteur nth-child est un sélecteur CSS3. `.gridlist > li:nth-child(3n)` c
 - [caniuse.com](http://caniuse.com): tables de support navigateurs pour HTML5 et CSS3
 - [html5please](http://html5please.com): conseils d’utilisation pour HTML5 et CSS3. Polyfill javascript renseignés.
 - [Mozilla Developer Network](https://developer.mozilla.org/): une bonne référence exhausitive sur les technologies du web (HTML/CSS/JS) [disponible en Français également](https://developer.mozilla.org/fr/).
-- [Webplatform.org](https://developer.mozilla.org/): un site de ressource exhaustif maintenu par le W3C et la communauté. 
+- [Webplatform.org](https://developer.mozilla.org/): un site de ressource exhaustif maintenu par le W3C et la communauté.
