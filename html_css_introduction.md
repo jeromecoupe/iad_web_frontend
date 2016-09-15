@@ -812,6 +812,15 @@ p:first-line
 }
 ```
 
+#### Viser le contenu sélectionné par l'utilisateur
+
+```css
+p::selection
+{
+  background-color: cyan;
+}
+```
+
 ##### génération de contenu via CSS
 
 ```css
