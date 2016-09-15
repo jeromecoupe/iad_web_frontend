@@ -1,6 +1,6 @@
 # HTML & CSS: Introduction
 
-IAD 2015-2016 - Jérôme Coupé
+IAD 2016-2017 - Jérôme Coupé
 
 ## Introduction
 
@@ -1782,12 +1782,12 @@ CSS
 }
 ```
 
-HTML
+pour utiliser la police dans votre CSS:
 
-```html
+```css
 h1
 {
-	font:normal 2em/1.1 MyFontFamily, Helvetica, Arcial, sans-serf;
+	font:normal 2em/1.1 "MyFontFamily", "Helvetica", "Arial", sans-serf;
 }
 ```
 
