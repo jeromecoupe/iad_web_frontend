@@ -169,44 +169,11 @@ Cette forme d’arbre et d’emboîtement hiérarchisé est parfaitement visible
 
 Familiarisez-vous avec ces outils, vous en aurez besoin lors de ce cours et durant toute votre carrière de développeur front-end.
 
-### Quelques efforts Pour une compatibilité maximale
-
-Les navigateurs ne possèdent pas encore de styles par défaut pour les nouveaux éléments sémantiques de HTML5. Si vous tentez de mettre en forme un élément `<nav>` par exemple, vous ne verrez rien se produire dans votre navigateur favori, sauf si vous spécifiez le mode d'affichage de cet élément dans votre CSS via la propriété display.
-
-```css
-article, aside, details, figcaption, figure, footer, header, main, nav, section, summary
-{
-	display: block;
-}
-```
-
-La version 9 d’Internet explorer gère les éléments HTML5 mais une étape supplémentaire est nécessaire pour les versions plus anciennes d'Internet Explorer. Ce navigateur gère les éléments inconnus du DOM différemment des autres, il lui faut un petit peu de Javascript pour qu'il se comporte comme les autres navigateurs.
-
-Ce JS ne fait que créer ces nouveaux éléments dans le DOM à l'intention de IE, il suffit donc de le servir via l'utilisation de conditional comments et le tour est joué (du moins pour les utilisateur de IE disposant du JavaScript activé). [Une version compacte de ce script de Remy Sharp est disponible en ligne](http://code.google.com/p/html5shiv/). Vous pouvez le télécharger ou lier vers une version hébergée sur google code.
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>HTML 5 template</title>
-		<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	</head>
-	<body>
-		<p>Hello World</p>
-	</body>
-</html>
-```
-
-Ce HTML5 shiv peut également être inclus dans la lirairie de feature detection [Modernizr](http://www.modernizr.com).
-
-Il est important de noter que ces scripts créent de facto une dépendance à Javascript pour les utilisateurs de Internet Explorer < 9.
-
-*Exercice: créer un starter kit en HTML5*
+*Exercice: créer un starter kit en HTML5, utilisez les outils de développement*
 
 ### HTML5: Une sémantique améliorée
 
-L’une des pricipale nouveauté de HTML5, c’est l’introduction de nouveaux éléments sémantiques permettant une qualification plus précise des divers éléments de votre document. Certains comme Luke Stevens [arguent que l'utilisation de de ces éléments est problématique pour diverses raisons](http://www.truthabouthtml5.com/). A vous de voir.
+L’une des nouveautés de HTML5, c’est l’introduction de nouveaux éléments sémantiques permettant une qualification plus précise des divers éléments de votre document. Certains comme Luke Stevens [arguent que l'utilisation de de ces éléments est problématique pour diverses raisons](http://www.truthabouthtml5.com/). A vous de voir.
 
 Nous ne présenterons pas l’ensemble de ces nouveaux éléments dans le cadre de ce cours mais nous vous présenterons les principaux. L'ensemble de ces nouveaux éléments et des renseignements sur leurs usages sont disponibles sur le site du W3C ou dans [le glossaire rédigé pour vous par l'équipe de HTML5 Doctor](http://html5doctor.com/element-index/).
 
