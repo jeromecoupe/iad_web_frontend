@@ -1761,11 +1761,23 @@ CSS
 ```css
 @font-face
 {
-	font-family: 'MyFontFamily';
-	src:url('myfont-webfont.eot?#iefix') format('embedded-opentype'),
-		url('myfont-webfont.woff') format('woff'),
-		url('myfont-webfont.ttf')  format('truetype'),
-		url('myfont-webfont.svg#svgFontName') format('svg');
+  font-family: 'MyFontFamily';
+  src: url('myfont-webfont.eot?#iefix') format('embedded-opentype'),
+       url('myfont-webfont.woff') format('woff'),
+       url('myfont-webfont.ttf')  format('truetype'),
+       url('myfont-webfont.svg#svgFontName') format('svg');
+}
+```
+
+En 2016, vous pouvez simplement utiliser les formats WOFF et WOFF2, cela devrait suffire.
+
+```css
+@font-face {
+  font-family: 'open-sans';
+  src: url('opensans-regular-webfont.woff2') format('woff2'),
+       url('opensans-regular-webfont.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
 }
 ```
 
@@ -1781,6 +1793,7 @@ h1
 Si vous utilisez différentes graisses ou styles de la même police, [lire l'article de Roger Johansson sur le sujet](http://www.456bereastreet.com/archive/201012/font-face_tip_define_font-weight_and_font-style_to_keep_your_css_simple/). Cette technique simple vous évitera de devoir utiliser différents noms de polices dans votre CSS pour chaque graisse ou variante.
 
 Les principaux problèmes liées à l’utilisation de @font-face sont de nature légale. La licence de certaines polices ne permet pas de les utiliser de cette façon car, étant disponibles sur le serveur, elles peuvent y être téléchargées par quelqu’un qui ne les a pas forcément achetées. De nombreuses polices offrent explicitement la possibilité d’une utilisation à l’aide de @font-face dans le cadre de leur licence.
+
 L’autre difficulté, de nature technique celle-là, est l’existence de [divers formats](http://snook.ca/archives/html_and_css/becoming-a-font-embedding-master) pour les fichiers de polices, supportés de façon diverses par les différents navigateurs. Il existe cependant des [outils de conversion](http://www.fontsquirrel.com/fontface/generator) et une [syntaxe éprouvée](http://paulirish.com/2009/bulletproof-font-face-implementation-syntax/) puis [améliorée](http://www.fontspring.com/blog/the-new-bulletproof-font-face-syntax) permettant de résoudre ces questions techniques. A signaler également, les [temps de chargement](http://www.stevesouders.com/blog/2009/10/13/font-face-and-performance/) qui, sur les sites très fréquentés, peuvent poser certains problèmes de performance.
 
 Cette technique est dores et déjà bien supportée par les divers navigateurs et constitue à ce jour notre meilleure option.
