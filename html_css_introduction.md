@@ -1622,6 +1622,17 @@ Autre méthode
 }
 ```
 
+Avec calc()
+
+```css
+.centered-block
+{
+	position: absolute;
+	width: 750px;
+	left: calc(50% - 375px);
+}
+```
+
 ### Faire disparaître des éléments visuellement sans les cacher aux navigateurs vocaux
 
 La déclaration display:none; a été utilisée pour cacher des éléments en mode visuel (souvent dans le cadre de remplacement par images1). Le problème c’est qu’[elle rend les éléments auxquels elle est appliquée invisibles aux navigateurs vocaux également](http://css-discuss.incutio.com/?page=ScreenreaderVisibility).
