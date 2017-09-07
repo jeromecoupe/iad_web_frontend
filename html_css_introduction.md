@@ -877,9 +877,7 @@ Nous nous contenterons ici d’en détailler quelques unes parmi les plus couran
 
 #### Inline-Block
 
-Nous verons plus loin que cette valeur peut être très utile pour contrôler les padding et les margin sur des éléments inline. Malheureusement, IE7 ne la supporte que si elle est appliquée à des éléments ayant un display par défaut de inline (`<a>`, `<em>`, `<strong>`, etc.). Cette valeur est également utilisée pour générer des grilles en CSS.
-
-Nous verons l'année prochaine qu'lle peut s'avérer très utile pour le responsive web design. Attention également à bien contrôler le white-space lorsque vous utilisez cette propriété. [Chris Coyier vous détaille les techniques utilisables](http://css-tricks.com/fighting-the-space-between-inline-block-elements/).
+Nous verons plus loin que cette valeur peut être très utile pour contrôler les padding et les margin sur des éléments inline. Malheureusement, IE7 ne la supporte que si elle est appliquée à des éléments ayant un display par défaut de inline (`<a>`, `<em>`, `<strong>`, etc.).
 
 #### List-item
 
@@ -1058,519 +1056,179 @@ CSS
 
 ## CSS comme outil de mise en page
 
-Les CSS peuvent être utilisées comme outils de mise en page, au travers des divers schémas de positionnement. [De nombreuses techniques existent et sont disponibles en ligne](http://css-discuss.incutio.com/?page=CssLayouts). Nous en détaillerons seulement quelques-unes unes dans la suite.
+Les propriétés `float` et `clear` (ou `inline-block`), ainsi que les propriétés de positionnement ne sont pas des outils prévus pour réaliser des mises en page complexes. Ces solutions ont été utilisées par le passé parce que c'est tout ce que nous avions sous la main mais elles posaient de nombreux problèmes et avaient également des limitations importantes.
 
-### Mises en page fixes
+Récemment, de nouveaux outils dédié au layout sont apparus en CSS, principalement Flexbox et Grid.
 
-Etant donné la facilité de calcul des dimensions qu’elles offrent pour les divers éléments composant ces dernières, les mises en pages fixes sont (encore) très utilisées.
+- *Flexbox*: gère une seule dimension (verticale ou horizontale), fonctionne à partir du contenu (content out), est principalement utilisé pour le layout de composants comme de cartes ou des interfaces de navigation (micro layout).
+- *Grid*: gère deux dimensions (verticale et horizontale), fonctionne en créant une grille dans laquelle les contenus viennent se placer (content in), est principalement utilisé pour des mises en page globales ou pour des élements plus importants comme des grilles de produits ou de media (macro layout).
 
-Elles offrent l’avantage de ne pas modifier les longueurs de lignes, ce qui permet un meilleur confort de lecture.
+Ces deux outils de layout font en outre appel au [module de Box alignment](https://drafts.csswg.org/css-align/). Vous retrouverez donc des propriétés d'alignement communes à Grid et à Flexbox.
 
-Les modes de positionnement flottés et absolus sont tous deux utilisables. Les deux systèmes ont des avantages et des inconvénients qu’il convient de connaître avant de les utiliser.
+### Flexbox
 
-#### Positionnement absolu et marges.
+Flexbox est appliqué gâce à la propriété display. Une fois la propriété `display: flex;` est déclarée sur un élement, celui-ci devient un **flex-container** est ses enfants directs des **flex-items**. Comme dit plus haut, Flexbox permet de gérer les choses dans une dimension principale (verticale ou horizontale). C'est ce que l'on appelle le "main-axis" qui est spécifié via la propriété `flex-direction` et permet de gérer l'alignement principal des flex-items. Une fois le "main-axis" précisé, un "cross axis" perpendiculaire permet de gérer des propriétés d'alignement plus secondaires des flex-items.
 
-Ce type de mise en page offre une grande facilité d’exécution.
-La principale limitation de ce type de mise en page est l’impossibilité pour les éléments en mode statique d’influer sur le comportement des éléments absolument positionnés. Il est par exemple impossible de placer un pied de page couvrant le même espace horizontal que la somme des diverses colonnes si les longueurs ces dernières ne sont pas connues.
+Voici les propriétés les plus importantes au niveau du flex-container. Ces propriétés ont des valeurs par défaut mais, lorsque vous commencez, il est conseillé de les spécifier toutes explicitement.
 
-HTML
+- `flex-direction: [row | row-reverse | column | column-reverse];`: établi la direction du "main axis" (et donc aussi celle du "cross axis"). La valeur `row` spécifie un axe horizontal gauche droite pour les documents en mode `ltr` et un axe horiontal droite gauche pour les documents en mode `rtl`
+- `justify-content: [flex-start | flex-end | center | space-between | space-around | space-evenly];`: gestion de l'alignement des flex-items et de la distribution de l'espace sur le main axis. `flex-start` et `flex-end` dépendent du mode de document `ltr` ou `rtl`.
+- `align-items: [flex-start | flex-end | center | baseline | stretch];` gestion de l'alignement des flex-items et de la distribution de l'espace sur le cross axis
+- `flex-wrap: [wrap | nowrap];`: les flex-items sont ils autorisés à passer sur une autre ligne ou pas.
 
-```html
-<div class="wrapper">
-	<div class="primary">
-		<h1>Demo</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, amet tenetur obcaecati similique ea quas quaerat modi nam quos nobis soluta odit nemo voluptate enim alias facere harum itaque! Ut!</p>
-		<p>Quasi itaque veritatis excepturi at adipisci libero nesciunt. Natus, voluptatibus, autem, id placeat facilis incidunt laudantium eos asperiores aperiam molestias quas architecto unde dolorem necessitatibus eius. Placeat facere quae voluptate.</p>
-		<p>Eligendi, commodi, similique nobis quae natus non repellendus tempora voluptate dignissimos eos eaque explicabo atque ipsam et rem fugit animi fugiat. Adipisci, nihil, ratione totam sed blanditiis cumque tempora odit!</p>
-		<div class="sitefooter">
-			<p>Footer</p>
-		</div>
-	</div>
-	<div class="secondary">
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, aut, optio, nisi, tenetur possimus vero hic enim quibusdam in voluptas ab voluptatum sequi corrupti maxime dolorum perspiciatis nihil soluta odio.</p>
-	</div>
-</div>
-```
+Voici les propriétés les plus importantes au niveau des flex-items. Ces propriétés ont des valeurs par défaut. Lorsque vous commencez, je vous conseille de spécifier `flex` et ses trois valeurs explicitement.
 
-CSS
+- `flex-basis` détermine les dimensions d'un flex-item avant que l'espace vide dans le flex-container soit distribué. Peut être soit une valeur (px, rem, em, %, etc.) soit `auto` (dans ce cas la valeur spécifiée pour `width` ou `height` est prise en compte). La valeur par défaut est `auto`.
+- `flex-grow`: détermine si un flex-item peut grandir au delà de ses dimensions de base si nécessaire. A comme valeur `0` ou un nombre entier qui représente la proportion avec laquelle les flex-items vont grandir si ils sont plus petits que leur flex-container après l'application de `flex-basis`. Plus le nombre entier est grand, plus la proprotion est importante. La valeur par défaut est `0`.
+- `flex-shrink`: détermine si un flex-item peur rétrécir en deça de ses dimensions de base si nécessaire. A comme valeur `0` ou un nombre entier positif qui représente la proportion avec laquelle les flex-items vont rétrécir si ils sont plus grands que leur flex-container après l'application de `flex-basis`. Plus le nombre entier est grand, plus la proprotion est importante. La veleur par défaut est `1`.
+- `order [integer]`: détermine l'ordre d'affichage des flex-items dans un flex-container indépendemment de leur ordre dans le code source. La valeur est spécifiée sous la forme d'un nombre entier positif ou négatif.
+- `flex: [flex-grow | flex-shrink | flex-basis]`: propriété courte permettant de gérer à la fois `flex-grow`, `flex-shrink` et `flex-basis`. Il vaut mieux utiliser cette propriété courte plutôt que les propriétés longues pour des raisons de compatibilté entre navigateurs.
 
-```css
-.wrapper
-{
-	margin:0 auto;
-	width:960px;
-	position:relative; /*positioning context*/
-	background:green;
-}
+La propriété `margin` avec une valeur de `auto` est intéressante pour les `flex-items`, elle permet d'allouer tout l'espace disponible dans le flex-container à cette marge et ainsi de "pousser" un ou plusieurs flex-items vers l'extrémité opposée du main axis. L'aricle "[Flexbox’s Best-Kept Secret](https://hackernoon.com/flexbox-s-best-kept-secret-bd3d892826b6)" explique le phénomène en détail.
 
-.primary
-{
-	margin-left:340px;
-	padding:20px;
-	background:yellow;
-}
+CSS tricks possède un bon article "[A complete guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)" résumant l'ensemble des propriétés et valeurs liées à Flexbox. [Flexbox Froggy](http://flexboxfroggy.com/) adopte une approche plus ludique.
 
-.secondary
-{
-	position:absolute;
-	top:0;
-	left:0;
-	width:260px;
-	padding:20px;
-	background:red;
-}
-
-.sitefooter
-{
-	padding:20px;
-	background:#ccc;
-}
-```
-
-*Exercice: réaliser une mise en page fixe avec positionnement absolu / fixe et marges (2 et 3 colonnes)*
-
-#### Positionnement en mode float
-
-Ce type de mise en page est très populaire, car il permet de réaliser facilement une mise en page très courante: deux ou trois colonnes entourées d’une bannière et d’un pied de page.
-
-HTML
+**Exemple: interface de navigation horizontale (expérimenter avec les différentes propriétés et valeurs)**
 
 ```html
-<div class="wrapper">
-	<div class="siteheader">
-		<p>Header</p>
-	</div>
-	<div class="content-primary">
-		<h1>Demo</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, amet tenetur obcaecati similique ea quas quaerat modi nam quos nobis soluta odit nemo voluptate enim alias facere harum itaque! Ut!</p>
-		<p>Quasi itaque veritatis excepturi at adipisci libero nesciunt. Natus, voluptatibus, autem, id placeat facilis incidunt laudantium eos asperiores aperiam molestias quas architecto unde dolorem necessitatibus eius. Placeat facere quae voluptate.</p>
-		<p>Eligendi, commodi, similique nobis quae natus non repellendus tempora voluptate dignissimos eos eaque explicabo atque ipsam et rem fugit animi fugiat. Adipisci, nihil, ratione totam sed blanditiis cumque tempora odit!</p>
-	</div>
-	<div class="content-secondary">
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, aut, optio, nisi, tenetur possimus vero hic enim quibusdam in voluptas ab voluptatum sequi corrupti maxime dolorum perspiciatis nihil soluta odio.</p>
-	</div>
-	<div class="sitefooter">
-		<p>Footer</p>
-	</div>
-</div>
+<ul class="mainnav">
+  <li class="mainnav__item"><a class="mainnav__link" href="#">Home</a></li>
+  <li class="mainnav__item"><a class="mainnav__link" href="#">About</a></li>
+  <li class="mainnav__item"><a class="mainnav__link" href="#">Work</a></li>
+  <li class="mainnav__item  mainnav__item--contact"><a class="mainnav__link" href="#">Contact</a></li>
+</ul>
 ```
-
-CSS
 
 ```css
-.wrapper
+.mainnav
 {
-	width:960px;
-	margin:0 auto;
-	overflow:hidden; /*float containment*/
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  background-color: #ccc;
 }
 
-.content-main
+.mainnav__item
 {
-	float:right;
-	width:620px;
-	background:yellow;
+  flex: 0 0 auto;
 }
 
-.content-secondary
+.mainnav__item--contact
 {
-	float:left;
-	width:300px;
-	background:green;
+  margin-left: auto;
 }
 
-.footer
+.mainnav__link
 {
-	clear:both;
-	background:red;
-}
-```
-
-*Exercice: réaliser une mise en page fixe avec floats (2 et 3 colonnes)*
-
-### Mises en page fluides
-
-Les mises en pages fluides sont moins communes mais offrent l’avantage de s’adapter à toutes les résolutions.
-
-Le support par les prochaines versions d’Internet Explorer des propriétés max-width, min-width et max-height min-height vont sans doute les rendre plus populaires, puisque ces
-propriétés CSS permettent de contrôler efficacement les longueurs de lignes.
-
-Les modes de positionnement flottés et absolus sont tous deux utilisables. Les deux systèmes ont des avantages et des inconvénients qu’il convient de connaître avant de les utiliser.
-
-#### Positionnement absolu et marges.
-
-Cette mise en page n’est qu’une variation sur la mise en page deux colonnes que nous avons vue précédemment. Le seul changement consiste en une spécification des dimensions des éléments à l’aide d’une unité relative (ici en %). Certaines valeurs pour margin et padding sont également spécifiées en %.
-
-HTML
-
-```html
-<div class="wrapper">
-	<div class="primary">
-		<h1>Demo</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, amet tenetur obcaecati similique ea quas quaerat modi nam quos nobis soluta odit nemo voluptate enim alias facere harum itaque! Ut!</p>
-		<p>Quasi itaque veritatis excepturi at adipisci libero nesciunt. Natus, voluptatibus, autem, id placeat facilis incidunt laudantium eos asperiores aperiam molestias quas architecto unde dolorem necessitatibus eius. Placeat facere quae voluptate.</p>
-		<p>Eligendi, commodi, similique nobis quae natus non repellendus tempora voluptate dignissimos eos eaque explicabo atque ipsam et rem fugit animi fugiat. Adipisci, nihil, ratione totam sed blanditiis cumque tempora odit!</p>
-		<div class="sitefooter">
-			<p>Footer</p>
-		</div>
-	</div>
-	<div class="secondary">
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, aut, optio, nisi, tenetur possimus vero hic enim quibusdam in voluptas ab voluptatum sequi corrupti maxime dolorum perspiciatis nihil soluta odio.</p>
-	</div>
-</div>
-```
-
-CSS
-
-```css
-.wrapper
-{
-	margin:0 auto;
-	width:80%;
-	min-width:600px;
-	max-width:1140px;
-	position:relative; /*positioning context*/
-	background:green;
+  display: block;
+  padding: 1rem;
+  background-color: #dfdfdf;
 }
 
-.primary
+.mainnav__link:hover
 {
-	margin-left:35%;
-	padding:2%;
-	background:yellow;
-}
-
-.secondary
-{
-	position:absolute;
-	top:0;
-	left:0;
-	width:26%;
-	padding:2%;
-	background:red;
-}
-
-.sitefooter
-{
-	padding:2%;
-	background:#ccc;
+  background-color: #eee;
 }
 ```
 
-*Exercice: réaliser une mise en page fluide avec positionnement absolu et marges (2 et 3 colonnes)*
+### Grid
 
-#### Positionnement en mode float
-
-Cette mise en page n’est qu’une variation sur la mise en page deux colonnes que nous avons vue précédemment. Le seul changement consiste en une spécification des dimensions des éléments à l’aide d’une unité relative (ici en %).
-
-HTML
-
-```html
-<div class="wrapper">
-	<div class="siteheader">
-		<p>Header</p>
-	</div>
-	<div class="content-primary">
-		<h1>Demo</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, amet tenetur obcaecati similique ea quas quaerat modi nam quos nobis soluta odit nemo voluptate enim alias facere harum itaque! Ut!</p>
-		<p>Quasi itaque veritatis excepturi at adipisci libero nesciunt. Natus, voluptatibus, autem, id placeat facilis incidunt laudantium eos asperiores aperiam molestias quas architecto unde dolorem necessitatibus eius. Placeat facere quae voluptate.</p>
-		<p>Eligendi, commodi, similique nobis quae natus non repellendus tempora voluptate dignissimos eos eaque explicabo atque ipsam et rem fugit animi fugiat. Adipisci, nihil, ratione totam sed blanditiis cumque tempora odit!</p>
-	</div>
-	<div class="content-secondary">
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, aut, optio, nisi, tenetur possimus vero hic enim quibusdam in voluptas ab voluptatum sequi corrupti maxime dolorum perspiciatis nihil soluta odio.</p>
-	</div>
-	<div class="sitefooter">
-		<p>Footer</p>
-	</div>
-</div>
-```
-
-CSS
-
-```css
-.wrapper
-{
-	margin:0 auto;
-	width:80%;
-	min-width:600px;
-	max-width:1140px;
-	background:green;
-}
-
-.siteheader
-{
-	padding:2%;
-	background:#ccc;
-}
-
-.content-primary
-{
-	float:left;
-	padding:2%;
-	width:61%;
-	background:yellow;
-}
-
-.content-secondary
-{
-	float:right;
-	padding:2%;
-	width:26%;
-	background:red;
-}
-
-.sitefooter
-{
-	clear:both;
-	padding:2%;
-	background:#ccc;
-}
-```
-
-*Exercice: réaliser une mise en page fluide avec floats (2 et 3 colonnes)*
-
-### Mises en page mixtes: marges négatives et floats
-
-Les mises en pages mixtes sont des mises en page dans lesquelles un élément est de taille fixe, tandis que certains autres sont de tailles variable.
-
-Une mise en page souvent utilisée est celle reposant sur la propriété float et sur des marges négatives. Elle permet de disposer d’une colonne de largeur variable, alors que les autres sont de tailles fixes.
-
-HTML
-
-```html
-<div class="wrapper">
-	<div class="siteheader">
-		<p>Header</p>
-	</div>
-	<div class="content-primary">
-		<div class="content-primary-inner">
-			<h1>Demo</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, amet tenetur obcaecati similique ea quas quaerat modi nam quos nobis soluta odit nemo voluptate enim alias facere harum itaque! Ut!</p>
-			<p>Quasi itaque veritatis excepturi at adipisci libero nesciunt. Natus, voluptatibus, autem, id placeat facilis incidunt laudantium eos asperiores aperiam molestias quas architecto unde dolorem necessitatibus eius. Placeat facere quae voluptate.</p>
-			<p>Eligendi, commodi, similique nobis quae natus non repellendus tempora voluptate dignissimos eos eaque explicabo atque ipsam et rem fugit animi fugiat. Adipisci, nihil, ratione totam sed blanditiis cumque tempora odit!</p>
-		</div>
-	</div>
-	<div class="content-secondary">
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, aut, optio, nisi, tenetur possimus vero hic enim quibusdam in voluptas ab voluptatum sequi corrupti maxime dolorum perspiciatis nihil soluta odio.</p>
-	</div>
-	<div class="sitefooter">
-		<p>Footer</p>
-	</div>
-</div>
-```
-
-CSS
-
-```css
-.wrapper
-{
-	margin:0 auto;
-	width:80%;
-	min-width:600px;
-	max-width:1140px;
-	background:green;
-}
-
-.siteheader
-{
-	padding:2%;
-	background:#ccc;
-}
-
-.content-primary
-{
-	float:left;
-	width:100%;
-	margin-right:-300px;
-	background:yellow;
-}
-
-.content-primary-inner
-{
-	margin-right:340px;
-	padding:2%;
-	background:teal;
-}
-
-.content-secondary
-{
-	float:right;
-	width:260px;
-	padding:20px;
-	background:red;
-}
-
-.sitefooter
-{
-	clear:both;
-	padding:2%;
-	background:#ccc;
-}
-```
-
-Il est également possible de [réaliser des mises en pages 3 colonnes à l'aide de cette technique](http://www.alistapart.com/articles/negativemargins/).
-
-*Exercice: réaliser une mise en page mixte avec floats (2 et 3 colonnes)*
-
-### Nouveaux outils de layout en CSS
-
-Les propriétés `float` et 'clear' (ou `inline-block`) ne sont pas des outils prévus pour réaliser des mises en page complexes. Ces solutions ont été utilisées parce que c'est tout ce que nous avions sous la main.
-
-Récemment, de nouveaux outils de layouts sont créés en CSS: flexbox, grid, css regions, etc. Les changements dans les spécification et le manque de support dans les navigateurs n'en font pas encore des solutions utilisables en production pour le moment.
-
-Nous aborderons ces outils l'année prochaine avec plus de détail. Si vous voulez un avant goût, jetez un oeil à [cette vidéo de Eric Meyer: "The Era of Intentional CSS Layout"](http://www.youtube.com/watch?v=XKpiP60HXwM) à lire également, [le compte rendu de Chris Coyier](http://css-tricks.com/w3conf-eric-meyer-the-era-of-intentional-layout/).
-
-Parmi ces technologies, les deux spécifications les plus importantes sont à mes yeux grid layour (pour le layout général des pages) et flexbox (pour le layout des composants). Voici quelques ressources si vous souhaitez en savoir plus.
-
-- Chris Coyier propose [un bon résumé concernant flexbox](http://css-tricks.com/snippets/css/a-guide-to-flexbox/) sur CSS-Tricks
-- Rachel Andew a beaucoup travaillé sur le grid layout. [Voici une présentation (vidéo)](https://www.youtube.com/watch?v=I9AukdAfJWE), ainsi qu'un [site de démonstration](http://gridbyexample.com/).
+@TODO
 
 ## Quelques Techniques CSS utiles
 
-Nous avons déjà examiné quelques astuces et hacks CSS permettant de contourner les défauts de certains navigateurs. Nous allons maintenant passer en revue quelques autres techniques bien utiles.
+Nous avons déjà examiné quelques astuces et hacks CSS permettant de contourner les défauts de certains navigateurs. Nous allons maintenant passer en revue quelques autres techniques utiles.
 
 ### Listes et interfaces de navigation
 
-Avec l’émergence des standards du W3C et des sites construits à l’aide de HTML et CSS, la tendance est à utiliser un code sémantiquement correct. Le choix des éléments utilisés pour coder divers éléments obéit à une certaine logique : on utilise d’avantage les listes de définition, les titres et intertitres sont codés comme tels, …
+Sémantiquement parlant, la plupart des interfaces de navigation que nous rencontrons sont des listes de liens (imbriquées ou non), il est donc logique de les coder comme tels. De simples listes non ordonnées `ul` peuvent facilement être mises en forme à l’aide d’un code CSS simple.
 
-Logiquement parlant, la plupart des interfaces de navigation que nous rencontrons sont des listes de liens (imbriquées ou non), il est donc logique de les coder comme tels.
-
-C’est devenu à ce point une habitude que certains en ont fait le sujet [d’articles](http://www.alistapart.com/articles/taminglists/) et de [tutoriaux](http://css.maxdesign.com.au/listutorial/index.htm) désormais célèbres.
-
-De simples listes non ordonnées `ul` peuvent facilement être mises en forme à l’aide d’un code CSS simple.
+```html
+<ul class="mainnav">
+  <li class="mainnav__item"><a class="mainnav__link" href="#">Home</a></li>
+  <li class="mainnav__item"><a class="mainnav__link" href="#">About</a></li>
+  <li class="mainnav__item"><a class="mainnav__link" href="#">Work</a></li>
+  <li class="mainnav__item"><a class="mainnav__link" href="#">Contact</a></li>
+</ul>
+```
 
 #### Listes verticales
 
 Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre de navigation verticale.
 
-Pour ce qui est des puces décoratives, il est préférable de ne pas utiliser les puces des listes mais d’utiliser plutôt des images de fond sur les balises de lien.
-
 ```css
-.nav-v
+.mainnav
 {
-	list-style:none;
-	margin:0;
-	padding:0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.nav-v a
+.mainnav__item:not(:last-child)
 {
-	display:block;
-	padding:.5em 1em;
-	background:#ccc;
-	color:#000;
+  display: block;
+  border-bottom: 1px solid #dfdfdf;
 }
 
-.nav-v a:hover
+.mainnav__link
 {
-	background:#000;
-	color:#fff;
+  display: block;
+  padding: 1rem 0.5rem;
+}
+
+.mainnav__link:hover
+{
+  font: 600 12px/1 "Helvetica", "Arial", sans-serif;
 }
 ```
 
-#### Listes horizontales (Floated left, Floated right)
+#### Listes horizontales (Flexbox)
 
-Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre de navigation horizontale, flottée à droite ou à gauche. [Une technique développée par Douglas Bowman et connue sous le nom de "sliding doors"](http://www.alistapart.com/articles/slidingdoors/) permet d’utiliser quelques images afin de créer des effets intéressants.
-
-```css
-.nav-left
-{
-	list-style:none;
-	margin:0;
-	padding:0;
-	background:#ccc;
-	overflow:hidden; /*float containment: clearfix can also be used*/
-}
-
-.nav-left > li
-{
-	float:left;
-}
-
-.nav-left a
-{
-	float:left;
-	padding:.5em 1em;
-	background:#ccc;
-	color:#000;
-}
-
-.nav-left a:hover
-{
-	background:#000;
-	color:#fff;
-}
-```
+Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre de navigation horizontale. L'alignement des items dans la liste, la répartition de l'espace libre d'autres caractéristiques peuvent petre facilement modifiées avec flexbox.
 
 ```css
 .mainnav
 {
-	/*élément nav around the navigation interface*/
-	overflow:hidden; /*float containment: clearfix can also be used*/
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  background-color: #ccc;
 }
 
-.nav-right
+.mainnav__item
 {
-	float:right; /*list shrinkwraps to the right*/
-	list-style:none;
-	margin:0;
-	padding:0;
-	background:#ccc;
+  flex: 0 0 auto;
 }
 
-.nav-h > li
+.mainnav__link
 {
-	float:left;
+  display: block;
+  padding: 1rem;
+  font: 600 12px/1 "Helvetica", "Arial", sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: #333;
+  background-color: #dfdfdf;
 }
 
-.nav-h a
+.mainnav__link:hover
 {
-	float:left;
-	padding:.5em 1em;
-	background:#ccc;
-	color:#000;
-}
-
-.nav-h a:hover
-{
-	background:#000;
-	color:#fff;
-}
-```
-
-#### Listes horizontales (inline-block)
-
-Il est également possible d'utiliser la propriété `inline-block` pour générer des listes horizontales. L'avantage est que vous ne devez plus vous occuper de float clearing. Par contre, la gestion du white-space peut devenir un problème (voir plus loin).
-
-```css
-.mainnav
-{
-	list-style:none;
-	margin:0;
-	padding:0;
-	background:#ccc;
-	text-align:left;
-	/*text align:right;*/
-	/*text align:center;*/
-}
-
-.mainnav > li
-{
-	display:inline-block;
-}
-
-.mainnav a
-{
-	display:block;
-	padding:.5em 1em;
-	background:#ccc;
-	color:#000;
-}
-
-.mainnav a:hover
-{
-	background:#000;
-	color:#fff;
+  background-color: #eee;
 }
 ```
 
@@ -1578,9 +1236,9 @@ Il est également possible d'utiliser la propriété `inline-block` pour génér
 
 ### Une taille de texte constante à l’aide de valeurs relatives
 
-Les guidelines d’accessibilité du W3C nous demandent d’utiliser en CSS des valeurs relatives afin de spécifier la taille des polices. Cela provient du fait qu’Internet Explorer ne permet pas à l’utilisateur de modifier la taille des polices si celle-ci est spécifiée à l’aide d’unités absolues (en pixels par exemple).
+Les guidelines d’accessibilité du W3C nous demandent d’utiliser en CSS des valeurs relatives afin de spécifier la taille des polices.
 
-Consultez [les pages dédiées à cette question sur css-dicsuss](http://css-discuss.incutio.com/?page=FontSize) si vous souhaitez en savoir plus. Personnellement, ma méthode de prédilection consiste à spécifier la taille des polices en pourcentages au niveau du `body` et puis de poursuivre en spécifiant les tailles pour les éléments enfant en `em` ou encore en `rem` (voir à ce propos [cet article de Jonathan Snook](http://snook.ca/archives/html_and_css/font-size-with-rem)).
+Personnellement, ma méthode de prédilection consiste à spécifier la taille des polices en pourcentages au niveau du `body` et puis de poursuivre en spécifiant les tailles pour les éléments enfants en `rem` (voir à ce propos [cet article de Jonathan Snook](http://snook.ca/archives/html_and_css/font-size-with-rem)).
 
 ```css
 html
@@ -1599,8 +1257,7 @@ html
 
 ### Centrer un bloc horizontalement
 
-Bien que d’autres techniques existent également, voici une technique éprouvée pour
-centrer un élément de type block quel que soit le navigateur utilisé.
+Voici quelques techniques éprouvée pour centrer un élément de type block quel que soit le navigateur utilisé.
 
 ```css
 .centered-block
@@ -1610,7 +1267,7 @@ centrer un élément de type block quel que soit le navigateur utilisé.
 }
 ```
 
-Autre méthode
+Position absolue et marges négatives
 
 ```css
 .centered-block
@@ -1622,7 +1279,7 @@ Autre méthode
 }
 ```
 
-Avec calc()
+Position absolue, marges négatives et `calc()`
 
 ```css
 .centered-block
@@ -1665,117 +1322,16 @@ Autre option
 }
 ```
 
-### Faux columns
-
-Comme nous l’avons vu dans le cadre des exemples de mises en page, il existe une astuce efficace pour donner visuellement l’impression que le fond des diverses colonnes s’étend jusqu’en bas quelle que soit la longueur des diverses colonnes.
-
-Cette astuce développée par Dan Cederholm et baptisée "faux columns" est utilisable avec des [mises en page à largeur fixes](http://www.alistapart.com/articles/fauxcolumns/) ou [variables](http://www.communitymx.com/content/article.cfm?page=1&cid=AFC58) et consiste à utiliser intelligemment une image de fond sur l’élément parent des diverses colonnes.
-
-```css
-.wrapper
-{
-	background:url(images/bkg_faucolumns.gif) top left repeat-y;
-}
-```
-
-*Exercice: expérimenter avec faux columns*
-
-### Solutions de remplacement par images
-
-[De nombreuses solutions ont été développées pour remplacer du texte par des images](http://css-discuss.incutio.com/?page=ImageReplacement), en partie parce que les développeurs se sentent limités par le nombre restreint de polices disponibles.
-
-Généralement, utilisera des méthodes qui cachent le texte en le plaçant sous l’image de remplacement. Ces méthodes nécessitent l’ajout d’un élément non sémantique dans le code HTML (dans ce cas-ci un <span>). L’autre problème de ces méthodes est l’impossibilité d’utiliser des images transparentes.
-
-#### Gilder / Levin Image Replacement
-
-HTML
-
-```css
-<h3 class="replace"><span></span>Revised Image Replacement</h3>
-```
-
-CSS
-```css
-.replace
-{
-	width: 329px; /*largeur image*/
-	height: 25px; /*hauteur image*/
-	position: relative; /*établi un contexte de positionnement pour le <span>*/
-	overflow :hidden ; /*cache le texte si il déborde*/
-}
-.replace span
-{
-  background: url(image_opaque.jpg) no-repeat;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-```
-S’il faut utiliser des images transparentes, on utilisera alors une autre méthode qui cache le texte hors écran avant d’appliquer l’image.
-
-#### Phark Image Replacement
-
-Cette technique utilise simplement un text indent négatif pour cacher le texte de l'élément hors page.
-
-```css
-.imgreplace
-{
-	background: url(image_transparent.png) no-repeat;
-	text-indent:-9999px;
-	overflow:hidden;
-}
-```
-
-#### Scott Kellum Image Replacement
-
-La méthode créée par Phark oblige le navigateur à créer d'énormes "boites" pour les éléments cachés hors écran, cela peut poser certains problèmes de performance, entre autre sur iOS. Une autre solution a donc vu le jour.
-
-HTML
-```html
-<h3 class="imgreplace">Texte remplacé</h3>
-```
-
-CSS
-
-```css
-.imgreplace
-{
-	/* ne fonctionne que si l’élément est de type block / inline-block */
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-}
-```
-Ces technique, utilisée pour des éléments importants des pages, peuvent poser des problèmes d’accessibilité dans le cas où l’utilisateur dispose du support CSS mais pas de celui des images (CSS ON / IMAGES OFF). Dans ce cas, l’utilisateur ne voit rien.
-
-Il est possible de développer des interfaces de navigation très graphiques en utilisant ces techniques. Nous pouvons par exemple reconstituer l’interface de navigation principale du site d’Apple (telle qu'elle était avant le redesign de 2014).
-
-*Exercice: réaliser une barre de navigation graphique inspirée de celle de Apple en utilisant le spriting*
-
 ### @font-face: Utilisation de polices non standards
 
-Avec l’avènement de CSS3, il est désormais possible, sans faire appel à d’autre technologies, d’utiliser des polices spécifiques dans le cadre de projets Internet. [@font-face jouit d’un bon support dans la plupart des versions récentes des navigateurs](http://caniuse.com/fontface) et se dégrade élégamment dans les navigateurs plus anciens. Cette propriété permet de spécifier les polices à utiliser pour le rendu des textes et permet à l’utilisateur de les télécharger si il n’en dispose pas.
+Avec l’avènement de CSS3, il est désormais possible, sans faire appel à d’autre technologies, d’utiliser des polices spécifiques dans le cadre de projets Internet. [@font-face jouit d’un excellent support dans la plupart des versions récentes des navigateurs](http://caniuse.com/fontface) et se dégrade élégamment dans les navigateurs plus anciens. Cette propriété permet de spécifier les polices à utiliser pour le rendu des textes et permet à l’utilisateur de les télécharger si il n’en dispose pas.
 
 CSS
-
-```css
-@font-face
-{
-  font-family: 'MyFontFamily';
-  src: url('myfont-webfont.eot?#iefix') format('embedded-opentype'),
-       url('myfont-webfont.woff') format('woff'),
-       url('myfont-webfont.ttf')  format('truetype'),
-       url('myfont-webfont.svg#svgFontName') format('svg');
-}
-```
-
-En 2016, vous pouvez simplement utiliser les formats WOFF et WOFF2, cela devrait suffire.
 
 ```css
 @font-face {
   font-family: 'open-sans';
-  src: url('opensans-regular-webfont.woff2') format('woff2'),
-       url('opensans-regular-webfont.woff') format('woff');
+  src: local('Open Sans'), local('OpenSans'), url('fonts/opensans-regular-webfont.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
@@ -1786,15 +1342,13 @@ pour utiliser la police dans votre CSS:
 ```css
 h1
 {
-	font:normal 2em/1.1 "MyFontFamily", "Helvetica", "Arial", sans-serf;
+	font: normal 2rem/1.1 "MyFontFamily", "Helvetica", "Arial", sans-serif;
 }
 ```
 
 Si vous utilisez différentes graisses ou styles de la même police, [lire l'article de Roger Johansson sur le sujet](http://www.456bereastreet.com/archive/201012/font-face_tip_define_font-weight_and_font-style_to_keep_your_css_simple/). Cette technique simple vous évitera de devoir utiliser différents noms de polices dans votre CSS pour chaque graisse ou variante.
 
 Les principaux problèmes liées à l’utilisation de @font-face sont de nature légale. La licence de certaines polices ne permet pas de les utiliser de cette façon car, étant disponibles sur le serveur, elles peuvent y être téléchargées par quelqu’un qui ne les a pas forcément achetées. De nombreuses polices offrent explicitement la possibilité d’une utilisation à l’aide de @font-face dans le cadre de leur licence.
-
-L’autre difficulté, de nature technique celle-là, est l’existence de [divers formats](http://snook.ca/archives/html_and_css/becoming-a-font-embedding-master) pour les fichiers de polices, supportés de façon diverses par les différents navigateurs. Il existe cependant des [outils de conversion](http://www.fontsquirrel.com/fontface/generator) et une [syntaxe éprouvée](http://paulirish.com/2009/bulletproof-font-face-implementation-syntax/) puis [améliorée](http://www.fontspring.com/blog/the-new-bulletproof-font-face-syntax) permettant de résoudre ces questions techniques. A signaler également, les [temps de chargement](http://www.stevesouders.com/blog/2009/10/13/font-face-and-performance/) qui, sur les sites très fréquentés, peuvent poser certains problèmes de performance.
 
 Cette technique est dores et déjà bien supportée par les divers navigateurs et constitue à ce jour notre meilleure option.
 
@@ -1889,71 +1443,6 @@ CSS
 }
 ```
 
-### Grilles et inline-block
-
-Lorsque vous souhaitez créer une grille d'éléments dont certains peuvent avoir des longueurs et hauteurs variables, vous aurez des problèmes causés par le comportement naturel des floats.
-
-Exemple: une liste de produits et de descriptions de produits dans un site de e-commerce, une série de travaux dans un portfolio.
-
-Dans ce cas, on peut utiliser une méthode en inline-block:
-
-```html
-<ul class="gridlist">
-	<li>
-		<h2>This is a title and it can be long</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, quis, ullam repellendus ea repudiandae rerum eligendi aspernatur laudantium delectus possimus reiciendis sapiente nulla autem beatae ipsam ut eius modi ea repudiandae rerum eligendi aspernatur laudantium delectus possimus reiciendis sapiente nulla autem beatae ipsam ut eius modi ea repudiandae rerum eligendi aspernatur laudantium delectus possimus reiciendis sapiente nulla autem beatae ipsam ut eius modi ea repudiandae rerum eligendi aspernatur laudantium delectus possimus reiciendis sapiente nulla autem beatae ipsam ut eius modi neque.</p>
-	</li><!--
- --><li>
-		<h2>This is a title and it can be long</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, quis, ullam repellendus ea repudiandae rerum eligendi aspernatur laudantium delectus possimus reiciendis sapiente nulla autem beatae ipsam ut eius modi neque.</p>
-	</li><!--
- --><li>
-		<h2>This is a title and it can be long</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, quis, ullam repellendus ea repudiandae rerum eligendi aspernatur laudantium delectus possimus reiciendis sapiente nulla autem beatae ipsam ut eius modi neque.</p>
-	</li><!--
- --><li>
-		<h2>This is a title and it can be long</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, quis, ullam repellendus ea repudiandae rerum eligendi aspernatur laudantium delectus possimus reiciendis sapiente nulla autem beatae ipsam ut eius modi neque.</p>
-	</li><!--
- --><li>
-		<h2>This is a title and it can be long</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, quis, ullam repellendus ea repudiandae rerum eligendi aspernatur laudantium delectus possimus reiciendis sapiente nulla autem beatae ipsam ut eius modi neque.</p>
-	</li><!--
- --><li>
-		<h2>This is a title and it can be long</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus, quis, ullam repellendus ea repudiandae rerum eligendi aspernatur laudantium delectus possimus reiciendis sapiente nulla autem beatae ipsam ut eius modi neque.</p>
-	</li>
-</ul>
-```
-
-```css
-.gridlist
-{
-	list-style:none;
-	margin:0;
-	padding:0;
-}
-
-	.gridlist > li
-	{
-		display:inline-block;
-		vertical-align:top;
-		width:31.33%;
-		margin-right:3%;
-		background:red;
-	}
-
-	.gridlist > li:nth-child(3n)
-	{
-		background:maroon;
-		margin-right:0;
-	}
-```
-
-Les commentaires dans le HTML sont là pour éviter que les navigateurs [n'interprètent le whitespace dans votre code CSS](http://css-tricks.com/fighting-the-space-between-inline-block-elements/), créant ainsi des espaces indésirables.
-
-Le sélecteur nth-child est un sélecteur CSS3. `.gridlist > li:nth-child(3n)` cible tous les 3n éléments dans la liste: le 3ème, le 6ème, le 9ème et ainsi de suite.
-
 ### Media queries: l'un des trois piliers du responsive web design
 
 Si vous vous souvenez de l'attribut `media` utilisé lorsque vous liez une feuille de style à un document HTML, vous comprendrez aisément ce que sont les media queries.
@@ -1968,10 +1457,10 @@ Elles sont utilisables avec des feuilles de styles liées
 <link rel="stylesheet" media="screen and (min-width:970px)" href="css/medium.css" />
 ```
 
-ou au sein de feuilles de styles existantes, ce qui est à mon sens leur utilisation la plus fréquente.
+ou au sein de feuilles de styles existantes, ce qui est leur utilisation la plus fréquente.
 
 ```css
-@media all and (min-width:970px)
+@media all and (min-width: 970px)
 {
 	/*styles*/
 }
