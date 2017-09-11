@@ -1067,7 +1067,7 @@ Ces deux outils de layout font en outre appel au [module de Box alignment](https
 
 ### Flexbox
 
-Flexbox est appliqué gâce à la propriété display. Une fois la propriété `display: flex;` est déclarée sur un élement, celui-ci devient un **flex-container** est ses enfants directs des **flex-items**. Comme dit plus haut, Flexbox permet de gérer les choses dans une dimension principale (verticale ou horizontale). C'est ce que l'on appelle le "main-axis" qui est spécifié via la propriété `flex-direction` et permet de gérer l'alignement principal des flex-items. Une fois le "main-axis" précisé, un "cross axis" perpendiculaire permet de gérer des propriétés d'alignement plus secondaires des flex-items.
+Flexbox est appliqué gâce à la propriété display. Une fois la propriété `display: flex;` ou `display: inline-flex;` déclarée sur un élement, celui-ci devient un **flex-container** est ses enfants directs des **flex-items**. Comme dit plus haut, Flexbox permet de gérer les choses dans une dimension principale (verticale ou horizontale). C'est ce que l'on appelle le "main-axis" qui est spécifié via la propriété `flex-direction` et permet de gérer l'alignement principal des flex-items. Une fois le "main-axis" précisé, un "cross axis" perpendiculaire permet de gérer des propriétés d'alignement plus secondaires des flex-items.
 
 Voici les propriétés les plus importantes au niveau du flex-container. Ces propriétés ont des valeurs par défaut mais, lorsque vous commencez, il est conseillé de les spécifier toutes explicitement.
 
@@ -1140,7 +1140,167 @@ CSS tricks possède un bon article "[A complete guide to flexbox](https://css-tr
 
 ### Grid
 
+La spécifications CSS grid permet de créer des grilles en deux dimensions et de positionner des élements à l'aide de ces grilles. CSS grid est appliqué à l'aide de la proprité display. Une fois `display: grid;` ou `display: inline-grid;` appliqué à un élément, celui-ci devient un **grid-container** et ses enfants directs des **grid-items**. Grid est une spécification relativement complexe, nous allons ici en voir les propriétés ptrincipales. Pour un aperçu plus complet, je ne peux que vous recommander "[Grid by example](https://gridbyexample.com/examples/)" par Rachel Andrew et [un guide très bien fait disponible en français sur Mozilla Developer Network](https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Grid_Layout/Les_concepts_de_base).
+
+Voici les propriétés principales au niveau du **grid-container**:
+
+- `grid-template-columns`: défini les dimensions des colonnes de la grille. Peut être une valeur (fr,%,px,rem,em, etc.) ou `auto`. Si ces valeurs sont répétées il est intéressant d'utiliser la notation `repeat`. La valeur `minmax([valeur-min], [valeur-max])` est également très utile pour spécifier une valeur minimale et maximale pour les dimensions des colonnes. Lorsque `minmax` est utilisé avec `repeat`, il est également possible d'utiliser `auto-fill` ou `auto-fit`.
+- `grid-template-rows`: défini les dimensions des rangées de la grille. Peut être une valeur (fr,%,px,rem,em, etc.) ou `auto`. Si ces valeurs sont répétées il est intéressant d'utiliser la notation `repeat`. La valeur `minmax([valeur-min], [valeur-max])` est également très utile pour spécifier une valeur minimale et maximale pour les dimensions des colonnes. Lorsque `minmax` est utilisé avec `repeat`, il est également possible d'utiliser `auto-fill` ou `auto-fit`.
+- `justify-content: [start | end | center | stretch (default)]`: permet d'aligner les grid-items par rapport à l'axe des rangées.
+- `align-items: [start | end | center | stretch (default)]`: permet d'aligner les grid-items par rapport à l'axe des colonnes.
+- `grid-column-gap`, `grid-row-gap`, `grid-gap`: permettent de spécifier les espaces entre les colonnes et les rangées de la grille ou les deux à la fois. Peut être une valeur (%,px,rem,em, etc.).
+- `grid-templates-areas`: permet de définir des zones de grilles nommées de façon visuelle. les valeurs sont soit des chînes de caractères, soit un "." qui permet de laisser la zone comme vide de tout contenu.
+
+Voici les propriétés principales au niveau des **grid-items**:
+
 @TODO
+
+**Exemple: grilles fluide simple - expériementer avec les différentes propriétés et valeurs**
+
+```html
+<div class="grid">
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+</div>
+```
+
+```css
+.grid
+{
+  display: grid;
+  /* grid-template columns: 1fr 1fr 1fr 1fr; */
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 20px;
+}
+
+.grid__item
+{
+  background-color: teal;
+}
+```
+
+**Exemple: grille fluide responsive avec minmax et auto-fit - expériementer avec les différentes propriétés et valeurs**
+
+```html
+<div class="grid">
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+  <div class="grid__item">grid item</div>
+</div>
+```
+
+```css
+.grid
+{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: auto;
+  grid-gap: 20px;
+}
+
+.grid__item
+{
+  background-color: teal;
+}
+```
+
+**Exemple: grille mixte avec des zones nommées à l'aide de template areas**
+
+```html
+<div class="page">
+  <header class="pageheader">header</header>
+  <main class="content-main">content</main>
+  <aside class="content-secondary">sidebar</aside>
+  <footer class="pagefooter">footer</footer>
+</div>
+```
+
+```css
+.page
+{
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 960px;
+
+  display: grid;
+  grid-template-columns: 300px 20px 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "header header header"
+                       "sidebar . content"
+                       "footer footer footer";
+}
+
+.pageheader
+{
+  grid-area: header;
+  background-color: silver;
+}
+
+.content-secondary
+{
+  grid-area: sidebar;
+  background-color: teal;
+}
+
+.content-main
+{
+  grid-area: content;
+  background-color: olive;
+}
+
+.pagefooter
+{
+  grid-area: footer;
+  background-color: grey;
+}
+```
+
+**Exemple: grille avec elements placés automatiquement et un élément placé explicitemnt (avec span)**
+
+@TODO
+
+## Media queries: l'un des trois piliers du responsive web design
+
+Si vous vous souvenez de l'attribut `media` utilisé lorsque vous liez une feuille de style à un document HTML, vous comprendrez aisément ce que sont les media queries.
+
+Les [média queries](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries) étendent les fonctionnalités des types de média. Elles permettent de servir des feuilles de styles ou certaines déclarations au sein de feuilles de style en fonction de caractéristiques de la plateforme à l’aide de laquelle sont affichées les pages.
+
+Ces media queries permettent de tester les caractéristiques suivantes: `width`, `max-width`, `min-width`, `height`, `max-height`, `min-height`, `aspect-ratio`, `device-aspect-ratio`, `device-height`, `monochrome`, `color`, `device-width`, `orientation`, `resolution`, etc.
+
+Elles sont utilisables avec des feuilles de styles liées.
+
+```html
+<link rel="stylesheet" media="screen and (min-width:970px)" href="css/medium.css" />
+```
+
+Ces media queries peuvent également être placées au sein de feuilles de styles existantes, ce qui est leur utilisation la plus fréquente.
+
+```css
+@media all and (min-width: 970px)
+{
+	/*styles*/
+}
+```
+
+Comme le mentionne Stéphanie Rieger sur Cloud Four [il est avantageux de spécifier vos media-queries en em](http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw/), pour donner plus de flexibilité à vos layouts, ceux-ci vont en effet changer lorsque l'utilisateur change la taille de texte.
+
+L’idée est d’utiliser les media queries pour créer permettre à l’expérience utilisateur d’être la meilleure possible quelle que soit la plateforme utilisée.
+
+Pour ce qui est du choix des valeurs de breakpoints, je vous invite à [suivre le conseil de Stephen Hay](https://twitter.com/brad_frost/status/191977076000161793).
+
+**Exercice: media queries et des couleurs de donc sur l'élément `body`**
+
+**Exercices: layouts et composants en utilisant grid et media queries**
 
 ## Quelques Techniques CSS utiles
 
@@ -1191,7 +1351,7 @@ Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre
 
 #### Listes horizontales (Flexbox)
 
-Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre de navigation horizontale. L'alignement des items dans la liste, la répartition de l'espace libre d'autres caractéristiques peuvent petre facilement modifiées avec flexbox.
+Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre de navigation horizontale. L'alignement des items dans la liste, la répartition de l'espace libre d'autres caractéristiques peuvent être facilement modifiées avec flexbox.
 
 ```css
 .mainnav
@@ -1330,8 +1490,9 @@ CSS
 
 ```css
 @font-face {
-  font-family: 'open-sans';
-  src: local('Open Sans'), local('OpenSans'), url('fonts/opensans-regular-webfont.woff') format('woff');
+  font-family: 'MyFontFamily';
+  src: url('fonts/MyFontFamily.woff2') format('woff2'),
+       url('fonts/MyFontFamily.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
@@ -1434,6 +1595,14 @@ HTML
 <img src="myimage.jpg" class="fluidmedia" alt="my fluid image">
 ```
 
+```html
+<video controls class="fluidmedia">
+  <source src="assets/videos/video.mp4" type="video/mp4">
+  <source src="assets/videos/video.webm" type="video/webm">
+  <p>Your browser doesn't support HTML5 video. Download the video in <a href="assets/videos/video.mp4">mp4</a> or <a href="assets/videos/video.webm">webm</a>.</p>
+</video>
+```
+
 CSS
 
 ```css
@@ -1443,36 +1612,31 @@ CSS
 }
 ```
 
-### Media queries: l'un des trois piliers du responsive web design
-
-Si vous vous souvenez de l'attribut `media` utilisé lorsque vous liez une feuille de style à un document HTML, vous comprendrez aisément ce que sont les media queries.
-
-Les [Média Queries](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries) étendent les fonctionnalités des types de média. Elles permettent de servir des feuilles de styles ou certaines déclarations au sein de feuilles de style en fonction de caractéristiques de la plateforme à l’aide de laquelle sont affichées les pages.
-
-Ces Media Queries permettent de tester les caractéristiques suivantes: `width`, `max-width`, `min-width`, `height`, `max-height`, `min-height`, `aspect-ratio`, `device-aspect-ratio`, `device-height`, `monochrome`, `color`, `device-width`, `orientation`, `resolution`, etc.
-
-Elles sont utilisables avec des feuilles de styles liées
+Les videos servies par Youtube et Vimeo utilsent `<iframe>`, voici une façon simple de garder un ratio constant (16/9) tout en ayant un comportement fluide.
 
 ```html
-<link rel="stylesheet" media="screen and (min-width:970px)" href="css/medium.css" />
+<div class="fluidvideo">
+  <iframe src="https://www.youtube.com/embed/_kAJSswZPvI"></iframe>
+</div>
 ```
-
-ou au sein de feuilles de styles existantes, ce qui est leur utilisation la plus fréquente.
 
 ```css
-@media all and (min-width: 970px)
+.fluidvideo
 {
-	/*styles*/
+	position: relative; /* positioning context */
+  padding-top: 56.25%; /* ratio 16/9 (100%/16*9) */
+  background-color: #000;
+}
+
+.fluidvideo > iframe
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 ```
-
-Comme le mentionne Stéphanie Rieger sur Cloud Four [il est avantageux de spécifier vos media-queries en em](http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw/), pour donner plus de flexibilité à vos layouts, ceux-ci vont en effet changer lorsque l'utilisateur change la taille de texte.
-
-L’idée est d’utiliser les media queries pour créer permettre à l’expérience utilisateur d’être la meilleure possible quelle que soit la plateforme utilisée.
-
-Pour ce qui est du choix des valeurs de breakpoints, je vous invite à [suivre le conseil de Stephen Hay](https://twitter.com/brad_frost/status/191977076000161793).
-
-*Exercice: test des media queries sur l'élément `<body>`*
 
 ## Ressources Complémentaires
 
