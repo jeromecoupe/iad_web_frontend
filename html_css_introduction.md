@@ -1,24 +1,18 @@
 # HTML & CSS: Introduction
 
-IAD 2016-2017 - Jérôme Coupé
+IAD 2017-2018 - Jérôme Coupé
 
 ## Introduction
 
-Avec CSS3, HTML5 représente une petite révolution dans le monde du développement front-end. HTML4 et ses successeurs sont parmi nous depuis 10 ans déjà et une évolution était nécessaire.
-
-Depuis [l'annonce par le W3C de la fin des travaux sur XHTML2 en 2009](http://www.w3.org/News/2009#entry-6601), HTML5 reste le seul candidat en lice pour une refonte du langage structurant du web. Le travail sur la spécification HTML5 a commencé en 2004 et est un effort conjoint du W3C et du WHATWG Group. Même si cette spécification n'est pas encore terminée à l'heure actuelle, elle est néanmoins utilisable dès aujourd'hui.
+Depuis [l'annonce par le W3C de la fin des travaux sur XHTML2 en 2009](http://www.w3.org/News/2009#entry-6601), HTML5 reste le seul candidat en lice pour une refonte du langage structurant du web. Le travail sur la spécification HTML5 a commencé en 2004 et est un effort conjoint du W3C et du WHATWG Group.
 
 HTML5 est à la fois un enrichissement du "vocabulaire" du HTML, mais aussi une tentative de faire du HTML un langage du web d'aujourd'hui: sémantique, applicatif (à travers les divers API) et réellement intégrateur de divers médias (sons, vidéos, élément CANVAS, etc.).
 
-Ce cours est une introduction, nous ne verrons ici que les nouveaux éléments sémantiques introduits par HTML5. Les tags `video` et `audio`, ainsi que les nouveaux champs de formulaires seront également évoqués. L'élément `canvas` et les API de drag and drop, de géolocalisation et de stockage offline ne seront pas traitées dans le cadre de ce cours.
+HTML et CSS sont désormais des spécifications modulaire en évolution constante. Nous ne devrions donc plus voir d'autres grandes versions monolithiques de HTML ou de CSS mais simplement une évolution constante des différents modules dont ces spécifications sont composées.
 
-Outre la [spécification HTML5](http://www.w3.org/TR/html5/), de nombreuses ressources telles que [webplateform.org](http://www.webplatform.org/), [HTML5 Rocks](http://www.html5rocks.com) et [Mozilla Developer Network (MDN)](https://developer.mozilla.org/) sont disponibles si ces sujets vous intéressent. Nous nous pencherons sur certains de ces sujet lors du cours de l'année prochaine.
+De nombreuses ressources telles que [Mozilla Developer Network (MDN)](https://developer.mozilla.org/), [webplateform.org](http://www.webplatform.org/) et [HTML5 Rocks](http://www.html5rocks.com) sont disponibles si ces sujets vous intéressent.
 
-Le livre "[HTML5 for Web Designer](http://books.alistapart.com/products/html5-for-web-designers)" par Jeremy Keith est une petite merveille de concision et est disponible en version Française. A conseiller également: "[Hardboiled Webdesign](http://hardboiledwebdesign.com/)" de Andy Clarke dont un chapitre est consacré à HTML5. La bible sur le sujet étant "[Introducing HTML5](http://introducinghtml5.com/)" par Bruce Lawson et Remy Sharp. Le WHATWG a également publié une [version de la spécification dédiée aux développeurs](http://developers.whatwg.org/).
-
-Pour ce qui est de CSS, nous travaillerons essentiellement avec CSS2.1 et aborderons également des modules CSS3. Nous verrons d'avantage de ces modules CSS3 l'année prochaine.
-
-Deux sites de ressources pour vérifier la compatibilité de votre code CSS / HTML avec les différents navigateurs: [caniuse.com](http://caniuse.com) (tables de support) et [html5please](http://html5please.com) (conseils d’utilisation et polyfill javascript renseignés).
+Pour vérifier la compatibilité de votre code CSS / HTML avec les différents navigateurs, vous pouvez vous référer au site [caniuse.com](http://caniuse.com) (tables de support).
 
 ## HTML5
 
@@ -39,7 +33,7 @@ Deux sites de ressources pour vérifier la compatibilité de votre code CSS / HT
 
 ### Déclaration du type de document
 
-Les divers navigateurs n’utilisent pas la déclaration de type de document (DTD) pour effectuer le rendu d’un document, la DTD permet néanmoins  aux outils de validation que vous utilisez de savoir dans quelle syntaxe est écrit votre document, afin de pourvoir le valider.
+Les divers navigateurs n’utilisent pas la déclaration de type de document (DTD) pour effectuer le rendu d’un document, la DTD permet néanmoins aux outils de validation que vous utilisez de savoir dans quelle syntaxe est écrit votre document, afin de pourvoir le valider.
 
 La DTD HTML5 est en fait la plus petite suite de caractères permettant à un navigateur de gérer une page en mode "standard" et non en mode "quirks". Afin de garder une compatibilité avec un code plus ancien, les navigateurs ont mis en place ce que l’on nomme le [doctype switching](http://www.ericmeyeroncss.com/bonus/render-mode.html), une idée de Todd Fahrner. Le mode "quirks" leur permet de gérer et d’afficher un code ne se conformant pas aux standards.
 
@@ -51,9 +45,9 @@ Il convient d'ajouter une balise meta précisant l'encodage de caractère utilis
 <meta charset="utf-8">
 ```
 
-### Déclaration de la langue Utilisée
+### Déclaration de la langue utilisée
 
-L'élément racine d'un document doit impérativement être l'élément `<html>` et celui-ci doit avoir comme attribut une déclaration de la langue utilisée principalement dans le document. Par exemple :
+L'élément racine d'un document doit impérativement être l'élément `<html>` et celui-ci doit avoir comme attribut une déclaration de la langue principale utilisée dans le document. Par exemple :
 
 ```html
 <html lang="en">
@@ -61,7 +55,7 @@ L'élément racine d'un document doit impérativement être l'élément `<html>`
 
 ### Bonnes pratiques
 
-HTML est un langage assez pragmatique et qui "pardonne" beaucoup d'erreurs de syntaxe et de style. Néanmoins, il est important de suivre certaines règles. Lorsque vous débutez, valider votre code peut s'avérer intéressant.
+HTML est un langage assez pragmatique et qui "pardonne" beaucoup d'erreurs de syntaxe et de style. Néanmoins, il est important de suivre certaines règles. Lorsque vous débutez, valider votre code peut s'avérer intéressant pour détecter vos erreurs.
 
 Outre cette validation, voici une série de bonnes pratiques qui rendront votre code plus lisible.
 
@@ -169,13 +163,13 @@ Cette forme d’arbre et d’emboîtement hiérarchisé est parfaitement visible
 
 Familiarisez-vous avec ces outils, vous en aurez besoin lors de ce cours et durant toute votre carrière de développeur front-end.
 
-*Exercice: créer un starter kit en HTML5, utilisez les outils de développement*
+*Exercice: créer un starter kit en HTML5, explorer les outils de développement dans Chrome, Safari ou Firefox*
 
 ### HTML5: Une sémantique améliorée
 
 L’une des nouveautés de HTML5, c’est l’introduction de nouveaux éléments sémantiques permettant une qualification plus précise des divers éléments de votre document. Certains comme Luke Stevens [arguent que l'utilisation de de ces éléments est problématique pour diverses raisons](http://www.truthabouthtml5.com/). A vous de voir.
 
-Nous ne présenterons pas l’ensemble de ces nouveaux éléments dans le cadre de ce cours mais nous vous présenterons les principaux. L'ensemble de ces nouveaux éléments et des renseignements sur leurs usages sont disponibles sur le site du W3C ou dans [le glossaire rédigé pour vous par l'équipe de HTML5 Doctor](http://html5doctor.com/element-index/).
+Nous ne présenterons pas l’ensemble de ces nouveaux éléments dans le cadre de ce cours mais nous vous présenterons les principaux. L'ensemble de ces nouveaux éléments et des renseignements sur leurs usages sont disponibles sur le site de [Mozilla Developer Network](https://developer.mozilla.org/fr/docs/Web/HTML/Element) ou dans [le glossaire rédigé pour vous par l'équipe de HTML5 Doctor](http://html5doctor.com/element-index/).
 
 #### Nouveaux élements
 
@@ -203,7 +197,9 @@ Le contexte est ici très important. Vous pouvez utiliser `<aside>` pour marquer
 
 #### Document outline et sectioning elements
 
-Notons ici que les éléments `acticle`, `section`, `nav` et `aside` sont des élements de sectioning, c’est à dire qu’ils créent une nouvelle section au sein du document et que la hiérarchie des titres recommence à zéro au sein de chacun des éléments de ce type. Voyons par exemple la structure de ce document à l’aide de l’outil HTML5 outliner pour y voir plus clair.
+Notons ici que les éléments `acticle`, `section`, `nav` et `aside` sont des élements de sectioning, c’est à dire qu’ils créent une nouvelle section au sein du document.
+
+A priori, la hiérarchie des titres recommence à zéro au sein de chacun des éléments de ce type. Il est néanmoins [conseillé par le W3C de garder une hiérarchie de titres classiques sans tenir compte de ces éléments](https://www.w3.org/TR/html5/sections.html#outlines), étant donné que l'algorithme d'outline n'est à ce jour implémenté dans aucun navigateur ou technologie d'assistance.
 
 ```html
 <!DOCTYPE html>
@@ -211,9 +207,6 @@ Notons ici que les éléments `acticle`, `section`, `nav` et `aside` sont des é
   <head>
     <meta charset="utf-8">
     <title>Document outline and sectioning elements</title>
-    <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
   </head>
   <body>
     <h1>My great site</h1>
@@ -223,19 +216,19 @@ Notons ici que les éléments `acticle`, `section`, `nav` et `aside` sont des é
       </ul>
     </nav>
     <article>
-      <h1>Article title</h1>
+      <h2>Article title</h2>
       <p>Article content.</p>
-      <h2>Article sub-heading</h2>
+      <h3>Article sub-heading</h3>
       <p>More content.</p>
-      <h3>Article sub-sub-heading</h3>
+      <h4>Article sub-sub-heading</h4>
       <p>More content.</p>
     </article>
     <aside>
-      <h1>Sidebar heading</h1>
+      <h2>Sidebar heading</h2>
       <p>content</p>
     </aside>
     <footer>
-      <h1>Footer heading</h1>
+      <h2>Footer heading</h2>
       <p>Footer content.</p>
     </footer>
   </body>
@@ -244,7 +237,7 @@ Notons ici que les éléments `acticle`, `section`, `nav` et `aside` sont des é
 
 ##### `<main>`
 
-L’élement `<main>` représente le contenu principal d’un document. Il ne peut être utilisé qu’une seule fois au sein d’un document HTML et ne peut jamais être le descendant de `<article>`, `<aside>`, `<footer>`, `<header>` or `<nav>`.
+L’élément `<main>` représente le contenu principal d’un document. Il ne peut être utilisé qu’une seule fois au sein d’un document HTML et ne peut jamais être le descendant de `<article>`, `<aside>`, `<footer>`, `<header>` or `<nav>`.
 
 ##### `<header>`
 
@@ -275,7 +268,7 @@ Est utilisé pour marquer du contenu qui pourrait être retiré du document sans
 </figure>
 ```
 
-#### redefinition d’éléments existants
+#### redéfinition d’éléments existants
 
 ##### `<cite>`
 
@@ -294,9 +287,9 @@ L’élément a à toujours été un élément inline en HTML. D’après les sp
 
 *Exercice: examiner 2 sites et voir quels éléments utiliser*
 
-#### Video Audio et Figure avec HTML5
+#### Video Audio et Figure
 
-Un autre aspect intéressant de HTML5 concerne la possibilité de gérer nativement les éléments audios et vidéos d'une page sans faire appel à des technologies extérieures telles que Flash.
+Un autre aspect intéressant de HTML concerne la possibilité de gérer nativement les éléments audios et vidéos d'une page sans faire appel à des technologies extérieures telles que Flash.
 
 En théorie, c'est aussi facile d'intégrer une vidéo ou un fichier audio que d'intégrer une image. En pratique, c'est un peu plus compliqué.
 
@@ -306,7 +299,7 @@ Certains anciens navigateurs ne supportent pas les tags `<video>` ou `<audio>`, 
 
 Voici le code nécessaire pour intégrer une video dans une page HTML.
 
-Il y a 3 grands formats pour des videos en HTML5: .webm, .mp4 et .ogv. Aujourd'hui .webm et .mp4 suffisent pour obtenir un support adéquat dans la plupart des navigateurs utilisés.
+Il y a 3 grands formats pour des videos en HTML: .webm, .mp4 et .ogv. Aujourd'hui .webm et .mp4 suffisent pour obtenir un support adéquat dans la plupart des navigateurs utilisés.
 
 **Video simple**
 
@@ -320,13 +313,13 @@ Il y a 3 grands formats pour des videos en HTML5: .webm, .mp4 et .ogv. Aujourd'h
 <video height="270" width="480" poster="waitimage.png" controls>
   <source src="samplevideo.webm" type="video/webm">
   <source src="samplevideo.mp4" type="video/mp4">
-  <p>Your browser does not support the HTML5 video tag but you can download the file either in <a href="samplevideo.webm">WEBM</a>, <a href="samplevideo.mp4">MP4</a></p>
+  <p>Your browser does not support the video tag but you can download the file either in <a href="samplevideo.webm">WEBM</a>, <a href="samplevideo.mp4">MP4</a></p>
 </video>
 ```
 
-L'attribut poster sert à donner une image d'attente dans les navigateurs supportant l'élément vidéo, tandis que l'attribut controls sert à afficher les contrôles minimaux pour le type de média choisi.
+L'attribut `poster` sert à donner une image d'attente dans les navigateurs supportant l'élément vidéo, tandis que l'attribut controls sert à afficher les contrôles minimaux pour le type de média choisi.
 
-Certains navigateurs supportant l'élément `<video>` commencent automatiquement à télécharger les fichiers vidéos, ce qui donne lieu à un usage (important) de bande passante sans intervention utilisateur. L’attribut `preload` peut être utilisé pour empêcher le preload de la video par le navigateur preload=”none”`;
+Certains navigateurs supportant l'élément `<video>` commencent automatiquement à télécharger les fichiers vidéos, ce qui donne lieu à un usage (important) de bande passante sans intervention utilisateur. L’attribut `preload="none"` peut être utilisé pour empêcher le preload de la video par le navigateur;
 
 Si vos besoins en vidéo sont importants, des services tels que Youtube et Vimeo un moyen efficace de servir des vidéos sur le web. Ils réalisent automatiquement les divers encodages nécessaires, le type de plateforme utilisé par le visiteur, etc.
 
@@ -334,12 +327,12 @@ Si vos besoins en vidéo sont importants, des services tels que Youtube et Vimeo
 
 ##### Audio
 
-Il y a 3 grands formats pour des videos en HTML5: .mp3, .wav et .ogg. Aujourd'hui .mp3 suffit pour obtenir un support adéquat dans la plupart des navigateurs utilisés.
+Il y a 3 grands formats pour des videos en HTML: .mp3, .wav et .ogg. Aujourd'hui .mp3 suffit pour obtenir un support adéquat dans la plupart des navigateurs utilisés.
 
 ```html
 <audio controls>
   <source src="elvis.mp3" type="audio/mpeg">
-  <p><strong>Your browser does not support the HTML5 audio tag but you can download the file either in <a href="elvis.mp3">MP3 format</a></strong></p>
+  <p><strong>Your browser does not support the audio tag but you can download the file either in <a href="elvis.mp3">MP3 format</a></strong></p>
 </audio>
 ```
 
@@ -359,7 +352,7 @@ Les élément figure et figcaption servent à grouper images et légendes dans v
 
 #### Formulaires et HTML5
 
-La spécification HTML5 permet également l'utilisation de contrôles de formulaires plus avancés que ceux dont disposait jusqu'ici la spécification HTML.
+La spécification HTML5 permet également l'utilisation de contrôles de formulaires plus avancés que ceux dont nous disposions jusqu'ici.
 
 ```html
 <form action="sendform.php">
@@ -375,8 +368,7 @@ La spécification HTML5 permet également l'utilisation de contrôles de formula
 
 *Note: dans l'exemple ci-dessus, l'élement label est explicitement lié au champs de formulaire via les attributs `for` de `<label>` et l'attribut `id` de l'élément `<input>`.*
 
-De nouveaux types de champs sont mis à la disposition des développeurs: email, url, date et range n'en sont
-que quelques uns.
+De nouveaux types de champs sont mis à la disposition des développeurs: email, url, date et range n'en sont que quelques uns.
 
 ```html
 <input type="email" name="useremail" required>
@@ -385,35 +377,35 @@ que quelques uns.
 <input type="range" name="myrange" min="0" max="10" step="1">
 ```
 
-Ces nouveaux champs permettent entre autre une validation automatique du format des données entrées par les utilisateurs. La plupart de ces nouveaux éléments ne fonctionnent aujourd'hui qu'avec les navigateurs récents. Ceci étant dit, la plupart se dégradent élégamment dans les autres navigateurs (sous la forme de champs de type texte pour la plupart).
+Ces nouveaux champs permettent, entre autres choses, une validation automatique du format des données entrées par les utilisateurs. La plupart de ces nouveaux éléments ne fonctionnent aujourd'hui qu'avec les navigateurs récents. Ceci étant dit, la plupart se dégradent élégamment dans les autres navigateurs (sous la forme de champs de type texte pour la plupart).
 
-HTML5 permet également l'utilisation de nouveaux attributs pour les champs de formulaires. En voici quelques uns parmi les plus utiles (du moins à mon avis).
+HTML permet également l'utilisation de nouveaux attributs pour les champs de formulaires. En voici quelques uns parmi les plus utiles (du moins à mon avis).
 
-Le nouvel attribut placeholder permet de spécifier un texte dans un champ tant que celui-ci n'est pas rempli ni activé. Lorsque l'utilisateur active le champ de formulaire, ce texte disparait.
+Le nouvel attribut `placeholder` permet de spécifier un texte dans un champ tant que celui-ci n'est pas rempli ni activé. Lorsque l'utilisateur active le champ de formulaire, ce texte disparait.
 
 ```html
 <input type="tel" name="gsm" id="gsm" placeholder="+32475335162">
 ```
 
-Pour sa part, l'attribut autofocus permet d'activer un champ de formulaire dès la page chargée.
+Pour sa part, l'attribut `autofocus` permet d'activer un champ de formulaire dès la page chargée.
 
 ```html
 <input type="search" name="search" id="search" autofocus>
 ```
 
-Intéressant également, l'attribut required permettant de spécifier un champ comme obligatoire dans le cadre d'un formulaire HTML5.
+Intéressant également, l'attribut `required` permettant de spécifier un champ comme obligatoire dans le cadre d'un formulaire HTML5.
 
 ```html
 <input type="text" name="name" id="name" required>
 ```
 
-Pour ceux qui veulent en savoir plus, [un excellent article introductif est disponible sur 24 Ways](http://24ways.org/2009/have-a-field-day-with-html5-forms/) et une [démonstration a été mise en ligne par HTML5 Doctor](http://html5doctor.com/demos/forms/forms-example.html). Les [quelques pages de Mark Pilgrim sur le sujet](http://diveintohtml5.info/) sont également intéressantes, même si [la spécification HTML5 reste évidemment la source faisant autorité](http://dev.w3.org/html5/markup/Overview.html).
+Pour ceux qui veulent en savoir plus, [un excellent article introductif est disponible sur 24 Ways](http://24ways.org/2009/have-a-field-day-with-html5-forms/) et une [démonstration a été mise en ligne par HTML5 Doctor](http://html5doctor.com/demos/forms/forms-example.html). Les [quelques pages de Mark Pilgrim sur le sujet](http://diveintohtml5.info/) sont également intéressantes, ainsi que la section consacrée aux [champs de formulaires sur Mozilla Developer Network](https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input).
 
 *Exercice: créer un formulaire en HTML5*
 
 #### L'élément Canvas
 
-HTML5 permet également d'utiliser l'élément `<canvas>` pour réaliser des dessins en 2D à l'aide de javascript. Il est possible de réaliser des graphiques en temps réel, des compositions à base d'images et de sons, des transformations, des animations, etc. [Une petite introduction par les gens d'Opera Software](https://dev.opera.com/articles/html5-canvas-basics/) peut être ?
+HTML permet également d'utiliser l'élément `<canvas>` pour réaliser des dessins en 2D à l'aide de javascript. Il est possible de réaliser des graphiques en temps réel, des compositions à base d'images et de sons, des transformations, des animations, etc. [Une petite introduction par les gens d'Opera Software](https://dev.opera.com/articles/html5-canvas-basics/) peut être ?
 
 Il est même possible de réaliser de véritables petits jeux en utilisant l'élément `<canvas>` et Javascript.
 
@@ -430,7 +422,7 @@ HTML5 propose également diverses API (Application Programming Interface) corres
 
 ## CSS
 
-Lors de ce cours, nous utiliserons principalement CSS 2.1 et quelques éléments de CSS3. A partir de CSS3, la spécification CSS est passée d’une spécification monolithique à une spécification modulaire, plus flexible. Une plus grande modularité permet aux navigateurs d’implémenter l’un ou l’autre module, sans pour autant devoir implémenter la spécification dans son ensemble.
+A partir de CSS3, la spécification CSS est passée d’une spécification monolithique à une spécification modulaire, plus flexible. Une plus grande modularité permet aux navigateurs d’implémenter l’un ou l’autre module, sans pour autant devoir implémenter la spécification dans son ensemble.
 
 ### Lier une feuille de style à un document HTML
 
@@ -446,7 +438,7 @@ C'est la méthode la plus utilisée dans la mesure où elle permet de séparer v
 
 #### CSS importées
 
-A ne pas utiliser dans la plupart des cas.
+A ne pas utiliser dans la plupart des cas pour des raison de performance.
 
 ```html
 <style>@import url(css/main.css);</style>
@@ -454,7 +446,7 @@ A ne pas utiliser dans la plupart des cas.
 
 #### CSS en ligne
 
-Utilisé dans certains cas: debugging, gestion par un CMS.
+Utilisé principalement pour le debugging ou pour augmenter la performance des pages avec Critical CSS.
 
 ```html
 <style>body {background:#fff;}</style>
@@ -462,7 +454,7 @@ Utilisé dans certains cas: debugging, gestion par un CMS.
 
 #### CSS dans l’attribut style des balises
 
-Peu utilisé.
+Peu utilisé, sauf pour gérer certains styles bien précis à l'aide d'un CMS par exemple.
 
 ```html
 <p style="color:blue;">
@@ -470,11 +462,11 @@ Peu utilisé.
 
 ### CSS et media
 
-Les requètes de media peuvent soit spécifier un type de media (all, screen, print, braille, etc.) soit spécifier des charactéristiques du media visé (largeur de la surface de rendu, resolution, orientation, etc.).
+[Les requètes de media](https://developer.mozilla.org/en-US/docs/Web/CSS/@media) peuvent soit spécifier un type de media (all, screen, print, speech, etc.) soit spécifier des charactéristiques du media visé (largeur de la surface de rendu, resolution, orientation, etc.).
 
-Les types de media permettent d’appliquer les feuilles de style en fonction du type de media avec lequel les documents sont affichés, soit en fonction des charactéristiques du media. Des opérateurs logiques (and, not, only) peuvent être utilisés. Plusieurs types et charactéristiques de media peuvent être spécifiées via l'utilisation de liste séparées par des virgules.
+Les types de media permettent d’appliquer les feuilles de style en fonction du type de media avec lequel les documents sont affichés, soit en fonction des charactéristiques du media. Des opérateurs logiques (and, not, only) peuvent être utilisés. Plusieurs types et charactéristiques de media peuvent être spécifiées au sein d'une même déclaration en les séparant par des virgules.
 
-Il est possible d’utiliser l'attribut media avec plusieurs niveaux. Classiquement, on ne spécifie pas de type de media (all) lorsqu'on importe une feuille de style avec `<link>` et des media queries sont utilisées au sein des feuilles de styles. C'est particulièrement le cas en responsive web design (nous en reparlerons plus loins dans le cours.
+Il est possible d’utiliser l'attribut media avec plusieurs niveaux. Classiquement, on ne spécifie pas de type de media (all) lorsqu'on importe une feuille de style avec `<link>` et des media queries sont utilisées au sein des feuilles de styles. C'est particulièrement le cas en responsive web design (nous en reparlerons plus loins dans le cours).
 
 **HTML avec CSS liées**
 
@@ -545,7 +537,7 @@ Spécificité = a,b,c
 
 ### Les sélecteurs CSS
 
-Nous verrons ici les sélecteurs présents en CSS 2.1 pour commencer. Notez simplement que CSS3 comporte un module de sélecteurs plus étendu que nous verrons en détail l’année prochaine.
+Nous verrons ici quelques sélecteurs de base pour commencer. Notez simplement que CSS comporte un module de sélecteurs plus étendu qu'il peut être intéressant d'explorer.
 
 Certains de ces sélecteurs CSS utilisent les relations entre les éléments au sein de l’arbre structurant un document HTML.
 
@@ -775,7 +767,7 @@ p em:last-child
 li:lang(fr) {color:red ;}
 ```
 
-Les pseudo-classes appliquées aux liens fonctionnent bien dans l’ensemble des navigateurs modernes. IE7 ne supporte pas la pseudo classe :lang. IE8+ supporte l’ensemble des pseudo-classes de CSS 2.1
+Les pseudo-classes appliquées aux liens fonctionnent bien dans l’ensemble des navigateurs modernes.
 
 #### Pseudo-éléments
 
@@ -795,7 +787,7 @@ p:first-line
 }
 ```
 
-#### Viser le contenu sélectionné par l'utilisateur
+##### Viser le contenu sélectionné par l'utilisateur
 
 ```css
 p::selection
@@ -838,7 +830,7 @@ Les diverses dimensions de ces boîtes sont gérées par les propriétés CSS su
 - La largeur totale d’une boîte se calcule de la façon suivante : largeur du contenu (width) + padding + borders + margin.
 - La hauteur totale d’une boîte se calcule de la façon suivante : hauteur du contenu (height) + padding + borders + margin.
 
-La propriété **CSS3** `box-sizing` permet de changer ce comportement de base et est supportée dans tous les navigateurs modernes et dans IE8+.
+La propriété **CSS3** `box-sizing` permet de changer ce comportement de base.
 
 - `box-sizing: border-box;` modifie le modèle par défaut. La hauteur et la largeur de l’élément sont toujours égales aux valeurs de width / height, les valeurs de padding et de border en sont soustraites.
 - `box-sizing: content-box;` correspond au modèle par défaut. La hauteur et la largeur de l’élement se calcule en additionnant width / height et padding, margin et border.
@@ -856,11 +848,11 @@ Deux types de boîtes principales sont liées par défaut aux divers éléments 
 
 Toutes sortes de boites peuvent être générées à l’aide de la propriété CSS display : `none`, `inline`, `block`, `list-item`, `inline-block`, `inline-table`,`table`, `table-caption`, `table-cell`,`table-column.`,`table-column-group`, `table-footer-group`, `table-header-group`, `table-row`, `table-row-group`.
 
-Nous nous contenterons ici d’en détailler quelques unes parmi les plus courantes. Pour une explication plus détaillée, vous pouvez vous référer au document du W3C sur le sujet: Recommendation CSS 2.1.
+Nous nous contenterons ici d’en détailler quelques unes parmi les plus courantes.
 
 #### Inline-Block
 
-Nous verons plus loin que cette valeur peut être très utile pour contrôler les padding et les margin sur des éléments inline. Malheureusement, IE7 ne la supporte que si elle est appliquée à des éléments ayant un display par défaut de inline (`<a>`, `<em>`, `<strong>`, etc.).
+Nous verons plus loin que cette valeur peut être très utile pour contrôler les padding et les margin sur des éléments inline.
 
 #### List-item
 
@@ -870,7 +862,7 @@ Les éléments de liste ne sont ni des balises de type block, ni des balises de 
 
 Cette valeur fait qu'aucune boîte n'est générée par l'élément dans la structure de formatage (cet élément n'a pas d'influence sur la mise en forme du document). Les éléments auxquels cette propriété est appliquée ne s’affichent pas dans le media concerné. Les éléments qui en descendent ne génèrent pas de boîtes non plus et il n’est plus possible de modifier leur comportement avec la propriété `display`.
 
-Une valeur `none` ne crée pas de boîte invisible, elle ne crée pas de boîte du tout. CSS comprend des mécanismes permettant la génération de boîtes qui influencent la mise en forme mais qui ne sont pas visibles (propriété visibility en CSS).
+Une valeur `none` ne crée pas de boîte invisible, elle ne crée pas de boîte du tout. CSS comprend des mécanismes permettant la génération de boîtes qui influencent la mise en forme mais qui ne sont pas visibles (propriété `visibility` en CSS).
 
 #### Les valeurs liées aux tableaux
 
@@ -886,12 +878,12 @@ Dans le cas de marges négatives, on soustrait la plus grande des valeurs des ma
 
 - Deux paragraphes se suivant et ayant respectivement une marge inférieure de 10px et une marge supérieure de 15px seront séparés par 15px.
 - Deux paragraphes se suivant et ayant respectivement une marge inférieure de -10px et une marge supérieure de 30px seront séparés par 20px.
- -Deux paragraphes se suivant et ayant respectivement une marge inférieure de -10px et une marge supérieure de -15px seront séparés par -15px.
+- Deux paragraphes se suivant et ayant respectivement une marge inférieure de -10px et une marge supérieure de -15px seront séparés par -15px.
 
 #### Elements adjascents
 
 - Les marges des blocs flottants et de tout autre bloc ne fusionnent jamais, comme les marges entre des blocs absolument et relativement positionnés;
-- Les marges entre des boîtes ne fusionnent pas si l'une des boite est en display:inline-block;
+- Les marges entre des boîtes ne fusionnent pas si l'une des boite est en `display:inline-block;`
 - La marge supérieure d'un élément auquel la propriété `clear` est appliquée et placé après un ou plusieurs élément floatés ne sera pas visible sauf si elle excède la hauteur du/des blocs floatés.
 
 #### Parent et premier/dernier enfant
@@ -909,8 +901,8 @@ Ces diverses boîtes dont nous avons parlées sont utilisées dans le cadre de d
 
 ### Schémas de positionnement CSS
 
-Il existe trois modes ou schémas de positionnement en CSS 2 .1: static (relative), absolute (fixed ) et float. Les modes de positionnement relatif et fixe sont des cas particuliers des modes statique et absolu. Chacun de ces modes obéit à ses règles propres.
-Les modes de positionnement sont gérés en CS 2.1 via les propriétés position et float.
+Il existe trois modes ou schémas de positionnement en CSS: static (relative), absolute (fixed ). Les modes de positionnement relatif et fixe sont des cas particuliers des modes statique et absolu. Chacun de ces modes obéit à ses règles propres.
+Les modes de positionnement sont gérés en CSS via la propriété `position`.
 
 #### Flux normal: positionnement statique et positionnement relatif
 
@@ -922,11 +914,11 @@ Dans le flux normal du document, les éléments de type block sont positionnés 
 
 ##### Positionnement relatif
 
-Lorsqu’un élément est positionné relativement, il est initialement positionné d’après le flux du document. Les boîtes des autres éléments sont positionnées et ENSUITE, l’élément positionné relativement est déplacé selon les valeurs spécifiées par les propriétés top bottom left et right.
+Lorsqu’un élément est positionné relativement, il est initialement positionné d’après le flux du document. Les boîtes des autres éléments sont positionnées et **ensuite**, l’élément positionné relativement est déplacé selon les valeurs spécifiées par les propriétés top bottom left et right.
 
-La place originale de l’élément est préservée dans le flux du document et il existe de grandes chances que cet élément en recouvre d’autres. La propriété z-index peut être utilisée pour déterminer quel élément sera placé devant l’autre sur l’axe de profondeur. Le bloc ayant la propriété z-index la plus élevée sera affiché devant l’autre.
+La place originale de l’élément est préservée dans le flux du document et il existe de grandes chances que cet élément en recouvre d’autres. La propriété `z-index` peut être utilisée pour déterminer quel élément sera placé devant l’autre sur l’axe de profondeur. Le bloc ayant la propriété `z-index` la plus élevée sera affiché devant l’autre.
 
-Si l’élément positionné est un élément de type block, il crée un nouveau bloc conteneur pour les éléments qui en dépendent dans l’arbre du document. Ces éléments utiliseront maintenant le positionnement modifié de l’élément comme bloc conteneur.
+Si l’élément positionné est un élément de type `block`, il crée un nouveau bloc conteneur pour les éléments qui en dépendent dans l’arbre du document. Ces éléments utiliseront maintenant le positionnement modifié de l’élément comme bloc conteneur.
 
 Si les propriétés top ou bottom sont contradictoires, la propriété top l’emporte. Si les propriétés left ou right sont contradictoires, la propriété left l’emporte dans les langages se lisant de gauche à droite et right l’emporte dans les langages se lisant de droite à gauche.
 
@@ -938,20 +930,22 @@ Si les propriétés top ou bottom sont contradictoires, la propriété top l’e
 
 Ce mode de positionnement est appliqué à tous les éléments dont la propriété position est définie comme absolute ou fixed. Si un tel élément n’existe pas, c’est l’élément racine (html) du document qui fait office de bloc conteneur.
 
-Les boîtes utilisant ce mode de positionnement sont extraites du flux du document et n’influencent plus les autres boîtes qui agissent comme si les boîtes positionnées absolument ou de manière fixe n’existaient pas. De plus, les éléments positionnés absolument se comportent toujours comme des éléments de type block.
+Les boîtes utilisant ce mode de positionnement sont extraites du flux du document et n’influencent plus les autres boîtes qui agissent comme si les boîtes positionnées absolument ou de manière fixe n’existaient pas. De plus, les éléments positionnés absolument se comportent toujours comme des éléments de type `block`.
 
 *Exercice: positionnement absolu et fixe*
 
 Exemple de layout: [Lost World Fair](http://lostworldsfairs.com/moon/)
 
-Ces éléments utilisent comme contexte de positionnement l’élément parent (de type block ou inline) le plus proche ayant lui-même un positionnement spécifié comme absolu, relatif ou fixe.
+Ces éléments utilisent comme contexte de positionnement l’élément parent (de type `block` ou `inline`) le plus proche ayant lui-même un positionnement spécifié comme absolu, relatif ou fixe.
 
 1. Un élément positionné absolument l’est par rapport aux bordures de son bloc conteneur (le padding n’est pas pris en compte et l’élément est positionné par rapport au bord intérieur de la bordure éventuelle du bloc conteneur).
 2. Un élément absolument positionné devient un bloc conteneur pour les éléments qu’il contient et ceux-ci suivent les règles de positionnement normal à l’intérieur de l’élément positionné absolument.
 3. Les éléments absolument positionnés peuvent contenir d’autres éléments positionnés absolument, qui sont à leur tour hors du flux normal du document, ce qui a pour conséquence qu’ils peuvent apparaître hors des limites de leur parent.
 
 ###### z-index et positionnement en couches
+
 Les éléments positionnés absolument, comme ils sont hors du flux normal du document, peuvent recouvrir d’autres éléments (absolument positionnés ou non).
+
 Chaque élément positionné génère une couche et, au sein d’une même couche, la profondeur de chaque élément est gérée par la propriété CSS `z-index`. Au sein d’une même couche, les éléments ayant une valeur `z-index` élevée sont placés devant ceux ayant une valeur `z-index` moindre.
 
 *Exercice: propriété z-index*
@@ -960,7 +954,7 @@ Chaque élément positionné génère une couche et, au sein d’une même couch
 
 Pour ce cas particulier du positionnement absolu, le bloc conteneur est toujours la fenêtre du navigateur.
 
-Les éléments positionnés de façon fixe ne bougent pas lorsque l’utilisateur descend dans la page. A l’impression, un élément positionné de manière fixe doit s’imprimer sur chaque page.
+Les éléments positionnés de façon fixe ne bougent pas lorsque l’utilisateur descend dans la page.
 
 *Exercice: positionnement fixe*
 
@@ -968,9 +962,11 @@ Exemples de layouts: [Web Designer Wall](http://webdesignerwall.com/), [Lost Wor
 
 #### Floats
 
-Un élément est positionné en mode float lorsque sa propriété float est spécifiée à l’aide des valeurs left ou right.
+Un élément est positionné en mode float lorsque sa propriété `float` est spécifiée à l’aide des valeurs `left` ou `right`.
 
-L’élément est alors positionné verticalement comme dans le flux normal du document : le côté supérieur de l’élément est aligné sur le dessus de la zone de contenu de son élément parent. Horizontalement par contre, l’élément est placé le plus à gauche ou le plus à droite possible par rapport à la zone de contenu de l’élément parent. Le contenu de l’élément parent contourne alors l’élément en mode float par le côté opposé.
+L’élément est alors positionné verticalement comme dans le flux normal du document : le côté supérieur de l’élément est aligné sur le dessus de la zone de contenu de son élément parent.
+
+Horizontalement par contre, l’élément est placé le plus à gauche ou le plus à droite possible par rapport à la zone de contenu de l’élément parent. Le contenu de l’élément parent contourne alors l’élément en mode float par le côté opposé.
 
 Quelques règles de base :
 
@@ -978,6 +974,7 @@ Quelques règles de base :
 2. D’après les spécifications, un élément en mode float doit toujours avoir une dimension, implicite ou explicite (nous verrons plus loin que cela n’est pas toujours vrai dans la pratique, mais c’est un bon principe de base).
 3. Les marges verticales d’un élément en mode float ne sont pas fusionnées avec celles des éléments placés avant ou après dans le flux du document.
 4. Des éléments en mode float seront placés les uns à côté des autres si la place disponible est suffisante. Si tel n’est pas le cas, le dernier élément sera placé sous les autres.
+
 En fonction de la quantité de contenu des divers éléments, un élément en mode float peut affecter les éléments situés après lui dans le flux du document.
 
 *Exercice: expériementer avec float*
@@ -1039,14 +1036,16 @@ CSS
 
 ## CSS comme outil de mise en page
 
-Les propriétés `float` et `clear` (ou `inline-block`), ainsi que les propriétés de positionnement ne sont pas des outils prévus pour réaliser des mises en page complexes. Ces solutions ont été utilisées par le passé parce que c'est tout ce que nous avions sous la main mais elles posaient de nombreux problèmes et avaient également des limitations importantes.
+Les propriétés `float` et `clear` (ou `inline-block`), ainsi que les propriétés de positionnement ne sont pas des outils prévus pour réaliser des mises en page complexes.
+
+Ces solutions ont été utilisées par le passé pour créer des mises en page CSS parce que c'étaient les uniques outils dont nous disposions. N'ayant pas été développées dans ce but, ces solutions posaient de nombreux problèmes et avaient également des limitations importantes.
 
 Récemment, de nouveaux outils dédié au layout sont apparus en CSS, principalement Flexbox et Grid.
 
 - *Flexbox*: gère une seule dimension (verticale ou horizontale), fonctionne à partir du contenu (content out), est principalement utilisé pour le layout de composants comme de cartes ou des interfaces de navigation (micro layout).
 - *Grid*: gère deux dimensions (verticale et horizontale), fonctionne en créant une grille dans laquelle les contenus viennent se placer (content in), est principalement utilisé pour des mises en page globales ou pour des élements plus importants comme des grilles de produits ou de media (macro layout).
 
-Ces deux outils de layout font en outre appel au [module de Box alignment](https://drafts.csswg.org/css-align/). Vous retrouverez donc des propriétés d'alignement communes à Grid et à Flexbox.
+Ces deux outils de layout font en outre appel au [module de Box Alignment](https://www.w3.org/TR/css-align-3/). Vous retrouverez donc des propriétés d'alignement communes à Grid et à Flexbox.
 
 ### Flexbox
 
@@ -1123,7 +1122,7 @@ CSS tricks possède un bon article "[A complete guide to flexbox](https://css-tr
 
 ### Grid
 
-La spécifications CSS grid permet de créer des grilles en deux dimensions et de positionner des élements à l'aide de ces grilles. CSS grid est appliqué à l'aide de la proprité display. Une fois `display: grid;` ou `display: inline-grid;` appliqué à un élément, celui-ci devient un **grid-container** et ses enfants directs des **grid-items**.
+CSS grid permet de créer des grilles en deux dimensions et de positionner des élements à l'aide de ces grilles. CSS grid est appliqué à l'aide de la proprité display. Une fois `display: grid;` ou `display: inline-grid;` appliqué à un élément, celui-ci devient un **grid-container** et ses enfants directs des **grid-items**.
 
 Grid est une spécification relativement complexe, nous allons ici en voir les propriétés principales. Pour un aperçu plus complet, je ne peux que vous recommander "[Grid by example](https://gridbyexample.com/examples/)" par Rachel Andrew et [un guide très bien fait disponible en français sur Mozilla Developer Network](https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Grid_Layout/Les_concepts_de_base). Voir également "[A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)" sur CSS Tricks pomur un bon résumé.
 
@@ -1543,7 +1542,7 @@ h1
 
 Si vous utilisez différentes graisses ou styles de la même police, [lire l'article de Roger Johansson sur le sujet](http://www.456bereastreet.com/archive/201012/font-face_tip_define_font-weight_and_font-style_to_keep_your_css_simple/). Cette technique simple vous évitera de devoir utiliser différents noms de polices dans votre CSS pour chaque graisse ou variante.
 
-Les principaux problèmes liées à l’utilisation de @font-face sont de nature légale. La licence de certaines polices ne permet pas de les utiliser de cette façon car, étant disponibles sur le serveur, elles peuvent y être téléchargées par quelqu’un qui ne les a pas forcément achetées. De nombreuses polices offrent explicitement la possibilité d’une utilisation à l’aide de @font-face dans le cadre de leur licence.
+Les principaux problèmes liées à l’utilisation de @font-face sont de nature légale. La licence de certaines polices ne permet pas de les utiliser de cette façon car, étant disponibles sur le serveur, elles peuvent y être téléchargées par quelqu’un qui ne les a pas forcément achetées. De nombreuses polices offrent explicitement la possibilité d’une utilisation à l’aide de `@font-face` dans le cadre de leur licence.
 
 Cette technique est dores et déjà bien supportée par les divers navigateurs et constitue à ce jour notre meilleure option.
 
@@ -1608,7 +1607,7 @@ Il est possible de spécifier des valeurs différentes pour chacun des coins
 
 [Comme le montre Lea Verou](http://lea.verou.me/humble-border-radius/), il ya beaucoup de choses à dire à propos de la propriété `border-radius`.
 
-### Images fluides avec max-width:100%;
+### Media fluides avec max-width:100%;
 
 Lorsqu'on réalise des layout fluides, il est important que les images et autres medias le soient eux aussi. En d'autres mots il faut que les média fassent au maximum 100% de la largeur de leurs parents (dont la largeur est spécifée en pourcentages).
 
@@ -1659,6 +1658,7 @@ Les videos servies par Youtube et Vimeo utilsent `<iframe>`, voici une façon si
 {
   position: relative; /* positioning context */
   padding-top: 56.25%; /* ratio 16/9 (100%/16*9) */
+  /* padding-top: 75%; ratio 4/3 (100%/4*3) */
   background-color: #000;
 }
 
