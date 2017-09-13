@@ -27,13 +27,13 @@ Deux sites de ressources pour vérifier la compatibilité de votre code CSS / HT
 ```html
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Example document</title>
-	</head>
-	<body>
-		<p>Example paragraph</p>
-	</body>
+  <head>
+    <meta charset="utf-8">
+    <title>Example document</title>
+  </head>
+  <body>
+    <p>Example paragraph</p>
+  </body>
 </html>
 ```
 
@@ -144,24 +144,24 @@ Les éléments composant un document HTML sont structurés de façon hiérarchis
 ```html
 <!DOCTYPE html>
 <html lang="fr">
-	<head>
-		<meta charset="utf-8">
-		<title>Titre du document</title>
-	</head>
-	<body>
-		<nav class="mainnav" role="navigation">
-			<ul>
-				<li>item 1</li>
-				<li>item 2</li>
-				<li class="last listitem">item <em>3</em></li>
-			</ul>
-		</nav>
-		<div class="content" role="maincontent">
-			<h1>Titre niveau un</h1>
-			<p>Lorem ipsum dolor sit amet.</p>
-			<p class="last">Lorem <em>ipsum</em> dolor <em>sit</em> amet.</p>
-		</div>
-	</body>
+  <head>
+    <meta charset="utf-8">
+    <title>Titre du document</title>
+  </head>
+  <body>
+    <nav class="mainnav" role="navigation">
+      <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li class="last listitem">item <em>3</em></li>
+      </ul>
+    </nav>
+    <div class="content" role="maincontent">
+      <h1>Titre niveau un</h1>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <p class="last">Lorem <em>ipsum</em> dolor <em>sit</em> amet.</p>
+    </div>
+  </body>
 </html>
 ```
 
@@ -208,37 +208,37 @@ Notons ici que les éléments `acticle`, `section`, `nav` et `aside` sont des é
 ```html
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Document outline and sectioning elements</title>
-		<!--[if lt IE 9]>
-			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-	</head>
-	<body>
-		<h1>My great site</h1>
-		<nav>
-			<ul>
-				<li><a href="fake.html">Nav item</a></li>
-			</ul>
-		</nav>
-		<article>
-			<h1>Article title</h1>
-			<p>Article content.</p>
-			<h2>Article sub-heading</h2>
-			<p>More content.</p>
-			<h3>Article sub-sub-heading</h3>
-			<p>More content.</p>
-		</article>
-		<aside>
-			<h1>Sidebar heading</h1>
-			<p>content</p>
-		</aside>
-		<footer>
-			<h1>Footer heading</h1>
-			<p>Footer content.</p>
-		</footer>
-	</body>
+  <head>
+    <meta charset="utf-8">
+    <title>Document outline and sectioning elements</title>
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h1>My great site</h1>
+    <nav>
+      <ul>
+        <li><a href="fake.html">Nav item</a></li>
+      </ul>
+    </nav>
+    <article>
+      <h1>Article title</h1>
+      <p>Article content.</p>
+      <h2>Article sub-heading</h2>
+      <p>More content.</p>
+      <h3>Article sub-sub-heading</h3>
+      <p>More content.</p>
+    </article>
+    <aside>
+      <h1>Sidebar heading</h1>
+      <p>content</p>
+    </aside>
+    <footer>
+      <h1>Footer heading</h1>
+      <p>Footer content.</p>
+    </footer>
+  </body>
 </html>
 ```
 
@@ -270,8 +270,8 @@ Est utilisé pour marquer du contenu qui pourrait être retiré du document sans
 
 ```html
 <figure>
-	<p><img src="img/small_snowman.jpg" alt="Terrasse-sized snowman" width="180" height="240"></p>
-	<figcaption>Small snowman we made on our little terrace</figcaption>
+  <p><img src="img/small_snowman.jpg" alt="Terrasse-sized snowman" width="180" height="240"></p>
+  <figcaption>Small snowman we made on our little terrace</figcaption>
 </figure>
 ```
 
@@ -287,8 +287,8 @@ L’élément a à toujours été un élément inline en HTML. D’après les sp
 
 ```html
 <a href=”fake.html”>
-	<h2>This is a title</h2>
-	<p>lorem ipsum dolor sit amet</p>
+  <h2>This is a title</h2>
+  <p>lorem ipsum dolor sit amet</p>
 </a>
 ```
 
@@ -300,32 +300,27 @@ Un autre aspect intéressant de HTML5 concerne la possibilité de gérer nativem
 
 En théorie, c'est aussi facile d'intégrer une vidéo ou un fichier audio que d'intégrer une image. En pratique, c'est un peu plus compliqué.
 
-Les navigateurs prenant en charge cet élément ne gèrent pas tous les mêmes formats et codecs, ce qui oblige à prévoir différents encodages du même fichier audio ou vidéo.
+Certains anciens navigateurs ne supportent pas les tags `<video>` ou `<audio>`, il faut prévoir des solutions de fallback. Les navigateurs prenant en charge cet élément ne gèrent pas tous les mêmes formats et codecs, ce qui oblige à prévoir différents encodages du même fichier audio ou vidéo.
 
 ##### Vidéo
 
+Voici le code nécessaire pour intégrer une video dans une page HTML.
 
-
-- Le format open source .ogv (Codec: Theora) est supporté par Firefox 3.5, Chrome 3 et certaines versions
-encore expérimentales de Opéra.
-- Le format .mp4 (Codec: H.264) est supporté par Safari 4 et Chrome 3
-
-Internet Explorer 8 ne supportant pas les tags `<video>` ou `<audio>`, il faut prévoir des solutions de fallback qui sont parfois complexes (et recourent le plus souvent à Flash). [Voir à ce sujet l’exemple "video for everybody”](http://camendesign.com/code/video_for_everybody).
+Il y a 3 grands formats pour des videos en HTML5: .webm, .mp4 et .ogv. Aujourd'hui .webm et .mp4 suffisent pour obtenir un support adéquat dans la plupart des navigateurs utilisés.
 
 **Video simple**
 
-```
-<video width="640" height="360" src="http://www.youtube.com/demo/google_main.mp4"  controls>
+```html
+<video width="640" height="360" src="http://www.youtube.com/demo/google_main.mp4" controls>
 ```
 
 **Video avec plusieurs sources**
 
 ```html
 <video height="270" width="480" poster="waitimage.png" controls>
-	<source src="samplevideo.mp4" type="video/mp4">
-	<source src="samplevideo.ogv" type="video/ogg">
-	<source src="samplevideo.webm" type="video/webm">
-	<p>Your browser does not support the HTML5 video tag but you can download the file either in <a href="samplevideo.mp4">MP4</a>, <a href="samplevideo.ogv">OGV</a>, <a href="samplevideo.webm">WEBM</a></p>
+  <source src="samplevideo.webm" type="video/webm">
+  <source src="samplevideo.mp4" type="video/mp4">
+  <p>Your browser does not support the HTML5 video tag but you can download the file either in <a href="samplevideo.webm">WEBM</a>, <a href="samplevideo.mp4">MP4</a></p>
 </video>
 ```
 
@@ -335,23 +330,20 @@ Certains navigateurs supportant l'élément `<video>` commencent automatiquement
 
 Si vos besoins en vidéo sont importants, des services tels que Youtube et Vimeo un moyen efficace de servir des vidéos sur le web. Ils réalisent automatiquement les divers encodages nécessaires, le type de plateforme utilisé par le visiteur, etc.
 
-Des librairies JavaScript comme mediaelement.js sont également une option intéressante.
+*Exercice: intégration d'un fichier video dans un document HTML*
 
 ##### Audio
 
-- Le format open source .ogg (Codec: Vorbis) est supporté par Firefox 3.6+, Chrome 6 et Opera 10.5+
-- Le format .mp3 est supporté par Safari 5+, chrome 6 et Internet Explorer 9
-- Le format .wav est supporté par Firefox 3.6+, Safari 5+, Opera 10.5+ et Internet Explorer 9
+Il y a 3 grands formats pour des videos en HTML5: .mp3, .wav et .ogg. Aujourd'hui .mp3 suffit pour obtenir un support adéquat dans la plupart des navigateurs utilisés.
 
 ```html
 <audio controls>
-	<source src="elvis.ogg" type="audio/ogg">
-	<source src="elvis.mp3" type="audio/mpeg">
-	<p><strong>Your browser does not support the HTML5 audio tag but you can download the file either in <a href="elvis.ogg">OGG format</a> or in <a href="elvis.mp3">MP3 format</a></strong></p>
+  <source src="elvis.mp3" type="audio/mpeg">
+  <p><strong>Your browser does not support the HTML5 audio tag but you can download the file either in <a href="elvis.mp3">MP3 format</a></strong></p>
 </audio>
 ```
 
-Voir à ce sujet [l'article très complet sur HTML5 Doctor](http://html5doctor.com/native-audio-in-the-browser/).
+*Exercice: intégration d'un fichier audio dans un document HTML*
 
 ##### Figure et figcaption
 
@@ -359,17 +351,17 @@ Les élément figure et figcaption servent à grouper images et légendes dans v
 
 ```html
 <figure>
-	<img src="soleil.jpg" alt="Une journée ensoleillée à Louvain-la-Neuve">
-	<figcaption>La grand-place et les terrasses par une journée ensoleillée à Louvain-la-Neuve.</figcaption>
+  <img src="soleil.jpg" alt="Une journée ensoleillée à Louvain-la-Neuve">
+  <figcaption>La grand-place et les terrasses par une journée ensoleillée à Louvain-la-Neuve.</figcaption>
 </figure>
 ```
-*Exercice: intégration d'une figure dans un document HTML5*
+*Exercice: intégration d'une figure dans un document HTML*
 
 #### Formulaires et HTML5
 
 La spécification HTML5 permet également l'utilisation de contrôles de formulaires plus avancés que ceux dont disposait jusqu'ici la spécification HTML.
 
-```
+```html
 <form action="sendform.php">
   <p>
     <label for="bday">Your Birthday:</label>
@@ -387,16 +379,17 @@ De nouveaux types de champs sont mis à la disposition des développeurs: email,
 que quelques uns.
 
 ```html
-<input type="email" name="useremail" id="useremail" required>
-<input type="url" name="userurl" id="userurl">
-<input type="date">
+<input type="email" name="useremail" required>
+<input type="url" name="userurl">
+<input type="date" name="startdate">
+<input type="range" name="myrange" min="0" max="10" step="1">
 ```
 
 Ces nouveaux champs permettent entre autre une validation automatique du format des données entrées par les utilisateurs. La plupart de ces nouveaux éléments ne fonctionnent aujourd'hui qu'avec les navigateurs récents. Ceci étant dit, la plupart se dégradent élégamment dans les autres navigateurs (sous la forme de champs de type texte pour la plupart).
 
 HTML5 permet également l'utilisation de nouveaux attributs pour les champs de formulaires. En voici quelques uns parmi les plus utiles (du moins à mon avis).
 
-Le nouvel attribut placeholder permet de spécifier un texte dans un champ tant que celui-ci n'est pas rempli ni activé. Lorsque l'utilisateur active le champ de formulaire, ce texte disparait. Cet attribut est pour le moment supporté uniquement par Safari 4 et Chrome 3.
+Le nouvel attribut placeholder permet de spécifier un texte dans un champ tant que celui-ci n'est pas rempli ni activé. Lorsque l'utilisateur active le champ de formulaire, ce texte disparait.
 
 ```html
 <input type="tel" name="gsm" id="gsm" placeholder="+32475335162">
@@ -441,12 +434,11 @@ Lors de ce cours, nous utiliserons principalement CSS 2.1 et quelques éléments
 
 ### Lier une feuille de style à un document HTML
 
-Les déclarations CSS peuvent être liées de 4 façons à un document HTML afin d’en gérer l’affichage :
+Les déclarations CSS peuvent être liées de 4 façons à un document HTML afin d’en gérer l’affichage.
 
 #### CSS liées
 
-C'est la méthode la plus utilisée dans la mesure où elle permet de séparer vos styles (CSS) de votre structure et de votre contenu de document (HTML). C'est
-égalmement la méthode la plus performante, [comme le précise Steve Souders](http://www.stevesouders.com/blog/2009/04/09/dont-use-import/).
+C'est la méthode la plus utilisée dans la mesure où elle permet de séparer vos styles (CSS) de votre structure et de votre contenu de document (HTML). C'est égalmement la méthode la plus performante, [comme le précise Steve Souders](http://www.stevesouders.com/blog/2009/04/09/dont-use-import/).
 
 ```html
 <link rel="stylesheet" href="css/main.css">
@@ -454,11 +446,15 @@ C'est la méthode la plus utilisée dans la mesure où elle permet de séparer v
 
 #### CSS importées
 
+A ne pas utiliser dans la plupart des cas.
+
 ```html
 <style>@import url(css/main.css);</style>
 ```
 
 #### CSS en ligne
+
+Utilisé dans certains cas: debugging, gestion par un CMS.
 
 ```html
 <style>body {background:#fff;}</style>
@@ -466,53 +462,40 @@ C'est la méthode la plus utilisée dans la mesure où elle permet de séparer v
 
 #### CSS dans l’attribut style des balises
 
+Peu utilisé.
+
 ```html
 <p style="color:blue;">
 ```
 
-### CSS et types de media
+### CSS et media
 
-Les types de media permettent d’appliquer les feuilles de style en fonction du media avec lequel les documents HTML sont lus. La mise en page du document sera gérée différemment selon qu’il est imprimé sur papier, affiché à l’écran ou encore lu par un navigateur vocal.
+Les requètes de media peuvent soit spécifier un type de media (all, screen, print, braille, etc.) soit spécifier des charactéristiques du media visé (largeur de la surface de rendu, resolution, orientation, etc.).
 
-Les divers types de media disponibles sont les suivants :
+Les types de media permettent d’appliquer les feuilles de style en fonction du type de media avec lequel les documents sont affichés, soit en fonction des charactéristiques du media. Des opérateurs logiques (and, not, only) peuvent être utilisés. Plusieurs types et charactéristiques de media peuvent être spécifiées via l'utilisation de liste séparées par des virgules.
 
-- braille
-- embossed
-- handheld
-- print
-- projection
-- screen
-- speech
-- tty
-- tv
+Il est possible d’utiliser l'attribut media avec plusieurs niveaux. Classiquement, on ne spécifie pas de type de media (all) lorsqu'on importe une feuille de style avec `<link>` et des media queries sont utilisées au sein des feuilles de styles. C'est particulièrement le cas en responsive web design (nous en reparlerons plus loins dans le cours.
 
-Le support de ces divers types de media est encore partiel et présente de nombreux problèmes. Les types de media screen et print sont les plus largement et les mieux supportés.
-
-Certaines propriétés CSS sont destinées à un seul type de media (`voice-family` par exemple), alors que d’autres peuvent être utilisées avec plusieurs types de media (`font`).
-
-Il est possible d’utiliser les types de media avec plusieurs des façons de lier une CSS à un document (X)HTML
-
-**CSS liées**
+**HTML avec CSS liées**
 
 ```html
-<link rel="stylesheet" href="css/main.css" media="screen">
-```
-
-**CSS importées**
-
-```html
-<style media="print">@import url(css/print.css)</style>
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/main.css" media="all and (min-width: 760px)">
 ```
 
 **CSS en ligne**
 
-```html
-<style media="screen">
-	body {background:#fff;}
-</style>
+```css
+@media all and (min-width: 760px)
+{
+  body
+  {
+    background:#fff;
+  }
+}
 ```
 
-*Exercice: lier une feuille de style à un document HTML5 et tester l'attribut media*
+*Exercice: lier une feuille de style à un document HTML5 et tester l'attribut media avec les valeurs screen et print*
 
 ### Anatomie d’une déclaration CSS
 
@@ -520,8 +503,8 @@ Il est possible d’utiliser les types de media avec plusieurs des façons de li
 /*Règle CSS*/
 body /*Sélecteur*/
 {
-	color:#fff; /*propriété:valeur; == déclaration*/
-	padding:1em;
+  color:#fff; /*propriété:valeur; == déclaration*/
+  padding:1em;
 }
 ```
 
@@ -552,13 +535,13 @@ Spécificité = a,b,c
 
 #### Exemples
 
-	p = 0,0,1
-	p.last = 0,1,1
-	#content p.last = 1,1,1
+  p = 0,0,1
+  p.last = 0,1,1
+  #content p.last = 1,1,1
 
-	!important et sélecteur universel
-	l’ajout de !important à une déclaration CSS permet de passer outre ce calcul de spécificité.
-	Le sélecteur universel (*) possède une spécificité de 0,0,0
+  !important et sélecteur universel
+  l’ajout de !important à une déclaration CSS permet de passer outre ce calcul de spécificité.
+  Le sélecteur universel (*) possède une spécificité de 0,0,0
 
 ### Les sélecteurs CSS
 
@@ -569,50 +552,50 @@ Certains de ces sélecteurs CSS utilisent les relations entre les éléments au 
 ```html
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Exemple</title>
-	</head>
-	<body>
-		<nav role="navigation">
-			<ul class="mainnav">
-				<li class="mainnav-item"><a href="index.html">Home</a></li>
-				<li class="mainnav-item mainnav-current"><a href="work.html">Work</a></li>
-				<li class="mainnav-item"><a href="contact.html">Contact</a></li>
-			</ul>
-		</nav>
-		<main role="maincontent" id="content">
-			<h1>Title of my page</h1>
-			<div class="intro">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, facilis, minus, nostrum a autem labore ut doloribus perferendis ullam voluptatem quis ducimus vero odit aspernatur in dolorem fuga consequuntur.</p>
-			</div>
-			<p>Lorem <em>ipsum dolor sit amet</em>, consectetur <em>adipisicing elit</em>. Cum, ut id fugiat tempore illo possimus atque odit tenetur laudantium harum iure perspiciatis impedit repudiandae. Odio iste deleniti blanditiis deserunt saepe.</p>
-			<p>Provident, aperiam, repellendus, saepe voluptatibus tempora magnam id nisi repellat blanditiis eaque consequuntur reprehenderit assumenda tenetur nobis temporibus sint inventore nesciunt numquam qui delectus aliquid debitis eligendi quam in amet!</p>
-			<p>Nihil, cum, odio, nam, et laudantium nisi odit hic quod tenetur provident accusamus quisquam alias! Tempora, velit harum eius ab quibusdam qui natus eos officia! Repellendus consequatur neque consectetur eius.</p>
-		</main>
-	</body>
+  <head>
+    <meta charset="utf-8">
+    <title>Exemple</title>
+  </head>
+  <body>
+    <nav role="navigation">
+      <ul class="mainnav">
+        <li class="mainnav-item"><a href="index.html">Home</a></li>
+        <li class="mainnav-item mainnav-current"><a href="work.html">Work</a></li>
+        <li class="mainnav-item"><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <main role="maincontent" id="content">
+      <h1>Title of my page</h1>
+      <div class="intro">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, facilis, minus, nostrum a autem labore ut doloribus perferendis ullam voluptatem quis ducimus vero odit aspernatur in dolorem fuga consequuntur.</p>
+      </div>
+      <p>Lorem <em>ipsum dolor sit amet</em>, consectetur <em>adipisicing elit</em>. Cum, ut id fugiat tempore illo possimus atque odit tenetur laudantium harum iure perspiciatis impedit repudiandae. Odio iste deleniti blanditiis deserunt saepe.</p>
+      <p>Provident, aperiam, repellendus, saepe voluptatibus tempora magnam id nisi repellat blanditiis eaque consequuntur reprehenderit assumenda tenetur nobis temporibus sint inventore nesciunt numquam qui delectus aliquid debitis eligendi quam in amet!</p>
+      <p>Nihil, cum, odio, nam, et laudantium nisi odit hic quod tenetur provident accusamus quisquam alias! Tempora, velit harum eius ab quibusdam qui natus eos officia! Repellendus consequatur neque consectetur eius.</p>
+    </main>
+  </body>
 </html>
 ```
 
 **Ancêtre:** n’importe quel élément connecté à l’élément dont il est question et se trouvant plus haut dans l’arbre du document, aussi loin soit-il.
 
-	body est l’élément ancêtre de tous les autres éléments sauf l’élément html
+  body est l’élément ancêtre de tous les autres éléments sauf l’élément html
 
 **Descendant:** n’importe quel élément connecté à l’élément dont il est question et se trouvant plus bas dans l’arbre du document, aussi loin soit-il.
 
-	em est un élément descendant de l’élément body
+  em est un élément descendant de l’élément body
 
 **Parent:** l’élément connecté à l’élément dont il est question et se trouvant un seul niveau plus haut dans l’arbre du document.
 
-	ul est l’élément parent des trois éléments li
+  ul est l’élément parent des trois éléments li
 
 **Enfant:** n’importe quel élément connecté à l’élément dont il est question et se trouvant un seul niveau plus bas dans l’arbre du document.
 
-	em est l’élément enfant de l’élément p
+  em est l’élément enfant de l’élément p
 
 **Adjacent:** n’importe quel élément partageant le même parent que l’élément dont il est question dans l’arbre du document.
 
-	Les éléments h1, p et p sont tous adjacents
+  Les éléments h1, p et p sont tous adjacents
 
 #### Sélecteur de types
 
@@ -621,7 +604,7 @@ Facile à comprendre, ce sélecteur permet de cibler tous les éléments du type
 ```css
 p
 {
-	color:red;
+  color:red;
 }
 ```
 
@@ -632,7 +615,7 @@ Le sélecteur de classe permet de cibler tous les éléments possédant la class
 ```css
 .mainnav-current
 {
-	color:red;
+  color:red;
 }
 ```
 
@@ -641,7 +624,7 @@ Il est possible de combiner les sélecteurs au sein d’une même règle CSS. Le
 ```css
 li.mainnav-current
 {
-	color:red;
+  color:red;
 }
 ```
 
@@ -658,7 +641,7 @@ Le sélecteur d’ID permet de cibler l’élément possédant l’ID indiquée 
 ```css
 #content
 {
-	background:blue;
+  background:blue;
 }
 ```
 
@@ -671,7 +654,7 @@ Le sélecteur descendant permet de cibler les éléments qui sont les descendant
 ```css
 p em
 {
-	background:red;
+  background:red;
 }
 ```
 
@@ -682,7 +665,7 @@ Le sélecteur d’enfant permet de cibler les éléments qui sont les enfants d�
 ```css
 ul > li
 {
-	background:purple;
+  background:purple;
 }
 ```
 
@@ -695,7 +678,7 @@ Le sélecteur d’enfant adjacent permet de cibler l’élément suivant directe
 ```css
 h1 + p
 {
-	background:yellow;
+  background:yellow;
 }
 ```
 
@@ -710,7 +693,7 @@ Le sélecteur d’attribut permet de cibler les éléments d’un document sur b
 ```css
 div[role]
 {
-	background:red;
+  background:red;
 }
 ```
 
@@ -719,7 +702,7 @@ N’importe quel div ayant un attribut role
 ```css
 div[role="maincontent"]
 {
-	border:3px dotted black;
+  border:3px dotted black;
 }
 ```
 
@@ -728,7 +711,7 @@ Identité stricte
 ```css
 div[id~="nav"]
 {
-	border:3px dotted black;
+  border:3px dotted black;
 }
 ```
 
@@ -737,7 +720,7 @@ cible les éléments dont l’attribut class consiste en une liste de termes sé
 ```css
 div[id|="nav"]
 {
-	background:yellow;
+  background:yellow;
 }
 ```
 
@@ -750,7 +733,7 @@ Ce sélecteur est utilisé pour cibler l’ensemble des éléments composant le 
 ```css
 *
 {
-	color:blue;
+  color:blue;
 }
 ```
 
@@ -775,14 +758,14 @@ Les déclarations doivent obligatoirement être faites dans cet ordre afin d’o
 ```css
 p em:first-child
 {
-	font-weight:bold;
+  font-weight:bold;
 }
 ```
 
 ```css
 p em:last-child
 {
-	font-weight:bold;
+  font-weight:bold;
 }
 ```
 
@@ -803,12 +786,12 @@ Les sélecteurs de pseudo-éléments permettent de cibler des éléments qui ne 
 ```css
 p:first-letter
 {
-	font-weight:bold;
+  font-weight:bold;
 }
 
 p:first-line
 {
-	font-variant:italic;
+  font-variant:italic;
 }
 ```
 
@@ -826,7 +809,7 @@ p::selection
 ```css
 a:after
 {
-	content:" hello world!";
+  content:" hello world!";
 }
 ```
 
@@ -1031,7 +1014,7 @@ La solution la plus simple consiste à placer l’élément parent en mode float
 ```html
 div
 {
-	overflow:hidden;
+  overflow:hidden;
 }
 ```
 
@@ -1046,9 +1029,9 @@ CSS
 ```css
 .clearfix:after
 {
-	content: "";
-	display: table;
-	clear: both;
+  content: "";
+  display: table;
+  clear: both;
 }
 ```
 
@@ -1140,7 +1123,9 @@ CSS tricks possède un bon article "[A complete guide to flexbox](https://css-tr
 
 ### Grid
 
-La spécifications CSS grid permet de créer des grilles en deux dimensions et de positionner des élements à l'aide de ces grilles. CSS grid est appliqué à l'aide de la proprité display. Une fois `display: grid;` ou `display: inline-grid;` appliqué à un élément, celui-ci devient un **grid-container** et ses enfants directs des **grid-items**. Grid est une spécification relativement complexe, nous allons ici en voir les propriétés ptrincipales. Pour un aperçu plus complet, je ne peux que vous recommander "[Grid by example](https://gridbyexample.com/examples/)" par Rachel Andrew et [un guide très bien fait disponible en français sur Mozilla Developer Network](https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Grid_Layout/Les_concepts_de_base).
+La spécifications CSS grid permet de créer des grilles en deux dimensions et de positionner des élements à l'aide de ces grilles. CSS grid est appliqué à l'aide de la proprité display. Une fois `display: grid;` ou `display: inline-grid;` appliqué à un élément, celui-ci devient un **grid-container** et ses enfants directs des **grid-items**.
+
+Grid est une spécification relativement complexe, nous allons ici en voir les propriétés principales. Pour un aperçu plus complet, je ne peux que vous recommander "[Grid by example](https://gridbyexample.com/examples/)" par Rachel Andrew et [un guide très bien fait disponible en français sur Mozilla Developer Network](https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Grid_Layout/Les_concepts_de_base). Voir également "[A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)" sur CSS Tricks pomur un bon résumé.
 
 Voici les propriétés principales au niveau du **grid-container**:
 
@@ -1153,7 +1138,10 @@ Voici les propriétés principales au niveau du **grid-container**:
 
 Voici les propriétés principales au niveau des **grid-items**:
 
-@TODO
+- `grid-column-start`, `grid-column-end`, `grid-column`, `grid-row-start`, `grid-row-end`, `grid-row`: permettent de placer les grid-items dans les colonnes de la grilles. Peuvent prendre comme valeur des nombres correspondant à des grid lines ou des noms de grid lines nommées. Le mot-clé `span` peut être utilisé avec un nombre ou un nom de grid line pour faire en sorte que des grid-items occupent plusieurs "cases" de la grille. Une valeur de `auto` est la valeur par défaut et correspond à un placement automatique des grid-items. `grid-column` et `grid-row` sont des propriétés courtes permattant de gérer les deux à la fois avec les notations `column-start / column-end` ou `row-start / row-end`
+- `grid-area`: permet de placer des grid-items dans des zones de la grille nommées à l'aide de `grid-template-areas`. Cette propriété peut également servir de notation ultra condensée pour spécifier `row-start / column-start / row-end / column-end`
+- `justify-self`: permet d'aligner les grid-item le long de l'axe des rangées.
+- `align-self`: permet d'aligner les grid-item le long de l'axe des colonnes.
 
 **Exemple: grilles fluide simple - expériementer avec les différentes propriétés et valeurs**
 
@@ -1265,9 +1253,55 @@ Voici les propriétés principales au niveau des **grid-items**:
 }
 ```
 
-**Exemple: grille avec elements placés automatiquement et un élément placé explicitemnt (avec span)**
+**Exemple: grille responsive avec elements placés automatiquement et un élément placé explicitemnt (avec span)**
 
-@TODO
+```html
+<ul class="grid">
+  <li class="grid__item"><p>grid item</p></li>
+  <li class="grid__item"><p>grid item</p></li>
+  <li class="grid__item  grid__item--highlight"><p>grid item</p></li>
+  <li class="grid__item"><p>grid item</p></li>
+  <li class="grid__item"><p>grid item</p></li>
+  <li class="grid__item"><p>grid item</p></li>
+  <li class="grid__item"><p>grid item</p></li>
+  <li class="grid__item"><p>grid item</p></li>
+</ul>
+```
+
+```css
+.grid
+{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: auto;
+  grid-gap: 2rem;
+}
+
+.grid__item
+{
+  background-color: teal;
+}
+
+.grid__item--highlight
+{
+  background-color: red;
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+}
+
+@media all and (min-width: 440px)
+{
+  .grid__item--highlight
+  {
+    grid-row: 1 / 3;
+    grid-column: 1 / 3;
+  }
+}
+```
 
 ## Media queries: l'un des trois piliers du responsive web design
 
@@ -1288,7 +1322,7 @@ Ces media queries peuvent également être placées au sein de feuilles de style
 ```css
 @media all and (min-width: 970px)
 {
-	/*styles*/
+  /*styles*/
 }
 ```
 
@@ -1403,7 +1437,7 @@ Personnellement, ma méthode de prédilection consiste à spécifier la taille d
 ```css
 html
 {
-	font: normal 75%/1.5 arial, sans-serif; /*12px comme taille de base*/
+  font: normal 75%/1.5 arial, sans-serif; /*12px comme taille de base*/
 }
 ```
 ou
@@ -1411,7 +1445,7 @@ ou
 ```css
 html
 {
-	font: normal 100%/1.5 arial, sans-serif; /*16px comme taille de base*/
+  font: normal 100%/1.5 arial, sans-serif; /*16px comme taille de base*/
 }
 ```
 
@@ -1422,8 +1456,8 @@ Voici quelques techniques éprouvée pour centrer un élément de type block que
 ```css
 .centered-block
 {
-	width:750px;
-	margin:0 auto;
+  width:750px;
+  margin:0 auto;
 }
 ```
 
@@ -1432,10 +1466,10 @@ Position absolue et marges négatives
 ```css
 .centered-block
 {
-	position:absolute;
-	width:750px;
-	left:50%;
-	margin-left:-375px;
+  position:absolute;
+  width:750px;
+  left:50%;
+  margin-left:-375px;
 }
 ```
 
@@ -1444,9 +1478,9 @@ Position absolue, marges négatives et `calc()`
 ```css
 .centered-block
 {
-	position: absolute;
-	width: 750px;
-	left: calc(50% - 375px);
+  position: absolute;
+  width: 750px;
+  left: calc(50% - 375px);
 }
 ```
 
@@ -1459,11 +1493,11 @@ Elle peut souvent être avantageusement remplacée par la déclaration suivante�
 ```css
 .offleft
 {
-	position:absolute;
-	top:0;
-	left:-2000px;
-	width:100px;
-	overflow:hidden;
+  position:absolute;
+  top:0;
+  left:-2000px;
+  width:100px;
+  overflow:hidden;
 }
 ```
 
@@ -1472,13 +1506,13 @@ Autre option
 ```css
 .visuallyhidden
 {
-	position:absolute;
-	overflow:hidden;
-	clip:rect(0 0 0 0);
-	height:1px; width: 1px;
-	margin:-1px;
-	padding:0;
-	border:0;
+  position:absolute;
+  overflow:hidden;
+  clip:rect(0 0 0 0);
+  height:1px; width: 1px;
+  margin:-1px;
+  padding:0;
+  border:0;
 }
 ```
 
@@ -1503,7 +1537,7 @@ pour utiliser la police dans votre CSS:
 ```css
 h1
 {
-	font: normal 2rem/1.1 "MyFontFamily", "Helvetica", "Arial", sans-serif;
+  font: normal 2rem/1.1 "MyFontFamily", "Helvetica", "Arial", sans-serif;
 }
 ```
 
@@ -1534,19 +1568,19 @@ CSS
 ```css
 .btn
 {
-	display:inline-block;
-	background:#7AA020;
-	color:#fff;
-	border-radius:.2em;
-	padding:.75em 1em;
-	font:bold 1em/1 helvetica,arial,sans-serif;
-	text-decoration:none;
-	text-shadow:1px 1px 0 rgba(0,0,0,.5);
-	box-shadow:inset 0 -3px 0 rgba(0,0,0,.5);
+  display:inline-block;
+  background:#7AA020;
+  color:#fff;
+  border-radius:.2em;
+  padding:.75em 1em;
+  font:bold 1em/1 helvetica,arial,sans-serif;
+  text-decoration:none;
+  text-shadow:1px 1px 0 rgba(0,0,0,.5);
+  box-shadow:inset 0 -3px 0 rgba(0,0,0,.5);
 }
 .btn:hover
 {
-	background:#5C7917;
+  background:#5C7917;
 }
 ```
 
@@ -1557,8 +1591,8 @@ Avant CSS3, créer des boites avec des coins arrondis impliquait d'utiliser des 
 ```css
 .box-rounded
 {
-	background:red;
-	border-radius:.3em;
+  background:red;
+  border-radius:.3em;
 }
 ```
 
@@ -1567,8 +1601,8 @@ Il est possible de spécifier des valeurs différentes pour chacun des coins
 ```css
 .box-rounded
 {
-	background:red;
-	border-radius:.3em 2em 200px 5%;
+  background:red;
+  border-radius:.3em 2em 200px 5%;
 }
 ```
 
@@ -1583,7 +1617,7 @@ Il suffit donc dans votre HTML de ne pas spécifier les dimensions de vos media 
 ```css
 img, video
 {
-	max-width:100%;
+  max-width:100%;
 }
 ```
 
@@ -1608,7 +1642,7 @@ CSS
 ```css
 .fluidmedia
 {
-	max-width:100%;
+  max-width:100%;
 }
 ```
 
@@ -1623,7 +1657,7 @@ Les videos servies par Youtube et Vimeo utilsent `<iframe>`, voici une façon si
 ```css
 .fluidvideo
 {
-	position: relative; /* positioning context */
+  position: relative; /* positioning context */
   padding-top: 56.25%; /* ratio 16/9 (100%/16*9) */
   background-color: #000;
 }
@@ -1640,7 +1674,6 @@ Les videos servies par Youtube et Vimeo utilsent `<iframe>`, voici une façon si
 
 ## Ressources Complémentaires
 
-- [A beginner's guide to HTML & CSS](http://learn.shayhowe.com/html-css/) par Shay Howe: un bon résumé des bases en HTML et CSS
 - [Highly Maintainable, Efficient, and Optimized CSS](http://zomigi.com/blog/maintainable-efficient-css/) par Zoe Mickley Gillenwater: quelques bonnes informations sur les "best practises" en matière de CSS.
 - [CSS Guidelines](https://github.com/csswizardry/CSS-Guidelines) par Harry Roberts: principes d'organisation et techniques pour écrire et maintenir des CSS maintenables, lisibles pour des projets de toutes tailles.
 - [caniuse.com](http://caniuse.com): tables de support navigateurs pour HTML5 et CSS3
