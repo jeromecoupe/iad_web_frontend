@@ -880,7 +880,7 @@ Dans le cas de marges négatives, on soustrait la plus grande des valeurs des ma
 - Deux paragraphes se suivant et ayant respectivement une marge inférieure de -10px et une marge supérieure de 30px seront séparés par 20px.
 - Deux paragraphes se suivant et ayant respectivement une marge inférieure de -10px et une marge supérieure de -15px seront séparés par -15px.
 
-#### Elements adjascents
+#### Elements adjacents
 
 - Les marges des blocs flottants et de tout autre bloc ne fusionnent jamais, comme les marges entre des blocs absolument et relativement positionnés;
 - Les marges entre des boîtes ne fusionnent pas si l'une des boite est en `display:inline-block;`
