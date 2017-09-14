@@ -276,7 +276,7 @@ Est utilisé pour marqué le titre d’un ouvrage. Ne peut donc plus être utili
 
 ##### `<a>`
 
-L’élément a à toujours été un élément inline en HTML. D’après les spécifications, il ne pouvait donc pas avoir d’éléments de type bloc comme descendants. Ce n’est plus le cas en HTML5. L’élément `<a>` est toujours considéré comme inline mais peut maintenant être le parent d’éléments de type bloc.
+L’élément a toujours été un élément inline en HTML. D’après les spécifications, il ne pouvait donc pas avoir d’éléments de type bloc comme descendants. Ce n’est plus le cas en HTML5. L’élément `<a>` est toujours considéré comme inline mais peut maintenant être le parent d’éléments de type bloc.
 
 ```html
 <a href=”fake.html”>
