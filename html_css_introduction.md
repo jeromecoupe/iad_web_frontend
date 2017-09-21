@@ -646,7 +646,7 @@ div[class*="nav"]
 }
 ```
 
-Le sélecteur ci-dessus cible les éléments dont l’attribut `class` contient la suite de caractère “nav”
+Le sélecteur ci-dessus cible les éléments dont l’attribut `class` contient la suite de caractères “nav”
 
 #### Sélecteur universel
 
