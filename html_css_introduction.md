@@ -970,7 +970,7 @@ CSS
 }
 ```
 
-*Exercice: expériementer avec float et clearing*
+*Exercice: expérimenter avec float et clearing*
 
 ## CSS comme outil de mise en page
 
@@ -978,10 +978,10 @@ Les propriétés `float` et `clear` (ou `inline-block`), ainsi que les propriét
 
 Ces solutions ont été utilisées par le passé pour créer des mises en page CSS parce que c'étaient les uniques outils dont nous disposions. N'ayant pas été développées dans ce but, ces solutions posaient de nombreux problèmes et avaient également des limitations importantes.
 
-Récemment, de nouveaux outils dédié au layout sont apparus en CSS, principalement Flexbox et Grid.
+Récemment, de nouveaux outils dédiés au layout sont apparus en CSS, principalement Flexbox et Grid.
 
-- *Flexbox*: gère une seule dimension (verticale ou horizontale), fonctionne à partir du contenu (content out), est principalement utilisé pour le layout de composants comme de cartes ou des interfaces de navigation (micro layout).
-- *Grid*: gère deux dimensions (verticale et horizontale), fonctionne en créant une grille dans laquelle les contenus viennent se placer (content in), est principalement utilisé pour des mises en page globales ou pour des élements plus importants comme des grilles de produits ou de media (macro layout).
+- **Flexbox**: gère une seule dimension (verticale ou horizontale), fonctionne à partir du contenu (content out), est principalement utilisé pour le layout de composants comme de cartes ou des interfaces de navigation (micro layout).
+- **Grid**: gère deux dimensions (verticale et horizontale), fonctionne en créant une grille dans laquelle les contenus viennent se placer (content in), est principalement utilisé pour des mises en page globales ou pour des élements plus importants comme des grilles de produits ou de media (macro layout).
 
 Ces deux outils de layout font en outre appel au [module de Box Alignment](https://www.w3.org/TR/css-align-3/). Vous retrouverez donc des propriétés d'alignement communes à Grid et à Flexbox.
 
@@ -994,13 +994,13 @@ Voici les propriétés les plus importantes au niveau du flex-container. Ces pro
 - `flex-direction: [row | row-reverse | column | column-reverse];`: établi la direction du "main axis" (et donc aussi celle du "cross axis"). La valeur `row` spécifie un axe horizontal gauche droite pour les documents en mode `ltr` et un axe horiontal droite gauche pour les documents en mode `rtl`
 - `justify-content: [flex-start | flex-end | center | space-between | space-around | space-evenly];`: gestion de l'alignement des flex-items et de la distribution de l'espace sur le main axis. `flex-start` et `flex-end` dépendent du mode de document `ltr` ou `rtl`.
 - `align-items: [flex-start | flex-end | center | baseline | stretch];` gestion de l'alignement des flex-items et de la distribution de l'espace sur le cross axis
-- `flex-wrap: [wrap | nowrap];`: les flex-items sont ils autorisés à passer sur une autre ligne ou pas.
+- `flex-wrap: [wrap | nowrap];`: les flex-items sont autorisés à passer sur une autre ligne ou pas.
 
-Voici les propriétés les plus importantes au niveau des flex-items. Ces propriétés ont des valeurs par défaut. Lorsque vous commencez, je vous conseille de spécifier `flex` et ses trois valeurs explicitement.
+Voici les propriétés les plus importantes au niveau des flex-items. Ces propriétés ont des valeurs par défaut. Lorsque vous commencez, il est conseillé de spécifier `flex` et ses trois valeurs explicitement.
 
 - `flex-basis` détermine les dimensions d'un flex-item avant que l'espace vide dans le flex-container soit distribué. Peut être soit une valeur (px, rem, em, %, etc.) soit `auto` (dans ce cas la valeur spécifiée pour `width` ou `height` est prise en compte). La valeur par défaut est `auto`.
 - `flex-grow`: détermine si un flex-item peut grandir au delà de ses dimensions de base si nécessaire. A comme valeur `0` ou un nombre entier qui représente la proportion avec laquelle les flex-items vont grandir si ils sont plus petits que leur flex-container après l'application de `flex-basis`. Plus le nombre entier est grand, plus la proprotion est importante. La valeur par défaut est `0`.
-- `flex-shrink`: détermine si un flex-item peur rétrécir en deça de ses dimensions de base si nécessaire. A comme valeur `0` ou un nombre entier positif qui représente la proportion avec laquelle les flex-items vont rétrécir si ils sont plus grands que leur flex-container après l'application de `flex-basis`. Plus le nombre entier est grand, plus la proprotion est importante. La veleur par défaut est `1`.
+- `flex-shrink`: détermine si un flex-item peur rétrécir en deça de ses dimensions de base si nécessaire. A comme valeur `0` ou un nombre entier positif qui représente la proportion avec laquelle les flex-items vont rétrécir si ils sont plus grands que leur flex-container après l'application de `flex-basis`. Plus le nombre entier est grand, plus la proportion est importante. La veleur par défaut est `1`.
 - `order [integer]`: détermine l'ordre d'affichage des flex-items dans un flex-container indépendemment de leur ordre dans le code source. La valeur est spécifiée sous la forme d'un nombre entier positif ou négatif.
 - `flex: [flex-grow | flex-shrink | flex-basis]`: propriété courte permettant de gérer à la fois `flex-grow`, `flex-shrink` et `flex-basis`. Il vaut mieux utiliser cette propriété courte plutôt que les propriétés longues pour des raisons de compatibilté entre navigateurs.
 
@@ -1037,7 +1037,7 @@ CSS tricks possède un bon article "[A complete guide to flexbox](https://css-tr
 
 .mainnav__item
 {
-  flex: 0 0 auto;
+  flex: 0 1 auto;
 }
 
 .mainnav__item--contact
@@ -1066,12 +1066,12 @@ Grid est une spécification relativement complexe, nous allons ici en voir les p
 
 Voici les propriétés principales au niveau du **grid-container**:
 
-- `grid-template-columns`: défini les dimensions des colonnes de la grille. Peut être une valeur (fr,%,px,rem,em, etc.) ou `auto`. Si ces valeurs sont répétées il est intéressant d'utiliser la notation `repeat`. La valeur `minmax([valeur-min], [valeur-max])` est également très utile pour spécifier une valeur minimale et maximale pour les dimensions des colonnes. Lorsque `minmax` est utilisé avec `repeat`, il est également possible d'utiliser `auto-fill` ou `auto-fit`.
+- `grid-template-columns`: défini les dimensions des colonnes de la grille. Peut être une valeur (fr,%,px,rem,em, etc.) ou `auto`. Si ces valeurs sont répétées il est intéressant d'utiliser la notation `repeat`. La valeur `minmax([valeur-min], [valeur-max])` est également très utile pour spécifier une valeur minimale et maximale pour les dimensions des colonnes. Lorsque `minmax` est utilisé avec `repeat` comme dans `grid-template-columns: repeat(3, 1fr);`, les valeurs `auto-fill` ou `auto-fit` peuvent être utilisées en lieu et place du nombre de répétitions souhaitées pour laisser le browser faire les calculs.
 - `grid-template-rows`: défini les dimensions des rangées de la grille. Peut être une valeur (fr,%,px,rem,em, etc.) ou `auto`. Si ces valeurs sont répétées il est intéressant d'utiliser la notation `repeat`. La valeur `minmax([valeur-min], [valeur-max])` est également très utile pour spécifier une valeur minimale et maximale pour les dimensions des colonnes. Lorsque `minmax` est utilisé avec `repeat`, il est également possible d'utiliser `auto-fill` ou `auto-fit`.
 - `justify-content: [start | end | center | stretch (default)]`: permet d'aligner les grid-items par rapport à l'axe des rangées.
 - `align-items: [start | end | center | stretch (default)]`: permet d'aligner les grid-items par rapport à l'axe des colonnes.
 - `grid-column-gap`, `grid-row-gap`, `grid-gap`: permettent de spécifier les espaces entre les colonnes et les rangées de la grille ou les deux à la fois. Peut être une valeur (%,px,rem,em, etc.).
-- `grid-templates-areas`: permet de définir des zones de grilles nommées de façon visuelle. les valeurs sont soit des chînes de caractères, soit un "." qui permet de laisser la zone comme vide de tout contenu.
+- `grid-templates-areas`: permet de définir des zones de grilles nommées de façon visuelle. les valeurs sont soit des chînes de caractères, soit un "." qui permet de laisser la zone visée vide de tout contenu.
 
 Voici les propriétés principales au niveau des **grid-items**:
 
@@ -1080,7 +1080,21 @@ Voici les propriétés principales au niveau des **grid-items**:
 - `justify-self`: permet d'aligner les grid-item le long de l'axe des rangées.
 - `align-self`: permet d'aligner les grid-item le long de l'axe des colonnes.
 
-**Exemple: grilles fluide simple - expériementer avec les différentes propriétés et valeurs**
+### Placement explicite et implicite des élements dans la grille
+
+Si le placement des éléments dans la grille n'est pas spécifié explicitement avec `grid-column`, `grid-row`, `grid-area`, etc. les éléments vont simplement se placer dans les cellules de la grille dans l'odre spécifié par le code source du document.
+
+La valeur `dense` de la propriété `grid-auto-flow` oblige le navigateur à optimiser le placement automatique / implicite des éléments pour remplir au mieux toutes les cellules de la grille. Cela peut causer une modification de l'ordre d'affichage des éléments par rapport au code source du document.
+
+### Grilles explicites et implicites
+
+Des notions importantes à comprendre sont celles de grilles explicites et implicites. Lorsque vous définissez une grille à l'aide de `grid-template-columns` et `grid-template-rows`, si le nombre d'éléments qui doivent être placés dans la grille est plus important que le nombre de cellules définies dans la grille, de nouvelles cellules vont automatiquement être créés.
+
+Par défaut, elles seront créées comme des rangées, avec une dimension de `auto`. Vous pouvez spécifier les dimensions des colonnes ou des rangées créées implicitement à l'aide des propriétés `grid-auto-rows` et `grid-auto-columns` qui sont l'équivalent pour les grilles implicites des propriétés `grid-template-columns` et `grid-template-rows` pour les grilles explicites.
+
+Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dense | row dense | column dense]`. Si vous spécifiez une valeur de `columns`, des colonnes implicites seront créées plutôt que des rangées.  Le mot-clé `dense` oblige le navigateur à optimiser le placement automatique / implicite des éléments pour remplir au mieux toutes les cellules de la grille.
+
+**Exemple: grilles fluide simple - expérimenter avec les différentes propriétés et valeurs**
 
 ```html
 <div class="grid">
@@ -1139,13 +1153,13 @@ Voici les propriétés principales au niveau des **grid-items**:
 }
 ```
 
-**Exemple: grille mixte avec des zones nommées à l'aide de template areas**
+**Exemple: grille responsive avec des zones nommées à l'aide de template areas**
 
 ```html
 <div class="page">
   <header class="pageheader">header</header>
-  <main class="content-main">content</main>
-  <aside class="content-secondary">sidebar</aside>
+  <div class="content-secondary">secondary content</div>
+  <main class="content-main">main content</main>
   <footer class="pagefooter">footer</footer>
 </div>
 ```
@@ -1153,16 +1167,30 @@ Voici les propriétés principales au niveau des **grid-items**:
 ```css
 .page
 {
+  box-sizing: border-box;
   margin: 0 auto;
   padding: 0 20px;
-  max-width: 960px;
+  max-width: 1140px;
 
   display: grid;
-  grid-template-columns: 300px 20px 1fr;
+  grid-template-columns: 1fr;
   grid-template-rows: auto;
-  grid-template-areas: "header header header"
-                       "sidebar . content"
-                       "footer footer footer";
+  grid-template-areas: "header"
+                       "content"
+                       "sidebar"
+                       "footer";
+}
+
+@media all and (min-width: 760px)
+{
+  .page
+  {
+    grid-template-columns: 300px 20px 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "header header header"
+                         "sidebar . content"
+                         "footer footer footer";
+  }
 }
 
 .pageheader
@@ -1186,11 +1214,11 @@ Voici les propriétés principales au niveau des **grid-items**:
 .pagefooter
 {
   grid-area: footer;
-  background-color: grey;
+  background-color: purple;
 }
 ```
 
-**Exemple: grille responsive avec elements placés automatiquement et un élément placé explicitemnt (avec span)**
+**Exemple: grille responsive avec elements placés automatiquement et un élément placé explicitement (avec span)**
 
 ```html
 <ul class="grid">
@@ -1240,7 +1268,8 @@ Voici les propriétés principales au niveau des **grid-items**:
 }
 ```
 
-**Exercice: layouts de page avec CSS grid**
+**Exercice: layouts de pages avec CSS grid: layout en "couches", layout avec sidebar, layout éclaté dans une grille**
+
 
 ## Media queries: l'un des trois piliers du responsive web design
 
