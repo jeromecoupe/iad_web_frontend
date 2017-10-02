@@ -898,7 +898,7 @@ Chaque élément positionné génère une couche et, au sein d’une même couch
 
 *Exercice: propriété z-index*
 
-#### Floats
+### Floats
 
 Un élément est positionné en mode float lorsque sa propriété `float` est spécifiée à l’aide des valeurs `left` ou `right`.
 
@@ -917,7 +917,7 @@ En fonction de la quantité de contenu des divers éléments, un élément en mo
 
 *Exercice: expérimenter avec float*
 
-##### Contrôler le flux des floats: propriété `clear`et "float containment"
+#### Contrôler le flux des floats: propriété `clear`et "float containment"
 
 La propriété CSS clear peut être utilisée pour contrôler la manière dont les éléments de type block interagissent avec les éléments en mode float. La propriété clear ne s’applique qu’aux éléments de type block. Cette propriété peut prendre les valeurs `left`, `right` et `both`.
 
@@ -929,12 +929,12 @@ Par défaut, étant donné que les éléments en mode float sont hors du flux du
 
 Cela peut être accompli à l’aide d’autres éléments situés à l’intérieur de l’élément parent de l’élément en mode float ou à l’aide de CSS lorsque le code HTML ne contient pas d’élément utilisable.
 
-###### Utilisation d’un élément du code et de la propriété `clear`
+##### Utilisation d’un élément du code et de la propriété `clear`
 
 Comme vu plus haut, en utilisant la propriété CSS `clear`, il est possible de forcer un élément à ne pas être côté à côte avec un élément en mode float.
 Nous verrons par exemple qu’un pied de page peut s’avérer bien pratique pour forcer un conteneur à contenir deux colonnes en mode float (deux `<div>` par exemple).
 
-###### A l’aide des CSS uniquement
+##### A l’aide des CSS uniquement
 
 Il est également possible d’utiliser uniquement les CSS afin de forcer son élément parent à contenir un élément en mode float.
 
@@ -972,7 +972,7 @@ CSS
 
 *Exercice: expérimenter avec float et clearing*
 
-## CSS comme outil de mise en page
+### Flexbox et Grid
 
 Les propriétés `float` et `clear` (ou `inline-block`), ainsi que les propriétés de positionnement ne sont pas des outils prévus pour réaliser des mises en page complexes.
 
@@ -985,7 +985,7 @@ Récemment, de nouveaux outils dédiés au layout sont apparus en CSS, principal
 
 Ces deux outils de layout font en outre appel au [module de Box Alignment](https://www.w3.org/TR/css-align-3/). Vous retrouverez donc des propriétés d'alignement communes à Grid et à Flexbox.
 
-### Flexbox
+#### Flexbox
 
 Flexbox est appliqué gâce à la propriété display. Une fois la propriété `display: flex;` ou `display: inline-flex;` déclarée sur un élement, celui-ci devient un **flex-container** est ses enfants directs des **flex-items**. Comme dit plus haut, Flexbox permet de gérer les choses dans une dimension principale (verticale ou horizontale). C'est ce que l'on appelle le "main-axis" qui est spécifié via la propriété `flex-direction` et permet de gérer l'alignement principal des flex-items. Une fois le "main-axis" précisé, un "cross axis" perpendiculaire permet de gérer des propriétés d'alignement plus secondaires des flex-items.
 
@@ -1058,7 +1058,7 @@ CSS tricks possède un bon article "[A complete guide to flexbox](https://css-tr
 }
 ```
 
-### Grid
+#### Grid
 
 CSS grid permet de créer des grilles en deux dimensions et de positionner des élements à l'aide de ces grilles. CSS grid est appliqué à l'aide de la proprité display. Une fois `display: grid;` ou `display: inline-grid;` appliqué à un élément, celui-ci devient un **grid-container** et ses enfants directs des **grid-items**.
 
@@ -1080,19 +1080,19 @@ Voici les propriétés principales au niveau des **grid-items**:
 - `justify-self`: permet d'aligner les grid-item le long de l'axe des rangées.
 - `align-self`: permet d'aligner les grid-item le long de l'axe des colonnes.
 
-### Placement explicite et implicite des élements dans la grille
+##### Placement explicite et implicite des élements dans la grille
 
 Si le placement des éléments dans la grille n'est pas spécifié explicitement avec `grid-column`, `grid-row`, `grid-area`, etc. les éléments vont simplement se placer dans les cellules de la grille dans l'odre spécifié par le code source du document.
 
 La valeur `dense` de la propriété `grid-auto-flow` oblige le navigateur à optimiser le placement automatique / implicite des éléments pour remplir au mieux toutes les cellules de la grille. Cela peut causer une modification de l'ordre d'affichage des éléments par rapport au code source du document.
 
-### Grilles explicites et implicites
+##### Grilles explicites et implicites
 
 Des notions importantes à comprendre sont celles de grilles explicites et implicites. Lorsque vous définissez une grille à l'aide de `grid-template-columns` et `grid-template-rows`, si le nombre d'éléments qui doivent être placés dans la grille est plus important que le nombre de cellules définies dans la grille, de nouvelles cellules vont automatiquement être créés.
 
 Par défaut, elles seront créées comme des rangées, avec une dimension de `auto`. Vous pouvez spécifier les dimensions des colonnes ou des rangées créées implicitement à l'aide des propriétés `grid-auto-rows` et `grid-auto-columns` qui sont l'équivalent pour les grilles implicites des propriétés `grid-template-columns` et `grid-template-rows` pour les grilles explicites.
 
-Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dense | row dense | column dense]`. Si vous spécifiez une valeur de `columns`, des colonnes implicites seront créées plutôt que des rangées.  Le mot-clé `dense` oblige le navigateur à optimiser le placement automatique / implicite des éléments pour remplir au mieux toutes les cellules de la grille.
+Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dense | row dense | column dense]`. Si vous spécifiez une valeur de `columns`, des colonnes implicites seront créées plutôt que des rangées.  Le mot-clé `dense` oblige le navigateur à optimiser le placement automatique / implicite des éléments pour remplir au mieux toutes les cellules de la grille. Cela peut modifier l'ordre dans lequel les éléments sont affichés par rapport à leur ordre dans le code source du document.
 
 **Exemple: grilles fluide simple - expérimenter avec les différentes propriétés et valeurs**
 
