@@ -980,8 +980,8 @@ Ces solutions ont été utilisées par le passé pour créer des mises en page C
 
 Récemment, de nouveaux outils dédiés au layout sont apparus en CSS, principalement Flexbox et Grid.
 
-- **Flexbox**: gère une seule dimension (verticale ou horizontale), fonctionne à partir du contenu (content out), est principalement utilisé pour le layout de composants comme de cartes ou des interfaces de navigation (micro layout).
-- **Grid**: gère deux dimensions (verticale et horizontale), fonctionne en créant une grille dans laquelle les contenus viennent se placer (content in), est principalement utilisé pour des mises en page globales ou pour des élements plus importants comme des grilles de produits ou de media (macro layout).
+- **Flexbox**: gère une seule dimension (verticale ou horizontale), fonctionne à partir des caractéristiques des contenus pour gérer leurs répartition dans un container.
+- **Grid**: gère deux dimensions (verticale et horizontale), fonctionne à partir des caractéristiques d'une grille dans laquelle les contenus sont placés.
 
 Ces deux outils de layout font en outre appel au [module de Box Alignment](https://www.w3.org/TR/css-align-3/). Vous retrouverez donc des propriétés d'alignement communes à Grid et à Flexbox.
 
