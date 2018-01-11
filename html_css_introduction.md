@@ -1438,7 +1438,7 @@ Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre
 
 .mainnav__item
 {
-  flex: 0 0 auto;
+  flex: 0 1 auto;
 }
 
 .mainnav__link
