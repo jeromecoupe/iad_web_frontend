@@ -1,14 +1,12 @@
 # HTML & CSS: Introduction
 
-IAD 2017-2018 - Jérôme Coupé
+## Bases
 
-## Introduction
-
-Depuis [l'annonce par le W3C de la fin des travaux sur XHTML2 en 2009](http://www.w3.org/News/2009#entry-6601), HTML5 reste le seul candidat en lice pour une refonte du langage structurant du web. Le travail sur la spécification HTML5 a commencé en 2004 et est un effort conjoint du W3C et du WHATWG Group.
+Depuis [l'annonce par le W3C de la fin des travaux sur XHTML2 en 2009](http://www.w3.org/News/2009#entry-6601), HTML reste le seul langage de markup sémantique du web. Le travail sur la spécification HTML5 a commencé en 2004 et est un effort conjoint du W3C et du WHATWG Group.
 
 HTML5 est à la fois un enrichissement du "vocabulaire" du HTML, mais aussi une tentative de faire du HTML un langage du web d'aujourd'hui: sémantique, applicatif (à travers les divers API) et réellement intégrateur de divers médias (sons, vidéos, élément CANVAS, etc.).
 
-HTML et CSS sont désormais des spécifications modulaire en évolution constante. Nous ne devrions donc plus voir d'autres grandes versions monolithiques de HTML ou de CSS mais simplement une évolution constante des différents modules dont ces spécifications sont composées.
+HTML et CSS sont désormais des spécifications modulaires en évolution constante. Nous ne devrions donc plus voir d'autres grandes versions monolithiques de HTML ou de CSS mais simplement une évolution constante des différents modules dont ces spécifications sont composées.
 
 De nombreuses ressources telles que [Mozilla Developer Network (MDN)](https://developer.mozilla.org/), [webplateform.org](http://www.webplatform.org/) et [HTML5 Rocks](http://www.html5rocks.com) sont disponibles si ces sujets vous intéressent.
 
@@ -172,7 +170,7 @@ La spécification HTML introduit de nouveaux éléments sémantiques permettant 
 
 Nous ne présenterons pas l’ensemble de ces nouveaux éléments dans le cadre de ce cours mais nous vous présenterons les principaux. L'ensemble de ces nouveaux éléments et des renseignements sur leurs usages sont disponibles sur le site de [Mozilla Developer Network](https://developer.mozilla.org/fr/docs/Web/HTML/Element) ou dans [le glossaire rédigé pour vous par l'équipe de HTML5 Doctor](http://html5doctor.com/element-index/).
 
-#### Nouveaux élements
+#### Eléments sémantiques
 
 ##### `<nav>`
 
