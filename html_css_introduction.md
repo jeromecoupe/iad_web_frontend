@@ -1563,8 +1563,7 @@ CSS
 ```css
 @font-face {
   font-family: 'MyFontFamily';
-  src: url('fonts/MyFontFamily.woff2') format('woff2'),
-       url('fonts/MyFontFamily.woff') format('woff');
+  src: url('fonts/MyFontFamily.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
