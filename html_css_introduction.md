@@ -972,6 +972,7 @@ Voici les propriétés les plus importantes au niveau du flex-container. Ces pro
 - `justify-content: [flex-start | flex-end | center | space-between | space-around | space-evenly];`: gestion de l'alignement des flex-items et de la distribution de l'espace sur le main axis. `flex-start` et `flex-end` dépendent du mode de document `ltr` ou `rtl`.
 - `align-items: [flex-start | flex-end | center | baseline | stretch];` gestion de l'alignement des flex-items et de la distribution de l'espace sur le cross axis
 - `flex-wrap: [wrap | nowrap];`: les flex-items sont autorisés à passer sur une autre ligne ou pas.
+- `column-gap`, `row-gap`, `gap`: permettent de spécifier des espaces horizontaux, verticaux ou les deux à la fois entre les flex items. Ces propriétés prennent des valeurs spécifiées en `%`, `px`, `rem`, `em`, `vw`, etc. Ces propriétés ne sont pas aussi bien supportées par les navigateurs dans le cadre de Flexbox, alors que lesupport pour CSS Grid est excellent. En attendant, vous pouvez utiliser des marges sur les flex items.
 
 Voici les propriétés les plus importantes au niveau des flex-items. Ces propriétés ont des valeurs par défaut. Lorsque vous commencez, il est conseillé de spécifier `flex` et ses trois valeurs explicitement.
 
@@ -985,7 +986,7 @@ La propriété `margin` avec une valeur de `auto` est intéressante pour les `fl
 
 CSS tricks possède un bon article "[A complete guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)" résumant l'ensemble des propriétés et valeurs liées à Flexbox. [Flexbox Froggy](http://flexboxfroggy.com/) adopte une approche plus ludique.
 
-**Exemple: interface de navigation horizontale (expérimenter avec les différentes propriétés et valeurs)**
+_Exercice: interface de navigation horizontale (expérimenter avec les différentes propriétés et valeurs)_
 
 ```html
 <ul class="mainnav">
@@ -1010,11 +1011,18 @@ CSS tricks possède un bon article "[A complete guide to flexbox](https://css-tr
   align-items: center;
   flex-wrap: nowrap;
 
+  /*
+    pas encore supporté par tous les navigateurs modernes
+    mais facile à comprendre
+    gap: 20px;
+  */
+
   background-color: #ccc;
 }
 
-.mainnav__item {
-  flex: 0 1 auto;
+/* Permet d'accomplir la même chose que gap pour tous les navigateurs */
+.mainnav__item:not(:last-child) {
+  margin-right: 20px;
 }
 
 .mainnav__item--contact {
@@ -1044,7 +1052,7 @@ Voici les propriétés principales au niveau du **grid-container**:
 - `grid-template-rows`: défini les dimensions des rangées de la grille. Peut être une valeur (fr,%,px,rem,em, etc.) ou `auto`. Si ces valeurs sont répétées il est intéressant d'utiliser la notation `repeat`. La valeur `minmax([valeur-min], [valeur-max])` est également très utile pour spécifier une valeur minimale et maximale pour les dimensions des colonnes. Lorsque `minmax` est utilisé avec `repeat`, il est également possible d'utiliser `auto-fill` ou `auto-fit`.
 - `justify-content: [start | end | center | stretch (default)]`: permet d'aligner les grid-items par rapport à l'axe des rangées.
 - `align-items: [start | end | center | stretch (default)]`: permet d'aligner les grid-items par rapport à l'axe des colonnes.
-- `grid-column-gap`, `grid-row-gap`, `grid-gap`: permettent de spécifier les espaces entre les colonnes et les rangées de la grille ou les deux à la fois. Peut être une valeur (%,px,rem,em, etc.).
+- `column-gap`, `row-gap`, `gap`: permettent de spécifier les espaces entre les colonnes et les rangées de la grille ou les deux à la fois. Ces propriétés prennent des valeurs spécifiées en `%`, `px`, `rem`, `em`, `vw`, etc.
 - `grid-templates-areas`: permet de définir des zones de grilles nommées de façon visuelle. les valeurs sont soit des chînes de caractères, soit un "." qui permet de laisser la zone visée vide de tout contenu.
 
 Voici les propriétés principales au niveau des **grid-items**:
@@ -1068,7 +1076,7 @@ Par défaut, elles seront créées comme des rangées, avec une dimension de `au
 
 Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dense | row dense | column dense]`. Si vous spécifiez une valeur de `columns`, des colonnes implicites seront créées plutôt que des rangées. Le mot-clé `dense` oblige le navigateur à optimiser le placement automatique / implicite des éléments pour remplir au mieux toutes les cellules de la grille. Cela peut modifier l'ordre dans lequel les éléments sont affichés par rapport à leur ordre dans le code source du document.
 
-**Exemple: grilles fluide simple - expérimenter avec les différentes propriétés et valeurs**
+_Exemple: grilles fluide simple - expérimenter avec les différentes propriétés et valeurs_
 
 ```html
 <div class="grid">
@@ -1088,7 +1096,7 @@ Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dens
   /* grid-template columns: 1fr 1fr 1fr 1fr; */
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
-  grid-gap: 20px;
+  gap: 20px;
 }
 
 .grid__item {
@@ -1096,7 +1104,7 @@ Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dens
 }
 ```
 
-**Exemple: grille fluide responsive avec minmax et auto-fit - expériementer avec les différentes propriétés et valeurs**
+_Exemple: grille fluide responsive avec minmax et auto-fit - expériementer avec les différentes propriétés et valeurs_
 
 ```html
 <div class="grid">
@@ -1115,7 +1123,7 @@ Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dens
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-template-rows: auto;
-  grid-gap: 20px;
+  gap: 20px;
 }
 
 .grid__item {
@@ -1123,14 +1131,14 @@ Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dens
 }
 ```
 
-**Exemple: grille responsive avec des zones nommées à l'aide de template areas**
+_Exemple: grille responsive avec des zones nommées à l'aide de template areas_
 
 ```html
 <div class="page">
-  <header class="pageheader">header</header>
-  <div class="content-secondary">secondary content</div>
-  <main class="content-main">main content</main>
-  <footer class="pagefooter">footer</footer>
+  <header class="page__header">header</header>
+  <aside class="page__secondary">secondary content</aside>
+  <main class="page__main">main content</main>
+  <footer class="page__footer">footer</footer>
 </div>
 ```
 
@@ -1162,28 +1170,28 @@ Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dens
   }
 }
 
-.pageheader {
+.page__header {
   grid-area: header;
   background-color: silver;
 }
 
-.content-secondary {
+.page__secondary {
   grid-area: sidebar;
   background-color: teal;
 }
 
-.content-main {
+.page__main {
   grid-area: content;
   background-color: olive;
 }
 
-.pagefooter {
+.page__footer {
   grid-area: footer;
   background-color: purple;
 }
 ```
 
-**Exemple: grille responsive avec elements placés automatiquement et un élément placé explicitement (avec span)**
+_Exemple: grille responsive avec elements placés automatiquement et un élément placé explicitement (avec span)_
 
 ```html
 <ul class="grid">
@@ -1207,7 +1215,7 @@ Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dens
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-template-rows: auto;
-  grid-gap: 2rem;
+  gap: 2rem;
 }
 
 .grid__item {
@@ -1228,7 +1236,7 @@ Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dens
 }
 ```
 
-**Exercice: layouts de pages avec CSS grid: layout en "couches", layout avec sidebar, layout éclaté dans une grille**
+_Exercice: layouts de pages avec CSS grid: layout en "couches", layout avec sidebar, layout éclaté dans une grille_
 
 ## Media queries: l'un des trois piliers du responsive web design
 
@@ -1262,9 +1270,9 @@ Comme le mentionne Stéphanie Rieger sur Cloud Four [il est avantageux de spéci
 
 Pour ce qui est du choix des valeurs de breakpoints, je vous invite à [suivre le conseil de Stephen Hay](https://twitter.com/brad_frost/status/191977076000161793).
 
-**Exercice: media queries et des couleurs de donc sur l'élément `body`**
+_Exercice: media queries et des couleurs de donc sur l'élément `body`_
 
-**Exercices: layouts et composants en utilisant grid et media queries**
+_Exercices: layouts et composants en utilisant grid et media queries_
 
 ## Media fluides: un second pilier du responsive web design
 
@@ -1279,16 +1287,16 @@ video {
 }
 ```
 
-Comme vous aurez sans doute besoin de media fluides et de media fixes, il est avantageux d'utiliser une classe pour vos media fluides.
+Comme vous aurez sans doute besoin de media fluides et de media fixes, il est avantageux d'utiliser des classes pour vos media fluides.
 
 HTML
 
 ```html
-<img src="myimage.jpg" class="fluidmedia" alt="my fluid image" />
+<img src="myimage.jpg" class="fluidimage" alt="my fluid image" />
 ```
 
 ```html
-<video controls class="fluidmedia">
+<video controls class="fluidvideo">
   <source src="assets/videos/video.mp4" type="video/mp4" />
   <source src="assets/videos/video.webm" type="video/webm" />
   <p>
@@ -1302,28 +1310,30 @@ HTML
 CSS
 
 ```css
-.fluidmedia {
+.fluidimage,
+.fluidvideo {
   max-width: 100%;
+  vertical-align: middle;
 }
 ```
 
 Les videos servies par Youtube et Vimeo utilsent `<iframe>`, voici une façon simple de garder un ratio constant (16/9) tout en ayant un comportement fluide.
 
 ```html
-<div class="fluidvideo">
+<div class="fluidiframe">
   <iframe src="https://www.youtube.com/embed/_kAJSswZPvI"></iframe>
 </div>
 ```
 
 ```css
-.fluidvideo {
+.fluidiframe {
   position: relative; /* positioning context */
   padding-top: 56.25%; /* ratio 16/9 (100%/16*9) */
   /* padding-top: 75%; ratio 4/3 (100%/4*3) */
   background-color: #000;
 }
 
-.fluidvideo > iframe {
+.fluidiframe > iframe {
   position: absolute;
   top: 0;
   left: 0;
@@ -1361,7 +1371,6 @@ Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre
 }
 
 .mainnav__item:not(:last-child) {
-  display: block;
   border-bottom: 1px solid #dfdfdf;
 }
 
@@ -1466,7 +1475,7 @@ Les unites `vh` (viewport height) et `vw` (viewport width) sont des unités rela
 
 Dans un mode où le responsive web design domine, ces deux unités sont extrèmement pratiques, que ce soit pour contrôler la hauteur de bannières, pour créer des sites prenant au minimum toute la hauteur de la page, etc.
 
-**Exemple: une bannière occupant toujours une hauteur proportionnelle à la heuteur du viewport**
+_Exemple: une bannière occupant toujours une hauteur proportionnelle à la heuteur du viewport_
 
 ```css
 .banner {
