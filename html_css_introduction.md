@@ -20,8 +20,8 @@ Pour vérifier la compatibilité de votre code CSS / HTML avec les différents n
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Example document</title>
   </head>
   <body>
@@ -41,7 +41,7 @@ La DTD est en fait la plus petite suite de caractères permettant à un navigate
 Il convient d'ajouter une balise meta précisant l'encodage de caractère utilisé dans votre document. Dans la plupart des cas, [un encodage UTF-8 est votre meilleur choix](http://www.w3.org/TR/html5/the-meta-element.html%23charset).
 
 ```html
-<meta charset="utf-8">
+<meta charset="utf-8" />
 ```
 
 ### Déclaration de la langue utilisée
@@ -49,7 +49,7 @@ Il convient d'ajouter une balise meta précisant l'encodage de caractère utilis
 L'élément racine d'un document doit impérativement être l'élément `<html>` et celui-ci doit avoir comme attribut une déclaration de la langue principale utilisée dans le document. Par exemple :
 
 ```html
-<html lang="en">
+<html lang="en"></html>
 ```
 
 ### Bonnes pratiques
@@ -65,7 +65,7 @@ Vos tags doivent être bien imbriqués. Les ouvertures et les fermetures de tags
 **Incorrect**
 
 ```html
-<p>Lorem ipsum dolor sit amet, consectetur <a href="">adipisicing elit</a>.
+<p>Lorem ipsum dolor sit amet, consectetur <a href="">adipisicing elit</a>.</p>
 ```
 
 ```html
@@ -85,13 +85,19 @@ Bien que des majuscules soient valides en HTML, votre code sera plus lisible si 
 **Pas terrible**
 
 ```html
-<P>Mon paragraphe contenant <A HREF="https://www.iad-arts.be">un lien hypertexte</A></P>
+<p>
+  Mon paragraphe contenant
+  <a href="https://www.iad-arts.be">un lien hypertexte</a>
+</p>
 ```
 
 **Mieux**
 
 ```html
-<p>Mon paragraphe contenant <a href="https://www.iad-arts.be">un lien hypertexte</a></p>
+<p>
+  Mon paragraphe contenant
+  <a href="https://www.iad-arts.be">un lien hypertexte</a>
+</p>
 ```
 
 #### Toujours placer vos attributs entre guillemets
@@ -107,7 +113,10 @@ Encore une fois, HTML ne vous y oblige pas mais placer les valeurs de vos attrib
 **Mieux**
 
 ```html
-<p>Un paragraphe contenant <a href="https://www.iad-arts.be">un lien hypertexte</a></p>
+<p>
+  Un paragraphe contenant
+  <a href="https://www.iad-arts.be">un lien hypertexte</a>
+</p>
 ```
 
 #### Gestion des caractères spéciaux dans les déclarations CSS et JavaScript
@@ -138,7 +147,7 @@ Les éléments composant un document HTML sont structurés de façon hiérarchis
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Titre du document</title>
   </head>
   <body>
@@ -162,7 +171,7 @@ Cette forme d’arbre et d’emboîtement hiérarchisé est parfaitement visible
 
 Familiarisez-vous avec ces outils, vous en aurez besoin lors de ce cours et durant toute votre carrière de développeur front-end.
 
-*Exercice: créer un starter kit HTML/CSS/JS, explorer les outils de développement dans Chrome, Safari ou Firefox*
+_Exercice: créer un starter kit HTML/CSS/JS, explorer les outils de développement dans Chrome, Safari ou Firefox_
 
 ### Une sémantique améliorée
 
@@ -204,7 +213,7 @@ A priori, la hiérarchie des titres recommence à zéro au sein de chacun des é
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Document outline and sectioning elements</title>
   </head>
   <body>
@@ -253,7 +262,9 @@ Est utilisé pour marquer des données temporelles (dates, heures etc.) de faço
 ```html
 <time datetime="2007-10-05">October 5</time>
 <p>I usually have a snack at <time>16:00</time>.</p>
-<p>posted on <time datetime="2009-04-12">12 April 2009</time> by Jérôme Coupé</p>
+<p>
+  posted on <time datetime="2009-04-12">12 April 2009</time> by Jérôme Coupé
+</p>
 ```
 
 #### redéfinition d’éléments existants
@@ -267,13 +278,13 @@ Est utilisé pour marqué le titre d’un ouvrage. Ne peut donc plus être utili
 L’élément `<a>` est toujours considéré comme inline mais peut maintenant être le parent d’éléments de type bloc.
 
 ```html
-<a href=”fake.html”>
+<a href="”fake.html”">
   <h2>This is a title</h2>
   <p>lorem ipsum dolor sit amet</p>
 </a>
 ```
 
-*Exercice: examiner 2 sites et voir quels éléments utiliser*
+_Exercice: examiner 2 sites et voir quels éléments utiliser_
 
 #### Video Audio et Figure
 
@@ -292,16 +303,25 @@ Il y a 3 grands formats pour des videos en HTML: .webm, .mp4 et .ogv. Aujourd'hu
 **Video simple**
 
 ```html
-<video width="640" height="360" src="http://www.youtube.com/demo/google_main.mp4" controls>
+<video
+  width="640"
+  height="360"
+  src="http://www.youtube.com/demo/google_main.mp4"
+  controls
+></video>
 ```
 
 **Video avec plusieurs sources**
 
 ```html
 <video height="270" width="480" poster="waitimage.png" controls>
-  <source src="samplevideo.webm" type="video/webm">
-  <source src="samplevideo.mp4" type="video/mp4">
-  <p>Your browser does not support the video tag but you can download the file either in <a href="samplevideo.webm">WEBM</a>, <a href="samplevideo.mp4">MP4</a></p>
+  <source src="samplevideo.webm" type="video/webm" />
+  <source src="samplevideo.mp4" type="video/mp4" />
+  <p>
+    Your browser does not support the video tag but you can download the file
+    either in <a href="samplevideo.webm">WEBM</a>,
+    <a href="samplevideo.mp4">MP4</a>
+  </p>
 </video>
 ```
 
@@ -311,7 +331,7 @@ Certains navigateurs supportant l'élément `<video>` commencent automatiquement
 
 Si vos besoins en vidéo sont importants, des services tels que Youtube et Vimeo un moyen efficace de servir des vidéos sur le web. Ils réalisent automatiquement les divers encodages nécessaires, le type de plateforme utilisé par le visiteur, etc.
 
-*Exercice: intégration d'un fichier video dans un document HTML*
+_Exercice: intégration d'un fichier video dans un document HTML_
 
 ##### Audio
 
@@ -319,12 +339,17 @@ Il y a 3 grands formats pour des videos en HTML: .mp3, .wav et .ogg. Aujourd'hui
 
 ```html
 <audio controls>
-  <source src="elvis.mp3" type="audio/mpeg">
-  <p><strong>Your browser does not support the audio tag but you can download the file either in <a href="elvis.mp3">MP3 format</a></strong></p>
+  <source src="elvis.mp3" type="audio/mpeg" />
+  <p>
+    <strong
+      >Your browser does not support the audio tag but you can download the file
+      either in <a href="elvis.mp3">MP3 format</a></strong
+    >
+  </p>
 </audio>
 ```
 
-*Exercice: intégration d'un fichier audio dans un document HTML*
+_Exercice: intégration d'un fichier audio dans un document HTML_
 
 ##### Figure et figcaption
 
@@ -332,11 +357,15 @@ Les élément figure et figcaption servent à grouper images et légendes dans v
 
 ```html
 <figure>
-  <img src="soleil.jpg" alt="Une journée ensoleillée à Louvain-la-Neuve">
-  <figcaption>La grand-place et les terrasses par une journée ensoleillée à Louvain-la-Neuve.</figcaption>
+  <img src="soleil.jpg" alt="Une journée ensoleillée à Louvain-la-Neuve" />
+  <figcaption>
+    La grand-place et les terrasses par une journée ensoleillée à
+    Louvain-la-Neuve.
+  </figcaption>
 </figure>
 ```
-*Exercice: intégration d'une figure dans un document HTML*
+
+_Exercice: intégration d'une figure dans un document HTML_
 
 #### Formulaires et HTML
 
@@ -346,24 +375,24 @@ La spécification HTML permet maintenant l'utilisation de contrôles de formulai
 <form action="sendform.php">
   <p>
     <label for="bday">Your Birthday:</label>
-    <input type="date" placeholder="dd/mm/yyyy" name="birthday" id="bday">
+    <input type="date" placeholder="dd/mm/yyyy" name="birthday" id="bday" />
   </p>
   <p>
-    <input type="submit" value="send this !">
+    <input type="submit" value="send this !" />
   </p>
 </form>
 ```
 
-*Note: dans l'exemple ci-dessus, l'élement label est explicitement lié au champs de formulaire via les attributs `for` de `<label>` et l'attribut `id` de l'élément `<input>`.*
+_Note: dans l'exemple ci-dessus, l'élement label est explicitement lié au champs de formulaire via les attributs `for` de `<label>` et l'attribut `id` de l'élément `<input>`._
 
 De nouveaux types de champs sont mis à la disposition des développeurs: `email`, `url`, `date`, `phone` et `range` n'en sont que quelques uns.
 
 ```html
-<input type="email" name="useremail">
-<input type="url" name="userurl">
-<input type="date" name="startdate">
-<input type="phone" name="phonenumber">
-<input type="range" name="myrange" min="0" max="10" step="1">
+<input type="email" name="useremail" />
+<input type="url" name="userurl" />
+<input type="date" name="startdate" />
+<input type="phone" name="phonenumber" />
+<input type="range" name="myrange" min="0" max="10" step="1" />
 ```
 
 Ces nouveaux champs permettent, entre autres choses, une validation automatique du format des données entrées par les utilisateurs lorsque la propriété `required` est appliquée. La plupart de ces nouveaux éléments ne fonctionnent aujourd'hui qu'avec les navigateurs récents. Ceci étant dit, la plupart se dégradent élégamment dans les autres navigateurs (sous la forme de champs de type texte pour la plupart).
@@ -373,24 +402,24 @@ HTML permet également l'utilisation de nouveaux attributs pour les champs de fo
 L'attribut `required` permet de spécifier un champ comme obligatoire dans le cadre d'un formulaire HTML. CEla ne vous dispense pas de faire un contrôle côté serveur voir JS dans certains cas.
 
 ```html
-<input type="text" name="name" id="name" required>
+<input type="text" name="name" id="name" required />
 ```
 
 L'attribut `placeholder` permet de spécifier un texte dans un champ tant que celui-ci n'est pas rempli ni activé. Lorsque l'utilisateur active le champ de formulaire, ce texte disparait.
 
 ```html
-<input type="tel" name="gsm" id="gsm" placeholder="+32475335162">
+<input type="tel" name="gsm" id="gsm" placeholder="+32475335162" />
 ```
 
 L'attribut `autofocus` permet d'activer un champ de formulaire dès la page chargée.
 
 ```html
-<input type="search" name="search" id="search" autofocus>
+<input type="search" name="search" id="search" autofocus />
 ```
 
 Pour ceux qui veulent en savoir plus, [un excellent article introductif est disponible sur 24 Ways](http://24ways.org/2009/have-a-field-day-with-html5-forms/) et une [démonstration a été mise en ligne par HTML5 Doctor](http://html5doctor.com/demos/forms/forms-example.html). Les [quelques pages de Mark Pilgrim sur le sujet](http://diveintohtml5.info/) sont également intéressantes, ainsi que la section consacrée aux [champs de formulaires sur Mozilla Developer Network](https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input).
 
-*Exercice: créer un formulaire en HTML*
+_Exercice: créer un formulaire en HTML_
 
 #### L'élément Canvas
 
@@ -422,7 +451,7 @@ Les déclarations CSS peuvent être liées de 4 façons à un document HTML afin
 C'est la méthode la plus utilisée dans la mesure où elle permet de séparer vos styles (CSS) de votre structure et de votre contenu de document (HTML). C'est égalmement la méthode la plus performante, [comme le précise Steve Souders](http://www.stevesouders.com/blog/2009/04/09/dont-use-import/).
 
 ```html
-<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/main.css" />
 ```
 
 #### CSS importées
@@ -430,7 +459,9 @@ C'est la méthode la plus utilisée dans la mesure où elle permet de séparer v
 A ne pas utiliser dans la plupart des cas pour des raisons de performance.
 
 ```html
-<style>@import url(css/main.css);</style>
+<style>
+  @import url(css/main.css);
+</style>
 ```
 
 #### CSS en ligne
@@ -438,7 +469,11 @@ A ne pas utiliser dans la plupart des cas pour des raisons de performance.
 Utilisé principalement pour le debugging ou pour augmenter la performance des pages avec Critical CSS.
 
 ```html
-<style>body {background:#fff;}</style>
+<style>
+  body {
+    background: #fff;
+  }
+</style>
 ```
 
 #### CSS dans l’attribut style des balises
@@ -446,7 +481,7 @@ Utilisé principalement pour le debugging ou pour augmenter la performance des p
 Peu utilisé, sauf pour gérer certains styles bien précis à l'aide d'un CMS par exemple.
 
 ```html
-<p style="color:blue;">
+<p style="color:blue;"></p>
 ```
 
 ### CSS et media
@@ -460,34 +495,31 @@ Il est possible d’utiliser l'attribut media ou des règles `@media` à plusieu
 **HTML avec CSS liées**
 
 ```html
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/main.css" media="all and (min-width: 760px)">
+<link rel="stylesheet" href="css/main.css" />
+<link rel="stylesheet" href="css/main.css" media="all and (min-width: 760px)" />
 ```
 
 **CSS en ligne**
 
 ```css
-@media all and (min-width: 760px)
-{
-  body
-  {
-    background:#fff;
+@media all and (min-width: 760px) {
+  body {
+    background: #fff;
   }
 }
 ```
 
 Classiquement, on ne spécifie pas de type de media (all) lorsqu'on importe une feuille de style avec `<link>` et des media queries sont utilisées au sein des feuilles de styles. C'est particulièrement le cas en responsive web design (nous en reparlerons plus loins dans le cours).
 
-*Exercice: lier une feuille de style à un document HTML et tester l'attribut media avec les valeurs screen et print*
+_Exercice: lier une feuille de style à un document HTML et tester l'attribut media avec les valeurs screen et print_
 
 ### Anatomie d’une déclaration CSS
 
 ```css
 /*Règle CSS*/
-body /*Sélecteur*/
-{
-  color:#fff; /*propriété:valeur; == déclaration*/
-  padding:1em;
+body /*Sélecteur*/ {
+  color: #fff; /*propriété:valeur; == déclaration*/
+  padding: 1em;
 }
 ```
 
@@ -514,17 +546,17 @@ Pour calculer la spécificité d’une déclaration CSS, c’est le sélecteur q
 
 Spécificité = a,b,c
 
-*Ressources: [une explication ludique basée sur Star Wars et proposée par Andy Clarke](http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html).*
+_Ressources: [une explication ludique basée sur Star Wars et proposée par Andy Clarke](http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html)._
 
 #### Exemples
 
-  p = 0,0,1
-  p.last = 0,1,1
-  #content p.last = 1,1,1
+p = 0,0,1
+p.last = 0,1,1
+#content p.last = 1,1,1
 
-  !important et sélecteur universel
-  l’ajout de !important à une déclaration CSS permet de passer outre ce calcul de spécificité.
-  Le sélecteur universel (*) possède une spécificité de 0,0,0
+!important et sélecteur universel
+l’ajout de !important à une déclaration CSS permet de passer outre ce calcul de spécificité.
+Le sélecteur universel (\*) possède une spécificité de 0,0,0
 
 ### Les sélecteurs CSS
 
@@ -535,9 +567,8 @@ Nous verrons ici quelques sélecteurs de base pour commencer. Notez simplement q
 Facile à comprendre, ce sélecteur permet de cibler tous les éléments du type indiqué présents dans le document.
 
 ```css
-p
-{
-  color:red;
+p {
+  color: red;
 }
 ```
 
@@ -546,18 +577,16 @@ p
 Le sélecteur de classe permet de cibler tous les éléments possédant la classe indiquée présents dans le document.
 
 ```css
-.mainnav-current
-{
-  color:red;
+.mainnav-current {
+  color: red;
 }
 ```
 
 Il est possible de combiner les sélecteurs au sein d’une même règle CSS. Les sélecteurs de type et de classe peuvent par exemple être combinés pour avoir une portée moins large et une spécificité plus importante. L'exemple donné ci-dessous n'est pas conseillé en production, justement parcequ'il augmente inutilement la spécificité du sélecteur.
 
 ```css
-li.mainnav-current
-{
-  color:red;
+li.mainnav-current {
+  color: red;
 }
 ```
 
@@ -572,9 +601,8 @@ Plusieurs classes CSS peuvent être appliquées à un seul élément HTML.
 Le sélecteur d’ID permet de cibler l’élément possédant l’ID indiquée présent dans le document.
 
 ```css
-#content
-{
-  background:blue;
+#content {
+  background: blue;
 }
 ```
 
@@ -585,9 +613,8 @@ Une ID ne peut être utilisée qu’une seule fois dans le cadre d’un même do
 Le sélecteur descendant permet de cibler les éléments qui sont les descendants d’un autre élément présent dans le document.
 
 ```css
-p em
-{
-  background:red;
+p em {
+  background: red;
 }
 ```
 
@@ -596,9 +623,8 @@ p em
 Le sélecteur d’enfant permet de cibler les éléments qui sont les enfants d’un autre élément présent dans le document.
 
 ```css
-ul > li
-{
-  background:purple;
+ul > li {
+  background: purple;
 }
 ```
 
@@ -607,9 +633,8 @@ ul > li
 Le sélecteur d’enfant adjacent permet de cibler l’élément suivant directement un élément présent dans le document.
 
 ```css
-h1 + p
-{
-  background:yellow;
+h1 + p {
+  background: yellow;
 }
 ```
 
@@ -620,27 +645,24 @@ Cette règle ciblera uniquement le paragraphe placé immédiatement après le h1
 Le sélecteur d’attribut permet de cibler les éléments d’un document sur base des attributs qu’ils possèdent ou sur base de la valeur de ces attributs.
 
 ```css
-div[role]
-{
-  background:red;
+div[role] {
+  background: red;
 }
 ```
 
 Le sélecteur ci-dessus cible n’importe quel `div` ayant un attribut `role`
 
 ```css
-div[role="maincontent"]
-{
-  border:3px dotted black;
+div[role="maincontent"] {
+  border: 3px dotted black;
 }
 ```
 
 Le sélecteur ci-dessus cible n’importe quel `div` ayant un attribut `role` avec comme valeur `maincontent`
 
 ```css
-div[class*="nav"]
-{
-  border:3px dotted black;
+div[class*="nav"] {
+  border: 3px dotted black;
 }
 ```
 
@@ -651,9 +673,8 @@ Le sélecteur ci-dessus cible les éléments dont l’attribut `class` contient 
 Ce sélecteur est utilisé pour cibler l’ensemble des éléments composant le document.
 
 ```css
-*
-{
-  color:blue;
+* {
+  color: blue;
 }
 ```
 
@@ -664,11 +685,21 @@ Les sélecteurs de pseudo-classes permettent de cibler des éléments qui ne son
 ##### Pseudo-classes liées aux liens.
 
 ```css
-a:link {text-decoration:underline;}
-a:visited {color: purple;}
-a:hover {text-decoration:none;}
-a:focus {color:green;}
-a:active {color:red;}
+a:link {
+  text-decoration: underline;
+}
+a:visited {
+  color: purple;
+}
+a:hover {
+  text-decoration: none;
+}
+a:focus {
+  color: green;
+}
+a:active {
+  color: red;
+}
 ```
 
 Les déclarations doivent obligatoirement être faites dans cet ordre afin d’obtenir le résultat escompté.
@@ -676,18 +707,14 @@ Les déclarations doivent obligatoirement être faites dans cet ordre afin d’o
 ##### First-child & last-child
 
 ```css
-li:first-child
-{
-  font-weight:bold;
+li:first-child {
+  font-weight: bold;
 }
 ```
 
-
-
 ```css
-li:last-child
-{
-  font-weight:bold;
+li:last-child {
+  font-weight: bold;
 }
 ```
 
@@ -698,22 +725,19 @@ Les sélecteurs de pseudo-éléments permettent de cibler des éléments qui ne 
 ##### first-line et first-letter
 
 ```css
-p:first-letter
-{
-  font-weight:bold;
+p:first-letter {
+  font-weight: bold;
 }
 
-p:first-line
-{
-  font-variant:italic;
+p:first-line {
+  font-variant: italic;
 }
 ```
 
 ##### Viser le contenu sélectionné par l'utilisateur
 
 ```css
-::selection
-{
+::selection {
   background-color: cyan;
 }
 ```
@@ -721,14 +745,12 @@ p:first-line
 ##### génération de contenu via CSS
 
 ```css
-.hello:after
-{
-  content:" hello";
+.hello:after {
+  content: " hello";
 }
 
-.hello:before
-{
-  content:"hello ";
+.hello:before {
+  content: "hello ";
 }
 ```
 
@@ -818,7 +840,7 @@ Dans le cas de marges négatives, on soustrait la plus grande des valeurs des ma
 
 Pour en savoir plus concernant la fusion des marges, lire les excellents articles de [Andy Budd](http://www.andybudd.com/archives/2003/11/no_margin_for_error/) et [Eric Meyer](http://www.complexspiral.com/publications/uncollapsing-margins/).
 
-*Exercice sur la fusion des marges*
+_Exercice sur la fusion des marges_
 
 ## Mises en page CSS
 
@@ -850,7 +872,7 @@ Si les propriétés top ou bottom sont contradictoires, la propriété top l’e
 .relative
 ```
 
-*Exercice: positionnement relatif*
+_Exercice: positionnement relatif_
 
 #### Positionnement absolu et fixe
 
@@ -860,7 +882,7 @@ Ce mode de positionnement est appliqué à tous les éléments dont la propriét
 
 Les boîtes utilisant ce mode de positionnement sont extraites du flux du document et n’influencent plus les autres boîtes qui agissent comme si les boîtes positionnées absolument ou de manière fixe n’existaient pas. De plus, les éléments positionnés absolument se comportent toujours comme des éléments de type `block`.
 
-*Exercice: positionnement absolu et fixe*
+_Exercice: positionnement absolu et fixe_
 
 Exemple de layout: [Lost World Fair](http://lostworldsfairs.com/moon/)
 
@@ -876,7 +898,7 @@ Pour ce cas particulier du positionnement absolu, le bloc conteneur est toujours
 
 Les éléments positionnés de façon fixe ne bougent pas lorsque l’utilisateur descend dans la page.
 
-*Exercice: positionnement fixe*
+_Exercice: positionnement fixe_
 
 Exemples de layouts: [Web Designer Wall](http://webdesignerwall.com/), [Lost World's Fair: Atlantis](http://lostworldsfairs.com/atlantis/),[Bonzai Sky CSS Zen Garden Design by Mike Davidson](http://www.csszengarden.com/069/)
 
@@ -884,7 +906,7 @@ Exemples de layouts: [Web Designer Wall](http://webdesignerwall.com/), [Lost Wor
 
 Les élements positionnés en mode `sticky` sont positionné en mode relatif, jusq'à ce que l'utilistion en descendant ou en montant dans la page passe le cap des valeurs spécifiées. Il se comporte alors comme un élément positionné en mode `fixe`.
 
-*Exercice: positionnement fixe*
+_Exercice: positionnement fixe_
 
 Exemples de layouts: [Web Designer Wall](http://webdesignerwall.com/), [Lost World's Fair: Atlantis](http://lostworldsfairs.com/atlantis/),[Bonzai Sky CSS Zen Garden Design by Mike Davidson](http://www.csszengarden.com/069/)
 
@@ -894,13 +916,13 @@ Les éléments positionnés absolument, comme ils sont hors du flux normal du do
 
 Chaque élément positionné génère une couche et, au sein d’une même couche, la profondeur de chaque élément est gérée par la propriété CSS `z-index`. Au sein d’une même couche, les éléments ayant une valeur `z-index` élevée sont placés devant ceux ayant une valeur `z-index` moindre.
 
-*Exercice: propriété z-index*
+_Exercice: propriété z-index_
 
 ### Floats
 
 Un élément est positionné en mode float lorsque sa propriété `float` est spécifiée à l’aide des valeurs `left` ou `right`.
 
-L’élément est alors positionné verticalement comme dans le flux normal du document : le côté supérieur de l’élément est aligné sur le dessus de la zone de contenu de son élément parent.
+L’élément est alors positionné verticalement comme dans le flux normal du document: le côté supérieur de l’élément est aligné sur le dessus de la zone de contenu de son élément parent.
 
 Horizontalement par contre, l’élément est placé le plus à gauche ou le plus à droite possible par rapport à la zone de contenu de l’élément parent. Le contenu de l’élément parent contourne alors l’élément en mode float par le côté opposé.
 
@@ -913,7 +935,7 @@ Quelques règles de base :
 
 En fonction de la quantité de contenu des divers éléments, un élément en mode float peut affecter les éléments situés après lui dans le flux du document.
 
-*Exercice: expérimenter avec float*
+_Exercice: expérimenter avec float_
 
 #### Contrôler le flux des floats: propriété `clear`et "float containment"
 
@@ -923,65 +945,22 @@ La propriété CSS clear peut être utilisée pour contrôler la manière dont l
 - `clear:right;`: l’élément visé ne peut se situer sur la droite d’un élément en mode float.
 - `clear:both;`: l’élément visé ne peut se situer ni sur la gauche ni sur la droite d’un élément en mode float.
 
-Par défaut, étant donné que les éléments en mode float sont hors du flux du document, leur éléments parent ne les contiennent pas. Il est possible de contraindre l’élément parent d’un élément en mode float à contenir l’ensemble de celui-ci, indépendamment du contenu de chacun d’entre eux. Eric Meyer a écrit [un article de référence décrivant précisément cet aspect des éléments en mode float](http://www.complexspiral.com/publications/containing-floats/).
+Par défaut, étant donné que les éléments en mode float sont hors du flux du document, leur éléments parent ne les contiennent pas. Il est possible de contraindre l’élément parent d’un élément en mode float à contenir l’ensemble de celui-ci, indépendamment du contenu de chacun d’entre eux.
 
-Cela peut être accompli à l’aide d’autres éléments situés à l’intérieur de l’élément parent de l’élément en mode float ou à l’aide de CSS lorsque le code HTML ne contient pas d’élément utilisable.
+C'est ce que l'on appelle "contenir les floats" ou en anglais "float containment" Eric Meyer a écrit [un article de référence décrivant précisément cet aspect des éléments en mode float](http://www.complexspiral.com/publications/containing-floats/).
 
-##### Utilisation d’un élément du code et de la propriété `clear`
-
-Comme vu plus haut, en utilisant la propriété CSS `clear`, il est possible de forcer un élément à ne pas être côté à côte avec un élément en mode float.
-Nous verrons par exemple qu’un pied de page peut s’avérer bien pratique pour forcer un conteneur à contenir deux colonnes en mode float (deux `<div>` par exemple).
-
-##### A l’aide des CSS uniquement
-
-Il est également possible d’utiliser uniquement les CSS afin de forcer son élément parent à contenir un élément en mode float.
-
-**Float parent**
-
-La solution la plus simple consiste à placer l’élément parent en mode float lui aussi, sans oublier de lui donner une dimension (width:100%; dans la plupart des cas). En effet, la spécification CSS précise qu’un élement en mode float contient toujours ses enfant floatés.
-
-**Overflow**
-
-[La propriété `overflow` peut également être utilisée pour obtenir cet effet](http://annevankesteren.nl/2005/03/clearing-floats) mais peut poser des problèmes dans certaines situations.
-
-```html
-div
-{
-  overflow:hidden;
-}
-```
-
-La génération de contenu à l’aide des CSS permet également de forcer un élément parent à contenir ses éléments enfants en mode float. Cette technique est expliquée en détail [par Big John et Holly Bergevin sur leur site "Position Is Everything"](http://www.positioniseverything.net/easyclearing.html) [Une variante plus moderne reposant sur les pseudo-éléments :before et :after a été développée par Nicolas Gallagher](http://nicolasgallagher.com/micro-clearfix-hack/). Ces solutions genèrent un élement à l'aide de CSS et lui appliquent un `clear:both;`, émulant ainsi la solutin vue plus haut.
-
-Il suffit de créer une classe CSS spécifique et d’y copier le code suivant pour pouvoir utiliser cette possibilité aussi souvent que nécessaire.
-
-**Clearfix**
-
-CSS
-
-```css
-.clearfix:after
-{
-  content: "";
-  display: table;
-  clear: both;
-}
-```
-
-*Exercice: expérimenter avec float et clearing*
-
-### Flexbox et Grid
+Cela peut être accompli à l’aide d’autres éléments situés à l’intérieur de l’élément parent de l’élément en mode float ou à l’aide de CSS ([Clearfix](https://css-tricks.com/snippets/css/clear-fix/)) lorsque le code HTML ne contient pas d’élément utilisable.
 
 Les propriétés `float` et `clear` (ou `inline-block`), ainsi que les propriétés de positionnement ne sont pas des outils prévus pour réaliser des mises en page complexes.
 
 Ces solutions ont été utilisées par le passé pour créer des mises en page CSS parce que c'étaient les uniques outils dont nous disposions. N'ayant pas été développées dans ce but, ces solutions posaient de nombreux problèmes et avaient également des limitations importantes.
 
-Récemment, de nouveaux outils dédiés au layout sont apparus en CSS, principalement Flexbox et Grid.
+### Flexbox et Grid
 
 - **Flexbox**: gère une seule dimension (verticale ou horizontale), fonctionne à partir des caractéristiques des contenus pour gérer leurs répartition dans un container.
 - **Grid**: gère deux dimensions (verticale et horizontale), fonctionne à partir des caractéristiques d'une grille dans laquelle les contenus sont placés.
 
-Ces deux outils de layout font en outre appel au [module de Box Alignment](https://www.w3.org/TR/css-align-3/). Vous retrouverez donc des propriétés d'alignement communes à Grid et à Flexbox.
+Ces deux outils de layout font appel au [module de Box Alignment](https://www.w3.org/TR/css-align-3/). Vous retrouverez donc des propriétés d'alignement communes à Grid et à Flexbox.
 
 #### Flexbox
 
@@ -1013,13 +992,14 @@ CSS tricks possède un bon article "[A complete guide to flexbox](https://css-tr
   <li class="mainnav__item"><a class="mainnav__link" href="#">Home</a></li>
   <li class="mainnav__item"><a class="mainnav__link" href="#">About</a></li>
   <li class="mainnav__item"><a class="mainnav__link" href="#">Work</a></li>
-  <li class="mainnav__item  mainnav__item--contact"><a class="mainnav__link" href="#">Contact</a></li>
+  <li class="mainnav__item  mainnav__item--contact">
+    <a class="mainnav__link" href="#">Contact</a>
+  </li>
 </ul>
 ```
 
 ```css
-.mainnav
-{
+.mainnav {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1033,25 +1013,21 @@ CSS tricks possède un bon article "[A complete guide to flexbox](https://css-tr
   background-color: #ccc;
 }
 
-.mainnav__item
-{
+.mainnav__item {
   flex: 0 1 auto;
 }
 
-.mainnav__item--contact
-{
+.mainnav__item--contact {
   margin-left: auto;
 }
 
-.mainnav__link
-{
+.mainnav__link {
   display: block;
   padding: 1rem;
   background-color: #dfdfdf;
 }
 
-.mainnav__link:hover
-{
+.mainnav__link:hover {
   background-color: #eee;
 }
 ```
@@ -1090,7 +1066,7 @@ Des notions importantes à comprendre sont celles de grilles explicites et impli
 
 Par défaut, elles seront créées comme des rangées, avec une dimension de `auto`. Vous pouvez spécifier les dimensions des colonnes ou des rangées créées implicitement à l'aide des propriétés `grid-auto-rows` et `grid-auto-columns` qui sont l'équivalent pour les grilles implicites des propriétés `grid-template-columns` et `grid-template-rows` pour les grilles explicites.
 
-Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dense | row dense | column dense]`. Si vous spécifiez une valeur de `columns`, des colonnes implicites seront créées plutôt que des rangées.  Le mot-clé `dense` oblige le navigateur à optimiser le placement automatique / implicite des éléments pour remplir au mieux toutes les cellules de la grille. Cela peut modifier l'ordre dans lequel les éléments sont affichés par rapport à leur ordre dans le code source du document.
+Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dense | row dense | column dense]`. Si vous spécifiez une valeur de `columns`, des colonnes implicites seront créées plutôt que des rangées. Le mot-clé `dense` oblige le navigateur à optimiser le placement automatique / implicite des éléments pour remplir au mieux toutes les cellules de la grille. Cela peut modifier l'ordre dans lequel les éléments sont affichés par rapport à leur ordre dans le code source du document.
 
 **Exemple: grilles fluide simple - expérimenter avec les différentes propriétés et valeurs**
 
@@ -1107,8 +1083,7 @@ Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dens
 ```
 
 ```css
-.grid
-{
+.grid {
   display: grid;
   /* grid-template columns: 1fr 1fr 1fr 1fr; */
   grid-template-columns: repeat(4, 1fr);
@@ -1116,8 +1091,7 @@ Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dens
   grid-gap: 20px;
 }
 
-.grid__item
-{
+.grid__item {
   background-color: teal;
 }
 ```
@@ -1137,16 +1111,14 @@ Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dens
 ```
 
 ```css
-.grid
-{
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-template-rows: auto;
   grid-gap: 20px;
 }
 
-.grid__item
-{
+.grid__item {
   background-color: teal;
 }
 ```
@@ -1163,8 +1135,7 @@ Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dens
 ```
 
 ```css
-.page
-{
+.page {
   box-sizing: border-box;
   margin: 0 auto;
   padding: 0 20px;
@@ -1173,44 +1144,40 @@ Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dens
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
-  grid-template-areas: "header"
-                       "content"
-                       "sidebar"
-                       "footer";
+  grid-template-areas:
+    "header"
+    "content"
+    "sidebar"
+    "footer";
 }
 
-@media all and (min-width: 760px)
-{
-  .page
-  {
+@media all and (min-width: 760px) {
+  .page {
     grid-template-columns: 300px 20px 1fr;
     grid-template-rows: auto;
-    grid-template-areas: "header header header"
-                         "sidebar . content"
-                         "footer footer footer";
+    grid-template-areas:
+      "header header header"
+      "sidebar . content"
+      "footer footer footer";
   }
 }
 
-.pageheader
-{
+.pageheader {
   grid-area: header;
   background-color: silver;
 }
 
-.content-secondary
-{
+.content-secondary {
   grid-area: sidebar;
   background-color: teal;
 }
 
-.content-main
-{
+.content-main {
   grid-area: content;
   background-color: olive;
 }
 
-.pagefooter
-{
+.pagefooter {
   grid-area: footer;
   background-color: purple;
 }
@@ -1232,8 +1199,7 @@ Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dens
 ```
 
 ```css
-.grid
-{
+.grid {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1244,22 +1210,18 @@ Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dens
   grid-gap: 2rem;
 }
 
-.grid__item
-{
+.grid__item {
   background-color: teal;
 }
 
-.grid__item--highlight
-{
+.grid__item--highlight {
   background-color: red;
   grid-row: 1 / 2;
   grid-column: 1 / 2;
 }
 
-@media all and (min-width: 440px)
-{
-  .grid__item--highlight
-  {
+@media all and (min-width: 440px) {
+  .grid__item--highlight {
     grid-row: 1 / 3;
     grid-column: 1 / 3;
   }
@@ -1267,7 +1229,6 @@ Vous pouvez également utiliser `grid-auto-flow: [row (default) | columns | dens
 ```
 
 **Exercice: layouts de pages avec CSS grid: layout en "couches", layout avec sidebar, layout éclaté dans une grille**
-
 
 ## Media queries: l'un des trois piliers du responsive web design
 
@@ -1282,14 +1243,17 @@ Elles sont utilisables avec des feuilles de styles liées.
 L’idée est d’utiliser les media queries pour créer permettre à l’expérience utilisateur d’être la meilleure possible quelle que soient les caractéristiques de la plateforme utilisée.
 
 ```html
-<link rel="stylesheet" media="screen and (min-width:970px)" href="css/medium.css" />
+<link
+  rel="stylesheet"
+  media="screen and (min-width:970px)"
+  href="css/medium.css"
+/>
 ```
 
 Ces media queries peuvent également être placées au sein de feuilles de styles existantes, ce qui est leur utilisation la plus fréquente.
 
 ```css
-@media all and (min-width: 970px)
-{
+@media all and (min-width: 970px) {
   /*styles*/
 }
 ```
@@ -1309,9 +1273,9 @@ Lorsqu'on réalise des layout fluides, il est important que les images et autres
 Il suffit donc dans votre HTML de ne pas spécifier les dimensions de vos media et d'utiliser la règle CSS suivante:
 
 ```css
-img, video
-{
-  max-width:100%;
+img,
+video {
+  max-width: 100%;
 }
 ```
 
@@ -1320,23 +1284,26 @@ Comme vous aurez sans doute besoin de media fluides et de media fixes, il est av
 HTML
 
 ```html
-<img src="myimage.jpg" class="fluidmedia" alt="my fluid image">
+<img src="myimage.jpg" class="fluidmedia" alt="my fluid image" />
 ```
 
 ```html
 <video controls class="fluidmedia">
-  <source src="assets/videos/video.mp4" type="video/mp4">
-  <source src="assets/videos/video.webm" type="video/webm">
-  <p>Your browser doesn't support the video tag. Download the video in <a href="assets/videos/video.mp4">mp4</a> or <a href="assets/videos/video.webm">webm</a>.</p>
+  <source src="assets/videos/video.mp4" type="video/mp4" />
+  <source src="assets/videos/video.webm" type="video/webm" />
+  <p>
+    Your browser doesn't support the video tag. Download the video in
+    <a href="assets/videos/video.mp4">mp4</a> or
+    <a href="assets/videos/video.webm">webm</a>.
+  </p>
 </video>
 ```
 
 CSS
 
 ```css
-.fluidmedia
-{
-  max-width:100%;
+.fluidmedia {
+  max-width: 100%;
 }
 ```
 
@@ -1349,16 +1316,14 @@ Les videos servies par Youtube et Vimeo utilsent `<iframe>`, voici une façon si
 ```
 
 ```css
-.fluidvideo
-{
+.fluidvideo {
   position: relative; /* positioning context */
   padding-top: 56.25%; /* ratio 16/9 (100%/16*9) */
   /* padding-top: 75%; ratio 4/3 (100%/4*3) */
   background-color: #000;
 }
 
-.fluidvideo > iframe
-{
+.fluidvideo > iframe {
   position: absolute;
   top: 0;
   left: 0;
@@ -1389,27 +1354,23 @@ Sémantiquement parlant, la plupart des interfaces de navigation que nous rencon
 Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre de navigation verticale.
 
 ```css
-.mainnav
-{
+.mainnav {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.mainnav__item:not(:last-child)
-{
+.mainnav__item:not(:last-child) {
   display: block;
   border-bottom: 1px solid #dfdfdf;
 }
 
-.mainnav__link
-{
+.mainnav__link {
   display: block;
   padding: 1rem 0.5rem;
 }
 
-.mainnav__link:hover
-{
+.mainnav__link:hover {
   font: 600 12px/1 "Helvetica", "Arial", sans-serif;
 }
 ```
@@ -1419,8 +1380,7 @@ Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre
 Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre de navigation horizontale. L'alignement des items dans la liste, la répartition de l'espace libre d'autres caractéristiques peuvent être facilement modifiées avec flexbox.
 
 ```css
-.mainnav
-{
+.mainnav {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1434,13 +1394,11 @@ Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre
   background-color: #ccc;
 }
 
-.mainnav__item
-{
+.mainnav__item {
   flex: 0 1 auto;
 }
 
-.mainnav__link
-{
+.mainnav__link {
   display: block;
   padding: 1rem;
   font: 600 12px/1 "Helvetica", "Arial", sans-serif;
@@ -1451,13 +1409,12 @@ Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre
   background-color: #dfdfdf;
 }
 
-.mainnav__link:hover
-{
+.mainnav__link:hover {
   background-color: #eee;
 }
 ```
 
-*Exercice: réaliser des interfaces de navigation à partir de listes*
+_Exercice: réaliser des interfaces de navigation à partir de listes_
 
 ### Une taille de texte constante à l’aide de valeurs relatives
 
@@ -1466,8 +1423,7 @@ Les guidelines d’accessibilité du W3C nous demandent d’utiliser en CSS des 
 Personnellement, ma méthode de prédilection consiste à spécifier la taille des polices en pourcentages au niveau du `body` et puis de poursuivre en spécifiant les tailles pour les éléments enfants en `rem` (voir à ce propos [cet article de Jonathan Snook](http://snook.ca/archives/html_and_css/font-size-with-rem)).
 
 ```css
-html
-{
+html {
   font: normal 100%/1.5 arial, sans-serif; /*16px comme taille de base*/
 }
 ```
@@ -1477,30 +1433,27 @@ html
 Voici quelques techniques éprouvées pour centrer horizontalement un élément de type block quel que soit le navigateur utilisé.
 
 ```css
-.centered-block
-{
-  width:750px;
-  margin:0 auto;
+.centered-block {
+  width: 750px;
+  margin: 0 auto;
 }
 ```
 
 Position absolue et marges négatives
 
 ```css
-.centered-block
-{
-  position:absolute;
-  width:750px;
-  left:50%;
-  margin-left:-375px;
+.centered-block {
+  position: absolute;
+  width: 750px;
+  left: 50%;
+  margin-left: -375px;
 }
 ```
 
 Position absolue et `calc()`
 
 ```css
-.centered-block
-{
+.centered-block {
   position: absolute;
   width: 750px;
   left: calc(50% - 375px);
@@ -1516,8 +1469,7 @@ Dans un mode où le responsive web design domine, ces deux unités sont extrème
 **Exemple: une bannière occupant toujours une hauteur proportionnelle à la heuteur du viewport**
 
 ```css
-.banner
-{
+.banner {
   height: 25vh; /* 25% de la hauteur du viewport */
 }
 ```
@@ -1529,28 +1481,27 @@ La déclaration `display:none;` a été utilisée pour cacher des éléments en 
 Elle peut souvent être avantageusement remplacée par la déclaration suivante :
 
 ```css
-.offleft
-{
-  position:absolute;
-  top:0;
-  left:-2000px;
-  width:100px;
-  overflow:hidden;
+.offleft {
+  position: absolute;
+  top: 0;
+  left: -2000px;
+  width: 100px;
+  overflow: hidden;
 }
 ```
 
 Autre option
 
 ```css
-.visuallyhidden
-{
-  position:absolute;
-  overflow:hidden;
-  clip:rect(0 0 0 0);
-  height:1px; width: 1px;
-  margin:-1px;
-  padding:0;
-  border:0;
+.visuallyhidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
 }
 ```
 
@@ -1562,8 +1513,8 @@ CSS
 
 ```css
 @font-face {
-  font-family: 'MyFontFamily';
-  src: url('fonts/MyFontFamily.woff2') format('woff2');
+  font-family: "MyFontFamily";
+  src: url("fonts/MyFontFamily.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -1572,8 +1523,7 @@ CSS
 pour utiliser la police dans votre CSS:
 
 ```css
-h1
-{
+h1 {
   font: normal 2rem/1.1 "MyFontFamily", "Helvetica", "Arial", sans-serif;
 }
 ```
@@ -1586,7 +1536,7 @@ Divers services tels que [Google Fonts](http://www.google.com/fonts), [Typekit](
 
 Si le sujet de la typographie sur internet vous intéresse, je ne peux que vous conseiller un talk de [Jason Santa Maria](http://vimeo.com/34178417) et le site "[Nice Web Type](http://nicewebtype.com/)" de Tim Brown.
 
-*Exercice: expérimenter avec des fontes*
+_Exercice: expérimenter avec des fontes_
 
 ### Boutons en CSS3 avec Inline-block, border radius, text-shadow & box-shadow
 
@@ -1595,28 +1545,26 @@ Grâce à quelques propriétés CSS3, il est facile de créer des boutons à l�
 HTML
 
 ```html
-<p><a href=”fake.html” class=”btn”>Text of my button</a></p>
+<p><a href="”fake.html”" class="”btn”">Text of my button</a></p>
 ```
 
 CSS
 
 ```css
-.btn
-{
-  display:inline-block;
-  background:#7AA020;
-  color:#fff;
-  border-radius:.2em;
-  padding:.75em 1em;
-  font:bold 1em/1 helvetica,arial,sans-serif;
-  text-decoration:none;
-  text-shadow:1px 1px 0 rgba(0,0,0,.5);
-  box-shadow:inset 0 -3px 0 rgba(0,0,0,.5);
+.btn {
+  display: inline-block;
+  background: #7aa020;
+  color: #fff;
+  border-radius: 0.2em;
+  padding: 0.75em 1em;
+  font: bold 1em/1 helvetica, arial, sans-serif;
+  text-decoration: none;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.5);
 }
 
-.btn:hover
-{
-  background:#5C7917;
+.btn:hover {
+  background: #5c7917;
 }
 ```
 
