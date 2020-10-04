@@ -972,7 +972,7 @@ Voici les propriétés les plus importantes au niveau du flex-container. Ces pro
 - `justify-content: [flex-start | flex-end | center | space-between | space-around | space-evenly];`: gestion de l'alignement des flex-items et de la distribution de l'espace sur le main axis. `flex-start` et `flex-end` dépendent du mode de document `ltr` ou `rtl`.
 - `align-items: [flex-start | flex-end | center | baseline | stretch];` gestion de l'alignement des flex-items et de la distribution de l'espace sur le cross axis
 - `flex-wrap: [wrap | nowrap];`: les flex-items sont autorisés à passer sur une autre ligne ou pas.
-- `column-gap`, `row-gap`, `gap`: permettent de spécifier des espaces horizontaux, verticaux ou les deux à la fois entre les flex items. Ces propriétés prennent des valeurs spécifiées en `%`, `px`, `rem`, `em`, `vw`, etc. Ces propriétés ne sont pas aussi bien supportées par les navigateurs dans le cadre de Flexbox, alors que lesupport pour CSS Grid est excellent. En attendant, vous pouvez utiliser des marges sur les flex items.
+- `column-gap`, `row-gap`, `gap`: permettent de spécifier des espaces horizontaux, verticaux ou les deux à la fois entre les flex items. Ces propriétés prennent des valeurs spécifiées en `%`, `px`, `rem`, `em`, `vw`, etc. `column-gap`, `row-gap` et `gap` ne sont pas bien supportés par les navigateurs dans le cadre de Flexbox, alors que le support pour CSS Grid est excellent. En attendant, vous pouvez utiliser des marges sur les flex-items.
 
 Voici les propriétés les plus importantes au niveau des flex-items. Ces propriétés ont des valeurs par défaut. Lorsque vous commencez, il est conseillé de spécifier `flex` et ses trois valeurs explicitement.
 
