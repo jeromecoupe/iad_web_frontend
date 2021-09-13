@@ -1,14 +1,10 @@
-# HTML & CSS: Introduction
+# Développement web front-end (HTML/CSS/JS)
 
 ## Bases
 
-Depuis [l'annonce par le W3C de la fin des travaux sur XHTML2 en 2009](http://www.w3.org/News/2009#entry-6601), HTML reste le seul langage de markup sémantique du web. Le travail sur la spécification HTML5 a commencé en 2004 et est un effort conjoint du W3C et du WHATWG Group.
+HTML, CSS et Javascript sont désormais des spécifications modulaires en évolution constante.
 
-HTML5 est à la fois un enrichissement du "vocabulaire" du HTML, mais aussi une tentative de faire du HTML un langage du web d'aujourd'hui: sémantique, applicatif (à travers les divers API) et réellement intégrateur de divers médias (sons, vidéos, élément CANVAS, etc.).
-
-HTML et CSS sont désormais des spécifications modulaires en évolution constante. Nous ne devrions donc plus voir d'autres grandes versions monolithiques de HTML ou de CSS mais simplement une évolution constante des différents modules dont ces spécifications sont composées.
-
-De nombreuses ressources telles que [Mozilla Developer Network (MDN)](https://developer.mozilla.org/), [webplateform.org](http://www.webplatform.org/) et [HTML5 Rocks](http://www.html5rocks.com) sont disponibles si ces sujets vous intéressent.
+De nombreuses ressources telles que [Mozilla Developer Network (MDN)](https://developer.mozilla.org/) ou [webplateform.org](http://www.webplatform.org/) sont disponibles si ces sujets vous intéressent.
 
 Pour vérifier la compatibilité de votre code CSS / HTML avec les différents navigateurs, vous pouvez vous référer au site [caniuse.com](http://caniuse.com) (tables de support).
 

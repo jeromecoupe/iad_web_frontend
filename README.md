@@ -1,6 +1,6 @@
-# Cours IAD: Introduction à HTML / CSS
+# Cours IAD: Développement web front-end (HTML/CSS/JS)
 
-Introduction à HTML/CSS. Création et mise en page de sites simples.
+Développement web front-end: HTML/CSS/JS. Création de sites et de templates.
 
 Syllabus du cours donné à l'Institut des Arts de Diffusion par Jérôme Coupé.
 
