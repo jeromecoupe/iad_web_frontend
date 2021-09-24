@@ -16,8 +16,8 @@ Pour vérifier la compatibilité de votre code CSS / HTML avec les différents n
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Example document</title>
   </head>
   <body>
@@ -37,7 +37,7 @@ La DTD est en fait la plus petite suite de caractères permettant à un navigate
 Il convient d'ajouter une balise meta précisant l'encodage de caractère utilisé dans votre document. Dans la plupart des cas, [un encodage UTF-8 est votre meilleur choix](http://www.w3.org/TR/html5/the-meta-element.html%23charset).
 
 ```html
-<meta charset="utf-8" />
+<meta charset="utf-8">
 ```
 
 ### Déclaration de la langue utilisée
@@ -81,19 +81,13 @@ Bien que des majuscules soient valides en HTML, votre code sera plus lisible si 
 **Pas terrible**
 
 ```html
-<p>
-  Mon paragraphe contenant
-  <a href="https://www.iad-arts.be">un lien hypertexte</a>
-</p>
+<p>Mon paragraphe contenant <a href="https://www.iad-arts.be">un lien hypertexte</a></p>
 ```
 
 **Mieux**
 
 ```html
-<p>
-  Mon paragraphe contenant
-  <a href="https://www.iad-arts.be">un lien hypertexte</a>
-</p>
+<p>Mon paragraphe contenant <a href="https://www.iad-arts.be">un lien hypertexte</a></p>
 ```
 
 #### Toujours placer vos attributs entre guillemets
@@ -109,10 +103,7 @@ Encore une fois, HTML ne vous y oblige pas mais placer les valeurs de vos attrib
 **Mieux**
 
 ```html
-<p>
-  Un paragraphe contenant
-  <a href="https://www.iad-arts.be">un lien hypertexte</a>
-</p>
+<p>Un paragraphe contenant <a href="https://www.iad-arts.be">un lien hypertexte</a></p>
 ```
 
 #### Gestion des caractères spéciaux dans les déclarations CSS et JavaScript
@@ -121,7 +112,7 @@ La meilleure solution consiste à placer tout votre code CSS ou de JavaScript da
 
 #### Encodage des esperluettes "&" dans les URls
 
-Le validateur HTML genèrera une erreur lorsque un caractère "&" n'est pas encodé dans une URL. Veillez donc à y remédier en encodant cette dernière.
+Le validateur HTML générera une erreur lorsque un caractère "&" n'est pas encodé dans une URL. Veillez donc à y remédier en encodant cette dernière.
 
 Invalide:
 
@@ -143,7 +134,7 @@ Les éléments composant un document HTML sont structurés de façon hiérarchis
 <!DOCTYPE html>
 <html lang="fr">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <title>Titre du document</title>
   </head>
   <body>
@@ -201,7 +192,7 @@ Le contexte est ici très important. Vous pouvez utiliser `<aside>` pour marquer
 
 #### Document outline et sectioning elements
 
-Notons ici que les éléments `acticle`, `section`, `nav` et `aside` sont des élements de sectioning, c’est à dire qu’ils créent une nouvelle section au sein du document.
+Notons ici que les éléments `acticle`, `section`, `nav` et `aside` sont des éléments de sectioning, c’est à dire qu’ils créent une nouvelle section au sein du document.
 
 A priori, la hiérarchie des titres recommence à zéro au sein de chacun des éléments de ce type. Il est néanmoins [conseillé par le W3C de garder une hiérarchie de titres classiques sans tenir compte de ces éléments](https://www.w3.org/TR/html5/sections.html#outlines), étant donné que l'algorithme d'outline n'est à ce jour implémenté dans aucun navigateur ou technologie d'assistance.
 
@@ -209,7 +200,7 @@ A priori, la hiérarchie des titres recommence à zéro au sein de chacun des é
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <title>Document outline and sectioning elements</title>
   </head>
   <body>
@@ -245,11 +236,11 @@ L’élément `<main>` représente le contenu principal d’un document. Il ne p
 
 ##### `<header>`
 
-Typiquement utilisé pour contenir les métas informations (titre, logo, date de publication, etc) d’un document ou d’une partie d’un document. L'élément `<header>` peut être utilisé plusieurs fois dans le cadre d'un même document. Suivant le contexte dans lequel il est placé (`<body>`, `<article>`, `<section>`, etc.) il aura un statut différent.
+Typiquement utilisé pour contenir les méta-informations (titre, logo, date de publication, etc) d’un document ou d’une partie d’un document. L'élément `<header>` peut être utilisé plusieurs fois dans le cadre d'un même document. Suivant le contexte dans lequel il est placé (`<body>`, `<article>`, `<section>`, etc.) il aura un statut différent.
 
 ##### `<footer>`
 
-Typiquement utilisé pour contenir les métas informations (auteur, lien vers des documents liés) d’un document ou d’une partie de document. L'élément `<footer>` peut être utilisé plusieurs fois dans le cadre d'un même document. Suivant le contexte dans lequel il est placé (`<body>`, `<article>`, `<section>`, etc.) il aura un statut différent. Notons que les coordonnées de contact mentionnées dans un `<footer>` devraient êtres marqués à l'aide de l'élément `<address>`
+Typiquement utilisé pour contenir les méta-informations (auteur, lien vers des documents liés) d’un document ou d’une partie de document. L'élément `<footer>` peut être utilisé plusieurs fois dans le cadre d'un même document. Suivant le contexte dans lequel il est placé (`<body>`, `<article>`, `<section>`, etc.) il aura un statut différent. Notons que les coordonnées de contact mentionnées dans un `<footer>` devraient êtres marqués à l'aide de l'élément `<address>`
 
 ##### `<time>`
 
@@ -258,9 +249,7 @@ Est utilisé pour marquer des données temporelles (dates, heures etc.) de faço
 ```html
 <time datetime="2007-10-05">October 5</time>
 <p>I usually have a snack at <time>16:00</time>.</p>
-<p>
-  posted on <time datetime="2009-04-12">12 April 2009</time> by Jérôme Coupé
-</p>
+<p>posted on <time datetime="2009-04-12">12 April 2009</time> by Jérôme Coupé</p>
 ```
 
 #### redéfinition d’éléments existants
@@ -299,25 +288,16 @@ Il y a 3 grands formats pour des videos en HTML: .webm, .mp4 et .ogv. Aujourd'hu
 **Video simple**
 
 ```html
-<video
-  width="640"
-  height="360"
-  src="http://www.youtube.com/demo/google_main.mp4"
-  controls
-></video>
+<video width="640" height="360" src="http://www.youtube.com/demo/google_main.mp4" controls ></video>
 ```
 
 **Video avec plusieurs sources**
 
 ```html
 <video height="270" width="480" poster="waitimage.png" controls>
-  <source src="samplevideo.webm" type="video/webm" />
-  <source src="samplevideo.mp4" type="video/mp4" />
-  <p>
-    Your browser does not support the video tag but you can download the file
-    either in <a href="samplevideo.webm">WEBM</a>,
-    <a href="samplevideo.mp4">MP4</a>
-  </p>
+  <source src="samplevideo.webm" type="video/webm">
+  <source src="samplevideo.mp4" type="video/mp4">
+  <p>Your browser does not support the video tag but you can download the file either in <a href="samplevideo.webm">WEBM</a>, <a href="samplevideo.mp4">MP4</a></p>
 </video>
 ```
 
@@ -335,13 +315,8 @@ Il y a 3 grands formats pour des videos en HTML: .mp3, .wav et .ogg. Aujourd'hui
 
 ```html
 <audio controls>
-  <source src="elvis.mp3" type="audio/mpeg" />
-  <p>
-    <strong
-      >Your browser does not support the audio tag but you can download the file
-      either in <a href="elvis.mp3">MP3 format</a></strong
-    >
-  </p>
+  <source src="elvis.mp3" type="audio/mpeg">
+  <p><strong>Your browser does not support the audio tag but you can download the file either in <a href="elvis.mp3">MP3 format</a></strong></p>
 </audio>
 ```
 
@@ -353,7 +328,7 @@ Les élément figure et figcaption servent à grouper images et légendes dans v
 
 ```html
 <figure>
-  <img src="soleil.jpg" alt="Une journée ensoleillée à Louvain-la-Neuve" />
+  <img src="soleil.jpg" alt="Une journée ensoleillée à Louvain-la-Neuve">
   <figcaption>
     La grand-place et les terrasses par une journée ensoleillée à
     Louvain-la-Neuve.
@@ -371,24 +346,24 @@ La spécification HTML permet maintenant l'utilisation de contrôles de formulai
 <form action="sendform.php">
   <p>
     <label for="bday">Your Birthday:</label>
-    <input type="date" placeholder="dd/mm/yyyy" name="birthday" id="bday" />
+    <input type="date" placeholder="dd/mm/yyyy" name="birthday" id="bday">
   </p>
   <p>
-    <input type="submit" value="send this !" />
+    <input type="submit" value="send this !">
   </p>
 </form>
 ```
 
-_Note: dans l'exemple ci-dessus, l'élement label est explicitement lié au champs de formulaire via les attributs `for` de `<label>` et l'attribut `id` de l'élément `<input>`._
+_Note: dans l'exemple ci-dessus, l'élément label est explicitement lié au champs de formulaire via les attributs `for` de `<label>` et l'attribut `id` de l'élément `<input>`._
 
 De nouveaux types de champs sont mis à la disposition des développeurs: `email`, `url`, `date`, `phone` et `range` n'en sont que quelques uns.
 
 ```html
-<input type="email" name="useremail" />
-<input type="url" name="userurl" />
-<input type="date" name="startdate" />
-<input type="phone" name="phonenumber" />
-<input type="range" name="myrange" min="0" max="10" step="1" />
+<input type="email" name="useremail">
+<input type="url" name="userurl">
+<input type="date" name="startdate">
+<input type="phone" name="phonenumber">
+<input type="range" name="myrange" min="0" max="10" step="1">
 ```
 
 Ces nouveaux champs permettent, entre autres choses, une validation automatique du format des données entrées par les utilisateurs lorsque la propriété `required` est appliquée. La plupart de ces nouveaux éléments ne fonctionnent aujourd'hui qu'avec les navigateurs récents. Ceci étant dit, la plupart se dégradent élégamment dans les autres navigateurs (sous la forme de champs de type texte pour la plupart).
@@ -398,19 +373,19 @@ HTML permet également l'utilisation de nouveaux attributs pour les champs de fo
 L'attribut `required` permet de spécifier un champ comme obligatoire dans le cadre d'un formulaire HTML. CEla ne vous dispense pas de faire un contrôle côté serveur voir JS dans certains cas.
 
 ```html
-<input type="text" name="name" id="name" required />
+<input type="text" name="name" id="name" required>
 ```
 
 L'attribut `placeholder` permet de spécifier un texte dans un champ tant que celui-ci n'est pas rempli ni activé. Lorsque l'utilisateur active le champ de formulaire, ce texte disparait.
 
 ```html
-<input type="tel" name="gsm" id="gsm" placeholder="+32475335162" />
+<input type="tel" name="gsm" id="gsm" placeholder="+32475335162">
 ```
 
 L'attribut `autofocus` permet d'activer un champ de formulaire dès la page chargée.
 
 ```html
-<input type="search" name="search" id="search" autofocus />
+<input type="search" name="search" id="search" autofocus>
 ```
 
 Pour ceux qui veulent en savoir plus, [un excellent article introductif est disponible sur 24 Ways](http://24ways.org/2009/have-a-field-day-with-html5-forms/) et une [démonstration a été mise en ligne par HTML5 Doctor](http://html5doctor.com/demos/forms/forms-example.html). Les [quelques pages de Mark Pilgrim sur le sujet](http://diveintohtml5.info/) sont également intéressantes, ainsi que la section consacrée aux [champs de formulaires sur Mozilla Developer Network](https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input).
@@ -431,7 +406,7 @@ HTML propose également diverses API (Application Programming Interface) corresp
 - Stockage offline
 - Websockets
 - File API
-- Geolocalisation
+- Géolocalisation
 - etc
 
 ## CSS
@@ -444,10 +419,10 @@ Les déclarations CSS peuvent être liées de 4 façons à un document HTML afin
 
 #### CSS liées
 
-C'est la méthode la plus utilisée dans la mesure où elle permet de séparer vos styles (CSS) de votre structure et de votre contenu de document (HTML). C'est égalmement la méthode la plus performante, [comme le précise Steve Souders](http://www.stevesouders.com/blog/2009/04/09/dont-use-import/).
+C'est la méthode la plus utilisée dans la mesure où elle permet de séparer vos styles (CSS) de votre structure et de votre contenu de document (HTML). C'est également la méthode la plus performante, [comme le précise Steve Souders](http://www.stevesouders.com/blog/2009/04/09/dont-use-import/).
 
 ```html
-<link rel="stylesheet" href="css/main.css" />
+<link rel="stylesheet" href="css/main.css">
 ```
 
 #### CSS importées
@@ -482,17 +457,17 @@ Peu utilisé, sauf pour gérer certains styles bien précis à l'aide d'un CMS p
 
 ### CSS et media
 
-[Les requètes de media](https://developer.mozilla.org/en-US/docs/Web/CSS/@media) peuvent soit spécifier un type de media (all, screen, print, speech, etc.) soit spécifier des charactéristiques du media visé (largeur de la surface de rendu, resolution, orientation, etc.).
+[Les requêtes de media](https://developer.mozilla.org/en-US/docs/Web/CSS/@media) peuvent soit spécifier un type de media (all, screen, print, speech, etc.) soit spécifier des charactéristiques du media visé (largeur de la surface de rendu, resolution, orientation, etc.).
 
-Des opérateurs logiques (and, not, only) peuvent être utilisés. Plusieurs types et charactéristiques de media peuvent être spécifiées au sein d'une même déclaration en les séparant par des virgules.
+Des opérateurs logiques (and, not, only) peuvent être utilisés. Plusieurs types et caractéristiques de media peuvent être spécifiées au sein d'une même déclaration en les séparant par des virgules.
 
 Il est possible d’utiliser l'attribut media ou des règles `@media` à plusieurs niveaux.
 
 **HTML avec CSS liées**
 
 ```html
-<link rel="stylesheet" href="css/main.css" />
-<link rel="stylesheet" href="css/main.css" media="all and (min-width: 760px)" />
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/main.css" media="all and (min-width: 760px)">
 ```
 
 **CSS en ligne**
@@ -578,7 +553,7 @@ Le sélecteur de classe permet de cibler tous les éléments possédant la class
 }
 ```
 
-Il est possible de combiner les sélecteurs au sein d’une même règle CSS. Les sélecteurs de type et de classe peuvent par exemple être combinés pour avoir une portée moins large et une spécificité plus importante. L'exemple donné ci-dessous n'est pas conseillé en production, justement parcequ'il augmente inutilement la spécificité du sélecteur.
+Il est possible de combiner les sélecteurs au sein d’une même règle CSS. Les sélecteurs de type et de classe peuvent par exemple être combinés pour avoir une portée moins large et une spécificité plus importante. L'exemple donné ci-dessous n'est pas conseillé en production, justement parce qu'il augmente inutilement la spécificité du sélecteur.
 
 ```css
 li.mainnav-current {
@@ -750,7 +725,7 @@ p:first-line {
 }
 ```
 
-Les pseudo-elements `:before` et `:after` sont souvent utilisés dans les sites web modernes, pour ajouter des éléments de décoration (icones, spriting). Ils sont également utilisés dans la solution de clearing des floats via CSS que nous verrons un peu plus loin.
+Les pseudo-elements `:before` et `:after` sont souvent utilisés dans les sites web modernes, pour ajouter des éléments de décoration (icônes, spriting). Ils sont également utilisés dans la solution de clearing des floats via CSS que nous verrons un peu plus loin.
 
 ### Propriétés et valeurs
 
@@ -795,7 +770,7 @@ Nous nous contenterons ici d’en détailler quelques unes parmi les plus couran
 
 #### Inline-Block
 
-Nous verons plus loin que cette valeur peut être très utile pour contrôler les padding et les margin sur des éléments inline.
+Nous verrons plus loin que cette valeur peut être très utile pour contrôler les padding et les margin sur des éléments inline.
 
 #### List-item
 
@@ -831,7 +806,7 @@ Dans le cas de marges négatives, on soustrait la plus grande des valeurs des ma
 
 #### Parent et premier/dernier enfant
 
-- Les marges entre un parent et son premier/dernier enfant ne fusionnent pas si le parrent possède une `border`, un `padding`, une `height` ou une `min-height`. spécifiée.
+- Les marges entre un parent et son premier/dernier enfant ne fusionnent pas si le parent possède une `border`, un `padding`, une `height` ou une `min-height`. spécifiée.
 - Les marges entre un parent et ses enfants ne fusionnent pas si le parent possède une propriété overflow avec une valeur autre que visible.
 
 Pour en savoir plus concernant la fusion des marges, lire les excellents articles de [Andy Budd](http://www.andybudd.com/archives/2003/11/no_margin_for_error/) et [Eric Meyer](http://www.complexspiral.com/publications/uncollapsing-margins/).
@@ -900,7 +875,7 @@ Exemples de layouts: [Web Designer Wall](http://webdesignerwall.com/), [Lost Wor
 
 ##### Positionnement sticky
 
-Les élements positionnés en mode `sticky` sont positionné en mode relatif, jusq'à ce que l'utilistion en descendant ou en montant dans la page passe le cap des valeurs spécifiées. Il se comporte alors comme un élément positionné en mode `fixe`.
+Les éléments positionnés en mode `sticky` sont positionné en mode relatif, jusqu'à ce que l'utilisation en descendant ou en montant dans la page passe le cap des valeurs spécifiées. Il se comporte alors comme un élément positionné en mode `fixe`.
 
 _Exercice: positionnement fixe_
 
@@ -960,11 +935,11 @@ Ces deux outils de layout font appel au [module de Box Alignment](https://www.w3
 
 #### Flexbox
 
-Flexbox est appliqué gâce à la propriété display. Une fois la propriété `display: flex;` ou `display: inline-flex;` déclarée sur un élement, celui-ci devient un **flex-container** est ses enfants directs des **flex-items**. Comme dit plus haut, Flexbox permet de gérer les choses dans une dimension principale (verticale ou horizontale). C'est ce que l'on appelle le "main-axis" qui est spécifié via la propriété `flex-direction` et permet de gérer l'alignement principal des flex-items. Une fois le "main-axis" précisé, un "cross axis" perpendiculaire permet de gérer des propriétés d'alignement plus secondaires des flex-items.
+Flexbox est appliqué grâce à la propriété display. Une fois la propriété `display: flex;` ou `display: inline-flex;` déclarée sur un élément, celui-ci devient un **flex-container** est ses enfants directs des **flex-items**. Comme dit plus haut, Flexbox permet de gérer les choses dans une dimension principale (verticale ou horizontale). C'est ce que l'on appelle le "main-axis" qui est spécifié via la propriété `flex-direction` et permet de gérer l'alignement principal des flex-items. Une fois le "main-axis" précisé, un "cross axis" perpendiculaire permet de gérer des propriétés d'alignement plus secondaires des flex-items.
 
 Voici les propriétés les plus importantes au niveau du flex-container. Ces propriétés ont des valeurs par défaut mais, lorsque vous commencez, il est conseillé de les spécifier toutes explicitement.
 
-- `flex-direction: [row | row-reverse | column | column-reverse];`: établi la direction du "main axis" (et donc aussi celle du "cross axis"). La valeur `row` spécifie un axe horizontal gauche droite pour les documents en mode `ltr` et un axe horiontal droite gauche pour les documents en mode `rtl`
+- `flex-direction: [row | row-reverse | column | column-reverse];`: établi la direction du "main axis" (et donc aussi celle du "cross axis"). La valeur `row` spécifie un axe horizontal gauche droite pour les documents en mode `ltr` et un axe horizontal droite gauche pour les documents en mode `rtl`
 - `justify-content: [flex-start | flex-end | center | space-between | space-around | space-evenly];`: gestion de l'alignement des flex-items et de la distribution de l'espace sur le main axis. `flex-start` et `flex-end` dépendent du mode de document `ltr` ou `rtl`.
 - `align-items: [flex-start | flex-end | center | baseline | stretch];` gestion de l'alignement des flex-items et de la distribution de l'espace sur le cross axis
 - `flex-wrap: [wrap | nowrap];`: les flex-items sont autorisés à passer sur une autre ligne ou pas.
@@ -973,12 +948,12 @@ Voici les propriétés les plus importantes au niveau du flex-container. Ces pro
 Voici les propriétés les plus importantes au niveau des flex-items. Ces propriétés ont des valeurs par défaut. Lorsque vous commencez, il est conseillé de spécifier `flex` et ses trois valeurs explicitement.
 
 - `flex-basis` détermine les dimensions d'un flex-item avant que l'espace vide dans le flex-container soit distribué. Peut être soit une valeur (px, rem, em, %, etc.) soit `auto` (dans ce cas la valeur spécifiée pour `width` ou `height` est prise en compte). La valeur par défaut est `auto`.
-- `flex-grow`: détermine si un flex-item peut grandir au delà de ses dimensions de base si nécessaire. A comme valeur `0` ou un nombre entier qui représente la proportion avec laquelle les flex-items vont grandir si ils sont plus petits que leur flex-container après l'application de `flex-basis`. Plus le nombre entier est grand, plus la proprotion est importante. La valeur par défaut est `0`.
-- `flex-shrink`: détermine si un flex-item peur rétrécir en deça de ses dimensions de base si nécessaire. A comme valeur `0` ou un nombre entier positif qui représente la proportion avec laquelle les flex-items vont rétrécir si ils sont plus grands que leur flex-container après l'application de `flex-basis`. Plus le nombre entier est grand, plus la proportion est importante. La veleur par défaut est `1`.
-- `order [integer]`: détermine l'ordre d'affichage des flex-items dans un flex-container indépendemment de leur ordre dans le code source. La valeur est spécifiée sous la forme d'un nombre entier positif ou négatif.
-- `flex: [flex-grow | flex-shrink | flex-basis]`: propriété courte permettant de gérer à la fois `flex-grow`, `flex-shrink` et `flex-basis`. Il vaut mieux utiliser cette propriété courte plutôt que les propriétés longues pour des raisons de compatibilté entre navigateurs.
+- `flex-grow`: détermine si un flex-item peut grandir au delà de ses dimensions de base si nécessaire. A comme valeur `0` ou un nombre entier qui représente la proportion avec laquelle les flex-items vont grandir si ils sont plus petits que leur flex-container après l'application de `flex-basis`. Plus le nombre entier est grand, plus la proportion est importante. La valeur par défaut est `0`.
+- `flex-shrink`: détermine si un flex-item peur rétrécir en deçà de ses dimensions de base si nécessaire. A comme valeur `0` ou un nombre entier positif qui représente la proportion avec laquelle les flex-items vont rétrécir si ils sont plus grands que leur flex-container après l'application de `flex-basis`. Plus le nombre entier est grand, plus la proportion est importante. La valeur par défaut est `1`.
+- `order [integer]`: détermine l'ordre d'affichage des flex-items dans un flex-container indépendamment de leur ordre dans le code source. La valeur est spécifiée sous la forme d'un nombre entier positif ou négatif.
+- `flex: [flex-grow | flex-shrink | flex-basis]`: propriété courte permettant de gérer à la fois `flex-grow`, `flex-shrink` et `flex-basis`. Il vaut mieux utiliser cette propriété courte plutôt que les propriétés longues pour des raisons de compatibilité entre navigateurs.
 
-La propriété `margin` avec une valeur de `auto` est intéressante pour les `flex-items`, elle permet d'allouer tout l'espace disponible dans le flex-container à cette marge et ainsi de "pousser" un ou plusieurs flex-items vers l'extrémité opposée du main axis. L'aricle "[Flexbox’s Best-Kept Secret](https://hackernoon.com/flexbox-s-best-kept-secret-bd3d892826b6)" explique le phénomène en détail.
+La propriété `margin` avec une valeur de `auto` est intéressante pour les `flex-items`, elle permet d'allouer tout l'espace disponible dans le flex-container à cette marge et ainsi de "pousser" un ou plusieurs flex-items vers l'extrémité opposée du main axis. L'article "[Flexbox’s Best-Kept Secret](https://hackernoon.com/flexbox-s-best-kept-secret-bd3d892826b6)" explique le phénomène en détail.
 
 CSS tricks possède un bon article "[A complete guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)" résumant l'ensemble des propriétés et valeurs liées à Flexbox. [Flexbox Froggy](http://flexboxfroggy.com/) adopte une approche plus ludique.
 
@@ -1038,9 +1013,9 @@ _Exercice: interface de navigation horizontale (expérimenter avec les différen
 
 #### Grid
 
-CSS grid permet de créer des grilles en deux dimensions et de positionner des élements à l'aide de ces grilles. CSS grid est appliqué à l'aide de la proprité display. Une fois `display: grid;` ou `display: inline-grid;` appliqué à un élément, celui-ci devient un **grid-container** et ses enfants directs des **grid-items**.
+CSS grid permet de créer des grilles en deux dimensions et de positionner des éléments à l'aide de ces grilles. CSS grid est appliqué à l'aide de la propriété display. Une fois `display: grid;` ou `display: inline-grid;` appliqué à un élément, celui-ci devient un **grid-container** et ses enfants directs des **grid-items**.
 
-Grid est une spécification relativement complexe, nous allons ici en voir les propriétés principales. Pour un aperçu plus complet, je ne peux que vous recommander "[Grid by example](https://gridbyexample.com/examples/)" par Rachel Andrew et [un guide très bien fait disponible en français sur Mozilla Developer Network](https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Grid_Layout/Les_concepts_de_base). Voir également "[A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)" sur CSS Tricks pomur un bon résumé.
+Grid est une spécification relativement complexe, nous allons ici en voir les propriétés principales. Pour un aperçu plus complet, je ne peux que vous recommander "[Grid by example](https://gridbyexample.com/examples/)" par Rachel Andrew et [un guide très bien fait disponible en français sur Mozilla Developer Network](https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Grid_Layout/Les_concepts_de_base). Voir également "[A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)" sur CSS Tricks pour un bon résumé.
 
 Voici les propriétés principales au niveau du **grid-container**:
 
@@ -1049,18 +1024,18 @@ Voici les propriétés principales au niveau du **grid-container**:
 - `justify-content: [start | end | center | stretch (default)]`: permet d'aligner les grid-items par rapport à l'axe des rangées.
 - `align-items: [start | end | center | stretch (default)]`: permet d'aligner les grid-items par rapport à l'axe des colonnes.
 - `column-gap`, `row-gap`, `gap`: permettent de spécifier les espaces entre les colonnes et les rangées de la grille ou les deux à la fois. Ces propriétés prennent des valeurs spécifiées en `%`, `px`, `rem`, `em`, `vw`, etc.
-- `grid-templates-areas`: permet de définir des zones de grilles nommées de façon visuelle. les valeurs sont soit des chînes de caractères, soit un "." qui permet de laisser la zone visée vide de tout contenu.
+- `grid-templates-areas`: permet de définir des zones de grilles nommées de façon visuelle. les valeurs sont soit des chaînes de caractères, soit un "." qui permet de laisser la zone visée vide de tout contenu.
 
 Voici les propriétés principales au niveau des **grid-items**:
 
-- `grid-column-start`, `grid-column-end`, `grid-column`, `grid-row-start`, `grid-row-end`, `grid-row`: permettent de placer les grid-items dans les colonnes de la grilles. Peuvent prendre comme valeur des nombres correspondant à des grid lines ou des noms de grid lines nommées. Le mot-clé `span` peut être utilisé avec un nombre ou un nom de grid line pour faire en sorte que des grid-items occupent plusieurs "cases" de la grille. Une valeur de `auto` est la valeur par défaut et correspond à un placement automatique des grid-items. `grid-column` et `grid-row` sont des propriétés courtes permattant de gérer les deux à la fois avec les notations `column-start / column-end` ou `row-start / row-end`
+- `grid-column-start`, `grid-column-end`, `grid-column`, `grid-row-start`, `grid-row-end`, `grid-row`: permettent de placer les grid-items dans les colonnes de la grilles. Peuvent prendre comme valeur des nombres correspondant à des grid lines ou des noms de grid lines nommées. Le mot-clé `span` peut être utilisé avec un nombre ou un nom de grid line pour faire en sorte que des grid-items occupent plusieurs "cases" de la grille. Une valeur de `auto` est la valeur par défaut et correspond à un placement automatique des grid-items. `grid-column` et `grid-row` sont des propriétés courtes permettant de gérer les deux à la fois avec les notations `column-start / column-end` ou `row-start / row-end`
 - `grid-area`: permet de placer des grid-items dans des zones de la grille nommées à l'aide de `grid-template-areas`. Cette propriété peut également servir de notation ultra condensée pour spécifier `row-start / column-start / row-end / column-end`
 - `justify-self`: permet d'aligner les grid-item le long de l'axe des rangées.
 - `align-self`: permet d'aligner les grid-item le long de l'axe des colonnes.
 
-##### Placement explicite et implicite des élements dans la grille
+##### Placement explicite et implicite des éléments dans la grille
 
-Si le placement des éléments dans la grille n'est pas spécifié explicitement avec `grid-column`, `grid-row`, `grid-area`, etc. les éléments vont simplement se placer dans les cellules de la grille dans l'odre spécifié par le code source du document.
+Si le placement des éléments dans la grille n'est pas spécifié explicitement avec `grid-column`, `grid-row`, `grid-area`, etc. les éléments vont simplement se placer dans les cellules de la grille dans l'ordre spécifié par le code source du document.
 
 La valeur `dense` de la propriété `grid-auto-flow` oblige le navigateur à optimiser le placement automatique / implicite des éléments pour remplir au mieux toutes les cellules de la grille. Cela peut causer une modification de l'ordre d'affichage des éléments par rapport au code source du document.
 
@@ -1100,7 +1075,7 @@ _Exemple: grilles fluide simple - expérimenter avec les différentes propriét�
 }
 ```
 
-_Exemple: grille fluide responsive avec minmax et auto-fit - expériementer avec les différentes propriétés et valeurs_
+_Exemple: grille fluide responsive avec minmax et auto-fit - expérimenter avec les différentes propriétés et valeurs_
 
 ```html
 <div class="grid">
@@ -1272,7 +1247,7 @@ _Exercices: layouts et composants en utilisant grid et media queries_
 
 ## Media fluides: un second pilier du responsive web design
 
-Lorsqu'on réalise des layout fluides, il est important que les images et autres medias le soient eux aussi. En d'autres mots il faut que les média fassent au maximum 100% de la largeur de leurs parents (dont la largeur est spécifée en pourcentages).
+Lorsqu'on réalise des layout fluides, il est important que les images et autres medias le soient eux aussi. En d'autres mots il faut que les média fassent au maximum 100% de la largeur de leurs parents (dont la largeur est spécifiée en pourcentages).
 
 Il suffit donc dans votre HTML de ne pas spécifier les dimensions de vos media et d'utiliser la règle CSS suivante:
 
@@ -1288,13 +1263,13 @@ Comme vous aurez sans doute besoin de media fluides et de media fixes, il est av
 HTML
 
 ```html
-<img src="myimage.jpg" class="fluidimage" alt="my fluid image" />
+<img src="myimage.jpg" class="fluidimage" alt="my fluid image">
 ```
 
 ```html
 <video controls class="fluidvideo">
-  <source src="assets/videos/video.mp4" type="video/mp4" />
-  <source src="assets/videos/video.webm" type="video/webm" />
+  <source src="assets/videos/video.mp4" type="video/mp4">
+  <source src="assets/videos/video.webm" type="video/webm">
   <p>
     Your browser doesn't support the video tag. Download the video in
     <a href="assets/videos/video.mp4">mp4</a> or
@@ -1313,7 +1288,7 @@ CSS
 }
 ```
 
-Les videos servies par Youtube et Vimeo utilsent `<iframe>`, voici une façon simple de garder un ratio constant (16/9) tout en ayant un comportement fluide.
+Les videos servies par Youtube et Vimeo utilisent `<iframe>`, voici une façon simple de garder un ratio constant (16/9) tout en ayant un comportement fluide.
 
 ```html
 <div class="fluidiframe">
@@ -1467,11 +1442,11 @@ Position absolue et `calc()`
 
 ### Unités `vh` et `vw`
 
-Les unites `vh` (viewport height) et `vw` (viewport width) sont des unités relative à la taille du viewport du navigateur sur lequel s'affiche le document. Ces unités sont proportionnelle: `1 vh` / `1vw` sont égals à 1/100 de la hauteur ou largeur totale du viewport.
+Les unites `vh` (viewport height) et `vw` (viewport width) sont des unités relative à la taille du viewport du navigateur sur lequel s'affiche le document. Ces unités sont proportionnelle: `1 vh` / `1vw` sont équivalents à 1/100 de la hauteur ou largeur totale du viewport.
 
-Dans un mode où le responsive web design domine, ces deux unités sont extrèmement pratiques, que ce soit pour contrôler la hauteur de bannières, pour créer des sites prenant au minimum toute la hauteur de la page, etc.
+Dans un mode où le responsive web design domine, ces deux unités sont extrêmement pratiques, que ce soit pour contrôler la hauteur de bannières, pour créer des sites prenant au minimum toute la hauteur de la page, etc.
 
-_Exemple: une bannière occupant toujours une hauteur proportionnelle à la heuteur du viewport_
+_Exemple: une bannière occupant toujours une hauteur proportionnelle à la hauteur du viewport_
 
 ```css
 .banner {
@@ -1481,7 +1456,7 @@ _Exemple: une bannière occupant toujours une hauteur proportionnelle à la heut
 
 ### Faire disparaître des éléments visuellement sans les cacher aux navigateurs vocaux
 
-La déclaration `display:none;` a été utilisée pour cacher des éléments en mode visuel (souvent dans le cadre de remplacement par images1). Le problème c’est qu’[elle rend les éléments auxquels elle est appliquée invisibles aux navigateurs vocaux également](http://css-discuss.incutio.com/?page=ScreenreaderVisibility).
+La déclaration `display:none;` a été utilisée pour cacher des éléments en mode visuel (souvent dans le cadre de remplacement par images1). Le problème c’est qu’elle [rend les éléments auxquels elle est appliquée invisibles aux navigateurs vocaux également](http://css-discuss.incutio.com/?page=ScreenreaderVisibility).
 
 Elle peut souvent être avantageusement remplacée par la déclaration suivante :
 
@@ -1575,7 +1550,7 @@ CSS
 
 ## Ressources Complémentaires
 
-- [Mozilla Developer Network](https://developer.mozilla.org/): une bonne référence exhausitive sur les technologies du web (HTML/CSS/JS) [disponible en Français également](https://developer.mozilla.org/fr/).
+- [Mozilla Developer Network](https://developer.mozilla.org/): une bonne référence exhaustive sur les technologies du web (HTML/CSS/JS) [disponible en Français également](https://developer.mozilla.org/fr/).
 - [Highly Maintainable, Efficient, and Optimized CSS](http://zomigi.com/blog/maintainable-efficient-css/) par Zoe Mickley Gillenwater: quelques bonnes informations sur les "best practises" en matière de CSS.
-- [CSS Guidelines](https://github.com/csswizardry/CSS-Guidelines) par Harry Roberts: principes d'organisation et techniques pour écrire et maintenir des CSS maintenables, lisibles pour des projets de toutes tailles.
+- [CSS Guidelines](https://github.com/csswizardry/CSS-Guidelines) par Harry Roberts: principes d'organisation et techniques pour écrire et maintenir des CSS lisibles pour des projets de toutes tailles.
 - [caniuse.com](http://caniuse.com): tables de support navigateurs
