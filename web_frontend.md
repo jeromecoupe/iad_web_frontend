@@ -1064,8 +1064,12 @@ _Exemple: grilles fluide simple - expérimenter avec les différentes propriét�
 ```css
 .grid {
   display: grid;
-  /* grid-template columns: 1fr 1fr 1fr 1fr; */
-  grid-template-columns: repeat(4, 1fr);
+  /* PAS OPTIMAL: grid-template columns: 1fr 1fr 1fr 1fr; */
+  /* PLUS DE REPETITION: grid-template-columns: repeat(4, 1fr); */
+  /* OPTIMAL: permet d'avoir toujours des colonnes de même taille
+  quelle que soit la taille de départ des grid items
+  (long mots, images non fluides, etc) */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-template-rows: auto;
   gap: 20px;
 }
@@ -1254,7 +1258,9 @@ Il suffit donc dans votre HTML de ne pas spécifier les dimensions de vos media 
 ```css
 img,
 video {
+  display: block;
   max-width: 100%;
+  height: auto;
 }
 ```
 
@@ -1283,17 +1289,16 @@ CSS
 ```css
 .fluidimage,
 .fluidvideo {
+  display: block;
   max-width: 100%;
-  vertical-align: middle;
+  height: auto;
 }
 ```
 
-Les videos servies par Youtube et Vimeo utilisent `<iframe>`, voici une façon simple de garder un ratio constant (16/9) tout en ayant un comportement fluide.
+Les videos servies par Youtube et Vimeo utilisent `<iframe>`, voici un moyen de garder un ratio constant (16/9) tout en ayant un comportement fluide.
 
 ```html
-<div class="fluidiframe">
-  <iframe src="https://www.youtube.com/embed/_kAJSswZPvI"></iframe>
-</div>
+test
 ```
 
 ```css
@@ -1313,9 +1318,17 @@ Les videos servies par Youtube et Vimeo utilisent `<iframe>`, voici une façon s
 }
 ```
 
-## Quelques Techniques CSS utiles
+La propriété CSS [`aspect-ratio`](https://developer.mozilla.org/fr/docs/Web/CSS/aspect-ratio) permet la mise en place d'un code plus simple [pour les navigateurs récents](https://caniuse.com/mdn-css_properties_aspect-ratio).
 
-Nous avons déjà examiné quelques astuces et hacks CSS permettant de contourner les défauts de certains navigateurs. Nous allons maintenant passer en revue quelques autres techniques utiles.
+```css
+.fluidiframe > iframe {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: auto;
+}
+```
+
+## Quelques Techniques CSS utiles
 
 ### Listes et interfaces de navigation
 
@@ -1367,9 +1380,12 @@ Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre
 
   display: flex;
   flex-direction: row;
+  /* justify-content: flex-start; */
+  /* justify-content: center; */
   justify-content: flex-end;
   align-items: center;
   flex-wrap: nowrap;
+  gap: calc(10 / 16 * 1rem);
 
   background-color: #ccc;
 }
@@ -1470,7 +1486,7 @@ Elle peut souvent être avantageusement remplacée par la déclaration suivante�
 }
 ```
 
-Autre option
+Autre option:
 
 ```css
 .visuallyhidden {
