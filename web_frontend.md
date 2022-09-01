@@ -19,6 +19,7 @@ Pour vérifier la compatibilité de votre code CSS / HTML avec les différents n
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Example document</title>
+    <meta name="description" content="description of my document that expands on the title">
   </head>
   <body>
     <p>Example paragraph</p>
@@ -45,7 +46,7 @@ Il convient d'ajouter une balise meta précisant l'encodage de caractère utilis
 L'élément racine d'un document doit impérativement être l'élément `<html>` et celui-ci doit avoir comme attribut une déclaration de la langue principale utilisée dans le document. Par exemple :
 
 ```html
-<html lang="en"></html>
+<html lang="en">
 ```
 
 ### Bonnes pratiques
@@ -61,17 +62,17 @@ Vos tags doivent être bien imbriqués. Les ouvertures et les fermetures de tags
 **Incorrect**
 
 ```html
-<p>Lorem ipsum dolor sit amet, consectetur <a href="">adipisicing elit</a>.</p>
+<p>Lorem ipsum dolor sit amet, consectetur <a href="https://www.iad-arts.be">adipisicing elit</a>.</p>
 ```
 
 ```html
-<p>Lorem ipsum dolor sit amet, consectetur <a href="">adipisicing elit</p></a>.
+<p>Lorem ipsum dolor sit amet, consectetur <a href="https://www.iad-arts.be">adipisicing elit</p></a>.
 ```
 
 **Correct**
 
 ```html
-<p>Lorem ipsum dolor sit amet, consectetur <a href="">adipisicing elit</a>.</p>
+<p>Lorem ipsum dolor sit amet, consectetur <a href="https://www.iad-arts.be">adipisicing elit</a>.</p>
 ```
 
 #### Utiliser des minuscules partout
@@ -130,43 +131,21 @@ Valide:
 
 Les éléments composant un document HTML sont structurés de façon hiérarchisée. Ils s’emboîtent les uns dans les autres, structurant le document sur le modèle d’un arbre.
 
-```html
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <title>Titre du document</title>
-  </head>
-  <body>
-    <nav class="mainnav" role="navigation">
-      <ul>
-        <li>item 1</li>
-        <li>item 2</li>
-        <li class="last listitem">item <em>3</em></li>
-      </ul>
-    </nav>
-    <div class="content" role="maincontent">
-      <h1>Titre niveau un</h1>
-      <p>Lorem ipsum dolor sit amet.</p>
-      <p class="last">Lorem <em>ipsum</em> dolor <em>sit</em> amet.</p>
-    </div>
-  </body>
-</html>
-```
-
-Cette forme d’arbre et d’emboîtement hiérarchisé est parfaitement visible dans des outils tels que [Firebug](https://addons.mozilla.org/en-US/firefox/addon/firebug/) ou [la barre d’outils développeurs de firefox](https://addons.mozilla.org/en-US/firefox/addon/web-developer/) ou encore dans les developer tools disponibles dans tous les navigateurs modernes (Chrome, Safari, Firefox, Opera)
+Cette forme d’arbre et d’emboîtement hiérarchisé est parfaitement visible dans les outils de dévelopement disponibles dans tous les navigateurs modernes (Chrome, Safari, Firefox, Opera)
 
 Familiarisez-vous avec ces outils, vous en aurez besoin lors de ce cours et durant toute votre carrière de développeur front-end.
 
-_Exercice: créer un starter kit HTML/CSS/JS, explorer les outils de développement dans Chrome, Safari ou Firefox_
+_Exercice: Explorer les outils de développement dans Chrome, Safari ou Firefox_
 
-### Une sémantique améliorée
+### Sémantique
 
-La spécification HTML introduit de nouveaux éléments sémantiques permettant une qualification plus précise des divers éléments de votre document. Certains comme Luke Stevens [arguent que l'utilisation de de ces éléments est problématique pour diverses raisons](http://www.truthabouthtml5.com/). A vous de voir.
+La spécification HTML compte de nombreux élements permettant une qualification plus précise des divers éléments de votre document sur la plan de leurs rôles sémantiques.
 
-Nous ne présenterons pas l’ensemble de ces nouveaux éléments dans le cadre de ce cours mais nous vous présenterons les principaux. L'ensemble de ces nouveaux éléments et des renseignements sur leurs usages sont disponibles sur le site de [Mozilla Developer Network](https://developer.mozilla.org/fr/docs/Web/HTML/Element) ou dans [le glossaire rédigé pour vous par l'équipe de HTML5 Doctor](http://html5doctor.com/element-index/).
+Nous ne présenterons pas l’ensemble de ces éléments dans le cadre de ce cours mais nous vous présenterons les principaux. 
 
-#### Eléments sémantiques
+L'ensemble de ces éléments et des renseignements sur leurs usages sont disponibles sur le site de [Mozilla Developer Network](https://developer.mozilla.org/fr/docs/Web/HTML/Element).
+
+#### Quelques éléments sémantiques
 
 ##### `<nav>`
 
@@ -182,53 +161,13 @@ Une bonne question à se poser pour l’utilisation d’article est: pourriez vo
 
 Section générique d'un document ou d'une application. Section sert à marquer un groupement thématique de contenus, typiquement il comporte un `<header>` et parfois un `<footer>`. Exemples: les chapitres d'un livre, les sections d'une thèse, les différentes sections d'une page d'accueil: introduction, news, portfolio, information de contact, etc.
 
-Attention à ne pas utiliser section en lieu et place de `<div>` ou `<article>`, par exemple pour séparer le contenu principal d'une page de son contenu secondaire. A part de rares exceptions, n'utilisez pas `<section>` si cet élément ne possède pas naturellement un titre. [Un article détaillé sur le sujet est disponible sur HTML5 Doctor](http://html5doctor.com/the-section-element/).
+A part de rares exceptions, n'utilisez pas `<section>` si `<article>` est utilisable. N'utilisez pas non plus `<section>` si cet élément ne possède pas naturellement un titre. [Un article détaillé sur le sujet est disponible sur HTML5 Doctor](http://html5doctor.com/the-section-element/).
 
 ##### `<aside>`
 
 Est utilisé pour marquer du contenu qui est lié de façon tangentielle au parent de l'élément <aside> et qui pourrait être comme faisant sens indépendamment du contenu de ce parent.
 
 Le contexte est ici très important. Vous pouvez utiliser `<aside>` pour marquer une sidebar sur un site Internet. Les éléments de contenu ainsi marqués sont tangentiellement liés à la page ou au site. Lorsque `<aside>` est utilisé au sein d'un élément `<article>`, le contenu ainsi marqué est tangentiellement lié au contenu de cet article.
-
-#### Document outline et sectioning elements
-
-Notons ici que les éléments `acticle`, `section`, `nav` et `aside` sont des éléments de sectioning, c’est à dire qu’ils créent une nouvelle section au sein du document.
-
-A priori, la hiérarchie des titres recommence à zéro au sein de chacun des éléments de ce type. Il est néanmoins [conseillé par le W3C de garder une hiérarchie de titres classiques sans tenir compte de ces éléments](https://www.w3.org/TR/html5/sections.html#outlines), étant donné que l'algorithme d'outline n'est à ce jour implémenté dans aucun navigateur ou technologie d'assistance.
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Document outline and sectioning elements</title>
-  </head>
-  <body>
-    <h1>My great site</h1>
-    <nav>
-      <ul>
-        <li><a href="fake.html">Nav item</a></li>
-      </ul>
-    </nav>
-    <article>
-      <h2>Article title</h2>
-      <p>Article content.</p>
-      <h3>Article sub-heading</h3>
-      <p>More content.</p>
-      <h4>Article sub-sub-heading</h4>
-      <p>More content.</p>
-    </article>
-    <aside>
-      <h2>Sidebar heading</h2>
-      <p>content</p>
-    </aside>
-    <footer>
-      <h2>Footer heading</h2>
-      <p>Footer content.</p>
-    </footer>
-  </body>
-</html>
-```
 
 ##### `<main>`
 
@@ -252,26 +191,31 @@ Est utilisé pour marquer des données temporelles (dates, heures etc.) de faço
 <p>posted on <time datetime="2009-04-12">12 April 2009</time> by Jérôme Coupé</p>
 ```
 
-#### redéfinition d’éléments existants
-
-##### `<cite>`
-
-Est utilisé pour marqué le titre d’un ouvrage. Ne peut donc plus être utilisé pour marquer l’auteur d’un document.
-
 ##### `<a>`
 
-L’élément `<a>` est toujours considéré comme inline mais peut maintenant être le parent d’éléments de type bloc.
+L’élément `<a>` est toujours considéré comme inline mais peut également être le parent d’éléments de type bloc.
 
 ```html
-<a href="”fake.html”">
-  <h2>This is a title</h2>
-  <p>lorem ipsum dolor sit amet</p>
-</a>
+<article class="c-project">
+  <a class="c-project__link" href="/projects/detail/">
+    <div class="c-project__media">
+      <img src="/assets/img/myimage.jpg"
+           class="o-fluidimg"
+           width="600"
+           height="800"
+           alt="IAD main building">
+    </div>
+    <div class="c-project__body">
+      <h3 class="c-project__title">Institut des Arts de Diffusion</h3>
+      <p class="c-project__tagline">Rebranding an art school</p>
+    </div>
+  </a>
+</article>
 ```
 
 _Exercice: examiner 2 sites et voir quels éléments utiliser_
 
-#### Video Audio et Figure
+#### Video, Audio et Figure
 
 Un autre aspect intéressant de HTML concerne la possibilité de gérer nativement les éléments audios et vidéos d'une page sans faire appel à des technologies extérieures telles que Flash.
 
@@ -340,55 +284,49 @@ _Exercice: intégration d'une figure dans un document HTML_
 
 #### Formulaires et HTML
 
-La spécification HTML permet maintenant l'utilisation de contrôles de formulaires avancés.
+La spécification HTML nous offre tous les outils nécessaires à la création de formulaires avancés.
 
 ```html
 <form action="sendform.php">
-  <p>
-    <label for="bday">Your Birthday:</label>
-    <input type="date" placeholder="dd/mm/yyyy" name="birthday" id="bday">
-  </p>
-  <p>
+  <div>
+    <label for="birthday">Your Birthday:</label>
+    <input type="date" placeholder="dd/mm/yyyy" name="birthday" id="birthday">
+  </div>
+  <div>
+    <label for="present">Your favourite present:</label>
+    <textarea name="present" rows="5" cols="24" id="present">
+    </textarea>
+  </div>
+  <div>
     <input type="submit" value="send this !">
-  </p>
+  </div>
 </form>
 ```
 
-_Note: dans l'exemple ci-dessus, l'élément label est explicitement lié au champs de formulaire via les attributs `for` de `<label>` et l'attribut `id` de l'élément `<input>`._
+Dans l'exemple ci-dessus, l'élément label est explicitement lié au champs de formulaire via les attributs `for` de `<label>` et l'attribut `id` des différents champs.
 
-De nouveaux types de champs sont mis à la disposition des développeurs: `email`, `url`, `date`, `phone` et `range` n'en sont que quelques uns.
+De nombreux types de champs sont mis à la disposition des développeurs: `email`, `url`, `date`, `phone` et `range` n'en sont que quelques uns.
 
 ```html
 <input type="email" name="useremail">
 <input type="url" name="userurl">
 <input type="date" name="startdate">
 <input type="phone" name="phonenumber">
+<input type="password" name="userpassword">
 <input type="range" name="myrange" min="0" max="10" step="1">
 ```
 
-Ces nouveaux champs permettent, entre autres choses, une validation automatique du format des données entrées par les utilisateurs lorsque la propriété `required` est appliquée. La plupart de ces nouveaux éléments ne fonctionnent aujourd'hui qu'avec les navigateurs récents. Ceci étant dit, la plupart se dégradent élégamment dans les autres navigateurs (sous la forme de champs de type texte pour la plupart).
+Les formulaires HTML permettent, entre autres choses, une validation automatique du format des données entrées par les utilisateurs lorsque la propriété `required` est appliquée.
 
-HTML permet également l'utilisation de nouveaux attributs pour les champs de formulaires. En voici quelques uns parmi les plus utiles (du moins à mon avis).
+HTML permet également l'utilisation de nombreux attributs pour les champs de formulaires.
 
-L'attribut `required` permet de spécifier un champ comme obligatoire dans le cadre d'un formulaire HTML. CEla ne vous dispense pas de faire un contrôle côté serveur voir JS dans certains cas.
+L'attribut `required` permet par exemple de spécifier un champ comme obligatoire dans le cadre d'un formulaire HTML. Cela ne vous dispense cependant pas pas de faire un contrôle côté serveur, voire, côté client avec JavaScript dans certains cas.
 
 ```html
 <input type="text" name="name" id="name" required>
 ```
 
-L'attribut `placeholder` permet de spécifier un texte dans un champ tant que celui-ci n'est pas rempli ni activé. Lorsque l'utilisateur active le champ de formulaire, ce texte disparait.
-
-```html
-<input type="tel" name="gsm" id="gsm" placeholder="+32475335162">
-```
-
-L'attribut `autofocus` permet d'activer un champ de formulaire dès la page chargée.
-
-```html
-<input type="search" name="search" id="search" autofocus>
-```
-
-Pour ceux qui veulent en savoir plus, [un excellent article introductif est disponible sur 24 Ways](http://24ways.org/2009/have-a-field-day-with-html5-forms/) et une [démonstration a été mise en ligne par HTML5 Doctor](http://html5doctor.com/demos/forms/forms-example.html). Les [quelques pages de Mark Pilgrim sur le sujet](http://diveintohtml5.info/) sont également intéressantes, ainsi que la section consacrée aux [champs de formulaires sur Mozilla Developer Network](https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input).
+Pour ceux qui veulent en savoir plus, [un excellent article introductif est disponible sur 24 Ways](http://24ways.org/2009/have-a-field-day-with-html5-forms/) et la page concernant les [champs de formulaires sur Mozilla Developer Network](https://developer.mozilla.org/fr/docs/Web/HTML/Element/Input) est également à signaler.
 
 _Exercice: créer un formulaire en HTML_
 
@@ -396,7 +334,7 @@ _Exercice: créer un formulaire en HTML_
 
 HTML permet également d'utiliser l'élément `<canvas>` pour réaliser des dessins en 2D à l'aide de javascript. Il est possible de réaliser des graphiques en temps réel, des compositions à base d'images et de sons, des transformations, des animations, etc. [Une petite introduction par les gens d'Opera Software](https://dev.opera.com/articles/html5-canvas-basics/) peut être ?
 
-Il est même possible de réaliser de véritables petits jeux en utilisant l'élément `<canvas>` et Javascript.
+Il est même possible de réaliser de véritables petits jeux en utilisant l'élément `<canvas>` et JavaScript.
 
 #### API HTML
 
@@ -437,7 +375,7 @@ A ne pas utiliser dans la plupart des cas pour des raisons de performance.
 
 #### CSS en ligne
 
-Utilisé principalement pour le debugging ou pour augmenter la performance des pages avec Critical CSS.
+Utilisé principalement pour le debugging ou pour augmenter la performance des pages avec [Critical CSS](https://web.dev/extract-critical-css/).
 
 ```html
 <style>
@@ -480,7 +418,7 @@ Il est possible d’utiliser l'attribut media ou des règles `@media` à plusieu
 }
 ```
 
-Classiquement, on ne spécifie pas de type de media (all) lorsqu'on importe une feuille de style avec `<link>` et des media queries sont utilisées au sein des feuilles de styles. C'est particulièrement le cas en responsive web design (nous en reparlerons plus loins dans le cours).
+Classiquement, on ne spécifie pas de type de media lorsqu'on importe une feuille de style avec `<link>` et des media queries sont utilisées au sein des feuilles de styles. C'est particulièrement le cas en responsive web design (nous en reparlerons plus loins dans le cours).
 
 _Exercice: lier une feuille de style à un document HTML et tester l'attribut media avec les valeurs screen et print_
 
@@ -716,11 +654,11 @@ p:first-line {
 ##### génération de contenu via CSS
 
 ```css
-.hello:after {
+.hello::after {
   content: " hello";
 }
 
-.hello:before {
+.hello::before {
   content: "hello ";
 }
 ```
@@ -840,7 +778,11 @@ Si l’élément positionné est un élément de type `block`, il crée un nouve
 Si les propriétés top ou bottom sont contradictoires, la propriété top l’emporte. Si les propriétés left ou right sont contradictoires, la propriété left l’emporte dans les langages se lisant de gauche à droite et right l’emporte dans les langages se lisant de droite à gauche.
 
 ```css
-.relative
+.test {
+  position: relative;
+  top: 2rem;
+  left: 2rem;
+}
 ```
 
 _Exercice: positionnement relatif_
@@ -853,7 +795,16 @@ Ce mode de positionnement est appliqué à tous les éléments dont la propriét
 
 Les boîtes utilisant ce mode de positionnement sont extraites du flux du document et n’influencent plus les autres boîtes qui agissent comme si les boîtes positionnées absolument ou de manière fixe n’existaient pas. De plus, les éléments positionnés absolument se comportent toujours comme des éléments de type `block`.
 
-_Exercice: positionnement absolu et fixe_
+```css
+.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 33vw;
+}
+```
+
+_Exercice: positionnement absolu_
 
 Exemple de layout: [Lost World Fair](http://lostworldsfairs.com/moon/)
 
@@ -869,6 +820,16 @@ Pour ce cas particulier du positionnement absolu, le bloc conteneur est toujours
 
 Les éléments positionnés de façon fixe ne bougent pas lorsque l’utilisateur descend dans la page.
 
+```css
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+```
+
 _Exercice: positionnement fixe_
 
 Exemples de layouts: [Web Designer Wall](http://webdesignerwall.com/), [Lost World's Fair: Atlantis](http://lostworldsfairs.com/atlantis/),[Bonzai Sky CSS Zen Garden Design by Mike Davidson](http://www.csszengarden.com/069/)
@@ -877,11 +838,20 @@ Exemples de layouts: [Web Designer Wall](http://webdesignerwall.com/), [Lost Wor
 
 Les éléments positionnés en mode `sticky` sont positionné en mode relatif, jusqu'à ce que l'utilisation en descendant ou en montant dans la page passe le cap des valeurs spécifiées. Il se comporte alors comme un élément positionné en mode `fixe`.
 
+```css
+.menu {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+```
+
 _Exercice: positionnement fixe_
 
 Exemples de layouts: [Web Designer Wall](http://webdesignerwall.com/), [Lost World's Fair: Atlantis](http://lostworldsfairs.com/atlantis/),[Bonzai Sky CSS Zen Garden Design by Mike Davidson](http://www.csszengarden.com/069/)
 
-##### z-index et positionnement en couches
+##### z-index et positionnement en couches
 
 Les éléments positionnés absolument, comme ils sont hors du flux normal du document, peuvent recouvrir d’autres éléments (absolument positionnés ou non).
 
@@ -897,34 +867,9 @@ L’élément est alors positionné verticalement comme dans le flux normal du d
 
 Horizontalement par contre, l’élément est placé le plus à gauche ou le plus à droite possible par rapport à la zone de contenu de l’élément parent. Le contenu de l’élément parent contourne alors l’élément en mode float par le côté opposé.
 
-Quelques règles de base :
+`float` et `clear` ont été utilisées par le passé pour créer des mises en page complexe parce que c'étaient les uniques outils dont nous disposions. N'ayant pas été développées dans ce but, ces solutions posaient de nombreux problèmes et avaient également des limitations importantes.
 
-1. Les éléments positionnés en mode float sont toujours gérés comme des éléments de type block.
-2. D’après les spécifications, un élément en mode float doit toujours avoir une dimension, implicite ou explicite (nous verrons plus loin que cela n’est pas toujours vrai dans la pratique, mais c’est un bon principe de base).
-3. Les marges verticales d’un élément en mode float ne sont pas fusionnées avec celles des éléments placés avant ou après dans le flux du document.
-4. Des éléments en mode float seront placés les uns à côté des autres si la place disponible est suffisante. Si tel n’est pas le cas, le dernier élément sera placé sous les autres.
-
-En fonction de la quantité de contenu des divers éléments, un élément en mode float peut affecter les éléments situés après lui dans le flux du document.
-
-_Exercice: expérimenter avec float_
-
-#### Contrôler le flux des floats: propriété `clear`et "float containment"
-
-La propriété CSS clear peut être utilisée pour contrôler la manière dont les éléments de type block interagissent avec les éléments en mode float. La propriété clear ne s’applique qu’aux éléments de type block. Cette propriété peut prendre les valeurs `left`, `right` et `both`.
-
-- `clear:left;`: l’élément visé ne peut se situer sur la gauche d’un élément en mode float.
-- `clear:right;`: l’élément visé ne peut se situer sur la droite d’un élément en mode float.
-- `clear:both;`: l’élément visé ne peut se situer ni sur la gauche ni sur la droite d’un élément en mode float.
-
-Par défaut, étant donné que les éléments en mode float sont hors du flux du document, leur éléments parent ne les contiennent pas. Il est possible de contraindre l’élément parent d’un élément en mode float à contenir l’ensemble de celui-ci, indépendamment du contenu de chacun d’entre eux.
-
-C'est ce que l'on appelle "contenir les floats" ou en anglais "float containment" Eric Meyer a écrit [un article de référence décrivant précisément cet aspect des éléments en mode float](http://www.complexspiral.com/publications/containing-floats/).
-
-Cela peut être accompli à l’aide d’autres éléments situés à l’intérieur de l’élément parent de l’élément en mode float ou à l’aide de CSS ([Clearfix](https://css-tricks.com/snippets/css/clear-fix/)) lorsque le code HTML ne contient pas d’élément utilisable.
-
-Les propriétés `float` et `clear` (ou `inline-block`), ainsi que les propriétés de positionnement ne sont pas des outils prévus pour réaliser des mises en page complexes.
-
-Ces solutions ont été utilisées par le passé pour créer des mises en page CSS parce que c'étaient les uniques outils dont nous disposions. N'ayant pas été développées dans ce but, ces solutions posaient de nombreux problèmes et avaient également des limitations importantes.
+Aujourd'hui, float est avant tout utilisé pour permettre à du texte de passer autour d'une image et plus du tout comme outil de layout.
 
 ### Flexbox et Grid
 
@@ -1213,64 +1158,235 @@ _Exemple: grille responsive avec elements placés automatiquement et un élémen
 
 _Exercice: layouts de pages avec CSS grid: layout en "couches", layout avec sidebar, layout éclaté dans une grille_
 
-## Media queries: l'un des trois piliers du responsive web design
+## Media queries
 
 Si vous vous souvenez de l'attribut `media` utilisé lorsque vous liez une feuille de style à un document HTML, vous comprendrez aisément ce que sont les media queries.
 
-Les [média queries](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries) étendent les fonctionnalités des types de média. Elles permettent de servir des feuilles de styles ou certaines déclarations au sein de feuilles de style en fonction de caractéristiques de la plateforme à l’aide de laquelle sont affichées les pages.
+Les [média queries](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Media_queries) étendent les fonctionnalités des types de média. Elles permettent de servir des feuilles de styles ou certaines déclarations au sein de feuilles de style de manière conditionnelle. 
 
-Ces media queries permettent de tester les caractéristiques suivantes: `width`, `max-width`, `min-width`, `height`, `max-height`, `min-height`, `aspect-ratio`, `device-aspect-ratio`, `device-height`, `monochrome`, `color`, `device-width`, `orientation`, `resolution`, etc.
+Il est possible de tester des paramètres liés au viewport du navigateur, aux caractéristiques du terminal, aux préférences de l'utilisateur, etc.
 
-Elles sont utilisables avec des feuilles de styles liées.
+Ces media queries permettent de tester les caractéristiques suivantes: `width`, `max-width`, `min-width`, `height`, `max-height`, `min-height`, `aspect-ratio`, `device-aspect-ratio`, `device-height`, `monochrome`, `color`, `device-width`, `orientation`, `resolution`, `prefers-reduced-motion`, `prefers-color-scheme` etc.
 
 L’idée est d’utiliser les media queries pour créer permettre à l’expérience utilisateur d’être la meilleure possible quelle que soient les caractéristiques de la plateforme utilisée.
 
 ```html
-<link
-  rel="stylesheet"
-  media="screen and (min-width:970px)"
-  href="css/medium.css"
-/>
+<link rel="stylesheet" media="screen and (min-width:970px)" href="css/medium.css">
 ```
 
-Ces media queries peuvent également être placées au sein de feuilles de styles existantes, ce qui est leur utilisation la plus fréquente.
+Ces media queries peuvent également être placées au sein de feuilles de styles existantes. C'est d'ailleurs leur utilisation la plus fréquente.
 
 ```css
-@media all and (min-width: 970px) {
+@media all and (min-width: 760px) {
   /*styles*/
 }
 ```
 
-Comme le mentionne Stéphanie Rieger sur Cloud Four [il est avantageux de spécifier vos media-queries en em](http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw/), pour donner plus de flexibilité à vos layouts, ceux-ci vont en effet changer lorsque l'utilisateur change la taille de texte.
+```css
+@media all and (min-width: 47em) {
+  /*styles*/
+}
+```
 
 Pour ce qui est du choix des valeurs de breakpoints, je vous invite à [suivre le conseil de Stephen Hay](https://twitter.com/brad_frost/status/191977076000161793).
 
 _Exercice: media queries et des couleurs de donc sur l'élément `body`_
 
-_Exercices: layouts et composants en utilisant grid et media queries_
+_Exercices: layouts et composants fluides en utilisant grid et media queries_
 
-## Media fluides: un second pilier du responsive web design
+## Media responsive
 
 Lorsqu'on réalise des layout fluides, il est important que les images et autres medias le soient eux aussi. En d'autres mots il faut que les média fassent au maximum 100% de la largeur de leurs parents (dont la largeur est spécifiée en pourcentages).
 
-Il suffit donc dans votre HTML de ne pas spécifier les dimensions de vos media et d'utiliser la règle CSS suivante:
+### Images de background
+
+En ce qui concerne les images de background, vous pouvez utiliser des media queries dans vos CSS pour servir une petite image par défaut et servir une plus grande image lorsque le layout l’exige.
 
 ```css
-img,
-video {
+.banner {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.banner--home {
+  background-image: url(../img/banners/banner-home-800.jpg);
+}
+
+@media all and (min-width: 800px) {
+  .banner--home {
+    background-image: url(../img/banners/banner-home-1024.jpg);
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .banner--home {
+    background-image: url(../img/banners/banner-home-1500.jpg);
+  }
+}
+```
+
+### Images de contenu: `srcset`, `sizes` et `<picture>`
+
+La situation est un peu plus complexe au niveau des images de contenus. [Une solution idéale pour les images responsives](http://responsiveimages.org/) doit relever les [défis suivants](http://usecases.responsiveimages.org/):
+
+1. Différentes images servies selon la densité d'écran
+2. Différentes images servies selon la taille d'écran
+3. Art direction (cadrage)
+
+Cette solution est [implémentée dans la plupart des navigateurs aujourd’hui](http://responsiveimages.org/). Les navigateurs qui ne supportent pas `srcset`, `sizes` ou `picture` servent simplement l'image spécifiée par l'attribut `src`..
+
+#### srcset and sizes
+
+Les attributs `srcset` et `sizes` permettent de fournir au navigateur toutes les informations nécessaires pour choisir l'image à servir en fonction de la taille de l'écran ou de sa densité. Cette approche nécessite de connaître la façon dont les images vont s'afficher dans votre layout.
+
+Ces attributs sont suffisants si vous ne devez pas prendre en compte de différence de cadrage mais que vous avez seulement affaire à des images identiques hormis en ce qui concerne la taille.
+
+Pour permettre au navigateur de connaître la taille d'affichage de vos images, veuillez
+
+**Différentes tailles d'images:**
+
+```html
+<img src="small.jpg"
+     srcset="large.jpg 1024w, 
+             medium.jpg 640w,
+             small.jpg 320w"
+     sizes="(min-width: 750px) 33.3vw,
+            100vw"
+     class="o-fluidimg"
+     width="1024"
+     height="768"
+     loading="lazy"
+     decoding="async"
+     alt="alternative representation">
+```
+
+- `src` valeur par défaut pour les navigateurs ne supportant pas `srcset`. C'est la valeur de cette propriété de le navigateur va venir changer en fonction des informations passées pa `srcset` (images disponibles et taille) et pas `sizes` (information relatives à l'affichage).
+- `srcset` spécifie différentes images et la largeur de chacune d'entre-elles. Les valeurs pour `w` font référence à la taille actuelle de l'image en pixels.
+- `sizes` spécifie la largeur de l'image par rapport au viewport pour chacune des media-queries spécifiées dans les paires media query / valeur. Il n'est pas forcéement nécessaire d'être précis au pixel près, une approximation suffit. La dernière valeur est une valeur par défaut.
+
+Ces informations permettent aux navigateurs de choisir l'image adéquate en fonction à la fois de la taille d'affichage de l'image et de la densité de l'écran sur lequel elle est affichée.
+
+Les attributs `loading` et `decoding` sont utiles pour la performance.
+
+- `loading="lazy"`: donne l'instruction au navigateur de ne charger les images que lorsqu'elles sont afficher dans le viewport du navigateur. Attention à n'utiliser cet attribut que pour des images ou des iframe qui sont affichées hors écran.
+- `decoding="async"`: donne l'instruction au navigateur de continuer à charger le contenu de la page, même si l'image n'est pas encore tout à fait chargée.
+
+Il vous faudra encore ajouter quelques règles CSS pour que la largeur de votre image s'ajuste à vos layouts fluides.
+
+```css
+.o-fluidimg {
   display: block;
   max-width: 100%;
   height: auto;
 }
 ```
 
-Comme vous aurez sans doute besoin de media fluides et de media fixes, il est avantageux d'utiliser des classes pour vos media fluides.
+#### `<picture>` et art direction
 
-HTML
+Si vous devez servir des images différentes sur le plan de la composition (cadrage, orientation, art direction) vous pouvez alors utiliser les éléments `<picture>` et `<source>`. Voici un exemple simple:
 
 ```html
-<img src="myimage.jpg" class="fluidimage" alt="my fluid image">
+<picture>
+  <source media="(min-width: 1024px)"
+          srcset="obama-fullshot.jpg"
+          width="1500"
+          height="844">
+  <img src="obama-closeup.jpg"
+       width="600"
+       height="600"
+       loading="lazy"
+       decoding="async"
+       alt="Obama seals the deal">
+</picture>
 ```
+
+Notez bien que `<picture>`, `<source>` peuvent être combinés avec `srcset` et `sizes` dont nous avons parlé précédemment.
+
+```html 
+<picture>
+  <source srcset="/assets/img/myimage-1024x576.jpg 1024w,
+                  /assets/img/myimage-1500x844.jpg 1500w"
+          width="1500"
+          height="844"
+          sizes="100vw"
+          media="(min-width: 500px)">
+  <img src="/assets/img/myimage-600x600.jpg"
+       srcset="/assets/img/myimage-600x600.jpg 600w,
+               /assets/img/myimage-800x800.jpg 800w"
+       sizes="100vw"
+       class="o-fluidimage"
+       alt="Child fiddling with electronic components - Photo by Kevin Jarrett on Unspash"
+       decoding="async"
+       width="600"
+       height="600">
+</picture> 
+```
+
+Vous pouvez également utiliser `source` et l'attribut `type` pour fournir des formats d'images différents (avif, webp, jpg). Cela peut s'avérer intéressant si vous voulez profiter du poids inférieur de ces formats d'images plus modernes. 
+
+Dans ce cas, le premier format d'image compatible avec le navigateur sera utilisé.
+
+```html
+<picture>
+   <source type="image/avif" src="myimage.avif">
+   <source type="image/webp" src="myimage.webp">
+   <img src="myimage.jpg"
+        loading="lazy"
+        decoding="async"
+        width="800"
+        height="600" 
+        alt="Sunset in Brussels">
+</picture>
+```
+
+Une fois encore, cela peut-être combiné avec ce qui précède, ce qui peut donner lieu à un code assez imposant pour une image.
+
+```html 
+<picture>
+  <source type="image/webp"
+          srcset="/assets/img/myimage-1024x576.webp 1024w,
+                  /assets/img/myimage-1500x844.webp 1500w"
+          width="1500"
+          height="844"
+          sizes="100vw"
+          media="(min-width: 500px)">
+  <source srcset="/assets/img/myimage-1024x576.jpg 1024w,
+                  /assets/img/myimage-1500x844.jpg 1500w"
+          width="1500"
+          height="844"
+          sizes="100vw"
+          media="(min-width: 500px)">
+  <source type="image/webp"
+          srcset="/assets/img/myimage-600x600.webp 600w,
+                  /assets/img/myimage-600x600.webp 800w"
+          width="600"
+          height="600"
+          sizes="100vw">
+  <img src="/assets/img/myimage-600x600.jpg"
+       srcset="/assets/img/myimage-600x600.jpg 600w,
+               /assets/img/myimage-800x800.jpg 800w"
+       sizes="100vw"
+       class="o-fluidimage"
+       alt="Child fiddling with electronic components - Photo by Kevin Jarrett on Unspash"
+       decoding="async"
+       width="600"
+       height="600">
+</picture> 
+```
+
+C'est pour cette raison que des services tels que [imgix](https://imgix.com/), [Cloudinary](https://cloudinary.com/) ou d'autres proposent de gérer tout cela automatiquement et vous fournissent également un CDN.
+
+Le sujet de images responsives est assez complexe. Je ne peux que vous recommander quelques ressources abordant le sujet en détail: 
+
+- [Responsive Images](https://developer.mozilla.org/fr/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images) sur MDN
+- [Responsive Images](https://web.dev/learn/design/responsive-images/) sur Web.dev
+
+Exercices
+
+- _Mélanger flexbox et grid en réalisant une grille fluide de cartes de produits (image, titre, description, prix) pour un site de e-commerce_
+
+### Videos fluides
 
 ```html
 <video controls class="fluidvideo">
@@ -1284,10 +1400,7 @@ HTML
 </video>
 ```
 
-CSS
-
 ```css
-.fluidimage,
 .fluidvideo {
   display: block;
   max-width: 100%;
@@ -1295,11 +1408,9 @@ CSS
 }
 ```
 
-Les videos servies par Youtube et Vimeo utilisent `<iframe>`, voici un moyen de garder un ratio constant (16/9) tout en ayant un comportement fluide.
+### `<iframe>` et vidéos
 
-```html
-test
-```
+Les videos servies par des services tels que Youtube et Vimeo utilisent `<iframe>`. Voici un moyen de garder un ratio constant (16/9 par exemple) tout en ayant un comportement fluide.
 
 ```css
 .fluidiframe {
@@ -1318,7 +1429,7 @@ test
 }
 ```
 
-La propriété CSS [`aspect-ratio`](https://developer.mozilla.org/fr/docs/Web/CSS/aspect-ratio) permet la mise en place d'un code plus simple [pour les navigateurs récents](https://caniuse.com/mdn-css_properties_aspect-ratio).
+La propriété CSS [`aspect-ratio`](https://developer.mozilla.org/fr/docs/Web/CSS/aspect-ratio) permet la mise en place d'un code plus simple.
 
 ```css
 .fluidiframe > iframe {
@@ -1385,17 +1496,13 @@ Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre
   justify-content: flex-end;
   align-items: center;
   flex-wrap: nowrap;
-  gap: calc(10 / 16 * 1rem);
+  gap: calc(18 / 16 * 1rem);
 
   background-color: #ccc;
 }
 
-.mainnav__item {
-  flex: 0 1 auto;
-}
-
 .mainnav__link {
-  display: block;
+  display: inline-block;
   padding: 1rem;
   font: 600 12px/1 "Helvetica", "Arial", sans-serif;
   text-transform: uppercase;
@@ -1435,24 +1542,31 @@ Voici quelques techniques éprouvées pour centrer horizontalement un élément 
 }
 ```
 
-Position absolue et marges négatives
+Position absolute et translate
 
 ```css
 .centered-block {
   position: absolute;
   width: 750px;
+  top: 50%;
   left: 50%;
-  margin-left: -375px;
+  transform: translate3d(-50%, -50%, 0)
 }
 ```
 
-Position absolue et `calc()`
+flexbox
 
 ```css
+.parent {
+  display: flex;
+  flex-direction: row;
+  place-items: center;
+  /* justify-content: center;
+  align-items: center; */
+}
+
 .centered-block {
-  position: absolute;
   width: 750px;
-  left: calc(50% - 375px);
 }
 ```
 
@@ -1472,7 +1586,7 @@ _Exemple: une bannière occupant toujours une hauteur proportionnelle à la haut
 
 ### Faire disparaître des éléments visuellement sans les cacher aux navigateurs vocaux
 
-La déclaration `display:none;` a été utilisée pour cacher des éléments en mode visuel (souvent dans le cadre de remplacement par images1). Le problème c’est qu’elle [rend les éléments auxquels elle est appliquée invisibles aux navigateurs vocaux également](http://css-discuss.incutio.com/?page=ScreenreaderVisibility).
+Le problème de la déclaration `display:none;` c’est qu’elle [rend les éléments auxquels elle est appliquée invisibles aux navigateurs vocaux également](https://webaim.org/techniques/css/invisiblecontent/).
 
 Elle peut souvent être avantageusement remplacée par la déclaration suivante :
 
@@ -1491,13 +1605,12 @@ Autre option:
 ```css
 .visuallyhidden {
   position: absolute;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  height: 1px;
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
   width: 1px;
-  margin: -1px;
-  padding: 0;
-  border: 0;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap; 
 }
 ```
 
@@ -1510,9 +1623,24 @@ CSS
 ```css
 @font-face {
   font-family: "MyFontFamily";
-  src: url("fonts/MyFontFamily.woff2") format("woff2");
+  src: url("fonts/MyFontFamily_400.woff2") format("woff2");
   font-weight: 400;
-  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MyFontFamily";
+  src: url("fonts/MyFontFamily_italic_400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MyFontFamily";
+  src: url("fonts/MyFontFamily_600.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
 }
 ```
 
@@ -1520,11 +1648,20 @@ pour utiliser la police dans votre CSS:
 
 ```css
 h1 {
-  font: normal 2rem/1.1 "MyFontFamily", "Helvetica", "Arial", sans-serif;
+  font: 400 2rem/1.1 "MyFontFamily", "Helvetica", "Arial", sans-serif;
 }
 ```
 
-Si vous utilisez différentes graisses ou styles de la même police, [lire l'article de Roger Johansson sur le sujet](http://www.456bereastreet.com/archive/201012/font-face_tip_define_font-weight_and_font-style_to_keep_your_css_simple/). Cette technique simple vous évitera de devoir utiliser différents noms de polices dans votre CSS pour chaque graisse ou variante.
+Vous pouvez également [utiliser des polices variables](https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide). Celle-ci ont l'avantage de ne nécessiter qu'un seul fichier pour gérer plusieurs variations de la même police (poids, pente, largeur, etc.)
+
+```css
+@font-face {
+  font-family: "Inter";
+  src: url(../fonts/inter-variable.woff2) format("woff2-variations");
+  font-weight: 100 900;
+  font-display: swap;
+}
+```
 
 Les principaux problèmes liées à l’utilisation de `@font-face` sont de nature légale. La licence de certaines polices ne permet pas de les utiliser de cette façon car, étant disponibles sur le serveur, elles peuvent y être téléchargées par quelqu’un qui ne les a pas forcément achetées. De nombreuses polices offrent explicitement la possibilité d’une utilisation à l’aide de `@font-face` dans le cadre de leur licence.
 
@@ -1534,22 +1671,22 @@ Si le sujet de la typographie sur internet vous intéresse, je ne peux que vous 
 
 _Exercice: expérimenter avec des fontes_
 
-### Boutons en CSS3 avec Inline-block, border radius, text-shadow & box-shadow
+### Boutons en CSS3 avec inline-block, border radius, text-shadow & box-shadow
 
 Grâce à quelques propriétés CSS3, il est facile de créer des boutons à l’aide d’un simple lien hypertexte.
 
 HTML
 
 ```html
-<p><a href="”fake.html”" class="”btn”">Text of my button</a></p>
+<p><a href="”fake.html”" class="c-button">Text of my button</a></p>
 ```
 
 CSS
 
 ```css
-.btn {
+.c-button {
   display: inline-block;
-  background: #7aa020;
+  background-color: #7aa020;
   color: #fff;
   border-radius: 0.2em;
   padding: 0.75em 1em;
@@ -1559,10 +1696,15 @@ CSS
   box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.5);
 }
 
-.btn:hover {
-  background: #5c7917;
+.c-button:hover,
+.c-button:focus {
+  background-color: #5c7917;
 }
 ```
+
+### Variables CSS (CSS custom properties)
+
+@TODO
 
 ## Ressources Complémentaires
 
