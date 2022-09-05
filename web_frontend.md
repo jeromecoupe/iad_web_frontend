@@ -457,15 +457,19 @@ Spécificité = a,b,c
 
 _Ressources: [une explication ludique basée sur Star Wars et proposée par Andy Clarke](http://www.stuffandnonsense.co.uk/archives/css_specificity_wars.html)._
 
-#### Exemples
+_Exemples :_
 
+```txt
 p = 0,0,1
 p.last = 0,1,1
 #content p.last = 1,1,1
+```
 
-!important et sélecteur universel
-l’ajout de !important à une déclaration CSS permet de passer outre ce calcul de spécificité.
-Le sélecteur universel (\*) possède une spécificité de 0,0,0
+#### !important et sélecteur universel
+
+L’ajout de `!important` à une déclaration CSS permet de passer outre ce calcul de spécificité. C'est ce que l'on appelle le poids d'une déclaration.$
+
+Le sélecteur universel `*` possède une spécificité de 0,0,0.
 
 ### Les sélecteurs CSS
 
@@ -541,17 +545,19 @@ ul > li {
 
 Le sélecteur d’enfant adjacent permet de cibler l’élément suivant directement un élément présent dans le document.
 
+Cette règle ciblera uniquement le paragraphe placé immédiatement après le h1 dans le document à condition que ce paragraphe et le h1 possède le même parent.
+
 ```css
 h1 + p {
   background: yellow;
 }
 ```
 
-Cette règle ciblera uniquement le paragraphe placé immédiatement après le h1 dans le document à condition que ce paragraphe et le h1 possède le même parent.
-
 #### Sélecteur d’attribut
 
 Le sélecteur d’attribut permet de cibler les éléments d’un document sur base des attributs qu’ils possèdent ou sur base de la valeur de ces attributs.
+
+Le sélecteur ci-dessous cible n’importe quel `div` ayant un attribut `role`
 
 ```css
 div[role] {
@@ -559,7 +565,7 @@ div[role] {
 }
 ```
 
-Le sélecteur ci-dessus cible n’importe quel `div` ayant un attribut `role`
+Le sélecteur ci-dessous cible n’importe quel `div` ayant un attribut `role` avec comme valeur `maincontent`
 
 ```css
 div[role="maincontent"] {
@@ -567,15 +573,13 @@ div[role="maincontent"] {
 }
 ```
 
-Le sélecteur ci-dessus cible n’importe quel `div` ayant un attribut `role` avec comme valeur `maincontent`
+Le sélecteur ci-dessous cible les éléments dont l’attribut `class` contient la suite de caractères “nav”
 
 ```css
 div[class*="nav"] {
   border: 3px dotted black;
 }
 ```
-
-Le sélecteur ci-dessus cible les éléments dont l’attribut `class` contient la suite de caractères “nav”
 
 #### Sélecteur universel
 
@@ -611,7 +615,7 @@ a:active {
 }
 ```
 
-Les déclarations doivent obligatoirement être faites dans cet ordre afin d’obtenir le résultat escompté.
+Les déclarations doivent être faites dans cet ordre afin d’obtenir le résultat escompté.
 
 ##### First-child & last-child
 
@@ -663,7 +667,7 @@ p:first-line {
 }
 ```
 
-Les pseudo-elements `:before` et `:after` sont souvent utilisés dans les sites web modernes, pour ajouter des éléments de décoration (icônes, spriting). Ils sont également utilisés dans la solution de clearing des floats via CSS que nous verrons un peu plus loin.
+Les pseudo-elements `:before` et `:after` sont souvent utilisés dans les sites web modernes, pour ajouter des éléments de décoration (icônes, découpes, etc.).
 
 ### Propriétés et valeurs
 
@@ -671,7 +675,7 @@ Nous ne développerons pas ici toutes les propriétés CSS existantes et nous co
 
 Pour une documentation complète, voir le [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) ou [Webplateform.org](http://docs.webplatform.org/wiki/css/properties). [Le site du W3C](http://www.w3.org/Style/CSS/) fait évidemment toujours autorité.
 
-## Le modèle de mise en forme CSS
+### Le modèle de mise en forme CSS
 
 CSS utilise un modèle de mise en forme basé sur les boîtes (“box model” en anglais). Chaque élément d’un document existe dans le cadre d’une de ces boîtes.
 
@@ -693,38 +697,38 @@ La propriété **CSS3** `box-sizing` permet de changer ce comportement de base.
 
 Voir à ce sujet [l'article de Paul Irish](http://www.paulirish.com/2012/box-sizing-border-box-ftw/).
 
-### éléments en blocs et en lignes
+#### éléments en blocs et en lignes
 
 Deux types de boîtes principales sont liées par défaut aux divers éléments du HTML : on parle d’éléments de type block (`<p>`,`<div>`, `<blockquote>` et `<h1>` par exemple) et de type inline (`<a>`, `<strong>`, `<em>`, `<span>`, `<img>` par exemple).
 
 - Un élément block génère une boîte de bloc qui prend toujours un maximum d’espace horizontal, sauf si sa largeur est définie ou si la propriété float lui est appliquée. Les éléments block se placent, dans le flux du document, les uns en dessous des autres (par exemple : une suite de paragraphes ou une liste).
 - Un élément inline génère une boîte en ligne. Ces éléments inline se placent toujours, dans le flux du document, les uns à côté des autres (par exemple : plusieurs `<span>` ou une partie de texte mise en gras à l’aide de la balise `<strong>`)
 
-### Autres valeurs possibles
+#### Autres valeurs possibles
 
 Toutes sortes de boites peuvent être générées à l’aide de la propriété CSS display : `none`, `inline`, `block`, `list-item`, `inline-block`, `inline-table`,`table`, `table-caption`, `table-cell`,`table-column.`,`table-column-group`, `table-footer-group`, `table-header-group`, `table-row`, `table-row-group`.
 
 Nous nous contenterons ici d’en détailler quelques unes parmi les plus courantes.
 
-#### Inline-Block
+##### Inline-Block
 
 Nous verrons plus loin que cette valeur peut être très utile pour contrôler les padding et les margin sur des éléments inline.
 
-#### List-item
+##### List-item
 
 Les éléments de liste ne sont ni des balises de type block, ni des balises de type inline. Ils ont un comportement différent. En attribuant à un élément la déclaration CSS `display:list-item`, il pourra supporter les propriétés suivantes : `list-style-type`, `list-style-image`, `list-style-position` et `list-style`.
 
-#### None
+##### None
 
 Cette valeur fait qu'aucune boîte n'est générée par l'élément dans la structure de formatage (cet élément n'a pas d'influence sur la mise en forme du document). Les éléments auxquels cette propriété est appliquée ne s’affichent pas dans le media concerné. Les éléments qui en descendent ne génèrent pas de boîtes non plus et il n’est plus possible de modifier leur comportement avec la propriété `display`.
 
 Une valeur `none` ne crée pas de boîte invisible, elle ne crée pas de boîte du tout. CSS comprend des mécanismes permettant la génération de boîtes qui influencent la mise en forme mais qui ne sont pas visibles (propriété `visibility` en CSS).
 
-#### Les valeurs liées aux tableaux
+##### Les valeurs liées aux tableaux
 
 Les valeurs liées aux tableaux : `inline-table`,`table`,`table-caption`,`table-cell`,`table-column.`,`table-column-group`,`table-footer-group`,`table-header-group`,`table-row`,`table-row-group` donnent à un élément le comportement de celui d'une table ou d’un de ses composants.
 
-### La fusion des marges
+#### La fusion des marges
 
 Cette expression "Collapsing Margins" signifie que les marges adjacentes de plusieurs boîtes peuvent se combiner afin de ne plus en former qu’une seule.
 
@@ -736,13 +740,13 @@ Dans le cas de marges négatives, on soustrait la plus grande des valeurs des ma
 - Deux paragraphes se suivant et ayant respectivement une marge inférieure de -10px et une marge supérieure de 30px seront séparés par 20px.
 - Deux paragraphes se suivant et ayant respectivement une marge inférieure de -10px et une marge supérieure de -15px seront séparés par -15px.
 
-#### Elements adjacents
+##### Elements adjacents
 
 - Les marges des blocs flottants et de tout autre bloc ne fusionnent jamais, comme les marges entre des blocs absolument et relativement positionnés;
 - Les marges entre des boîtes ne fusionnent pas si l'une des boite est en `display:inline-block;`
 - La marge supérieure d'un élément auquel la propriété `clear` est appliquée et placé après un ou plusieurs élément floatés ne sera pas visible sauf si elle excède la hauteur du/des blocs floatés.
 
-#### Parent et premier/dernier enfant
+##### Parent et premier/dernier enfant
 
 - Les marges entre un parent et son premier/dernier enfant ne fusionnent pas si le parent possède une `border`, un `padding`, une `height` ou une `min-height`. spécifiée.
 - Les marges entre un parent et ses enfants ne fusionnent pas si le parent possède une propriété overflow avec une valeur autre que visible.
@@ -751,23 +755,23 @@ Pour en savoir plus concernant la fusion des marges, lire les excellents article
 
 _Exercice sur la fusion des marges_
 
-## Mises en page CSS
+### Mises en page CSS
 
 Ces diverses boîtes dont nous avons parlées sont utilisées dans le cadre de différents schémas de positionnement qui sont autant d’outils permettant de créer une mise en page à l’aide de CSS.
 
-### Schémas de positionnement CSS
+#### Schémas de positionnement CSS
 
 Il existe trois modes de positionnement en CSS: static, relative, absolute (fixed) et (sticky). Le mode de positionnement fixe est un cas particulier du mode absolu. Le mode sticky est traité d'abord comme un mode relatif, ensuite comme un mode fixe. Chacun de ces modes obéit à ses règles propres. Les modes de positionnement sont gérés en CSS via la propriété `position`.
 
-#### Flux normal: positionnement statique et positionnement relatif
+##### Flux normal: positionnement statique et positionnement relatif
 
-##### Flux du document et positionnement statique
+###### Flux du document et positionnement statique
 
 Le flux normal du document est le mode par défaut utilisé pour le positionnement. C’est celui qui s’applique à tous les éléments lorsque ceux-ci ne sont pas ni en mode float ni positionnés de façon absolue. Il s’agit alors d’un positionnement en mode statique.
 
 Dans le flux normal du document, les éléments de type block sont positionnés les uns sous les autres et leurs marges verticales fusionnent, tandis que les éléments de type inline se suivent sur la même ligne et passent à une nouvelle ligne lorsque la place manque.
 
-##### Positionnement relatif
+###### Positionnement relatif
 
 Lorsqu’un élément est positionné relativement, il est initialement positionné d’après le flux du document. Les boîtes des autres éléments sont positionnées et **ensuite**, l’élément positionné relativement est déplacé selon les valeurs spécifiées par les propriétés top bottom left et right.
 
@@ -787,9 +791,9 @@ Si les propriétés top ou bottom sont contradictoires, la propriété top l’e
 
 _Exercice: positionnement relatif_
 
-#### Positionnement absolu et fixe
+##### Positionnement absolu et fixe
 
-##### Positionnement absolu
+###### Positionnement absolu
 
 Ce mode de positionnement est appliqué à tous les éléments dont la propriété position est définie comme absolute ou fixed. Si un tel élément n’existe pas, c’est l’élément racine (html) du document qui fait office de bloc conteneur.
 
@@ -814,7 +818,7 @@ Ces éléments utilisent comme contexte de positionnement l’élément parent (
 2. Un élément absolument positionné devient un bloc conteneur pour les éléments qu’il contient et ceux-ci suivent les règles de positionnement normal à l’intérieur de l’élément positionné absolument.
 3. Les éléments absolument positionnés peuvent contenir d’autres éléments positionnés absolument, qui sont à leur tour hors du flux normal du document, ce qui a pour conséquence qu’ils peuvent apparaître hors des limites de leur parent.
 
-##### Positionnement fixe
+###### Positionnement fixe
 
 Pour ce cas particulier du positionnement absolu, le bloc conteneur est toujours la fenêtre du navigateur.
 
@@ -834,7 +838,7 @@ _Exercice: positionnement fixe_
 
 Exemples de layouts: [Web Designer Wall](http://webdesignerwall.com/), [Lost World's Fair: Atlantis](http://lostworldsfairs.com/atlantis/),[Bonzai Sky CSS Zen Garden Design by Mike Davidson](http://www.csszengarden.com/069/)
 
-##### Positionnement sticky
+###### Positionnement sticky
 
 Les éléments positionnés en mode `sticky` sont positionné en mode relatif, jusqu'à ce que l'utilisation en descendant ou en montant dans la page passe le cap des valeurs spécifiées. Il se comporte alors comme un élément positionné en mode `fixe`.
 
@@ -849,9 +853,9 @@ Les éléments positionnés en mode `sticky` sont positionné en mode relatif, j
 
 _Exercice: positionnement fixe_
 
-Exemples de layouts: [Web Designer Wall](http://webdesignerwall.com/), [Lost World's Fair: Atlantis](http://lostworldsfairs.com/atlantis/),[Bonzai Sky CSS Zen Garden Design by Mike Davidson](http://www.csszengarden.com/069/)
+Exemples de layouts: [Lost World's Fair: Atlantis](http://lostworldsfairs.com/atlantis/),[Bonzai Sky CSS Zen Garden Design by Mike Davidson](http://www.csszengarden.com/069/)
 
-##### z-index et positionnement en couches
+###### z-index et positionnement en couches
 
 Les éléments positionnés absolument, comme ils sont hors du flux normal du document, peuvent recouvrir d’autres éléments (absolument positionnés ou non).
 
@@ -859,7 +863,7 @@ Chaque élément positionné génère une couche et, au sein d’une même couch
 
 _Exercice: propriété z-index_
 
-### Floats
+#### Floats
 
 Un élément est positionné en mode float lorsque sa propriété `float` est spécifiée à l’aide des valeurs `left` ou `right`.
 
@@ -869,16 +873,16 @@ Horizontalement par contre, l’élément est placé le plus à gauche ou le plu
 
 `float` et `clear` ont été utilisées par le passé pour créer des mises en page complexe parce que c'étaient les uniques outils dont nous disposions. N'ayant pas été développées dans ce but, ces solutions posaient de nombreux problèmes et avaient également des limitations importantes.
 
-Aujourd'hui, float est avant tout utilisé pour permettre à du texte de passer autour d'une image et plus du tout comme outil de layout.
+Aujourd'hui, float est avant tout utilisé pour permettre à du texte de faire le tour d'une image et plus comme outil de layout.
 
-### Flexbox et Grid
+#### Flexbox et Grid
 
 - **Flexbox**: gère une seule dimension (verticale ou horizontale), fonctionne à partir des caractéristiques des contenus pour gérer leurs répartition dans un container.
 - **Grid**: gère deux dimensions (verticale et horizontale), fonctionne à partir des caractéristiques d'une grille dans laquelle les contenus sont placés.
 
 Ces deux outils de layout font appel au [module de Box Alignment](https://www.w3.org/TR/css-align-3/). Vous retrouverez donc des propriétés d'alignement communes à Grid et à Flexbox.
 
-#### Flexbox
+##### Flexbox
 
 Flexbox est appliqué grâce à la propriété display. Une fois la propriété `display: flex;` ou `display: inline-flex;` déclarée sur un élément, celui-ci devient un **flex-container** est ses enfants directs des **flex-items**. Comme dit plus haut, Flexbox permet de gérer les choses dans une dimension principale (verticale ou horizontale). C'est ce que l'on appelle le "main-axis" qui est spécifié via la propriété `flex-direction` et permet de gérer l'alignement principal des flex-items. Une fois le "main-axis" précisé, un "cross axis" perpendiculaire permet de gérer des propriétés d'alignement plus secondaires des flex-items.
 
@@ -926,19 +930,9 @@ _Exercice: interface de navigation horizontale (expérimenter avec les différen
   justify-content: flex-end;
   align-items: center;
   flex-wrap: nowrap;
-
-  /*
-    pas encore supporté par tous les navigateurs modernes
-    mais facile à comprendre
-    gap: 20px;
-  */
+  gap: 20px;
 
   background-color: #ccc;
-}
-
-/* Permet d'accomplir la même chose que gap pour tous les navigateurs */
-.mainnav__item:not(:last-child) {
-  margin-right: 20px;
 }
 
 .mainnav__item--contact {
@@ -956,7 +950,7 @@ _Exercice: interface de navigation horizontale (expérimenter avec les différen
 }
 ```
 
-#### Grid
+##### Grid
 
 CSS grid permet de créer des grilles en deux dimensions et de positionner des éléments à l'aide de ces grilles. CSS grid est appliqué à l'aide de la propriété display. Une fois `display: grid;` ou `display: inline-grid;` appliqué à un élément, celui-ci devient un **grid-container** et ses enfants directs des **grid-items**.
 
@@ -978,13 +972,13 @@ Voici les propriétés principales au niveau des **grid-items**:
 - `justify-self`: permet d'aligner les grid-item le long de l'axe des rangées.
 - `align-self`: permet d'aligner les grid-item le long de l'axe des colonnes.
 
-##### Placement explicite et implicite des éléments dans la grille
+###### Placement explicite et implicite des éléments dans la grille
 
 Si le placement des éléments dans la grille n'est pas spécifié explicitement avec `grid-column`, `grid-row`, `grid-area`, etc. les éléments vont simplement se placer dans les cellules de la grille dans l'ordre spécifié par le code source du document.
 
 La valeur `dense` de la propriété `grid-auto-flow` oblige le navigateur à optimiser le placement automatique / implicite des éléments pour remplir au mieux toutes les cellules de la grille. Cela peut causer une modification de l'ordre d'affichage des éléments par rapport au code source du document.
 
-##### Grilles explicites et implicites
+###### Grilles explicites et implicites
 
 Des notions importantes à comprendre sont celles de grilles explicites et implicites. Lorsque vous définissez une grille à l'aide de `grid-template-columns` et `grid-template-rows`, si le nombre d'éléments qui doivent être placés dans la grille est plus important que le nombre de cellules définies dans la grille, de nouvelles cellules vont automatiquement être créés.
 
@@ -1010,7 +1004,7 @@ _Exemple: grilles fluide simple - expérimenter avec les différentes propriét�
 .grid {
   display: grid;
   /* PAS OPTIMAL: grid-template columns: 1fr 1fr 1fr 1fr; */
-  /* PLUS DE REPETITION: grid-template-columns: repeat(4, 1fr); */
+  /* PAS DE REPETITION: grid-template-columns: repeat(4, 1fr); */
   /* OPTIMAL: permet d'avoir toujours des colonnes de même taille
   quelle que soit la taille de départ des grid items
   (long mots, images non fluides, etc) */
@@ -1111,7 +1105,7 @@ _Exemple: grille responsive avec des zones nommées à l'aide de template areas_
 }
 ```
 
-_Exemple: grille responsive avec elements placés automatiquement et un élément placé explicitement (avec span)_
+_Exemple: grille responsive avec elements placés automatiquement et un élément placé explicitement_
 
 ```html
 <ul class="grid">
@@ -1158,7 +1152,63 @@ _Exemple: grille responsive avec elements placés automatiquement et un élémen
 
 _Exercice: layouts de pages avec CSS grid: layout en "couches", layout avec sidebar, layout éclaté dans une grille_
 
-## Media queries
+## Responsive Web Design
+
+Les sites et applications web doivent fonctionner sur une grande variété de terminaux et d'écrans de différentes tailles. On parle de "responsive web design" pour désigner le fait de concevoir et de coder sites et applications de manière à ce que leurs mises en page s'adaptent à la taille et à la desnsité de l'écran. 
+
+Généralement, les développeurs front-end font du "mobile-first web design": ils commencent par designer et coder pour les terminaux ayant les contraintes ou les limitations les plus importantes (les terminaux mobiles, au niveau de la taille d'écran) pour ensuite designer et coder pour les terminaux ayant des contraintes moins importantes.
+
+Ces approches sont liées aux questions de performance (tous les utilisateurs ne disposent pas d'une bande passante importante), d'accessibilité (les utilisateurs sont tous différents et certains accèdent au web avec des technologies d'assistance ou sont porteur d'un handicap) et de "progressive enhancement" (tous les terminaux n'ont pas les mêmes capacités techniques, il est important que les fonctionnalités et contenus de base soient accessibles à tous).
+
+Techniquement parlant, le responsive web design repose sur trois grands piliers:
+
+- Layouts ou mises en page fluides
+- Media queries, preference queries, container queries, etc. (CSS)
+- Media fluides (images, videos, etc.)
+
+#### Layouts fluides
+
+Flexbox et Grid sont deux outils qui, combinés aux media queries et aux fonctions CSS permettent de créer des mises en pages fluides et s'adaptant à plusieurs tailles d'écran.
+
+##### CSS functions: `calc`, `min` `max` et `clamp`
+
+`calc`, `min`, `max` et `clamp` en CSS sont trois fonctions qui sont des outils intéressants dans le cadre du responsive web design. Ces fonctions peuvent être imbriquées les unes dans les autres pour réaliser des opérations complexes.
+
+`calc`: permet de demander au navigateur de calculer mathématiquement la valeur d'une propriété CSS.
+
+```css
+.c-smalltitle {
+  font-size: calc(22 / 16 * 1rem);
+}
+```
+
+```css
+.l-container {
+  width: calc(100% - 36px);
+}
+```
+
+`min`: fourni une liste de valeurs séparés par des virgules au navigateur. Celui-ci va utiliser la valeur la plus petite en fonction du contexte.
+
+```css
+.c-blopost__body {
+  width: min(100ch, calc(100% - 48px));
+}
+```
+
+`clamp`: fourni une liste de trois valeurs séparés par des virgules au navigateur. La première valeur est la vleur minimale, la dernière valeur est la valeur maximale, tandis que celle du milieu est la valeur idéale.
+
+```css
+.c-h1 {
+  font-size: clamp(
+    calc(20/16*1rem),
+    calc(1rem + 3vw),
+    calc(42/16*1rem),
+  );
+}
+```
+
+### Media queries
 
 Si vous vous souvenez de l'attribut `media` utilisé lorsque vous liez une feuille de style à un document HTML, vous comprendrez aisément ce que sont les media queries.
 
@@ -1194,11 +1244,11 @@ _Exercice: media queries et des couleurs de donc sur l'élément `body`_
 
 _Exercices: layouts et composants fluides en utilisant grid et media queries_
 
-## Media responsive
+### Media responsive
 
-Lorsqu'on réalise des layout fluides, il est important que les images et autres medias le soient eux aussi. En d'autres mots il faut que les média fassent au maximum 100% de la largeur de leurs parents (dont la largeur est spécifiée en pourcentages).
+Lorsqu'on réalise des layout fluides, il est important que les images et autres medias le soient eux aussi.
 
-### Images de background
+#### Images de background
 
 En ce qui concerne les images de background, vous pouvez utiliser des media queries dans vos CSS pour servir une petite image par défaut et servir une plus grande image lorsque le layout l’exige.
 
@@ -1226,7 +1276,7 @@ En ce qui concerne les images de background, vous pouvez utiliser des media quer
 }
 ```
 
-### Images de contenu: `srcset`, `sizes` et `<picture>`
+#### Images de contenu: `srcset`, `sizes` et `<picture>`
 
 La situation est un peu plus complexe au niveau des images de contenus. [Une solution idéale pour les images responsives](http://responsiveimages.org/) doit relever les [défis suivants](http://usecases.responsiveimages.org/):
 
@@ -1236,7 +1286,7 @@ La situation est un peu plus complexe au niveau des images de contenus. [Une sol
 
 Cette solution est [implémentée dans la plupart des navigateurs aujourd’hui](http://responsiveimages.org/). Les navigateurs qui ne supportent pas `srcset`, `sizes` ou `picture` servent simplement l'image spécifiée par l'attribut `src`..
 
-#### srcset and sizes
+##### srcset and sizes
 
 Les attributs `srcset` et `sizes` permettent de fournir au navigateur toutes les informations nécessaires pour choisir l'image à servir en fonction de la taille de l'écran ou de sa densité. Cette approche nécessite de connaître la façon dont les images vont s'afficher dans votre layout.
 
@@ -1282,7 +1332,7 @@ Il vous faudra encore ajouter quelques règles CSS pour que la largeur de votre 
 }
 ```
 
-#### `<picture>` et art direction
+##### `<picture>` et art direction
 
 Si vous devez servir des images différentes sur le plan de la composition (cadrage, orientation, art direction) vous pouvez alors utiliser les éléments `<picture>` et `<source>`. Voici un exemple simple:
 
@@ -1386,7 +1436,7 @@ Exercices
 
 - _Mélanger flexbox et grid en réalisant une grille fluide de cartes de produits (image, titre, description, prix) pour un site de e-commerce_
 
-### Videos fluides
+#### Videos fluides
 
 ```html
 <video controls class="fluidvideo">
@@ -1408,7 +1458,7 @@ Exercices
 }
 ```
 
-### `<iframe>` et vidéos
+#### `<iframe>` et vidéos
 
 Les videos servies par des services tels que Youtube et Vimeo utilisent `<iframe>`. Voici un moyen de garder un ratio constant (16/9 par exemple) tout en ayant un comportement fluide.
 
@@ -1517,7 +1567,7 @@ Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre
 }
 ```
 
-_Exercice: réaliser des interfaces de navigation à partir de listes_
+_Exercice: réaliser des interfaces de navigation à partir de listes avec flexbox et grid_
 
 ### Une taille de texte constante à l’aide de valeurs relatives
 
@@ -1535,6 +1585,8 @@ html {
 
 Voici quelques techniques éprouvées pour centrer horizontalement un élément de type block quel que soit le navigateur utilisé.
 
+#### Auto margin
+
 ```css
 .centered-block {
   width: 750px;
@@ -1542,7 +1594,7 @@ Voici quelques techniques éprouvées pour centrer horizontalement un élément 
 }
 ```
 
-Position absolute et translate
+#### Position absolute et translate
 
 ```css
 .centered-block {
@@ -1554,7 +1606,7 @@ Position absolute et translate
 }
 ```
 
-flexbox
+#### Flexbox
 
 ```css
 .parent {
@@ -1574,7 +1626,7 @@ flexbox
 
 Les unites `vh` (viewport height) et `vw` (viewport width) sont des unités relative à la taille du viewport du navigateur sur lequel s'affiche le document. Ces unités sont proportionnelle: `1 vh` / `1vw` sont équivalents à 1/100 de la hauteur ou largeur totale du viewport.
 
-Dans un mode où le responsive web design domine, ces deux unités sont extrêmement pratiques, que ce soit pour contrôler la hauteur de bannières, pour créer des sites prenant au minimum toute la hauteur de la page, etc.
+Dans un monde de responsive web design, ces deux unités sont extrêmement pratiques, que ce soit pour contrôler la hauteur de bannières, pour créer des sites prenant au minimum toute la hauteur de la page, etc.
 
 _Exemple: une bannière occupant toujours une hauteur proportionnelle à la hauteur du viewport_
 
@@ -1616,7 +1668,7 @@ Autre option:
 
 ### @font-face: Utilisation de polices non standards
 
-Avec l’avènement de CSS3, il est désormais possible, sans faire appel à d’autre technologies, d’utiliser des polices spécifiques dans le cadre de projets Internet. [@font-face jouit d’un excellent support dans la plupart des versions récentes des navigateurs](http://caniuse.com/fontface) et se dégrade élégamment dans les navigateurs plus anciens. Cette propriété permet de spécifier les polices à utiliser pour le rendu des textes et permet à l’utilisateur de les télécharger si il n’en dispose pas.
+`@font-face` permet d’utiliser des polices spécifiques dans le cadre de projets Internet. [@font-face jouit d’un excellent support dans la plupart des versions récentes des navigateurs](http://caniuse.com/fontface) et se dégrade élégamment dans les navigateurs plus anciens. Cette propriété permet de spécifier les polices à utiliser pour le rendu des textes et permet à l’utilisateur de les télécharger si il n’en dispose pas.
 
 CSS
 
@@ -1669,11 +1721,13 @@ Divers services tels que [Google Fonts](http://www.google.com/fonts), [Typekit](
 
 Si le sujet de la typographie sur internet vous intéresse, je ne peux que vous conseiller un talk de [Jason Santa Maria](http://vimeo.com/34178417) et le site "[Nice Web Type](http://nicewebtype.com/)" de Tim Brown.
 
-_Exercice: expérimenter avec des fontes_
+_Exercice: expérimenter avec des polices non standard_
 
 ### Boutons en CSS3 avec inline-block, border radius, text-shadow & box-shadow
 
-Grâce à quelques propriétés CSS3, il est facile de créer des boutons à l’aide d’un simple lien hypertexte.
+Grâce à quelques propriétés CSS3, il est possible de créer des boutons à l’aide d’un simple lien hypertexte.
+
+**Rappel**: l'élément `<a>` en HTML est à utiliser quand l'utilisateur "va quelque part" (lien vers un document ou une partie de document), tandis que l'élément button est préférable lorsque l'utilisateur "fait quelque chose" (accompli une action).
 
 HTML
 
@@ -1704,7 +1758,53 @@ CSS
 
 ### Variables CSS (CSS custom properties)
 
-@TODO
+Les custom properties ou variables CSS ont soit une portée globale, soit une portée limitée au block CSS dans lequel elle sont déclarées. Elles peuyvent avoir des valeurs par defaut et être accédées et modifiées par JavaScript. Elles sont très utiles pour vous permettre de configurer certains composants ou aspects de votre site tels que les couleurs, les espacements, etc.
+
+```css
+/* variables à portée globale */
+:root {
+  --color-brand: #18a788;
+  --color-brand-dark: #0b6451;
+  --color-brand-bright: #cefea9;
+  --color-brand-light: #d6fbf3;
+
+  --color-background: #ffffff;
+  --color-text: #293634;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #031310;
+    --color-text: #e6e7e7;
+  }
+}
+```
+
+```css
+/* variables à portée locale */
+.c-button {
+  --button-background: var(--color-brand);
+  --button-padding: 1em;
+  --button-color: #ffffff;
+
+  display: inline-block;
+  padding: var(--button-padding);
+  background--color: var(--button-background);
+  color: var(--button-color);
+  font: bold 1em/1 system-ui, "Helvetica", "Arial", sans-serif;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+
+  transition: backgroound-color 0.2s ease-out;
+}
+
+.c-button:hover,
+.c-button:focus {
+  --button-background: var(--color-brand-dark);
+  --button-color: #ffffff;
+}
+```
 
 ## Ressources Complémentaires
 
