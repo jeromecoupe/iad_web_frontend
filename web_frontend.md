@@ -62,10 +62,6 @@ Vos tags doivent être bien imbriqués. Les ouvertures et les fermetures de tags
 **Incorrect**
 
 ```html
-<p>Lorem ipsum dolor sit amet, consectetur <a href="https://www.iad-arts.be">adipisicing elit</a>.</p>
-```
-
-```html
 <p>Lorem ipsum dolor sit amet, consectetur <a href="https://www.iad-arts.be">adipisicing elit</p></a>.
 ```
 
@@ -82,7 +78,7 @@ Bien que des majuscules soient valides en HTML, votre code sera plus lisible si 
 **Pas terrible**
 
 ```html
-<p>Mon paragraphe contenant <a href="https://www.iad-arts.be">un lien hypertexte</a></p>
+<p>Mon paragraphe contenant <A HREF="https://www.iad-arts.be">un lien hypertexte</A></p>
 ```
 
 **Mieux**
@@ -115,13 +111,13 @@ La meilleure solution consiste à placer tout votre code CSS ou de JavaScript da
 
 Le validateur HTML générera une erreur lorsque un caractère "&" n'est pas encodé dans une URL. Veillez donc à y remédier en encodant cette dernière.
 
-Invalide:
+**Invalide:**
 
 ```html
 <a href="index.php?a=1&b=2">Latest News</a>
 ```
 
-Valide:
+**Valide:**
 
 ```html
 <a href="index.php?a=1&amp;b=2">Latest News</a>
