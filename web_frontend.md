@@ -345,7 +345,7 @@ HTML propose également diverses API (Application Programming Interface) corresp
 
 ## CSS
 
-A partir de CSS3, la spécification CSS est passée d’une spécification monolithique à une spécification modulaire, plus flexible. Une plus grande modularité permet aux navigateurs d’implémenter l’un ou l’autre module, sans pour autant devoir implémenter la spécification dans son ensemble.
+A partir de CSS, la spécification CSS est passée d’une spécification monolithique à une spécification modulaire, plus flexible. Une plus grande modularité permet aux navigateurs d’implémenter l’un ou l’autre module, sans pour autant devoir implémenter la spécification dans son ensemble.
 
 ### Lier une feuille de style à un document HTML
 
@@ -686,7 +686,7 @@ Les diverses dimensions de ces boîtes sont gérées par les propriétés CSS su
 - La largeur totale d’une boîte se calcule de la façon suivante : largeur du contenu (width) + padding + borders + margin.
 - La hauteur totale d’une boîte se calcule de la façon suivante : hauteur du contenu (height) + padding + borders + margin.
 
-La propriété **CSS3** `box-sizing` permet de changer ce comportement de base.
+La propriété **CSS** `box-sizing` permet de changer ce comportement de base.
 
 - `box-sizing: border-box;` modifie le modèle par défaut. Les border et padding sont **inclus** dans les valeurs width / height.
 - `box-sizing: content-box;` correspond au modèle par défaut. Les border et padding sont **exclus** des valeurs width / height.
@@ -750,6 +750,83 @@ Dans le cas de marges négatives, on soustrait la plus grande des valeurs des ma
 Pour en savoir plus concernant la fusion des marges, lire les excellents articles de [Andy Budd](http://www.andybudd.com/archives/2003/11/no_margin_for_error/) et [Eric Meyer](http://www.complexspiral.com/publications/uncollapsing-margins/).
 
 _Exercice sur la fusion des marges_
+
+### CSS Custom properties (variables CSS)
+
+Les custom properties CSS ont soit une portée globale, soit une portée limitée au block CSS dans lequel elle sont déclarées. 
+
+Elles peuvent avoir des valeurs par defaut et être accédées et modifiées par JavaScript. Elles sont particulièrement utiles pour vous permettre de configurer et de paramètrer vos composants ou les aspects plus généraux de votre site (couleurs, polices à utiliser, espacements, etc.).
+
+#### Variables à portée globale avec `:root`
+
+Ces variables sont définies à la racine du document et sont utilisables partout dans votre CSS. Très utiles pour des valeurs globales (couleurs, polices, etc.) 
+
+
+```css
+/* variables à portée globale */
+:root {
+  --color-brand: #18a788;
+  --color-brand-dark: #0b6451;
+  --color-brand-bright: #cefea9;
+  --color-brand-light: #d6fbf3;
+
+  --color-background: #ffffff;
+  --color-text: #293634;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #031310;
+    --color-text: #e6e7e7;
+  }
+}
+```
+
+#### Variables à portée locale
+
+Les variables définies au sein de la classe `.c-button` seront accesibles à tous les éléments HTML auxquels cette classe est attribuée et à leurs descendants (sauf si cette varaible est surdéterminée).
+
+```css
+/* variables à portée locale */
+.c-button {
+  --button-background: var(--color-brand);
+  --button-padding: 1em;
+  --button-color: #ffffff;
+
+  display: inline-block;
+  padding: var(--button-padding);
+  background--color: var(--button-background);
+  color: var(--button-color);
+  font: bold 1em/1 system-ui, "Helvetica", "Arial", sans-serif;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+
+  transition: backgroound-color 0.2s ease-out;
+}
+
+.c-button:hover,
+.c-button:focus {
+  --button-background: var(--color-brand-dark);
+  --button-color: #ffffff;
+}
+```
+
+### Couleurs
+
+#### propriétés color et background-color
+
+Les propriétés `color` et `background-color` vous permettent de changer les couleurs de vos textes ou les fonds appliqués à vos boites.
+
+```css
+body {
+  magin: 0;
+  padding: 2em;
+  background-color: #f0f0f0;
+  color: #171717;
+  border: 1em solid #d35400;
+}
+```
 
 ### Mises en page CSS
 
@@ -1719,9 +1796,9 @@ Si le sujet de la typographie sur internet vous intéresse, je ne peux que vous 
 
 _Exercice: expérimenter avec des polices non standard_
 
-### Boutons en CSS3 avec inline-block, border radius, text-shadow & box-shadow
+### Boutons en CSS avec inline-block, border radius, text-shadow & box-shadow
 
-Grâce à quelques propriétés CSS3, il est possible de créer des boutons à l’aide d’un simple lien hypertexte.
+Grâce à quelques propriétés CSS, il est possible de créer des boutons à l’aide d’un simple lien hypertexte.
 
 **Rappel**: l'élément `<a>` en HTML est à utiliser quand l'utilisateur "va quelque part" (lien vers un document ou une partie de document), tandis que l'élément button est préférable lorsque l'utilisateur "fait quelque chose" (accompli une action).
 
@@ -1749,56 +1826,6 @@ CSS
 .c-button:hover,
 .c-button:focus {
   background-color: #5c7917;
-}
-```
-
-### Variables CSS (CSS custom properties)
-
-Les custom properties ou variables CSS ont soit une portée globale, soit une portée limitée au block CSS dans lequel elle sont déclarées. Elles peuyvent avoir des valeurs par defaut et être accédées et modifiées par JavaScript. Elles sont très utiles pour vous permettre de configurer certains composants ou aspects de votre site tels que les couleurs, les espacements, etc.
-
-```css
-/* variables à portée globale */
-:root {
-  --color-brand: #18a788;
-  --color-brand-dark: #0b6451;
-  --color-brand-bright: #cefea9;
-  --color-brand-light: #d6fbf3;
-
-  --color-background: #ffffff;
-  --color-text: #293634;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #031310;
-    --color-text: #e6e7e7;
-  }
-}
-```
-
-```css
-/* variables à portée locale */
-.c-button {
-  --button-background: var(--color-brand);
-  --button-padding: 1em;
-  --button-color: #ffffff;
-
-  display: inline-block;
-  padding: var(--button-padding);
-  background--color: var(--button-background);
-  color: var(--button-color);
-  font: bold 1em/1 system-ui, "Helvetica", "Arial", sans-serif;
-  text-decoration: none;
-  border: 0;
-  cursor: pointer;
-
-  transition: backgroound-color 0.2s ease-out;
-}
-
-.c-button:hover,
-.c-button:focus {
-  --button-background: var(--color-brand-dark);
-  --button-color: #ffffff;
 }
 ```
 
