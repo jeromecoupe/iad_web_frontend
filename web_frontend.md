@@ -681,17 +681,25 @@ Le bloc conteneur est utilisé afin de déterminer la position des boîtes qu’
 
 Pour tout élément qui n’est pas absolument positionné, le bloc conteneur est la zone de contenu de son ancêtre de type block le plus proche dans l’arbre du document. Si aucun n’existe, la fenêtre du navigateur sert de bloc conteneur. Nous aborderons cela plus en profondeur lorsque nous parlerons des divers types de positionnement.
 
-Les diverses dimensions de ces boîtes sont gérées par les propriétés CSS suivantes: width, height, padding, margin et border.
+Les diverses dimensions de ces boîtes sont gérées par les propriétés CSS suivantes: `width`, `height`, `padding`, `margin` et `border`.
 
-- La largeur totale d’une boîte se calcule de la façon suivante : largeur du contenu (width) + padding + borders + margin.
-- La hauteur totale d’une boîte se calcule de la façon suivante : hauteur du contenu (height) + padding + borders + margin.
+- La largeur totale d’une boîte se calcule de la façon suivante : largeur du contenu (`width`) + `padding` + `border` + `margin`.
+- La hauteur totale d’une boîte se calcule de la façon suivante : hauteur du contenu (`height`) + `padding` + `border` + `margin`.
 
 La propriété **CSS** `box-sizing` permet de changer ce comportement de base.
 
-- `box-sizing: border-box;` modifie le modèle par défaut. Les border et padding sont **inclus** dans les valeurs width / height.
-- `box-sizing: content-box;` correspond au modèle par défaut. Les border et padding sont **exclus** des valeurs width / height.
+- `box-sizing: border-box;` modifie le modèle par défaut. `border` et `padding` sont **inclus** dans les valeurs `width` / `height`.
+- `box-sizing: content-box;` correspond au modèle par défaut. `border` et `padding` sont **exclus** des valeurs `width` / `height`.
 
 Voir à ce sujet [l'article de Paul Irish](http://www.paulirish.com/2012/box-sizing-border-box-ftw/).
+
+#### Propriétés logiques (logical properties)
+
+CSS évolue vers l'utilisation de [propriétés logiques](https://web.dev/learn/css/logical-properties/) ([logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties)) liées à la direction du texte ou au mode d'écriture plutôt que d'utiliser des propriétés physiques. Cela permet, entre autres, de faciliter l'internationalisation en fonction du mode d'écriture (writing mode).
+
+A titre d'exemple, `margin-inline-end` créera une marge à droite de la boite pour un site avec un writing-mode par defaut (en anglais ou en français) mais créera automatiquement une marge sur la gauche avec un writing mode right-to-left (en langue arabe).
+
+Des propriétés telles que flexbox et grid les utilisent déjà. Il est possible d'utiliser des propriétés logiques pour ce qui est lié à l'alignement (`text-align`), au box-model (`width`, `height`, `margin`, `padding`, `border`, `overflow`), au positionnment et aux floats (afin de remplacer les valeurs `top`, `right`, `bottom`, `left`) et aux unités liées au viewport (`v`) C'est une habitude à prendre mais pas véritablement quelque chose de compliqué.
 
 #### éléments en blocs et en lignes
 
