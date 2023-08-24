@@ -958,8 +958,12 @@ Aujourd'hui, float est avant tout utilisé pour permettre à du texte de faire l
 
 #### Flexbox et Grid
 
-- **Flexbox**: gère une seule dimension (verticale ou horizontale), fonctionne à partir des caractéristiques des contenus pour gérer leurs répartition dans un container.
-- **Grid**: gère deux dimensions (verticale et horizontale), fonctionne à partir des caractéristiques d'une grille dans laquelle les contenus sont placés.
+Flexbox et Grid sont deux outils qui permettent de créer des mises en pages fluides qui s'adaptant à plusieurs tailles d'écran et conditions d'utilisation.
+
+Ces deux modes de display n'ont un impact que sur les enfants directs de l'élément auquel ils sont appliqués.
+
+- **Flexbox**: le *flex-continer* gère l'alignement des *flex-items* dans une seule dimension (verticale **ou** horizontale). FLexbox part des caractéristiques des flex-items pour gérer leur répartition / alignement dans un container.
+- **Grid**: le *grid-container* gère le placement des *grid-items* dans deux dimensions (verticale **et** horizontale). Grid part des caractéristiques d'une grille dans laquelle les *grid-items* sont placés, implicitement ou explicitement, à l'aide de lignes ou de zones.
 
 Ces deux outils de layout font appel au [module de Box Alignment](https://www.w3.org/TR/css-align-3/). Vous retrouverez donc des propriétés d'alignement communes à Grid et à Flexbox.
 
