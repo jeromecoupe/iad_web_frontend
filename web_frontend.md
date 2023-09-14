@@ -4,7 +4,7 @@
 
 HTML, CSS et Javascript sont désormais des spécifications modulaires en évolution constante.
 
-De nombreuses ressources telles que [Mozilla Developer Network (MDN)](https://developer.mozilla.org/) ou [webplateform.org](http://www.webplatform.org/) sont disponibles si ces sujets vous intéressent.
+De nombreuses ressources telles que [Mozilla Developer Network (MDN)](https://developer.mozilla.org/) ou [web.dev](https://web.dev/) sont des références précieuses si ces sujets vous intéressent.
 
 Pour vérifier la compatibilité de votre code CSS / HTML avec les différents navigateurs, vous pouvez vous référer au site [caniuse.com](http://caniuse.com) (tables de support).
 
@@ -29,9 +29,7 @@ Pour vérifier la compatibilité de votre code CSS / HTML avec les différents n
 
 ### Déclaration du type de document
 
-Les divers navigateurs n’utilisent pas la déclaration de type de document (DTD) pour effectuer le rendu d’un document, la DTD permet néanmoins aux outils de validation que vous utilisez de savoir dans quelle syntaxe est écrit votre document, afin de pourvoir le valider.
-
-La DTD est en fait la plus petite suite de caractères permettant à un navigateur de gérer une page en mode "standard" et non en mode "quirks". Afin de garder une compatibilité avec un code plus ancien, les navigateurs ont mis en place ce que l’on nomme le [doctype switching](http://www.ericmeyeroncss.com/bonus/render-mode.html), une idée de Todd Fahrner. Le mode "quirks" leur permet de gérer et d’afficher un code ne se conformant pas aux standards.
+La DTD est en fait la plus petite suite de caractères permettant à un navigateur de gérer une page en mode "standard" et non en mode "quirks". Afin de garder une compatibilité avec un code plus ancien, les navigateurs ont mis en place ce que l'on nomme le [doctype switching](http://www.ericmeyeroncss.com/bonus/render-mode.html), une idée de Todd Fahrner. Le mode "quirks" leur permet de gérer et d'afficher un code ne se conformant pas aux standards.
 
 ### Encodage de caractères
 
@@ -123,11 +121,11 @@ Le validateur HTML générera une erreur lorsque un caractère "&" n'est pas enc
 <a href="index.php?a=1&amp;b=2">Latest News</a>
 ```
 
-### Document Object Model (DOM) Structure d’un document HTML
+### Document Object Model (DOM) Structure d'un document HTML
 
-Les éléments composant un document HTML sont structurés de façon hiérarchisée. Ils s’emboîtent les uns dans les autres, structurant le document sur le modèle d’un arbre.
+Les éléments composant un document HTML sont structurés de façon hiérarchisée. Ils s'emboîtent les uns dans les autres, structurant le document sur le modèle d'un arbre.
 
-Cette forme d’arbre et d’emboîtement hiérarchisé est parfaitement visible dans les outils de dévelopement disponibles dans tous les navigateurs modernes (Chrome, Safari, Firefox, Opera)
+Cette forme d'arbre et d'emboîtement hiérarchisé est parfaitement visible dans les outils de dévelopement disponibles dans tous les navigateurs modernes (Chrome, Safari, Firefox, Opera)
 
 Familiarisez-vous avec ces outils, vous en aurez besoin lors de ce cours et durant toute votre carrière de développeur front-end.
 
@@ -137,7 +135,7 @@ _Exercice: Explorer les outils de développement dans Chrome, Safari ou Firefox_
 
 La spécification HTML compte de nombreux élements permettant une qualification plus précise des divers éléments de votre document sur la plan de leurs rôles sémantiques.
 
-Nous ne présenterons pas l’ensemble de ces éléments dans le cadre de ce cours mais nous vous présenterons les principaux. 
+Nous ne présenterons pas l'ensemble de ces éléments dans le cadre de ce cours mais nous vous présenterons les principaux. 
 
 L'ensemble de ces éléments et des renseignements sur leurs usages sont disponibles sur le site de [Mozilla Developer Network](https://developer.mozilla.org/fr/docs/Web/HTML/Element).
 
@@ -145,13 +143,13 @@ L'ensemble de ces éléments et des renseignements sur leurs usages sont disponi
 
 ##### `<nav>`
 
-Cet élément est utilisé pour marquer les interfaces de navigation du site ou de la page. Il s’agit d’une section de la page contenant les liens utilisés pour la navigation. Tous les groupes de liens ne sont pas forcément des interfaces de navigation, seuls ces derniers peuvent être marqués à l’aide de l’élément `<nav>`.
+Cet élément est utilisé pour marquer les interfaces de navigation du site ou de la page. Il s'agit d'une section de la page contenant les liens utilisés pour la navigation. Tous les groupes de liens ne sont pas forcément des interfaces de navigation, seuls ces derniers peuvent être marqués à l'aide de l'élément `<nav>`.
 
 ##### `<article>`
 
 Est utilisé pour marquer une partie d'un document, d'une page, d'un site qui fait sens prise indépendamment: un post sur un forum, un article de magazine ou de journal, un billet sur un blog, un commentaire soumis par un utilisateur ou n'importe quel autre élément de contenu indépendant.
 
-Une bonne question à se poser pour l’utilisation d’article est: pourriez vous inclure ce contenu dans un flux RSS et ce contenu ferait-il sens? Si oui, il s’agit probablement d’un bon candidat.
+Une bonne question à se poser pour l'utilisation d'article est: pourriez vous inclure ce contenu dans un flux RSS et ce contenu ferait-il sens? Si oui, il s'agit probablement d'un bon candidat.
 
 ##### `<section>`
 
@@ -167,15 +165,15 @@ Le contexte est ici très important. Vous pouvez utiliser `<aside>` pour marquer
 
 ##### `<main>`
 
-L’élément `<main>` représente le contenu principal d’un document. Il ne peut être utilisé qu’une seule fois au sein d’un document HTML et ne peut jamais être le descendant de `<article>`, `<aside>`, `<footer>`, `<header>` or `<nav>`.
+L'élément `<main>` représente le contenu principal d'un document. Il ne peut être utilisé qu'une seule fois au sein d'un document HTML et ne peut jamais être le descendant de `<article>`, `<aside>`, `<footer>`, `<header>` or `<nav>`.
 
 ##### `<header>`
 
-Typiquement utilisé pour contenir les méta-informations (titre, logo, date de publication, etc) d’un document ou d’une partie d’un document. L'élément `<header>` peut être utilisé plusieurs fois dans le cadre d'un même document. Suivant le contexte dans lequel il est placé (`<body>`, `<article>`, `<section>`, etc.) il aura un statut différent.
+Typiquement utilisé pour contenir les méta-informations (titre, logo, date de publication, etc) d'un document ou d'une partie d'un document. L'élément `<header>` peut être utilisé plusieurs fois dans le cadre d'un même document. Suivant le contexte dans lequel il est placé (`<body>`, `<article>`, `<section>`, etc.) il aura un statut différent.
 
 ##### `<footer>`
 
-Typiquement utilisé pour contenir les méta-informations (auteur, lien vers des documents liés) d’un document ou d’une partie de document. L'élément `<footer>` peut être utilisé plusieurs fois dans le cadre d'un même document. Suivant le contexte dans lequel il est placé (`<body>`, `<article>`, `<section>`, etc.) il aura un statut différent. Notons que les coordonnées de contact mentionnées dans un `<footer>` devraient êtres marqués à l'aide de l'élément `<address>`
+Typiquement utilisé pour contenir les méta-informations (auteur, lien vers des documents liés) d'un document ou d'une partie de document. L'élément `<footer>` peut être utilisé plusieurs fois dans le cadre d'un même document. Suivant le contexte dans lequel il est placé (`<body>`, `<article>`, `<section>`, etc.) il aura un statut différent. Notons que les coordonnées de contact mentionnées dans un `<footer>` devraient êtres marqués à l'aide de l'élément `<address>`
 
 ##### `<time>`
 
@@ -189,7 +187,7 @@ Est utilisé pour marquer des données temporelles (dates, heures etc.) de faço
 
 ##### `<a>`
 
-L’élément `<a>` est toujours considéré comme inline mais peut également être le parent d’éléments de type bloc.
+L'élément `<a>` est toujours considéré comme inline mais peut également être le parent d'éléments de type bloc.
 
 ```html
 <article class="c-project">
@@ -243,7 +241,7 @@ Il y a 3 grands formats pour des videos en HTML: .webm, .mp4 et .ogv. Aujourd'hu
 
 L'attribut `poster` sert à donner une image d'attente dans les navigateurs supportant l'élément vidéo, tandis que l'attribut controls sert à afficher les contrôles minimaux pour le type de média choisi.
 
-Certains navigateurs supportant l'élément `<video>` commencent automatiquement à télécharger les fichiers vidéos, ce qui donne lieu à un usage (important) de bande passante sans intervention utilisateur. L’attribut `preload="none"` peut être utilisé pour empêcher le preload de la video par le navigateur;
+Certains navigateurs supportant l'élément `<video>` commencent automatiquement à télécharger les fichiers vidéos, ce qui donne lieu à un usage (important) de bande passante sans intervention utilisateur. L'attribut `preload="none"` peut être utilisé pour empêcher le preload de la video par le navigateur;
 
 Si vos besoins en vidéo sont importants, des services tels que Youtube et Vimeo un moyen efficace de servir des vidéos sur le web. Ils réalisent automatiquement les divers encodages nécessaires, le type de plateforme utilisé par le visiteur, etc.
 
@@ -345,11 +343,11 @@ HTML propose également diverses API (Application Programming Interface) corresp
 
 ## CSS
 
-A partir de CSS, la spécification CSS est passée d’une spécification monolithique à une spécification modulaire, plus flexible. Une plus grande modularité permet aux navigateurs d’implémenter l’un ou l’autre module, sans pour autant devoir implémenter la spécification dans son ensemble.
+A partir de CSS, la spécification CSS est passée d'une spécification monolithique à une spécification modulaire, plus flexible. Une plus grande modularité permet aux navigateurs d'implémenter l'un ou l'autre module, sans pour autant devoir implémenter la spécification dans son ensemble.
 
 ### Lier une feuille de style à un document HTML
 
-Les déclarations CSS peuvent être liées de 4 façons à un document HTML afin d’en gérer l’affichage.
+Les déclarations CSS peuvent être liées de 4 façons à un document HTML afin d'en gérer l'affichage.
 
 #### CSS liées
 
@@ -381,12 +379,37 @@ Utilisé principalement pour le debugging ou pour augmenter la performance des p
 </style>
 ```
 
-#### CSS dans l’attribut style des balises
+#### CSS dans l'attribut style des balises
 
-Peu utilisé, sauf pour gérer certains styles bien précis à l'aide d'un CMS par exemple.
+Peu utilisé, sauf pour gérer certains styles bien précis par exemple à l'aide de custom properties.
 
 ```html
-<p style="color:blue;"></p>
+<nav>
+  <ul class="c-mobilenav">
+    <li class="c-mobilenav__item" style="--delay: 1;">
+      <a class="c-mobilenav__link" href="index.html">Home</a>
+    </li>
+    <li class="c-mobilenav__item" style="--delay: 2;">
+      <a class="c-mobilenav__link" href="work/index.html">Work</a>
+    </li>
+    <li class="c-mobilenav__item" style="--delay: 3;">
+      <a class="c-mobilenav__link" href="blog/index.html">Blog</a>
+    </li>
+    <li class="c-mobilenav__item" style="--delay: 4;">
+      <a class="c-mobilenav__link" href="contact/index.html">Contact</a>
+    </li>
+  </ul>
+</nav>
+```
+
+```css
+.c-mobilenav__item {
+  animation-delay: calc(0.2s + (var(--delay) * 0.05s));
+  animation-name: slideFromLeft;
+  animation-duration: 0.15s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
 ```
 
 ### CSS et media
@@ -395,7 +418,7 @@ Peu utilisé, sauf pour gérer certains styles bien précis à l'aide d'un CMS p
 
 Des opérateurs logiques (and, not, only) peuvent être utilisés. Plusieurs types et caractéristiques de media peuvent être spécifiées au sein d'une même déclaration en les séparant par des virgules.
 
-Il est possible d’utiliser l'attribut media ou des règles `@media` à plusieurs niveaux.
+Il est possible d'utiliser l'attribut media ou des règles `@media` à plusieurs niveaux.
 
 **HTML avec CSS liées**
 
@@ -418,7 +441,7 @@ Classiquement, on ne spécifie pas de type de media lorsqu'on importe une feuill
 
 _Exercice: lier une feuille de style à un document HTML et tester l'attribut media avec les valeurs screen et print_
 
-### Anatomie d’une déclaration CSS
+### Anatomie d'une déclaration CSS
 
 ```css
 /*Règle CSS*/
@@ -430,23 +453,23 @@ body /*Sélecteur*/ {
 
 ### La cascade
 
-Certaines déclarations pouvant enter en conflit avec d’autres, il importe de savoir laquelle sera prioritaire. C’est à ce souci que répond l’ordre de cascade, donnant aux navigateurs un ordre de tri :
+Certaines déclarations pouvant enter en conflit avec d'autres, il importe de savoir laquelle sera prioritaire. C'est à ce souci que répond l'ordre de cascade, donnant aux navigateurs un ordre de tri :
 
-1. Toutes les déclarations qui concernent l'élément et la propriété en question s’appliquent, pour le type de média visé (les règles de media print n’entrent pas en conflit avec les règles de media screen). Ces déclarations s'appliquent si le sélecteur CSS correspond à cet élément (une règle visant un h6 s’applique uniquement si un h6 existe dans le document mis en forme);
-2. Les déclarations CSS sont ensuite classées par origine. Les règles de l’auteur du document priment sur celles de l’utilisateur qui priment elles-mêmes sur celles utilisées par défaut par le navigateur client.
-3. Les déclarations sont ensuite classées par poids. Il est possible d’utiliser l’élément `!important` à la fin d'une déclaration (`margin: 1rem !important;`) pour lui permettre d’avoir plus de poids qu’une déclaration normale;
-4. Les sélecteurs sont ensuite triés par spécificité. Nous verrons ce dont il s’agit au point suivant.
-5. Finalement, si deux règles ont la même origine, le même poids et la même spécificité, les déclarations figurant dans des CSS importées sont considérées comme étant placées avant les CSS présentes dans le document (X)HTML. Les dernières déclarations l’emportent sur les premières.
+1. Toutes les déclarations qui concernent l'élément et la propriété en question s'appliquent, pour le type de média visé (les règles de media print n'entrent pas en conflit avec les règles de media screen). Ces déclarations s'appliquent si le sélecteur CSS correspond à cet élément (une règle visant un h6 s'applique uniquement si un h6 existe dans le document mis en forme);
+2. Les déclarations CSS sont ensuite classées par origine. Les règles de l'auteur du document priment sur celles de l'utilisateur qui priment elles-mêmes sur celles utilisées par défaut par le navigateur client.
+3. Les déclarations sont ensuite classées par poids. Il est possible d'utiliser l'élément `!important` à la fin d'une déclaration (`margin: 1rem !important;`) pour lui permettre d'avoir plus de poids qu'une déclaration normale;
+4. Les sélecteurs sont ensuite triés par spécificité. Nous verrons ce dont il s'agit au point suivant.
+5. Finalement, si deux règles ont la même origine, le même poids et la même spécificité, les déclarations figurant dans des CSS importées sont considérées comme étant placées avant les CSS présentes dans le document (X)HTML. Les dernières déclarations l'emportent sur les premières.
 
 ### Spécificité
 
-Pour calculer la spécificité d’une déclaration CSS, c’est le sélecteur qui est pris en compte. La règle générale est que plus il est complexe, plus sa spécificité est haute. Voici la manière dont la spécificité des déclarations est calculée:
+Pour calculer la spécificité d'une déclaration CSS, c'est le sélecteur qui est pris en compte. La règle générale est que plus il est complexe, plus sa spécificité est haute. Voici la manière dont la spécificité des déclarations est calculée:
 
 #### Calcul de spécificité
 
-- Nombre d’ID référencées dans le sélecteur (= a)
+- Nombre d'ID référencées dans le sélecteur (= a)
 - Nombre de classes et de pseudo-classes référencées dans le sélecteur (= b)
-- Nombre d’éléments référencés dans le sélecteur (= c)
+- Nombre d'éléments référencés dans le sélecteur (= c)
 - Ne pas tenir compte des pseudo éléments.
 
 Spécificité = a,b,c
@@ -463,13 +486,13 @@ p.last = 0,1,1
 
 #### !important et sélecteur universel
 
-L’ajout de `!important` à une déclaration CSS permet de passer outre ce calcul de spécificité. C'est ce que l'on appelle le poids d'une déclaration.$
+L'ajout de `!important` à une déclaration CSS permet de passer outre ce calcul de spécificité. C'est ce que l'on appelle le poids d'une déclaration.$
 
 Le sélecteur universel `*` possède une spécificité de 0,0,0.
 
 ### Les sélecteurs CSS
 
-Nous verrons ici quelques sélecteurs de base pour commencer. Notez simplement que CSS comporte un module de sélecteurs plus étendu qu'il peut être intéressant d'explorer.
+Nous verrons ici quelques sélecteurs de base pour commencer. Notez simplement que [CSS comporte un module de sélecteurs plus étendu](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors) qu'il est intéressant d'explorer.
 
 #### Sélecteur de types
 
@@ -491,7 +514,7 @@ Le sélecteur de classe permet de cibler tous les éléments possédant la class
 }
 ```
 
-Il est possible de combiner les sélecteurs au sein d’une même règle CSS. Les sélecteurs de type et de classe peuvent par exemple être combinés pour avoir une portée moins large et une spécificité plus importante. L'exemple donné ci-dessous n'est pas conseillé en production, justement parce qu'il augmente inutilement la spécificité du sélecteur.
+Il est possible de combiner les sélecteurs au sein d'une même règle CSS. Les sélecteurs de type et de classe peuvent par exemple être combinés pour avoir une portée moins large et une spécificité plus importante. L'exemple donné ci-dessous n'est pas conseillé en production, justement parce qu'il augmente inutilement la spécificité du sélecteur.
 
 ```css
 li.mainnav-current {
@@ -505,9 +528,9 @@ Plusieurs classes CSS peuvent être appliquées à un seul élément HTML.
 <li class="mainnav__item  mainnav__item--current">item</li>
 ```
 
-#### Sélecteur d’ID
+#### Sélecteur d'ID
 
-Le sélecteur d’ID permet de cibler l’élément possédant l’ID indiquée présent dans le document.
+Le sélecteur d'ID permet de cibler l'élément possédant l'ID indiquée présent dans le document.
 
 ```css
 #content {
@@ -515,11 +538,11 @@ Le sélecteur d’ID permet de cibler l’élément possédant l’ID indiquée 
 }
 ```
 
-Une ID ne peut être utilisée qu’une seule fois dans le cadre d’un même document. Pour rappel: une règle CSS reposant sur une ID possède une spécificité plus grande que si elle repose sur une classe. De nombreux développeurs militent pour réduire l'utilisation des sélecteur d'ID en HTML/CSS, justement à cause de leur spécificité plus importante. Les ID sont cependant utilisées pour marquer certaines zones de la page devant être atteintes à l'aide de liens (ancres).
+Une ID ne peut être utilisée qu'une seule fois dans le cadre d'un même document. Pour rappel: une règle CSS reposant sur une ID possède une spécificité plus grande que si elle repose sur une classe. De nombreux développeurs militent pour réduire l'utilisation des sélecteur d'ID en HTML/CSS, justement à cause de leur spécificité plus importante. Les ID sont cependant utilisées pour marquer certaines zones de la page devant être atteintes à l'aide de liens (ancres).
 
 #### Sélecteur descendant
 
-Le sélecteur descendant permet de cibler les éléments qui sont les descendants d’un autre élément présent dans le document.
+Le sélecteur descendant permet de cibler les éléments qui sont les descendants d'un autre élément présent dans le document.
 
 ```css
 p em {
@@ -527,9 +550,9 @@ p em {
 }
 ```
 
-#### Sélecteur d’enfant
+#### Sélecteur d'enfant
 
-Le sélecteur d’enfant permet de cibler les éléments qui sont les enfants d’un autre élément présent dans le document.
+Le sélecteur d'enfant permet de cibler les éléments qui sont les enfants d'un autre élément présent dans le document.
 
 ```css
 ul > li {
@@ -537,9 +560,9 @@ ul > li {
 }
 ```
 
-#### Sélecteur d’enfant adjacent
+#### Sélecteur d'enfant adjacent
 
-Le sélecteur d’enfant adjacent permet de cibler l’élément suivant directement un élément présent dans le document.
+Le sélecteur d'enfant adjacent permet de cibler l'élément suivant directement un élément présent dans le document.
 
 Cette règle ciblera uniquement le paragraphe placé immédiatement après le h1 dans le document à condition que ce paragraphe et le h1 possède le même parent.
 
@@ -549,11 +572,11 @@ h1 + p {
 }
 ```
 
-#### Sélecteur d’attribut
+#### Sélecteur d'attribut
 
-Le sélecteur d’attribut permet de cibler les éléments d’un document sur base des attributs qu’ils possèdent ou sur base de la valeur de ces attributs.
+Le sélecteur d'attribut permet de cibler les éléments d'un document sur base des attributs qu'ils possèdent ou sur base de la valeur de ces attributs.
 
-Le sélecteur ci-dessous cible n’importe quel `div` ayant un attribut `role`
+Le sélecteur ci-dessous cible n'importe quel `div` ayant un attribut `role`
 
 ```css
 div[role] {
@@ -561,7 +584,7 @@ div[role] {
 }
 ```
 
-Le sélecteur ci-dessous cible n’importe quel `div` ayant un attribut `role` avec comme valeur `maincontent`
+Le sélecteur ci-dessous cible n'importe quel `div` ayant un attribut `role` avec comme valeur `maincontent`
 
 ```css
 div[role="maincontent"] {
@@ -569,7 +592,7 @@ div[role="maincontent"] {
 }
 ```
 
-Le sélecteur ci-dessous cible les éléments dont l’attribut `class` contient la suite de caractères “nav”
+Le sélecteur ci-dessous cible les éléments dont l'attribut `class` contient la suite de caractères “nav”
 
 ```css
 div[class*="nav"] {
@@ -579,7 +602,7 @@ div[class*="nav"] {
 
 #### Sélecteur universel
 
-Ce sélecteur est utilisé pour cibler l’ensemble des éléments composant le document.
+Ce sélecteur est utilisé pour cibler l'ensemble des éléments composant le document.
 
 ```css
 * {
@@ -589,7 +612,7 @@ Ce sélecteur est utilisé pour cibler l’ensemble des éléments composant le 
 
 #### Pseudo-classes
 
-Les sélecteurs de pseudo-classes permettent de cibler des éléments qui ne sont pas dans l’arborescence du document.
+Les sélecteurs de pseudo-classes permettent de cibler des éléments qui ne sont pas dans l'arborescence du document.
 
 ##### Pseudo-classes liées aux liens.
 
@@ -611,7 +634,7 @@ a:active {
 }
 ```
 
-Les déclarations doivent être faites dans cet ordre afin d’obtenir le résultat escompté.
+Les déclarations doivent être faites dans cet ordre afin d'obtenir le résultat escompté.
 
 ##### First-child & last-child
 
@@ -629,7 +652,7 @@ li:last-child {
 
 #### Pseudo-éléments
 
-Les sélecteurs de pseudo-éléments permettent de cibler des éléments qui ne sont pas disponibles dans l’arborescence du document.
+Les sélecteurs de pseudo-éléments permettent de cibler des éléments qui ne sont pas disponibles dans l'arborescence du document.
 
 ##### first-line et first-letter
 
@@ -673,18 +696,18 @@ Pour une documentation complète, voir le [Mozilla Developer Network](https://de
 
 ### Le modèle de mise en forme CSS
 
-CSS utilise un modèle de mise en forme basé sur les boîtes (“box model” en anglais). Chaque élément d’un document existe dans le cadre d’une de ces boîtes.
+CSS utilise un modèle de mise en forme basé sur les boîtes (“box model” en anglais). Chaque élément d'un document existe dans le cadre d'une de ces boîtes.
 
 La plupart de ces boîtes se comportent comme des blocs conteneurs pour les boîtes qui en sont les descendantes : on dit que la boîte "établit" le bloc conteneur de ses descendants. L'expression "le bloc conteneur d'une boîte" ("containing block" en anglais) signifie "le bloc conteneur dans lequel se trouve la boîte", et non la propre boîte que celle-ci génère.
 
-Le bloc conteneur est utilisé afin de déterminer la position des boîtes qu’il renferme et, dans certains cas, les dimensions de ces boîtes. Par exemple, si un élément possède une largeur de 50%, celle-ci sera calculée par rapport à la largeur de son bloc conteneur.
+Le bloc conteneur est utilisé afin de déterminer la position des boîtes qu'il renferme et, dans certains cas, les dimensions de ces boîtes. Par exemple, si un élément possède une largeur de 50%, celle-ci sera calculée par rapport à la largeur de son bloc conteneur.
 
-Pour tout élément qui n’est pas absolument positionné, le bloc conteneur est la zone de contenu de son ancêtre de type block le plus proche dans l’arbre du document. Si aucun n’existe, la fenêtre du navigateur sert de bloc conteneur. Nous aborderons cela plus en profondeur lorsque nous parlerons des divers types de positionnement.
+Pour tout élément qui n'est pas absolument positionné, le bloc conteneur est la zone de contenu de son ancêtre de type block le plus proche dans l'arbre du document. Si aucun n'existe, la fenêtre du navigateur sert de bloc conteneur. Nous aborderons cela plus en profondeur lorsque nous parlerons des divers types de positionnement.
 
 Les diverses dimensions de ces boîtes sont gérées par les propriétés CSS suivantes: `width`, `height`, `padding`, `margin` et `border`.
 
-- La largeur totale d’une boîte se calcule de la façon suivante : largeur du contenu (`width`) + `padding` + `border` + `margin`.
-- La hauteur totale d’une boîte se calcule de la façon suivante : hauteur du contenu (`height`) + `padding` + `border` + `margin`.
+- La largeur totale d'une boîte se calcule de la façon suivante : largeur du contenu (`width`) + `padding` + `border` + `margin`.
+- La hauteur totale d'une boîte se calcule de la façon suivante : hauteur du contenu (`height`) + `padding` + `border` + `margin`.
 
 La propriété **CSS** `box-sizing` permet de changer ce comportement de base.
 
@@ -703,16 +726,16 @@ Des propriétés telles que flexbox et grid les utilisent déjà. Il est possibl
 
 #### éléments en blocs et en lignes
 
-Deux types de boîtes principales sont liées par défaut aux divers éléments du HTML : on parle d’éléments de type block (`<p>`,`<div>`, `<blockquote>` et `<h1>` par exemple) et de type inline (`<a>`, `<strong>`, `<em>`, `<span>`, `<img>` par exemple).
+Deux types de boîtes principales sont liées par défaut aux divers éléments du HTML : on parle d'éléments de type block (`<p>`,`<div>`, `<blockquote>` et `<h1>` par exemple) et de type inline (`<a>`, `<strong>`, `<em>`, `<span>`, `<img>` par exemple).
 
-- Un élément block génère une boîte de bloc qui prend toujours un maximum d’espace horizontal, sauf si sa largeur est définie ou si la propriété float lui est appliquée. Les éléments block se placent, dans le flux du document, les uns en dessous des autres (par exemple : une suite de paragraphes ou une liste).
-- Un élément inline génère une boîte en ligne. Ces éléments inline se placent toujours, dans le flux du document, les uns à côté des autres (par exemple : plusieurs `<span>` ou une partie de texte mise en gras à l’aide de la balise `<strong>`)
+- Un élément block génère une boîte de bloc qui prend toujours un maximum d'espace horizontal, sauf si sa largeur est définie ou si la propriété float lui est appliquée. Les éléments block se placent, dans le flux du document, les uns en dessous des autres (par exemple : une suite de paragraphes ou une liste).
+- Un élément inline génère une boîte en ligne. Ces éléments inline se placent toujours, dans le flux du document, les uns à côté des autres (par exemple : plusieurs `<span>` ou une partie de texte mise en gras à l'aide de la balise `<strong>`)
 
 #### Autres valeurs possibles
 
-Toutes sortes de boites peuvent être générées à l’aide de la propriété CSS display : `none`, `inline`, `block`, `list-item`, `inline-block`, `inline-table`,`table`, `table-caption`, `table-cell`,`table-column.`,`table-column-group`, `table-footer-group`, `table-header-group`, `table-row`, `table-row-group`.
+Toutes sortes de boites peuvent être générées à l'aide de la propriété CSS display : `none`, `inline`, `block`, `list-item`, `inline-block`, `inline-table`,`table`, `table-caption`, `table-cell`,`table-column.`,`table-column-group`, `table-footer-group`, `table-header-group`, `table-row`, `table-row-group`.
 
-Nous nous contenterons ici d’en détailler quelques unes parmi les plus courantes.
+Nous nous contenterons ici d'en détailler quelques unes parmi les plus courantes.
 
 ##### Inline-Block
 
@@ -724,17 +747,17 @@ Les éléments de liste ne sont ni des balises de type block, ni des balises de 
 
 ##### None
 
-Cette valeur fait qu'aucune boîte n'est générée par l'élément dans la structure de formatage (cet élément n'a pas d'influence sur la mise en forme du document). Les éléments auxquels cette propriété est appliquée ne s’affichent pas dans le media concerné. Les éléments qui en descendent ne génèrent pas de boîtes non plus et il n’est plus possible de modifier leur comportement avec la propriété `display`.
+Cette valeur fait qu'aucune boîte n'est générée par l'élément dans la structure de formatage (cet élément n'a pas d'influence sur la mise en forme du document). Les éléments auxquels cette propriété est appliquée ne s'affichent pas dans le media concerné. Les éléments qui en descendent ne génèrent pas de boîtes non plus et il n'est plus possible de modifier leur comportement avec la propriété `display`.
 
 Une valeur `none` ne crée pas de boîte invisible, elle ne crée pas de boîte du tout. CSS comprend des mécanismes permettant la génération de boîtes qui influencent la mise en forme mais qui ne sont pas visibles (propriété `visibility` en CSS).
 
 ##### Les valeurs liées aux tableaux
 
-Les valeurs liées aux tableaux : `inline-table`,`table`,`table-caption`,`table-cell`,`table-column.`,`table-column-group`,`table-footer-group`,`table-header-group`,`table-row`,`table-row-group` donnent à un élément le comportement de celui d'une table ou d’un de ses composants.
+Les valeurs liées aux tableaux : `inline-table`,`table`,`table-caption`,`table-cell`,`table-column.`,`table-column-group`,`table-footer-group`,`table-header-group`,`table-row`,`table-row-group` donnent à un élément le comportement de celui d'une table ou d'un de ses composants.
 
 #### La fusion des marges
 
-Cette expression "Collapsing Margins" signifie que les marges adjacentes de plusieurs boîtes peuvent se combiner afin de ne plus en former qu’une seule.
+Cette expression "Collapsing Margins" signifie que les marges adjacentes de plusieurs boîtes peuvent se combiner afin de ne plus en former qu'une seule.
 
 Les marges verticales de deux boîtes (ou plus) d'éléments de type bloc, placés dans un flux normal fusionnent. La largeur de la marge finale devient la valeur la plus grande parmi celles des marges adjacentes.
 
@@ -838,7 +861,7 @@ body {
 
 ### Mises en page CSS
 
-Ces diverses boîtes dont nous avons parlées sont utilisées dans le cadre de différents schémas de positionnement qui sont autant d’outils permettant de créer une mise en page à l’aide de CSS.
+Ces diverses boîtes dont nous avons parlées sont utilisées dans le cadre de différents schémas de positionnement qui sont autant d'outils permettant de créer une mise en page à l'aide de CSS.
 
 #### Schémas de positionnement CSS
 
@@ -848,19 +871,19 @@ Il existe trois modes de positionnement en CSS: static, relative, absolute (fixe
 
 ###### Flux du document et positionnement statique
 
-Le flux normal du document est le mode par défaut utilisé pour le positionnement. C’est celui qui s’applique à tous les éléments lorsque ceux-ci ne sont pas ni en mode float ni positionnés de façon absolue. Il s’agit alors d’un positionnement en mode statique.
+Le flux normal du document est le mode par défaut utilisé pour le positionnement. C'est celui qui s'applique à tous les éléments lorsque ceux-ci ne sont pas ni en mode float ni positionnés de façon absolue. Il s'agit alors d'un positionnement en mode statique.
 
 Dans le flux normal du document, les éléments de type block sont positionnés les uns sous les autres et leurs marges verticales fusionnent, tandis que les éléments de type inline se suivent sur la même ligne et passent à une nouvelle ligne lorsque la place manque.
 
 ###### Positionnement relatif
 
-Lorsqu’un élément est positionné relativement, il est initialement positionné d’après le flux du document. Les boîtes des autres éléments sont positionnées et **ensuite**, l’élément positionné relativement est déplacé selon les valeurs spécifiées par les propriétés top bottom left et right.
+Lorsqu'un élément est positionné relativement, il est initialement positionné d'après le flux du document. Les boîtes des autres éléments sont positionnées et **ensuite**, l'élément positionné relativement est déplacé selon les valeurs spécifiées par les propriétés top bottom left et right.
 
-La place originale de l’élément est préservée dans le flux du document et il existe de grandes chances que cet élément en recouvre d’autres. La propriété `z-index` peut être utilisée pour déterminer quel élément sera placé devant l’autre sur l’axe de profondeur. Le bloc ayant la propriété `z-index` la plus élevée sera affiché devant l’autre.
+La place originale de l'élément est préservée dans le flux du document et il existe de grandes chances que cet élément en recouvre d'autres. La propriété `z-index` peut être utilisée pour déterminer quel élément sera placé devant l'autre sur l'axe de profondeur. Le bloc ayant la propriété `z-index` la plus élevée sera affiché devant l'autre.
 
-Si l’élément positionné est un élément de type `block`, il crée un nouveau bloc conteneur pour les éléments qui en dépendent dans l’arbre du document. Ces éléments utiliseront maintenant le positionnement modifié de l’élément comme bloc conteneur.
+Si l'élément positionné est un élément de type `block`, il crée un nouveau bloc conteneur pour les éléments qui en dépendent dans l'arbre du document. Ces éléments utiliseront maintenant le positionnement modifié de l'élément comme bloc conteneur.
 
-Si les propriétés top ou bottom sont contradictoires, la propriété top l’emporte. Si les propriétés left ou right sont contradictoires, la propriété left l’emporte dans les langages se lisant de gauche à droite et right l’emporte dans les langages se lisant de droite à gauche.
+Si les propriétés top ou bottom sont contradictoires, la propriété top l'emporte. Si les propriétés left ou right sont contradictoires, la propriété left l'emporte dans les langages se lisant de gauche à droite et right l'emporte dans les langages se lisant de droite à gauche.
 
 ```css
 .test {
@@ -876,9 +899,9 @@ _Exercice: positionnement relatif_
 
 ###### Positionnement absolu
 
-Ce mode de positionnement est appliqué à tous les éléments dont la propriété position est définie comme absolute ou fixed. Si un tel élément n’existe pas, c’est l’élément racine (html) du document qui fait office de bloc conteneur.
+Ce mode de positionnement est appliqué à tous les éléments dont la propriété position est définie comme absolute ou fixed. Si un tel élément n'existe pas, c'est l'élément racine (html) du document qui fait office de bloc conteneur.
 
-Les boîtes utilisant ce mode de positionnement sont extraites du flux du document et n’influencent plus les autres boîtes qui agissent comme si les boîtes positionnées absolument ou de manière fixe n’existaient pas. De plus, les éléments positionnés absolument se comportent toujours comme des éléments de type `block`.
+Les boîtes utilisant ce mode de positionnement sont extraites du flux du document et n'influencent plus les autres boîtes qui agissent comme si les boîtes positionnées absolument ou de manière fixe n'existaient pas. De plus, les éléments positionnés absolument se comportent toujours comme des éléments de type `block`.
 
 ```css
 .menu {
@@ -893,17 +916,17 @@ _Exercice: positionnement absolu_
 
 Exemple de layout: [Lost World Fair](http://lostworldsfairs.com/moon/)
 
-Ces éléments utilisent comme contexte de positionnement l’élément parent (de type `block` ou `inline`) le plus proche ayant lui-même un positionnement spécifié comme absolu, relatif ou fixe.
+Ces éléments utilisent comme contexte de positionnement l'élément parent (de type `block` ou `inline`) le plus proche ayant lui-même un positionnement spécifié comme absolu, relatif ou fixe.
 
-1. Un élément positionné absolument l’est par rapport aux bordures de son bloc conteneur (le padding n’est pas pris en compte et l’élément est positionné par rapport au bord intérieur de la bordure éventuelle du bloc conteneur).
-2. Un élément absolument positionné devient un bloc conteneur pour les éléments qu’il contient et ceux-ci suivent les règles de positionnement normal à l’intérieur de l’élément positionné absolument.
-3. Les éléments absolument positionnés peuvent contenir d’autres éléments positionnés absolument, qui sont à leur tour hors du flux normal du document, ce qui a pour conséquence qu’ils peuvent apparaître hors des limites de leur parent.
+1. Un élément positionné absolument l'est par rapport aux bordures de son bloc conteneur (le padding n'est pas pris en compte et l'élément est positionné par rapport au bord intérieur de la bordure éventuelle du bloc conteneur).
+2. Un élément absolument positionné devient un bloc conteneur pour les éléments qu'il contient et ceux-ci suivent les règles de positionnement normal à l'intérieur de l'élément positionné absolument.
+3. Les éléments absolument positionnés peuvent contenir d'autres éléments positionnés absolument, qui sont à leur tour hors du flux normal du document, ce qui a pour conséquence qu'ils peuvent apparaître hors des limites de leur parent.
 
 ###### Positionnement fixe
 
 Pour ce cas particulier du positionnement absolu, le bloc conteneur est toujours la fenêtre du navigateur.
 
-Les éléments positionnés de façon fixe ne bougent pas lorsque l’utilisateur descend dans la page.
+Les éléments positionnés de façon fixe ne bougent pas lorsque l'utilisateur descend dans la page.
 
 ```css
 .menu {
@@ -938,19 +961,19 @@ Exemples de layouts: [Lost World's Fair: Atlantis](http://lostworldsfairs.com/at
 
 ###### z-index et positionnement en couches
 
-Les éléments positionnés absolument, comme ils sont hors du flux normal du document, peuvent recouvrir d’autres éléments (absolument positionnés ou non).
+Les éléments positionnés absolument, comme ils sont hors du flux normal du document, peuvent recouvrir d'autres éléments (absolument positionnés ou non).
 
-Chaque élément positionné génère une couche et, au sein d’une même couche, la profondeur de chaque élément est gérée par la propriété CSS `z-index`. Au sein d’une même couche, les éléments ayant une valeur `z-index` élevée sont placés devant ceux ayant une valeur `z-index` moindre.
+Chaque élément positionné génère une couche et, au sein d'une même couche, la profondeur de chaque élément est gérée par la propriété CSS `z-index`. Au sein d'une même couche, les éléments ayant une valeur `z-index` élevée sont placés devant ceux ayant une valeur `z-index` moindre.
 
 _Exercice: propriété z-index_
 
 #### Floats
 
-Un élément est positionné en mode float lorsque sa propriété `float` est spécifiée à l’aide des valeurs `left` ou `right`.
+Un élément est positionné en mode float lorsque sa propriété `float` est spécifiée à l'aide des valeurs `left` ou `right`.
 
-L’élément est alors positionné verticalement comme dans le flux normal du document: le côté supérieur de l’élément est aligné sur le dessus de la zone de contenu de son élément parent.
+L'élément est alors positionné verticalement comme dans le flux normal du document: le côté supérieur de l'élément est aligné sur le dessus de la zone de contenu de son élément parent.
 
-Horizontalement par contre, l’élément est placé le plus à gauche ou le plus à droite possible par rapport à la zone de contenu de l’élément parent. Le contenu de l’élément parent contourne alors l’élément en mode float par le côté opposé.
+Horizontalement par contre, l'élément est placé le plus à gauche ou le plus à droite possible par rapport à la zone de contenu de l'élément parent. Le contenu de l'élément parent contourne alors l'élément en mode float par le côté opposé.
 
 `float` et `clear` ont été utilisées par le passé pour créer des mises en page complexe parce que c'étaient les uniques outils dont nous disposions. N'ayant pas été développées dans ce but, ces solutions posaient de nombreux problèmes et avaient également des limitations importantes.
 
@@ -987,7 +1010,7 @@ Voici les propriétés les plus importantes au niveau des flex-items. Ces propri
 - `order [integer]`: détermine l'ordre d'affichage des flex-items dans un flex-container indépendamment de leur ordre dans le code source. La valeur est spécifiée sous la forme d'un nombre entier positif ou négatif.
 - `flex: [flex-grow | flex-shrink | flex-basis]`: propriété courte permettant de gérer à la fois `flex-grow`, `flex-shrink` et `flex-basis`. Il vaut mieux utiliser cette propriété courte plutôt que les propriétés longues pour des raisons de compatibilité entre navigateurs.
 
-La propriété `margin` avec une valeur de `auto` est intéressante pour les `flex-items`, elle permet d'allouer tout l'espace disponible dans le flex-container à cette marge et ainsi de "pousser" un ou plusieurs flex-items vers l'extrémité opposée du main axis. L'article "[Flexbox’s Best-Kept Secret](https://hackernoon.com/flexbox-s-best-kept-secret-bd3d892826b6)" explique le phénomène en détail.
+La propriété `margin` avec une valeur de `auto` est intéressante pour les `flex-items`, elle permet d'allouer tout l'espace disponible dans le flex-container à cette marge et ainsi de "pousser" un ou plusieurs flex-items vers l'extrémité opposée du main axis. L'article "[Flexbox's Best-Kept Secret](https://hackernoon.com/flexbox-s-best-kept-secret-bd3d892826b6)" explique le phénomène en détail.
 
 CSS tricks possède un bon article "[A complete guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)" résumant l'ensemble des propriétés et valeurs liées à Flexbox. [Flexbox Froggy](http://flexboxfroggy.com/) adopte une approche plus ludique.
 
@@ -1303,7 +1326,7 @@ Il est possible de tester des paramètres liés au viewport du navigateur, aux c
 
 Ces media queries permettent de tester les caractéristiques suivantes: `width`, `max-width`, `min-width`, `height`, `max-height`, `min-height`, `aspect-ratio`, `device-aspect-ratio`, `device-height`, `monochrome`, `color`, `device-width`, `orientation`, `resolution`, `prefers-reduced-motion`, `prefers-color-scheme` etc.
 
-L’idée est d’utiliser les media queries pour créer permettre à l’expérience utilisateur d’être la meilleure possible quelle que soient les caractéristiques de la plateforme utilisée.
+L'idée est d'utiliser les media queries pour créer permettre à l'expérience utilisateur d'être la meilleure possible quelle que soient les caractéristiques de la plateforme utilisée.
 
 ```html
 <link rel="stylesheet" media="screen and (min-width:970px)" href="css/medium.css">
@@ -1335,7 +1358,7 @@ Lorsqu'on réalise des layout fluides, il est important que les images et autres
 
 #### Images de background
 
-En ce qui concerne les images de background, vous pouvez utiliser des media queries dans vos CSS pour servir une petite image par défaut et servir une plus grande image lorsque le layout l’exige.
+En ce qui concerne les images de background, vous pouvez utiliser des media queries dans vos CSS pour servir une petite image par défaut et servir une plus grande image lorsque le layout l'exige.
 
 ```css
 .banner {
@@ -1369,7 +1392,7 @@ La situation est un peu plus complexe au niveau des images de contenus. [Une sol
 2. Différentes images servies selon la taille d'écran
 3. Art direction (cadrage)
 
-Cette solution est [implémentée dans la plupart des navigateurs aujourd’hui](http://responsiveimages.org/). Les navigateurs qui ne supportent pas `srcset`, `sizes` ou `picture` servent simplement l'image spécifiée par l'attribut `src`..
+Cette solution est [implémentée dans la plupart des navigateurs aujourd'hui](http://responsiveimages.org/). Les navigateurs qui ne supportent pas `srcset`, `sizes` ou `picture` servent simplement l'image spécifiée par l'attribut `src`..
 
 ##### srcset and sizes
 
@@ -1578,7 +1601,7 @@ La propriété CSS [`aspect-ratio`](https://developer.mozilla.org/fr/docs/Web/CS
 
 ### Listes et interfaces de navigation
 
-Sémantiquement parlant, la plupart des interfaces de navigation que nous rencontrons sont des listes de liens (imbriquées ou non), il est donc logique de les coder comme tels. De simples listes non ordonnées `ul` peuvent facilement être mises en forme à l’aide d’un code CSS simple.
+Sémantiquement parlant, la plupart des interfaces de navigation que nous rencontrons sont des listes de liens (imbriquées ou non), il est donc logique de les coder comme tels. De simples listes non ordonnées `ul` peuvent facilement être mises en forme à l'aide d'un code CSS simple.
 
 ```html
 <ul class="mainnav">
@@ -1654,9 +1677,9 @@ Quelques règles CSS peuvent transformer une simple liste non ordonnée en barre
 
 _Exercice: réaliser des interfaces de navigation à partir de listes avec flexbox et grid_
 
-### Une taille de texte constante à l’aide de valeurs relatives
+### Une taille de texte constante à l'aide de valeurs relatives
 
-Les guidelines d’accessibilité du W3C nous demandent d’utiliser en CSS des valeurs relatives afin de spécifier la taille des polices.
+Les guidelines d'accessibilité du W3C nous demandent d'utiliser en CSS des valeurs relatives afin de spécifier la taille des polices.
 
 Personnellement, ma méthode de prédilection consiste à spécifier la taille des polices en pourcentages au niveau du `body` et puis de poursuivre en spécifiant les tailles pour les éléments enfants en `rem` (voir à ce propos [cet article de Jonathan Snook](http://snook.ca/archives/html_and_css/font-size-with-rem)).
 
@@ -1723,7 +1746,7 @@ _Exemple: une bannière occupant toujours une hauteur proportionnelle à la haut
 
 ### Faire disparaître des éléments visuellement sans les cacher aux navigateurs vocaux
 
-Le problème de la déclaration `display:none;` c’est qu’elle [rend les éléments auxquels elle est appliquée invisibles aux navigateurs vocaux également](https://webaim.org/techniques/css/invisiblecontent/).
+Le problème de la déclaration `display:none;` c'est qu'elle [rend les éléments auxquels elle est appliquée invisibles aux navigateurs vocaux également](https://webaim.org/techniques/css/invisiblecontent/).
 
 Elle peut souvent être avantageusement remplacée par la déclaration suivante :
 
@@ -1753,7 +1776,7 @@ Autre option:
 
 ### @font-face: Utilisation de polices non standards
 
-`@font-face` permet d’utiliser des polices spécifiques dans le cadre de projets Internet. [@font-face jouit d’un excellent support dans la plupart des versions récentes des navigateurs](http://caniuse.com/fontface) et se dégrade élégamment dans les navigateurs plus anciens. Cette propriété permet de spécifier les polices à utiliser pour le rendu des textes et permet à l’utilisateur de les télécharger si il n’en dispose pas.
+`@font-face` permet d'utiliser des polices spécifiques dans le cadre de projets Internet. [@font-face jouit d'un excellent support dans la plupart des versions récentes des navigateurs](http://caniuse.com/fontface) et se dégrade élégamment dans les navigateurs plus anciens. Cette propriété permet de spécifier les polices à utiliser pour le rendu des textes et permet à l'utilisateur de les télécharger si il n'en dispose pas.
 
 CSS
 
@@ -1794,15 +1817,16 @@ Vous pouvez également [utiliser des polices variables](https://developer.mozill
 ```css
 @font-face {
   font-family: "Inter";
-  src: url(../fonts/inter-variable.woff2) format("woff2-variations");
+  src: url(../fonts/inter-variable.woff2) format('woff2') tech('variations'),
+       url(../fonts/inter-variable.woff2) format("woff2-variations");
   font-weight: 100 900;
   font-display: swap;
 }
 ```
 
-Les principaux problèmes liées à l’utilisation de `@font-face` sont de nature légale. La licence de certaines polices ne permet pas de les utiliser de cette façon car, étant disponibles sur le serveur, elles peuvent y être téléchargées par quelqu’un qui ne les a pas forcément achetées. De nombreuses polices offrent explicitement la possibilité d’une utilisation à l’aide de `@font-face` dans le cadre de leur licence.
+Les principaux problèmes liées à l'utilisation de `@font-face` sont de nature légale. La licence de certaines polices ne permet pas de les utiliser de cette façon car, étant disponibles sur le serveur, elles peuvent y être téléchargées par quelqu'un qui ne les a pas forcément achetées. De nombreuses polices offrent explicitement la possibilité d'une utilisation à l'aide de `@font-face` dans le cadre de leur licence.
 
-Divers services tels que [Google Fonts](http://www.google.com/fonts), [Typekit](https://typekit.com/) et [Fontdeck](http://fontdeck.com/) se sont développés pour simplifier l’aspect technique et résoudre les questions légales tout en proposant un très large choix de polices optimisées pour un affichage à l'écran (linting). Certains de ces services sont payants, d'autres sont gratuits.
+Divers services tels que [Google Fonts](http://www.google.com/fonts), [Typekit](https://typekit.com/) et [Fontdeck](http://fontdeck.com/) se sont développés pour simplifier l'aspect technique et résoudre les questions légales tout en proposant un très large choix de polices optimisées pour un affichage à l'écran (linting). Certains de ces services sont payants, d'autres sont gratuits.
 
 Si le sujet de la typographie sur internet vous intéresse, je ne peux que vous conseiller un talk de [Jason Santa Maria](http://vimeo.com/34178417) et le site "[Nice Web Type](http://nicewebtype.com/)" de Tim Brown.
 
@@ -1810,7 +1834,7 @@ _Exercice: expérimenter avec des polices non standard_
 
 ### Boutons en CSS avec inline-block, border radius, text-shadow & box-shadow
 
-Grâce à quelques propriétés CSS, il est possible de créer des boutons à l’aide d’un simple lien hypertexte.
+Grâce à quelques propriétés CSS, il est possible de créer des boutons à l'aide d'un simple lien hypertexte.
 
 **Rappel**: l'élément `<a>` en HTML est à utiliser quand l'utilisateur "va quelque part" (lien vers un document ou une partie de document), tandis que l'élément button est préférable lorsque l'utilisateur "fait quelque chose" (accompli une action).
 
