@@ -1812,13 +1812,13 @@ h1 {
 }
 ```
 
-Vous pouvez également [utiliser des polices variables](https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide). Celle-ci ont l'avantage de ne nécessiter qu'un seul fichier pour gérer plusieurs variations de la même police (poids, pente, largeur, etc.)
+Vous pouvez également [utiliser des polices variables](https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide). Celle-ci ont l'avantage de ne nécessiter qu'un seul fichier pour gérer [plusieurs variations de la même police](https://web.dev/articles/variable-fonts) (poids, pente, largeur, etc.)
 
 ```css
 @font-face {
   font-family: "Inter";
-  src: url(../fonts/inter-variable.woff2) format('woff2') tech('variations'),
-       url(../fonts/inter-variable.woff2) format("woff2-variations");
+  src: url(../fonts/inter-variable.woff2) format("woff2-variations");
+  src: url(../fonts/inter-variable.woff2) format('woff2') tech('variations');
   font-weight: 100 900;
   font-display: swap;
 }
