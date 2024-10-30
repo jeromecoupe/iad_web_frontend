@@ -1812,7 +1812,7 @@ h1 {
 }
 ```
 
-Vous pouvez également [utiliser des polices variables](https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide). Celle-ci ont l'avantage de ne nécessiter qu'un seul fichier pour gérer [plusieurs variations de la même police](https://web.dev/articles/variable-fonts) (poids, pente, largeur, etc.)
+Vous pouvez également [utiliser des polices variables](https://developer.mozilla.org/fr/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide). Celles-ci ont l'avantage de ne nécessiter qu'un seul fichier pour gérer [plusieurs variations de la même police](https://web.dev/articles/variable-fonts) (poids, pente, largeur, etc.). Les polices variables ont donc une meilleure performance en raison d'un poids plus léger, tout en offrant une grande flexibilité.
 
 ```css
 @font-face {
