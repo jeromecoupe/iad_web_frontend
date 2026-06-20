@@ -1574,7 +1574,7 @@ Les videos servies par des services tels que Youtube et Vimeo utilisent `<iframe
 <iframe
   src="https://www.youtube-nocookie.com/embed/knKfafBxTVM?si=xlVpi5ubqilz2lft"
   class="fluidvideo"
-  title="Olympiaddes 2026"
+  title="Olympiades 2026"
   loading="lazy"
 >
 </iframe>
