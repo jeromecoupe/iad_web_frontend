@@ -1568,32 +1568,25 @@ Exercices
 
 #### `<iframe>` et vidéos
 
-Les videos servies par des services tels que Youtube et Vimeo utilisent `<iframe>`. Voici un moyen de garder un ratio constant (16/9 par exemple) tout en ayant un comportement fluide.
+Les videos servies par des services tels que Youtube et Vimeo utilisent `<iframe>`. La propriété CSS [`aspect-ratio`](https://developer.mozilla.org/fr/docs/Web/CSS/aspect-ratio) permet de garder un ratio constant (16/9 par exemple) tout en ayant un comportement fluide.
 
-```css
-.fluidiframe {
-  position: relative; /* positioning context */
-  padding-top: 56.25%; /* ratio 16/9 (100%/16*9) */
-  /* padding-top: 75%; ratio 4/3 (100%/4*3) */
-  background-color: #000;
-}
-
-.fluidiframe > iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+```html
+<iframe
+  src="https://www.youtube-nocookie.com/embed/knKfafBxTVM?si=xlVpi5ubqilz2lft"
+  class="fluidvideo"
+  title="Olympiaddes 2026"
+  loading="lazy"
+>
+</iframe>
 ```
 
-La propriété CSS [`aspect-ratio`](https://developer.mozilla.org/fr/docs/Web/CSS/aspect-ratio) permet la mise en place d'un code plus simple.
-
 ```css
-.fluidiframe > iframe {
+.fluidvideo {
+  border: none;
   aspect-ratio: 16 / 9;
-  width: 100%;
-  height: auto;
+  inline-size: 100%;
+  block-size: auto;
+  background: black;
 }
 ```
 
@@ -1871,4 +1864,4 @@ CSS
 - [Highly Maintainable, Efficient, and Optimized CSS](http://zomigi.com/blog/maintainable-efficient-css/) par Zoe Mickley Gillenwater: quelques bonnes informations sur les "best practises" en matière de CSS.
 - [CSS Guidelines](https://github.com/csswizardry/CSS-Guidelines) par Harry Roberts: principes d'organisation et techniques pour écrire et maintenir des CSS lisibles pour des projets de toutes tailles.
 - [caniuse.com](http://caniuse.com): tables de support navigateurs
-- [Understanding the fundamentals of CSS Layout] par Polypane: examen détaillé des différents outils de mise en page en CSS (flexbox, grid, positonnement, etc.)(https://polypane.app/blog/understanding-the-fundamentals-of-css-layout/)
+- [Understanding the fundamentals of CSS Layout] par Polypane: examen détaillé des différents outils de mise en page en CSS (flexbox, grid, positonnement, etc.)
