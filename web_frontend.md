@@ -1871,3 +1871,4 @@ CSS
 - [Highly Maintainable, Efficient, and Optimized CSS](http://zomigi.com/blog/maintainable-efficient-css/) par Zoe Mickley Gillenwater: quelques bonnes informations sur les "best practises" en matière de CSS.
 - [CSS Guidelines](https://github.com/csswizardry/CSS-Guidelines) par Harry Roberts: principes d'organisation et techniques pour écrire et maintenir des CSS lisibles pour des projets de toutes tailles.
 - [caniuse.com](http://caniuse.com): tables de support navigateurs
+- [Understanding the fundamentals of CSS Layout] par Polypane: examen détaillé des différents outils de mise en page en CSS (flexbox, grid, positonnement, etc.)(https://polypane.app/blog/understanding-the-fundamentals-of-css-layout/)
